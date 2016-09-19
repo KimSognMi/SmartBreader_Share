@@ -10,7 +10,7 @@
 -->
 <html>
 	<head>
-		<title>Elements - Forty by HTML5 UP</title>
+		<title>Near Me Now</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -33,8 +33,6 @@
 
 				<!-- Menu -->
 						<nav id="menu">
-
-
 			<%
 				MemberDTO dto = (MemberDTO) session.getAttribute("login");
 			%>
@@ -42,48 +40,66 @@
 				if (dto == null) {
 			%>
 			<ul class="links">
-				<li><a href="index.jsp">Home</a></li>
-				<li><a href="landing.jsp">Landing</a></li>
-				<li><a href="generic.jsp">Generic</a></li>
-				<li><a href="elements.jsp">Elements</a></li>
+				<li><a href="index.jsp">HOME</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="#" class="button special fit">Join</a></li>
+				<li><a href="joinform.jsp" class="button special fit">JOIN</a></li>
 				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
 			</ul>
 			<%
 				} else {
 			%>
-
 			<ul class="links">
-				<li><a href="index.jsp">Home</a></li>
-				<li><a href="landing.jsp">Landing</a></li>
-				<li><a href="generic.jsp">Generic</a></li>
-				<li><a href="elements.jsp">Elements</a></li>
-				<li><a href="mypage.jsp">MyPage</a></li>
+				<li><a href="index.jsp">HOME</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="joinform.jsp" class="button special fit">Join</a></li>
+				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
 				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 			</ul>
-
 			<%
 				}
 			%>
+			
 		</nav>
-
+<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style4">
+						<div class="inner">
+							<span class="image">
+								<img src="images/jj.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Near Me Now</h1>
+							</header>
+							<div class="content">
+								<p>근처의 반려견의 짝을 찾아주세요~~~~~~~~~~~~</p>
+								<ul class="actions">
+						<li><a href="#four" class="button next scrolly">Get
+								Started</a></li>
+					</ul>
+							</div>
+						</div>
+					</section>
 				<!-- Main -->
 					<div id="main" class="alt">
 
 						<!-- One -->
-							<section id="one">
+							<section id="four">
 								<div class="inner">
 									<header class="major">
-										<h1>Elements</h1>
+										<h1>Near Me Now</h1>
 									</header>
 
 									<!-- Content -->
-										<h2 id="content">Sample Content</h2>
+										<h2 id="content">나는 이제 여러개 주소 지도로 가져오는거 해야쥥</h2>
 										<p>Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan. Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget accumsan ac nunc adipiscing adipiscing.</p>
 										<div class="row">
 											<div class="6u 12u$(small)">
