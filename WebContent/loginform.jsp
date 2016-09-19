@@ -106,7 +106,7 @@
 				</span> <br>
 				<form method="post" action="LoginServlet">
 					<input type="text" name="m_id" id="m_id" placeholder="Username"
-						required="required" class="input-txt" /> <input type="password"
+						required="required" class="input-txt" /> <br><input type="password"
 						name="m_pw" id="m_pw" placeholder="Password" required="required"
 						class="input-txt" />
 					<div class="login-footer">
