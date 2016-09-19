@@ -107,7 +107,7 @@
                 </span> -->
 
             </div>
-            <div class="field2">
+            <!-- <div class="field2">
                 <label>약관 동의</label>
               <div data-toggle="buttons">
               <label class="btn btn-primary active">
@@ -116,7 +116,7 @@
               </label>
               <a href="#">이용약관</a>에 동의합니다.
               </div>
-            </div>
+            </div> -->
             <div class="field2 text-center">
               <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
               <button type="submit" class="btn btn-warning">가입취소</button>
