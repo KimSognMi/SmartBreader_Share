@@ -1880,6 +1880,12 @@
 		form .field {
 			margin: 0 0 2em 0;
 		}
+		form .field2{
+			margin: 2em 20em 0 20em;
+		}
+		form .field3{
+			margin: 2em 40em 0 20em;
+		}
 
 			form .field.half {
 				width: 50%;
@@ -2481,6 +2487,7 @@
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
+	
 
 		input[type="submit"]:hover, input[type="submit"]:active,
 		input[type="reset"]:hover,
