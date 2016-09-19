@@ -43,9 +43,9 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.html">BOARD</a></li>
-				<li><a href="elements.html">NEAR ME NOW</a></li>
-				<li><a href="elements.html">ONLINE SHOP</a></li>
+				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="elements.jsp">NEAR ME NOW</a></li>
+				<li><a href="elements.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="joinform.jsp" class="button special fit">JOIN</a></li>
@@ -57,9 +57,9 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.html">BOARD</a></li>
-				<li><a href="elements.html">NEAR ME NOW</a></li>
-				<li><a href="elements.html">ONLINE SHOP</a></li>
+				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="elements.jsp">NEAR ME NOW</a></li>
+				<li><a href="elements.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
