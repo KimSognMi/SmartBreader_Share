@@ -76,7 +76,7 @@
 		<!-- Note: The "styleN" class below should match that of the header element. -->
 		<section id="banner" class="style2">
 			<div class="inner">
-				<span class="image"> <img src="images/.jpg" alt="" />
+				<span class="image"> <img src="images/rr.jpg" alt="" />
 				</span>
 				<header class="major">
 					<h1>Welcome</h1>
