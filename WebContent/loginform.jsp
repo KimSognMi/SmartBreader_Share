@@ -33,7 +33,6 @@
 		<!-- Menu -->
 		<nav id="menu">
 
-
 			<%
 				MemberDTO dto = (MemberDTO) session.getAttribute("login");
 			%>
