@@ -46,7 +46,7 @@
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="joinform.jsp" class="button special fit">Join</a></li>
-				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
+				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
 			</ul>
 			<%
 				} else {
