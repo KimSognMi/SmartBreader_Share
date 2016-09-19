@@ -56,7 +56,7 @@
 								<p>Lorem ipsum dolor sit amet nullam consequat<br />
 					 			sed veroeros. tempus adipiscing nulla.</p>
 					 			<ul class="actions">
-									<li><a href="#one" class="button next scrolly">JOIN US!</a></li>
+									<li><a href="#three" class="button next scrolly">JOIN US!</a></li>
 								</ul>
 							</div>
 						</div>
@@ -66,8 +66,8 @@
 			
 
 					<div id="main">
- 
-						<article class="container">
+ <section id="three">
+						<!-- <article class="container"> -->
 						   <div class="col-md-6 col-md-offset-3">
           <form >
             <div class="field2">
@@ -115,8 +115,8 @@
           </form>
         </div>
 						
-			 </article>			
-						
+			<!--  </article>	 -->		
+			</section>			
 						
 						</div>
 						
