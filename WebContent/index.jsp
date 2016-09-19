@@ -40,9 +40,9 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.html">BOARD</a></li>
-				<li><a href="elements.html">NEAR ME NOW</a></li>
-				<li><a href="elements.html">ONLINE SHOP</a></li>
+				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="elements.jsp">NEAR ME NOW</a></li>
+				<li><a href="elements.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="joinform.jsp" class="button special fit">JOIN</a></li>
@@ -54,9 +54,9 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.html">BOARD</a></li>
-				<li><a href="elements.html">NEAR ME NOW</a></li>
-				<li><a href="elements.html">ONLINE SHOP</a></li>
+				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="elements.jsp">NEAR ME NOW</a></li>
+				<li><a href="elements.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
@@ -96,7 +96,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.html" class="link">Aliquam</a>
+							<a href="landing.jsp" class="link">Aliquam</a>
 						</h3>
 						<p>Ipsum dolor sit amet</p>
 					</header>
@@ -106,7 +106,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.html" class="link">Tempus</a>
+							<a href="landing.jsp" class="link">Tempus</a>
 						</h3>
 						<p>feugiat amet tempus</p>
 					</header>
@@ -116,7 +116,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.html" class="link">Magna</a>
+							<a href="landing.jsp" class="link">Magna</a>
 						</h3>
 						<p>Lorem etiam nullam</p>
 					</header>
@@ -126,7 +126,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.html" class="link">Ipsum</a>
+							<a href="landing.jsp" class="link">Ipsum</a>
 						</h3>
 						<p>Nisl sed aliquam</p>
 					</header>
@@ -136,7 +136,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.html" class="link">Consequat</a>
+							<a href="landing.jsp" class="link">Consequat</a>
 						</h3>
 						<p>Ipsum dolor sit amet</p>
 					</header>
@@ -146,7 +146,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.html" class="link">Etiam</a>
+							<a href="landing.jsp" class="link">Etiam</a>
 						</h3>
 						<p>Feugiat amet tempus</p>
 					</header>
