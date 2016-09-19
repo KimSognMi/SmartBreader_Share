@@ -50,7 +50,7 @@
 								<img src="images/ee2.jpg" alt="" />
 							</span>
 							<header class="major">
-								<h1>JOIN</h1>
+								<h1>MyPage</h1>
 							</header>
 							<div class="content">
 								<p>Lorem ipsum dolor sit amet nullam consequat<br />
