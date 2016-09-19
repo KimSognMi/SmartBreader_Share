@@ -1,3 +1,7 @@
+<%@page import="com.dto.MemberDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
@@ -28,18 +32,45 @@
 					</header>
 
 				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.jsp">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions vertical">
-							<li><a href="#" class="button special fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
+						<nav id="menu">
+
+
+			<%
+				MemberDTO dto = (MemberDTO) session.getAttribute("login");
+			%>
+			<%
+				if (dto == null) {
+			%>
+			<ul class="links">
+				<li><a href="index.jsp">Home</a></li>
+				<li><a href="landing.jsp">Landing</a></li>
+				<li><a href="generic.jsp">Generic</a></li>
+				<li><a href="elements.jsp">Elements</a></li>
+			</ul>
+			<ul class="actions vertical">
+				<li><a href="#" class="button special fit">Join</a></li>
+				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
+			</ul>
+			<%
+				} else {
+			%>
+
+			<ul class="links">
+				<li><a href="index.jsp">Home</a></li>
+				<li><a href="landing.jsp">Landing</a></li>
+				<li><a href="generic.jsp">Generic</a></li>
+				<li><a href="elements.jsp">Elements</a></li>
+				<li><a href="mypage.jsp">MyPage</a></li>
+			</ul>
+			<ul class="actions vertical">
+				<li><a href="joinform.jsp" class="button special fit">Join</a></li>
+				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+			</ul>
+
+			<%
+				}
+			%>
+		</nav>
 
 				<!-- Main -->
 					<div id="main" class="alt">

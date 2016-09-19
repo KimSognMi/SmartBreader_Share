@@ -1,8 +1,16 @@
-<!DOCTYPE HTML>
+<%@page import="com.dto.MemberDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 	<head>
-		<title>SMART BREADER</title>
+		<title>Generic - Forty by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -16,8 +24,8 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
+					<header id="header">
+						<a href="index.jsp" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -25,105 +33,57 @@
 
 				<!-- Menu -->
 					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions vertical">
-							<li><a href="#" class="button special fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
 
-				<!-- Banner -->
-					<section id="banner" class="major">
-						<div class="inner">
-							<header class="major">
-								<h1>Hi, my name is BREADER</h1><img src="images/kk.png" />
-							</header>
-							<div class="content">
-								<p>A responsive site template designed by HTML5 UP<br />
-								and released under the Creative Commons.</p>
-								<ul class="actions">
-									<li><a href="#one" class="button next scrolly">Get Started</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
+			<%
+				MemberDTO dto = (MemberDTO) session.getAttribute("login");
+			%>
+			<%
+				if (dto == null) {
+			%>
+			<ul class="links">
+				<li><a href="index.jsp">HOME</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="generic.html">BOARD</a></li>
+				<li><a href="elements.html">NEAR ME NOW</a></li>
+				<li><a href="elements.html">ONLINE SHOP</a></li>
+			</ul>
+			<ul class="actions vertical">
+				<li><a href="joinform.jsp" class="button special fit">JOIN</a></li>
+				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
+			</ul>
+			<%
+				} else {
+			%>
+			<ul class="links">
+				<li><a href="index.jsp">HOME</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="generic.html">BOARD</a></li>
+				<li><a href="elements.html">NEAR ME NOW</a></li>
+				<li><a href="elements.html">ONLINE SHOP</a></li>
+			</ul>
+			<ul class="actions vertical">
+				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
+				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+			</ul>
+			<%
+				}
+			%>
+			
+		</nav>
 
 				<!-- Main -->
-					<div id="main">
+					<div id="main" class="alt">
 
 						<!-- One -->
-							<section id="one" class="tiles">
-								<article>
-									<span class="image">
-										<img src="images/pp.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Aliquam</a></h3>
-										<p>Ipsum dolor sit amet</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Tempus</a></h3>
-										<p>feugiat amet tempus</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic03.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Magna</a></h3>
-										<p>Lorem etiam nullam</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic04.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Ipsum</a></h3>
-										<p>Nisl sed aliquam</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Consequat</a></h3>
-										<p>Ipsum dolor sit amet</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic06.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Etiam</a></h3>
-										<p>Feugiat amet tempus</p>
-									</header>
-								</article>
-							</section>
-
-						<!-- Two -->
-							<section id="two">
+							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h2>Massa libero</h2>
+										<h1>Generic</h1>
 									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-									<ul class="actions">
-										<li><a href="landing.html" class="button next">Get Started</a></li>
-									</ul>
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
 								</div>
 							</section>
 
