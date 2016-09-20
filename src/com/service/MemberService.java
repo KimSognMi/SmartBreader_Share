@@ -41,11 +41,11 @@ public class MemberService {
 		return dto;
 	}
 
-	public MemberDTO mypage(String m_id) throws CommonException {
+	public MemberDTO mypage(String userid) throws CommonException {
 		MemberDTO dto = null;
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			dto = session.selectOne("mypage", m_id);
+			dto = session.selectOne("mypage", userid);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CommonException("mypage 실패");
