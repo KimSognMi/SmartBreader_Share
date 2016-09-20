@@ -24,12 +24,12 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		String m_id = request.getParameter("m_id");
-		String m_pw = request.getParameter("m_pw");
+		String userid = request.getParameter("userid");
+		String passwd = request.getParameter("passwd");
 		
 		HashMap<String, String> map= new HashMap<>();
-		map.put("m_id", m_id);
-		map.put("m_pw", m_pw);
+		map.put("userid", userid);
+		map.put("passwd", passwd);
 		
 		MemberService service = new MemberService();
 		  String title="";
@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 			
 		} catch (CommonException e) {
 			title= e.getMessage();
-			String link="LoginFormServlet";
+			String link="LognFormServlet";
 			target="error.jsp";
 			request.setAttribute("title", title);
 			request.setAttribute("link", link);

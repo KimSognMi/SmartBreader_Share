@@ -30,10 +30,10 @@ public class MyPageServlet extends HttpServlet {
 		if(dto!=null){
 			target="mypage.jsp";
 			
-			String m_id = dto.getM_id();
+			String userid = dto.getUserid();
 			MemberService service = new MemberService();
 			try {
-				MemberDTO my = service.mypage(m_id);
+				MemberDTO my = service.mypage(userid);
 				request.setAttribute("mypage", my);
 			} catch (CommonException e) {
 				title= e.getMessage();

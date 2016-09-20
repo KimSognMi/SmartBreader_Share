@@ -3,49 +3,15 @@ package com.dto;
 public class MemberDTO {
 
 	private int m_num;
-	private String m_id;
-	private String m_pw;
-	private String m_name;
-	private String m_gender;
-	private String m_age;
-	private String m_post1;
-	private String m_post2;
-	private String m_addr1;
-	private String m_addr2;
-	private String m_phone1;
-	private String m_phone2;
-	private String m_phone3;
 
-	public MemberDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public MemberDTO(int m_num, String m_id, String m_pw, String m_name, String m_gender, String m_age, String m_post1,
-			String m_post2, String m_addr1, String m_addr2, String m_phone1, String m_phone2, String m_phone3) {
-		super();
-		this.m_num = m_num;
-		this.m_id = m_id;
-		this.m_pw = m_pw;
-		this.m_name = m_name;
-		this.m_gender = m_gender;
-		this.m_age = m_age;
-		this.m_post1 = m_post1;
-		this.m_post2 = m_post2;
-		this.m_addr1 = m_addr1;
-		this.m_addr2 = m_addr2;
-		this.m_phone1 = m_phone1;
-		this.m_phone2 = m_phone2;
-		this.m_phone3 = m_phone3;
-	}
-
-	@Override
-	public String toString() {
-		return "MemberDTO [m_num=" + m_num + ", m_id=" + m_id + ", m_pw=" + m_pw + ", m_name=" + m_name + ", m_gender="
-				+ m_gender + ", m_age=" + m_age + ", m_post1=" + m_post1 + ", m_post2=" + m_post2 + ", m_addr1="
-				+ m_addr1 + ", m_addr2=" + m_addr2 + ", m_phone1=" + m_phone1 + ", m_phone2=" + m_phone2 + ", m_phone3="
-				+ m_phone3 + "]";
-	}
+	private String username;
+	private String userid;
+	private String passwd;
+	private String phone;
+	private String post1;
+	private String post2;
+	private String addr1;
+	private String addr2;
 
 	public int getM_num() {
 		return m_num;
@@ -55,100 +21,94 @@ public class MemberDTO {
 		this.m_num = m_num;
 	}
 
-	public String getM_id() {
-		return m_id;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getM_pw() {
-		return m_pw;
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setM_pw(String m_pw) {
-		this.m_pw = m_pw;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
-	public String getM_name() {
-		return m_name;
+	public String getPasswd() {
+		return passwd;
 	}
 
-	public void setM_name(String m_name) {
-		this.m_name = m_name;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 
-	public String getM_gender() {
-		return m_gender;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setM_gender(String m_gender) {
-		this.m_gender = m_gender;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public String getM_age() {
-		return m_age;
+	public String getPost1() {
+		return post1;
 	}
 
-	public void setM_age(String m_age) {
-		this.m_age = m_age;
+	public void setPost1(String post1) {
+		this.post1 = post1;
 	}
 
-	public String getM_post1() {
-		return m_post1;
+	public String getPost2() {
+		return post2;
 	}
 
-	public void setM_post1(String m_post1) {
-		this.m_post1 = m_post1;
+	public void setPost2(String post2) {
+		this.post2 = post2;
 	}
 
-	public String getM_post2() {
-		return m_post2;
+	public String getAddr1() {
+		return addr1;
 	}
 
-	public void setM_post2(String m_post2) {
-		this.m_post2 = m_post2;
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
 	}
 
-	public String getM_addr1() {
-		return m_addr1;
+	public String getAddr2() {
+		return addr2;
 	}
 
-	public void setM_addr1(String m_addr1) {
-		this.m_addr1 = m_addr1;
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
 	}
 
-	public String getM_addr2() {
-		return m_addr2;
+	public MemberDTO() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setM_addr2(String m_addr2) {
-		this.m_addr2 = m_addr2;
+	public MemberDTO(int m_num, String username, String userid, String passwd, String phone, String post1, String post2,
+			String addr1, String addr2) {
+		super();
+		this.m_num = m_num;
+		this.username = username;
+		this.userid = userid;
+		this.passwd = passwd;
+		this.phone = phone;
+		this.post1 = post1;
+		this.post2 = post2;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
 	}
 
-	public String getM_phone1() {
-		return m_phone1;
-	}
-
-	public void setM_phone1(String m_phone1) {
-		this.m_phone1 = m_phone1;
-	}
-
-	public String getM_phone2() {
-		return m_phone2;
-	}
-
-	public void setM_phone2(String m_phone2) {
-		this.m_phone2 = m_phone2;
-	}
-
-	public String getM_phone3() {
-		return m_phone3;
-	}
-
-	public void setM_phone3(String m_phone3) {
-		this.m_phone3 = m_phone3;
+	@Override
+	public String toString() {
+		return "MemberDTO [m_num=" + m_num + ", username=" + username + ", userid=" + userid + ", passwd=" + passwd
+				+ ", phone=" + phone + ", post1=" + post1 + ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2
+				+ "]";
 	}
 
 }
