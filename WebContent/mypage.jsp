@@ -34,14 +34,15 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.html">BOARD</a></li>
+				<li><a href="board.jsp">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="#" class="button special fit">JOIN</a></li>
-				<li><a href="#" class="button fit">Log In</a></li>
+				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
+				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 			</ul>
+
 		</nav>
 
 		<!-- Banner -->
@@ -93,41 +94,47 @@
 							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
 						</div>
 
-						<div class="field3">
-							<label for="username">휴대폰 인증</label> <input type="tel"
-								class="form-control" id="username" placeholder="- 없이 입력해 주세요">
-							<span class="input-group-btn">
-								<button class="button">
-									인증번호 전송<i class="fa fa-mail-forward spaceLeft"></i>
-								</button>
-							</span>
-						</div>
-
-						<div class="field3" class="form-horizontal">
-							<label for="username">인증번호 입력</label> <input type="text"
-								class="form-control" id="username" placeholder="인증번호">
-							<button class="button">
-								인증번호 입력<i class="fa fa-edit spaceLeft"></i>
-							</button>
-							<!-- <span class="input-group-btn">
-                  <button class="button">인증번호 입력<i class="fa fa-edit spaceLeft"></i></button>
-                </span> -->
-
-						</div>
+						 <div class="field3">
+							<label for="InputPhone">휴대폰 번호</label><input type="tel"
+								class="form-control" id="phone" placeholder="- 없이 입력해 주세요">
+							</div>
+							
+							<!-- 미완성 주소 -->
+							 <div class="field3" >
+							 <label for="InputAddress">주소</label></div>
+							  <div class="field half2">
+	<input type="text" class="form-control" id="post1" placeholder="post1" readonly=""></div>
+	 <div class="field half">
+	- <input type="tel" class="form-control" id="post2" placeholder="post2" readonly=""></div>
+	
+		
+	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
+	<br>
+	<div class="field2">
+	<input type="text" name="addr1" id="addr1" size="40" readonly="" class="form-control"
+		placeholder="도로명주소">
+	<br>
+	<span style="line-height: 10%;"></span>
+	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="지번주소">
+	</div>
+	</div>
+							
+							
 
 						<div class="field2 text-center">
 							<button type="submit" class="btn btn-info">
-								수정<i class="fa fa-check spaceLeft"></i>
+								수정완료<i class="fa fa-check spaceLeft"></i>
 							</button>
-							<button type="submit" class="btn btn-warning">수정취소</button>
+							<button type="submit" class="btn btn-warning">수정취소<i class="fa fa-times spaceLeft"></i></button>
+							<br>
 						</div>
 					</form>
-				</div>
+			
 
 				<!--  </article>	 -->
 			</section>
-
-		</div>
+	</div>
+		
 
 
 

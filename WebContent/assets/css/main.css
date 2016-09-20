@@ -9,6 +9,21 @@
 
 /* Reset */
 
+post{
+	-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+	background: rgba(212, 212, 255, 0.035);
+		border: none;
+		border-radius: 0;
+		color: inherit;
+		display: block;
+		outline: 0;
+		 padding: 0 1em;
+		 text-decoration: none; 
+}
+
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
@@ -1884,13 +1899,22 @@
 			margin: 2em 20em 0 20em;
 		}
 		form .field3{
-			margin: 2em 40em 0 20em;
+		float: center;
+		
+			 margin: 2em 40em 0 20em; /* 위 우 아래 좌  */
 		}
-
+		
+ form .field.half2{
+	width: 30%;
+				float:  left;
+				padding: 0 0 0 20em;
+	
+	
+} 
 			form .field.half {
-				width: 50%;
+				width: 30%;
 				float: left;
-				padding: 0 0 0 1em;
+				 padding: 0 0 0 1em; 
 			}
 
 				form .field.half.first {
@@ -1961,15 +1985,18 @@
 		color: inherit;
 		display: block;
 		outline: 0;
-		padding: 0 1em;
+		 padding: 0 1em; 
 		text-decoration: none;
-		width: 100%;
+		 width: 100%; 
 	}
+	
+
 
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
 		input[type="tel"]:invalid,
+	
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
@@ -1979,6 +2006,7 @@
 		input[type="password"]:focus,
 		input[type="email"]:focus,
 		input[type="tel"]:focus,
+	
 		select:focus,
 		textarea:focus {
 			border-color: #9bf1ff;
@@ -2021,6 +2049,8 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="tel"],
+	
 	select {
 		height: 2.75em;
 	}

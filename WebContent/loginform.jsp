@@ -42,7 +42,7 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="board.jsp">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
@@ -57,7 +57,7 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="board.jsp">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
@@ -73,7 +73,7 @@
 
 		<!-- Banner -->
 		<!-- Note: The "styleN" class below should match that of the header element. -->
-		<section id="banner" class="style2">
+		<section id="banner" class="style4">
 			<div class="inner">
 				<span class="image"> <img src="images/rr.jpg" alt="" />
 				</span>
