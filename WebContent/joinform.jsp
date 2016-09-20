@@ -82,7 +82,7 @@
 								class="form-control" id="username" placeholder="이름을 입력해 주세요">
 						</div>
 						<div class="field2">
-							<label for="InputEmail">이메일 주소</label> <input type="email"
+							<label for="InputEmail">이메일 주소(ID)</label> <input type="email"
 								class="form-control" id="InputEmail" placeholder="이메일 주소">
 						</div>
 
@@ -172,7 +172,42 @@
 							</script>
 						</div> -->
 
-						<div class="field3">
+                          <div class="field3">
+							<label for="InputPhone">휴대폰 번호</label><input type="tel"
+								class="form-control" id="phone" placeholder="- 없이 입력해 주세요">
+							</div>
+							
+							<!-- 다음주소 시작-->
+
+							<!-- <div class="post">
+						<input name="post1" id="post1" size="5" readonly=""> -
+	<input name="post2" id="post2" size="5" readonly="">
+	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
+	<br>
+	</div> -->
+							
+							  <div class="field3" >
+							 <label for="InputAddress">주소</label></div>
+							  <div class="field half2">
+	<input type="text" class="form-control" id="post1" placeholder="post1" readonly=""></div>
+	 <div class="field half">
+	- <input type="tel" class="form-control" id="post2" placeholder="post2" readonly=""></div>
+	
+		
+	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
+	<br>
+	<div class="field2">
+	<input type="text" name="addr1" id="addr1" size="40" readonly="" class="form-control"
+		placeholder="도로명주소">
+	<br>
+	<span style="line-height: 10%;"></span>
+	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="지번주소">
+	</div>
+	
+<!-- 다음주소 끝 -->
+							
+							
+						<!-- <div class="field3">
 							<label for="username">휴대폰 인증</label> <input type="tel"
 								class="form-control" id="username" placeholder="- 없이 입력해 주세요">
 							<span class="input-group-btn">
@@ -187,12 +222,12 @@
 								class="form-control" id="username" placeholder="인증번호">
 							<button class="button">
 								인증번호 입력<i class="fa fa-edit spaceLeft"></i>
-							</button>
+							</button> -->
 							<!-- <span class="input-group-btn">
                   <button class="button">인증번호 입력<i class="fa fa-edit spaceLeft"></i></button>
                 </span> -->
 
-						</div>
+						
 						<!-- <div class="field2">
                 <label>약관 동의</label>
               <div data-toggle="buttons">
@@ -203,14 +238,17 @@
               <a href="#">이용약관</a>에 동의합니다.
               </div>
             </div> -->
-						<div class="field2 text-center">
+						 <div class="form-group text-center">
+						
 							<button type="submit" class="btn btn-info">
 								회원가입<i class="fa fa-check spaceLeft"></i>
 							</button>
-							<button type="submit" class="btn btn-warning">가입취소</button>
+							<button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+						
 						</div>
+						
 					</form>
-				</div>
+			</div>
 
 				<!--  </article>	 -->
 
