@@ -13,12 +13,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert parameterType="MemberDTO" id="addMember">
-	    insert into
-		member( m_num,username,userid,passwd,phone,post1,post2,addr1,addr2) 
+		insert into
+		member(
+		m_num,username,userid,passwd,phone,post1,post2,addr1,addr2)
 		values( mem_seq.nextval,#{username},#{userid},#{passwd},
-		#{phone},#{post1},#{post2},#{addr1},#{addr2}) 
-		</insert>
+		#{phone},#{post1},#{post2},#{addr1},#{addr2})
+	</insert>
 
+	<select resultType="MemberDTO" parameterType="string" id="mypage"> 
+	select m_num,username,userid,passwd,phone,
+		post1,post2,addr1,addr2 
+		from member
+		where userid = #{userid}
+		 </select>
+
+	<update parameterType="MemberDTO" id="updateMember"> 
+	update member set passwd =#{passwd}, post1 = #{post1}, post2 = #{post2}, 
+	addr1 = #{addr1}, addr2= #{addr2}, phone = #{phone}
+	 where userid =#{userid} </update>
 </mapper>
 
 
