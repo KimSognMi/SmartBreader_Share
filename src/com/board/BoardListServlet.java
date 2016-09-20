@@ -36,7 +36,7 @@ public class BoardListServlet extends HttpServlet {
 		
 		
 		RequestDispatcher dis = 
-				request.getRequestDispatcher("list.jsp");
+				request.getRequestDispatcher("boardlist.jsp");
 		dis.forward(request, response);
 	}
 
