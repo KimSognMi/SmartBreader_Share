@@ -63,10 +63,11 @@
 						Lorem ipsum dolor sit amet nullam consequat<br /> sed veroeros.
 						tempus adipiscing nulla.
 					</p>
+				</div>		
 					<ul class="actions">
 						<li><a href="#three" class="button next scrolly">수정!</a></li>
 					</ul>
-				</div>
+			
 			</div>
 		</section>
 

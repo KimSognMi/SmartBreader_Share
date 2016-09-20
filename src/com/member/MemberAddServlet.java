@@ -24,7 +24,7 @@ public class MemberAddServlet extends HttpServlet {
 		//나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
 		
-		String m_num = request.getParameter("userid");
+		String m_num = request.getParameter("m_num");
 		String userid = request.getParameter("userid");
 		String passwd = request.getParameter("passwd");
 		String username = request.getParameter("username");

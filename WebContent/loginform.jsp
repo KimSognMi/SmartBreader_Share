@@ -104,9 +104,9 @@
 					<h2>Welcome.</h2> Please login.<br>
 				</span> <br>
 				<form method="post" action="LoginServlet">
-					<input type="text" name="m_id" id="m_id" placeholder="Username"
+					<input type="text" name="userid" id="userid" placeholder="Username"
 						required="required" class="input-txt" /> <br><input type="password"
-						name="m_pw" id="m_pw" placeholder="Password" required="required"
+						name="passwd" id="passwd" placeholder="Password" required="required"
 						class="input-txt" />
 					<div class="login-footer">
 						<br>

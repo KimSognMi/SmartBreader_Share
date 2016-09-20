@@ -71,28 +71,28 @@
 		</section>
 
 		<!-- Main -->
-
+<form action="MemberAddServlet" >
 		<div id="main">
 			<section id="two">
 				<!-- <article class="container"> -->
 				<div class="col-md-6 col-md-offset-3">
-					<form>
+					
 						<div class="field2">
 							<label for="username">이름</label> <input type="text"
-								class="form-control" id="username" placeholder="이름을 입력해 주세요">
+								class="form-control" name="username" id="username" placeholder="이름을 입력해 주세요">
 						</div>
 						<div class="field2">
 							<label for="InputEmail">이메일 주소(ID) - 인증필요</label> <input type="email"
-								class="form-control" id="InputEmail" placeholder="이메일 주소">
+								class="form-control" name="userid" id="userid" placeholder="이메일 주소">
 						</div>
 
 						<div class="field2 ">
 							<label for="InputPassword1">비밀번호</label> <input type="password"
-								class="form-control" id="InputPassword1" placeholder="비밀번호">
+								class="form-control" name="passwd" id="passwd" placeholder="비밀번호">
 						</div>
 						<div class="field2 ">
 							<label for="InputPassword2">비밀번호 확인</label> <input
-								type="password" class="form-control" id="InputPassword2"
+								type="password" class="form-control" name="passwd2" id="passwd2"
 								placeholder="비밀번호 확인">
 							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
 						</div>
@@ -174,7 +174,7 @@
 
                           <div class="field3">
 							<label for="InputPhone">휴대폰 번호</label><input type="tel"
-								class="form-control" id="phone" placeholder="- 없이 입력해 주세요">
+								class="form-control" id="phone" name="phone"  placeholder="- 없이 입력해 주세요">
 							</div>
 							
 							<!-- 다음주소 시작-->
@@ -189,9 +189,9 @@
 							  <div class="field3" >
 							 <label for="InputAddress">주소</label></div>
 							  <div class="field half2">
-	<input type="text" class="form-control" id="post1" placeholder="post1" readonly=""></div>
+	<input type="text" class="form-control" id="post1" name="post1"  placeholder="post1" readonly=""></div>
 	 <div class="field half">
-	- <input type="tel" class="form-control" id="post2" placeholder="post2" readonly=""></div>
+	- <input type="tel" class="form-control" id="post2" name="post2" placeholder="post2" readonly=""></div>
 	
 		
 	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
@@ -201,7 +201,7 @@
 		placeholder="도로명주소">
 	<br>
 	<span style="line-height: 10%;"></span>
-	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="지번주소">
+	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="상세주소">
 	</div>
 	
 <!-- 다음주소 끝 -->
@@ -238,16 +238,17 @@
               <a href="#">이용약관</a>에 동의합니다.
               </div>
             </div> -->
-						 <div class="form-group text-center">
+						 <div class=" text-center">
 						
-							<button type="submit" class="btn btn-info">
+							<!-- <button type="submit" class="btn btn-info">
 								회원가입<i class="fa fa-check spaceLeft"></i>
-							</button>
+							</button> -->
+							 <input type="submit" value="회원가입">
 							<button type="reset" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
 						
 						</div>
 						
-					</form>
+					
 			</div>
 
 				<!--  </article>	 -->
@@ -255,7 +256,87 @@
 			</section>
 		</div>
 
+</form>
+<script type="text/javascript">
 
+   $(document).ready(function(){
+	  
+	  /*  $("#passwd2").on("keyup", function(event){
+		 $("#result2").removeClass();
+		   var p = $("#passwd").val();
+		   var p2 = $("#passwd2").val();
+		   if(p == p2){
+			   $("#result2").text("일치").addClass("blue");
+		   }else{
+			   $("#result2").text("불일치").addClass("red");;
+		   }
+	   });
+	   
+	   
+	   // 아이디 중복체크 Ajax 연동
+	   $("#userid").on("keyup", function(event){
+		   
+		   //Ajax 연동 
+		 //ajax통신
+			jQuery.ajax({
+				type:"GET",
+				url:"idCheck.jsp",
+				dataType:"text",
+				data:{
+					   userid:$("#userid").val()
+					},
+				success:function(responseData,status,xhr){
+					console.log(responseData);
+					$("#result").text(responseData);
+				},
+				error:function(xhr,status,error){
+					console.log("error");
+				}
+			});
+	   });
+	    */
+	   
+	   
+	    
+	   
+	   
+	   
+	   $("form").on("submit", function(event){
+		   
+		    var userid = $("#userid").val();
+		    if(userid == ''){
+		    	alert("아이디를 입력하세요");
+		    	return false;
+		    }else if($("#passwd").val() == ''){
+		    	alert("비밀번호를 입력하세요");
+		    	return false;
+		    }else if($("#username").val() == ''){
+		    	alert("이름을 입력하세요");
+		    	return false;
+		    }else if($("#phone").val() == ''){
+		    	alert("전화번호를 입력하세요");
+		    	return false;
+		    }else if($("#post1").val() == ''){
+		    	alert("우편번호를 입력하세요");
+		    	return false;
+		    }else if($("#post2").val() == ''){
+		    	alert("우편번호를 입력하세요");
+		    	return false;
+		    }else if($("#addr2").val() == ''){
+		    	alert("주소를 입력하세요");
+		    	return false;
+		    }else if($("#addr1").val() == ''){
+		    	alert("주소를 입력하세요");
+		    	return false;
+		    }else{
+		    	//성공
+		    	//alert("회원가입을 환영합니다");
+		    }
+		   
+	   });
+	   
+   });
+</script>
 
 
 
@@ -293,9 +374,9 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+<!--   <script src="js/bootstrap.min.js"></script> -->
 
-
-
+ 
 
 </body>
 </html>

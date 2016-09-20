@@ -7,9 +7,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select resultType="MemberDTO" parameterType="hashmap" id="login">
 		select m_num,username,userid,passwd,phone,
 		post1,post2,addr1,addr2
-		from member
-		where userid = #{userid} and passwd=#{passwd} </select>
+		from
+		member
+		where userid = #{userid} and passwd=#{passwd}
+	</select>
 
+	<insert parameterType="MemberDTO" id="addMember">
+	    insert into
+		member( m_num,username,userid,passwd,phone,post1,post2,addr1,addr2) 
+		values( mem_seq.nextval,#{username},#{userid},#{passwd},
+		#{phone},#{post1},#{post2},#{addr1},#{addr2}) 
+		</insert>
 
 </mapper>
 
