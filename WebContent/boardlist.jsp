@@ -44,12 +44,12 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
 				<li><a href="elements.jsp">NEAR ME NOW</a></li>
 				<li><a href="elements.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="joinform.jsp" class="button special fit">Join</a></li>
+				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
 				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
 			</ul>
 			<%
@@ -59,7 +59,7 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
 				<li><a href="elements.jsp">NEAR ME NOW</a></li>
 				<li><a href="elements.jsp">ONLINE SHOP</a></li>
 			</ul>
@@ -75,9 +75,9 @@
 
 		<!-- Banner -->
 		<!-- Note: The "styleN" class below should match that of the header element. -->
-		<section id="banner" class="style4">
+		<section id="banner" class="style3">
 			<div class="inner">
-				<span class="image"> <img src="images/jj.jpg" alt="" />
+				<span class="image"> <img src="images/ff.jpg" alt="" />
 				</span>
 				<header class="major">
 					<h1>Board</h1>
@@ -90,10 +90,12 @@
 				</div>
 			</div>
 		</section>
-
+ 
 
 		<!-- Table -->
-		<h3>Table</h3>
+		<div id="main">
+		
+		<h3>게시판 시작</h3>
 
 		<h4>Default</h4>
 		
@@ -149,5 +151,37 @@
 
 			</table>
 		</div>
-
 		
+		</div>
+
+					<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li>
+								<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+								
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
