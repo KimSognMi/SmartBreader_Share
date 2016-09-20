@@ -80,7 +80,7 @@
 				<span class="image"> <img src="images/jj.jpg" alt="" />
 				</span>
 				<header class="major">
-					<h1>ABOUT US</h1>
+					<h1>Board</h1>
 				</header>
 				<div class="content">
 					<p>
