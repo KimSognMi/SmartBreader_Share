@@ -39,7 +39,7 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="generic.jsp">BOARD</a></li>
+				<li><a href="board.jsp">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
@@ -82,7 +82,7 @@
 								class="form-control" id="username" placeholder="이름을 입력해 주세요">
 						</div>
 						<div class="field2">
-							<label for="InputEmail">이메일 주소(ID)</label> <input type="email"
+							<label for="InputEmail">이메일 주소(ID) - 인증필요</label> <input type="email"
 								class="form-control" id="InputEmail" placeholder="이메일 주소">
 						</div>
 
@@ -243,7 +243,7 @@
 							<button type="submit" class="btn btn-info">
 								회원가입<i class="fa fa-check spaceLeft"></i>
 							</button>
-							<button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+							<button type="reset" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
 						
 						</div>
 						

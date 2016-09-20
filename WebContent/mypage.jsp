@@ -5,7 +5,9 @@
 <html>
 <head>
 <title>SMART BREADER</title>
+<script type="text/javascript" src="assets/js/jquery-3.1.0.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=" utf-8" />
+
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -13,7 +15,10 @@
 
 <link rel="stylesheet" href="assets/css/joinstyle.css" media="screen"
 	title="no title" charset="utf-8">
+	
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
+<script src="assets/js/daum.js"></script>
 </head>
 <body>
 
@@ -39,20 +44,19 @@
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+				<li><a href="mypage.jsp" class="button special fit">MY PAGE</a></li>
+				<li><a href="index.jsp" class="button fit">Log Out</a></li>
 			</ul>
-
 		</nav>
 
 		<!-- Banner -->
 		<!-- Note: The "styleN" class below should match that of the header element. -->
-		<section id="banner" class="style1">
+		<section id="banner" class="style4">
 			<div class="inner">
-				<span class="image"> <img src="images/ee2.jpg" alt="" />
+				<span class="image"> <img src="images/rr.jpg" alt="" />
 				</span>
 				<header class="major">
-					<h1>MyPage</h1>
+					<h1>MY PAGE</h1>
 				</header>
 				<div class="content">
 					<p>
@@ -60,14 +64,13 @@
 						tempus adipiscing nulla.
 					</p>
 					<ul class="actions">
-						<li><a href="#three" class="button next scrolly">JOIN US!</a></li>
+						<li><a href="#three" class="button next scrolly">수정!</a></li>
 					</ul>
 				</div>
 			</div>
 		</section>
 
 		<!-- Main -->
-
 
 		<div id="main">
 			<section id="three">
@@ -79,7 +82,7 @@
 								class="form-control" id="username" placeholder="이름을 입력해 주세요">
 						</div>
 						<div class="field2">
-							<label for="InputEmail">이메일 주소</label> <input type="email"
+							<label for="InputEmail">이메일 주소(ID)</label> <input type="email"
 								class="form-control" id="InputEmail" placeholder="이메일 주소">
 						</div>
 
@@ -94,13 +97,14 @@
 							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
 						</div>
 
-						 <div class="field3">
+
+                          <div class="field3">
 							<label for="InputPhone">휴대폰 번호</label><input type="tel"
 								class="form-control" id="phone" placeholder="- 없이 입력해 주세요">
 							</div>
 							
-							<!-- 미완성 주소 -->
-							 <div class="field3" >
+		
+							  <div class="field3" >
 							 <label for="InputAddress">주소</label></div>
 							  <div class="field half2">
 	<input type="text" class="form-control" id="post1" placeholder="post1" readonly=""></div>
@@ -117,24 +121,25 @@
 	<span style="line-height: 10%;"></span>
 	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="지번주소">
 	</div>
-	</div>
 							
 							
-
-						<div class="field2 text-center">
+						 <div class="form-group text-center">
+						
 							<button type="submit" class="btn btn-info">
 								수정완료<i class="fa fa-check spaceLeft"></i>
 							</button>
 							<button type="submit" class="btn btn-warning">수정취소<i class="fa fa-times spaceLeft"></i></button>
-							<br>
+						
 						</div>
+						
 					</form>
-			
+			</div>
 
 				<!--  </article>	 -->
+
 			</section>
-	</div>
-		
+		</div>
+
 
 
 

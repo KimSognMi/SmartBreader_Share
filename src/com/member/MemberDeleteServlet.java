@@ -25,7 +25,7 @@ public class MemberDeleteServlet extends HttpServlet {
 		//나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
 		
-		String userid = request.getParameter("m_id");
+		String userid = request.getParameter("userid");
 
 	    MemberService service =
 	    		new MemberService();
@@ -33,7 +33,7 @@ public class MemberDeleteServlet extends HttpServlet {
 	    String target="";
 	    try {
 			service.deleteMember(userid);
-			target = "home.jsp";
+			target = "index.jsp";
 			request.setAttribute("delete", "정상적으로 삭제되었습니다.");
 			
 	        HttpSession session = request.getSession();

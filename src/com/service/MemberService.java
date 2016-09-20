@@ -39,7 +39,7 @@ public class MemberService {
 			session.close();
 		}
 		return dto;
-	}// end addMember
+	}
 
 	public MemberDTO mypage(String m_id) throws CommonException {
 		MemberDTO dto = null;

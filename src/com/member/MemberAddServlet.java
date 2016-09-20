@@ -24,48 +24,27 @@ public class MemberAddServlet extends HttpServlet {
 		//나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
 		
-		String m_id = request.getParameter("m_id");
-		String m_num = request.getParameter("m_num");
-		String m_gender = request.getParameter("m_gender");
-		String m_age = request.getParameter("m_age");
-		String m_pw = request.getParameter("m_pw");
-		String m_name = request.getParameter("m_name");
-		String m_post1 = request.getParameter("m_post1");
-		String m_post2 = request.getParameter("m_post2");
-		String m_addr1 = request.getParameter("m_addr1");
-		String m_addr2 = request.getParameter("m_addr2");
-		String m_phone1 = request.getParameter("m_phone1");
-		String m_phone2 = request.getParameter("m_phone2");
-		String m_phone3 = request.getParameter("m_phone3");
+		String m_num = request.getParameter("userid");
+		String userid = request.getParameter("userid");
+		String passwd = request.getParameter("passwd");
+		String username = request.getParameter("username");
+		String post1 = request.getParameter("post1");
+		String post2 = request.getParameter("post2");
+		String addr1 = request.getParameter("addr1");
+		String addr2 = request.getParameter("addr2");
+		String phone = request.getParameter("phone");
 	
 		
 		
 		MemberDTO dto =
-			new MemberDTO();
-		
-		dto.setM_id(m_id);
-		dto.setM_num(Integer.parseInt(m_num));
-		dto.setM_name(m_name);
-		dto.setM_gender(m_gender);
-		dto.setM_age(m_age);
-		dto.setM_pw(m_pw);
-		dto.setM_post1(m_post1);
-		dto.setM_post2(m_post2);
-		dto.setM_addr1(m_addr1);
-		dto.setM_addr2(m_addr2);
-		dto.setM_phone1(m_phone1);
-		dto.setM_phone2(m_phone2);
-		dto.setM_phone3(m_phone3);
-		
-		
-		
+				new MemberDTO(Integer.parseInt(m_num), username, userid, passwd, phone, post1, post2, addr1, addr2);
 	    MemberService service =
 	    		new MemberService();
 	    String title="";
 	    String target="";
 	    try {
 			service.addMember(dto);
-			target = "home.jsp";
+			target = "index.jsp";
 			request.setAttribute("result", "success");
 		} catch (CommonException e) {
 			title= e.getMessage();
