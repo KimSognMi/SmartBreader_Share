@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@page import="com.dto.MemberDTO"%>
+
 <!DOCTYPE HTML>
 
 
@@ -36,6 +36,7 @@
 		<!-- Menu -->
 		<nav id="menu">
 
+			<c:if test="${sessionScope.login == null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -48,6 +49,9 @@
 				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
 			</ul>
 
+			</c:if>
+			
+			<c:if test="${sessionScope.login != null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -59,7 +63,7 @@
 				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
 				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 			</ul>
-
+			</c:if>
 
 		</nav>
 
@@ -141,12 +145,14 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1">제목</div>
 					<div class="col-md-5">
-						<c:if test="${sessionScope.login == null}"> 
-						<input class="form-control inputTitle" type="text" name="title"
+						<c:if test="${sessionScope.login == null}">
+						
+							<input class="form-control inputTitle" type="text" name="title"
 								value="${retrieve.title}" readonly="readonly">
 						</c:if>
 						<c:if test="${sessionScope.login != null}">
-						<input class="form-control inputTitle" type="text" name="title"
+						
+							<input class="form-control inputTitle" type="text" name="title"
 								value="${retrieve.title}">
 						</c:if>
 					</div>
@@ -190,5 +196,47 @@ h1 {
 					</div>
 				</c:if>
 			</form>
-		</body>
+
+
+
+
+
+
+
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span
+								class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span
+								class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span
+								class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span
+								class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span
+								class="label">LinkedIn</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li>
+						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+					</ul>
+				</div>
+			</footer>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+</body>
 </html>
+
