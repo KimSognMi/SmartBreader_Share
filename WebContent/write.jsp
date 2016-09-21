@@ -32,12 +32,7 @@
 		<!-- Menu -->
 		<nav id="menu">
 
-			<%
-				MemberDTO dto = (MemberDTO) session.getAttribute("login");
-			%>
-			<%
-				if (dto == null) {
-			%>
+			<c:if test="${sessionScope.login == null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -49,10 +44,9 @@
 				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
 				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
 			</ul>
-			<%
-				} else {
-			%>
+			</c:if>
 
+<c:if test="${sessionScope.login != null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -64,10 +58,7 @@
 				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
 				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 			</ul>
-
-			<%
-				}
-			%>
+</c:if>
 		</nav>
 
 		<!-- Banner -->
@@ -130,6 +121,8 @@ h1 {
 				<a href="BoardListServlet">목록보기</a>
 				<div>
 					<h1>게시글 등록</h1>
+					 <input type="hidden" name="author"
+					value="${login.userid}">
 				</div>
 				<br>
 				<br>
@@ -157,7 +150,7 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
-						<input class="form-control inputPw" type="password" name="author">
+						<input class="form-control inputPw" type="password" name="readcnt">
 					</div>
 					<div class="col-md-3 pwHelper"></div>
 					<div class="col-md-3"></div>
@@ -176,5 +169,39 @@ h1 {
 					<div class="col-md-3"></div>
 				</div>
 			</form>
-		</body>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="#" class="icon alt fa-twitter"><span
+							class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon alt fa-facebook"><span
+							class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon alt fa-instagram"><span
+							class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-github"><span
+							class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon alt fa-linkedin"><span
+							class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+</body>
 </html>

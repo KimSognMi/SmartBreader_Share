@@ -102,16 +102,9 @@
 
 			<h4>Default</h4>
 
-			<%
-				MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
-				if (memberDTO == null) {
-			%>
-
 			<a href="BoardWriteUIServlet">글쓰기 화면</a>
 
-			<%
-				}
-			%>
+			
 			<div class="table-wrapper">
 				<table>
 
@@ -150,10 +143,10 @@
 					<%
 						} //end for
 					%> --%>
-
+					
+					
 						<tr>
 							<c:set var="ppp" value="${page}" />
-							<c:set var="aaa" value="${page}" />
 
 							<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
 						</tr>
@@ -166,6 +159,7 @@
 
 						</tr>
 						</c:forEach>
+
 					</tbody>
 
 				</table>
