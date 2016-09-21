@@ -9,6 +9,18 @@
 <html>
 <head>
 <title>SMART BREADER</title>
+
+
+<style type="text/css">
+
+   .blue{
+     color:blue;
+   }
+   .red{
+     color:red;
+   }
+</style>
+
 <script type="text/javascript" src="assets/js/jquery-3.1.0.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=" utf-8" />
 
@@ -42,12 +54,12 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MY PAGE</a></li>
+				<li><a href="MyPageServlet" class="button special fit">MY PAGE</a></li>
 				<li><a href="index.jsp" class="button fit">Log Out</a></li>
 			</ul>
 		</nav>
@@ -83,7 +95,7 @@
 				<form name="myform">
 						<div class="field2">
 							<!-- <label for="username">이름</label> -->
-							<h5>이름</h5>
+							<h5>이름 </h5>
 							 <input type="text"
 								class="form-control" id="username" name="username" value="${mypage.username}" readonly>
 						</div>
@@ -93,21 +105,21 @@
 							 <input type="email"
 								class="form-control"name="userid" id="userid" value="${mypage.userid}" readonly>
 						</div>
-
+ 
 						<div class="field2 ">
 							<!-- <label for="InputPassword1">비밀번호</label> -->
-							<h5>비밀번호</h5>
+							<h5>비밀번호 </h5>
 							 <input type="password"
 								class="form-control" name="passwd" id="passwd" value="${mypage.passwd}">
 						</div>
-						<!-- <div class="field2 ">
-							<label for="InputPassword2">비밀번호 확인</label>
-							<h5>비밀번호 확인</h5>
+						<div class="field2 ">
+							<!-- <label for="InputPassword2">비밀번호 확인</label> -->
+							<h5>비밀번호 확인 &nbsp;&nbsp; <span id="result2"></span></h5>
 							 <input
-								type="password" class="form-control" id="InputPassword2"
+								type="password" class="form-control" name="passwd2" id="passwd2"
 								placeholder="비밀번호 확인">
 							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
-						</div> -->
+						</div> 
 
 
                           <div class="field3">
@@ -141,17 +153,16 @@
 							
 						 <div class="form-group text-center">
 						
-							<button type="submit" onclick="memberUpdate(myform)"> <!-- type="submit" class="btn btn-info" -->
+							<button onclick="memberUpdate(myform)"> <!-- type="submit" class="btn btn-info" -->
 								수정완료<i class="fa fa-check spaceLeft"></i>
 							</button>
-							<button type="submit" class="btn btn-warning">수정취소<i class="fa fa-times spaceLeft"></i></button>
+							<!-- type="submit" class="btn btn-warning" -->
+							<button  onclick="memberDelete(myform)">탈퇴<i class="fa fa-times spaceLeft"></i></button>
 						
 						</div>
 						
 					</form>
 			</div>
- 
-				<!--  </article>	 -->
 
 			</section>
 		</div>
@@ -163,7 +174,25 @@
 	   f.action="MemberUpdateServlet";
    }
 
+   function memberDelete(f){
+	   f.action="MemberDeleteServlet";
+   }
+   
    $(document).ready(function(){
+	   
+	   $("#passwd2").on("keyup", function(event){
+			 $("#result2").removeClass();
+			   var p = $("#passwd").val();
+			   var p2 = $("#passwd2").val();
+			   if(p == p2){
+				   $("#result2").text("일치").addClass("blue");
+			   }else{
+				   $("#result2").text("불일치").addClass("red");
+			   }
+		   }); 
+		   
+	   
+	   
 		   $("form").on("submit", function(event){
 			   
 			    var userid = $("#userid").val();

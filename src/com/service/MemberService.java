@@ -53,7 +53,7 @@ public class MemberService {
 			session.close();
 		}
 		return dto;
-	}// end addMember
+	}
 
 	// 회원 수정
 	public void updateMember(MemberDTO dto) throws CommonException {
@@ -69,7 +69,8 @@ public class MemberService {
 			session.close();
 		}
 
-	}// end addMember
+	}
+	
 		// 회원 삭제
 
 	public void deleteMember(String userid) throws CommonException {
@@ -85,6 +86,5 @@ public class MemberService {
 			session.close();
 		}
 
-	}// end addMember
-
+	}
 }
