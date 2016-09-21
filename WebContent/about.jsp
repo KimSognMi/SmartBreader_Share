@@ -60,7 +60,7 @@
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
+				<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 			</ul>
 

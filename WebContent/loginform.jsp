@@ -33,12 +33,6 @@
 		<!-- Menu -->
 		<nav id="menu">
 
-			<%
-				MemberDTO dto = (MemberDTO) session.getAttribute("login");
-			%>
-			<%
-				if (dto == null) {
-			%>
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -48,27 +42,9 @@
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
-				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
+				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
 			</ul>
-			<%
-				} else {
-			%>
-
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="BoardListServlet">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-			</ul>
-
-			<%
-				}
-			%>
+			
 		</nav>
 
 		<!-- Banner -->

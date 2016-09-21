@@ -1,6 +1,9 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>	
 <!DOCTYPE HTML>
 
 <html>
@@ -31,12 +34,7 @@
 
 		<nav id="menu">
 
-			<%
-				MemberDTO dto = (MemberDTO) session.getAttribute("login");
-			%>
-			<%
-				if (dto == null) {
-			%>
+			<c:if test="${sessionScope.login==null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -46,11 +44,11 @@
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="memberform.jsp" class="button special fit">JOIN</a></li>
-				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
+				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
 			</ul>
-			<%
-				} else {
-			%>
+			</c:if>
+			
+			<c:if test="${sessionScope.login!=null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -59,12 +57,11 @@
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
+			<li><a href="petform.jsp" class="button fit">My PET</a></li>
 				<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 			</ul>
-			<%
-				}
-			%>
+			</c:if>
 			
 		</nav>
 

@@ -51,6 +51,7 @@
 
 		<!-- Menu -->
 		<nav id="menu">
+		<c:if test="${sessionScope.login!=null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -59,9 +60,26 @@
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
+			<li><a href="petform.jsp" class="button fit">My PET</a></li>
 				<li><a href="MyPageServlet" class="button special fit">MY PAGE</a></li>
-				<li><a href="index.jsp" class="button fit">Log Out</a></li>
+				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 			</ul>
+			</c:if>  
+			
+			<c:if test="${sessionScope.login==null}">
+				<ul class="links">
+				<li><a href="index.jsp">HOME</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+			</ul>
+			<ul class="actions vertical">
+				<li><a href="memberform.jsp" class="button special fit">JOIN</a></li>
+				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
+			</ul>
+			 </c:if>
+			
 		</nav>
 
 		<!-- Banner -->
@@ -117,8 +135,8 @@
 							<h5>비밀번호 확인 &nbsp;&nbsp; <span id="result2"></span></h5>
 							 <input
 								type="password" class="form-control" name="passwd2" id="passwd2"
-								placeholder="비밀번호 확인">
-							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+								placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요">
+							<!-- <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p> -->
 						</div> 
 
 
@@ -147,20 +165,20 @@
 		placeholder="도로명주소" value="${mypage.addr1}">
 	<br>
 	<span style="line-height: 10%;"></span>
-	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="지번주소" value="${mypage.addr2}">
+	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="상세주소" value="${mypage.addr2}">
 	</div>
-							
-							
+		<br>					
+							<center>
 						 <div class="form-group text-center">
-						
-							<button onclick="memberUpdate(myform)"> <!-- type="submit" class="btn btn-info" -->
-								수정완료<i class="fa fa-check spaceLeft"></i>
-							</button>
+						 <!-- type="submit" class="btn btn-info" -->
+							<button onclick="memberUpdate(myform)">수정<i class="fa fa-check spaceLeft"></i>
+							</button>&nbsp;&nbsp;&nbsp;&nbsp;
 							<!-- type="submit" class="btn btn-warning" -->
 							<button  onclick="memberDelete(myform)">탈퇴<i class="fa fa-times spaceLeft"></i></button>
 						
 						</div>
-						
+						</center>
+						<br>
 					</form>
 			</div>
 
