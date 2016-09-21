@@ -158,9 +158,9 @@ h1 {
 					</div>
 					<div class="col-md-3 titleHelper"></div>
 				</div>
-				<br>
+				
 
-				<div class="field2">
+				<br><div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">내용</div>
 					<div class="col-md-5">
@@ -171,15 +171,15 @@ h1 {
 				</div>
 				<br>
 
-				<div class="field2">
+				 <div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
-						<input class="form-control inputPw" type="password" name="author">
+						<input class="form-control inputPw" type="password" name="readcnt">
 					</div>
 					<div class="col-md-3 pwHelper"></div>
 					<div class="col-md-3"></div>
-				</div>
+				</div> 
 				<br>
 				<c:if test="${sessionScope.login != null}"> { 
 				<div class="field2">

@@ -122,7 +122,7 @@ h1 {
 				<div>
 					<h1>게시글 등록</h1>
 					 <input type="hidden" name="author"
-					value="${login.userid}">
+					value="${login.username}">
 				</div>
 				<br>
 				<br>
@@ -146,7 +146,7 @@ h1 {
 				</div>
 				<br>
 
-				<div class="field2">
+				 <div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
