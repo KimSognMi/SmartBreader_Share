@@ -4,6 +4,9 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 
 <html>
@@ -90,40 +93,40 @@
 				</div>
 			</div>
 		</section>
- 
+
 
 		<!-- Table -->
 		<div id="main">
-		
-		<h3>게시판 시작</h3>
 
-		<h4>Default</h4>
-		
+			<h3>게시판 시작</h3>
+
+			<h4>Default</h4>
+
 			<%
-			MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
-			if (memberDTO == null) {
-		%>
+				MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
+				if (memberDTO == null) {
+			%>
 
-		<a href="BoardWriteUIServlet">글쓰기 화면</a>
+			<a href="BoardWriteUIServlet">글쓰기 화면</a>
 
-		<%
-			}
-		%>
-		<div class="table-wrapper">
-			<table>
+			<%
+				}
+			%>
+			<div class="table-wrapper">
+				<table>
 
 
-				<thead>
-					<tr>
-						<th>글번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
+					<thead>
+						<tr>
+							<th>글번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th>조회수</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%-- <tr>
 						<%
 							PageDTO pageDTO = (PageDTO) request.getAttribute("page");
 
@@ -146,42 +149,63 @@
 					</tr>
 					<%
 						} //end for
-					%>
-				</tbody>
+					%> --%>
 
-			</table>
-		</div>
-		
-		</div>
+						<tr>
+							<c:set var="ppp" value="${page}" />
+							<c:set var="aaa" value="${page}" />
 
-					<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled</li>
-								<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-								
-							</ul>
-						</div>
-					</footer>
+							<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+						</tr>
+						<tr>
+							<td>${xxx.num}</td>
+							<td><a href="BoardRetrieveServlet?num=${xxx.num}">${xxx.title}</td>
+							<td>${xxx.author}</td>
+							<td>${xxx.writeday}</td>
+							<td>${xxx.readcnt}</td>
 
+						</tr>
+						</c:forEach>
+					</tbody>
+
+				</table>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+		</div>
 
-	</body>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="#" class="icon alt fa-twitter"><span
+							class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon alt fa-facebook"><span
+							class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon alt fa-instagram"><span
+							class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-github"><span
+							class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon alt fa-linkedin"><span
+							class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+</body>
 </html>
