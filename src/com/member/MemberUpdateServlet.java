@@ -24,7 +24,7 @@ public class MemberUpdateServlet extends HttpServlet {
 		//나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
 		
-		String m_num = request.getParameter("m_num");
+		//String m_num = request.getParameter("m_num");
 		String userid = request.getParameter("userid");
 		String passwd = request.getParameter("passwd");
 		String username = request.getParameter("username");
@@ -36,7 +36,17 @@ public class MemberUpdateServlet extends HttpServlet {
 		
 		
 		MemberDTO dto =
-				new MemberDTO(Integer.parseInt(m_num), username, userid, passwd, phone, post1, post2, addr1, addr2);
+				new MemberDTO();
+		
+		dto.setUsername(username);
+		dto.setUserid(userid);
+		dto.setPasswd(passwd);
+		dto.setPost1(post1);
+		dto.setPost2(post2);
+		dto.setAddr1(addr1);
+		dto.setAddr2(addr2);
+		dto.setPhone(phone);
+		
 	    MemberService service =
 	    		new MemberService();
 	    String title="";

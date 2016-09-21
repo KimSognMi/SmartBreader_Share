@@ -5,6 +5,18 @@
 <html>
 <head>
 <title>SMART BREADER</title>
+
+<style type="text/css">
+
+   .blue{
+     color:blue;
+   }
+   .red{
+     color:red;
+   }
+</style>
+
+
 <script type="text/javascript" src="assets/js/jquery-3.1.0.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=" utf-8" />
 
@@ -17,7 +29,6 @@
 	title="no title" charset="utf-8">
 	
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
 <script src="assets/js/daum.js"></script>
 </head>
 <body>
@@ -71,27 +82,35 @@
 		</section>
 
 		<!-- Main -->
-<form action="MemberAddServlet" >
+
 		<div id="main">
 			<section id="two">
 				<!-- <article class="container"> -->
 				<div class="col-md-6 col-md-offset-3">
 					
+					<form action="MemberAddServlet" >
 						<div class="field2">
-							<label for="username">이름</label> <input type="text"
-								class="form-control" name="username" id="username" placeholder="이름을 입력해 주세요">
+							<!-- <label for="username">이름</label>  -->
+								<h5>이름</h5>
+							<input type="text" class="form-control" name="username" id="username" placeholder="이름을 입력해 주세요">
 						</div>
 						<div class="field2">
-							<label for="InputEmail">이메일 주소(ID) - 인증필요</label> <input type="email"
+							<!-- <label for="InputEmail">이메일 주소(ID) - 인증필요</label> -->
+								<h5>ID(이메일 주소 : 인증필요) &nbsp; <span id="result"></span></h5>
+							 <input type="email"
 								class="form-control" name="userid" id="userid" placeholder="이메일 주소">
 						</div>
 
 						<div class="field2 ">
-							<label for="InputPassword1">비밀번호</label> <input type="password"
+							<!-- <label for="InputPassword1">비밀번호</label>  -->
+							<h5>비밀번호</h5>
+							<input type="password"
 								class="form-control" name="passwd" id="passwd" placeholder="비밀번호">
 						</div>
 						<div class="field2 ">
-							<label for="InputPassword2">비밀번호 확인</label> <input
+							<!-- <label for="passwd2">비밀번호 확인</label> -->
+							<h5>비밀번호 확인 &nbsp;&nbsp; <span id="result2"></span></h5>
+							 <input
 								type="password" class="form-control" name="passwd2" id="passwd2"
 								placeholder="비밀번호 확인">
 							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
@@ -173,7 +192,9 @@
 						</div> -->
 
                           <div class="field3">
-							<label for="InputPhone">휴대폰 번호</label><input type="tel"
+							<label for="InputPhone">휴대폰 번호</label>
+							<h5>휴대폰 번호</h5>
+							<input type="tel"
 								class="form-control" id="phone" name="phone"  placeholder="- 없이 입력해 주세요">
 							</div>
 							
@@ -187,7 +208,9 @@
 	</div> -->
 							
 							  <div class="field3" >
-							 <label for="InputAddress">주소</label></div>
+						<!-- 	 <label for="InputAddress">주소</label> -->
+							 <h5>주소</h5>
+							 </div>
 							  <div class="field half2">
 	<input type="text" class="form-control" id="post1" name="post1"  placeholder="post1" readonly=""></div>
 	 <div class="field half">
@@ -248,7 +271,7 @@
 						
 						</div>
 						
-					
+			</form>		
 			</div>
 
 				<!--  </article>	 -->
@@ -256,21 +279,21 @@
 			</section>
 		</div>
 
-</form>
+
 <script type="text/javascript">
 
    $(document).ready(function(){
 	  
-	  /*  $("#passwd2").on("keyup", function(event){
+	    $("#passwd2").on("keyup", function(event){
 		 $("#result2").removeClass();
 		   var p = $("#passwd").val();
 		   var p2 = $("#passwd2").val();
 		   if(p == p2){
 			   $("#result2").text("일치").addClass("blue");
 		   }else{
-			   $("#result2").text("불일치").addClass("red");;
+			   $("#result2").text("불일치").addClass("red");
 		   }
-	   });
+	   }); 
 	   
 	   
 	   // 아이디 중복체크 Ajax 연동
@@ -294,12 +317,8 @@
 				}
 			});
 	   });
-	    */
-	   
-	   
 	    
-	   
-	   
+	
 	   
 	   $("form").on("submit", function(event){
 		   

@@ -72,10 +72,10 @@ public class MemberService {
 	}// end addMember
 		// 회원 삭제
 
-	public void deleteMember(String m_id) throws CommonException {
+	public void deleteMember(String userid) throws CommonException {
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			int n = session.delete("deleteMember", m_id);
+			int n = session.delete("deleteMember", userid);
 			session.commit();
 
 		} catch (Exception e) {

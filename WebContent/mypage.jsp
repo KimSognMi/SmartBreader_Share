@@ -1,5 +1,9 @@
+<%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>	
 <!DOCTYPE HTML>
 
 <html>
@@ -17,7 +21,6 @@
 	title="no title" charset="utf-8">
 	
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
 <script src="assets/js/daum.js"></script>
 </head>
 <body>
@@ -77,36 +80,48 @@
 			<section id="three">
 				<!-- <article class="container"> -->
 				<div class="col-md-6 col-md-offset-3">
-					<form>
+				<form name="myform">
 						<div class="field2">
-							<label for="username">이름</label> <input type="text"
+							<!-- <label for="username">이름</label> -->
+							<h5>이름</h5>
+							 <input type="text"
 								class="form-control" id="username" name="username" value="${mypage.username}" readonly>
 						</div>
 						<div class="field2">
-							<label for="InputEmail">이메일 주소(ID)</label> <input type="email"
+							<!-- <label for="InputEmail">이메일 주소(ID)</label> -->
+							<h5>이메일 주소(ID)</h5>
+							 <input type="email"
 								class="form-control"name="userid" id="userid" value="${mypage.userid}" readonly>
 						</div>
 
 						<div class="field2 ">
-							<label for="InputPassword1">비밀번호</label> <input type="password"
-								class="form-control" name="passwd" id="passwd" placeholder="비밀번호" value="${mypage.passwd}">
+							<!-- <label for="InputPassword1">비밀번호</label> -->
+							<h5>비밀번호</h5>
+							 <input type="password"
+								class="form-control" name="passwd" id="passwd" value="${mypage.passwd}">
 						</div>
-						<div class="field2 ">
-							<label for="InputPassword2">비밀번호 확인</label> <input
+						<!-- <div class="field2 ">
+							<label for="InputPassword2">비밀번호 확인</label>
+							<h5>비밀번호 확인</h5>
+							 <input
 								type="password" class="form-control" id="InputPassword2"
 								placeholder="비밀번호 확인">
 							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
-						</div>
+						</div> -->
 
 
                           <div class="field3">
-							<label for="InputPhone">휴대폰 번호</label><input type="tel"
-								class="form-control" name="phone" id="phone" value="${mypage.phone}" placeholder="- 없이 입력해 주세요">
+							<!-- <label for="InputPhone">휴대폰 번호</label> -->
+							<h5>휴대폰 번호</h5>
+							<input type="tel"
+								class="form-control" name="phone" id="phone" value="${mypage.phone}" >
 							</div>
 							
 		
 							  <div class="field3" >
-							 <label for="InputAddress">주소</label></div>
+							 <!-- <label for="InputAddress">주소</label> -->
+							 <h5>주소</h5>
+							 </div>
 							  <div class="field half2">
 	<input type="text" class="form-control" id="post1" name="post1" value="${mypage.post1}" readonly=""></div>
 	 <div class="field half">
@@ -126,7 +141,7 @@
 							
 						 <div class="form-group text-center">
 						
-							<button onclick="memberUpdate(myform)"> <!-- type="submit" class="btn btn-info" -->
+							<button type="submit" onclick="memberUpdate(myform)"> <!-- type="submit" class="btn btn-info" -->
 								수정완료<i class="fa fa-check spaceLeft"></i>
 							</button>
 							<button type="submit" class="btn btn-warning">수정취소<i class="fa fa-times spaceLeft"></i></button>
@@ -135,7 +150,7 @@
 						
 					</form>
 			</div>
-
+ 
 				<!--  </article>	 -->
 
 			</section>

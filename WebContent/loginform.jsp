@@ -42,7 +42,7 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
@@ -57,7 +57,7 @@
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
