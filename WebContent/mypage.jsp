@@ -63,10 +63,11 @@
 						Lorem ipsum dolor sit amet nullam consequat<br /> sed veroeros.
 						tempus adipiscing nulla.
 					</p>
+				</div>		
 					<ul class="actions">
 						<li><a href="#three" class="button next scrolly">수정!</a></li>
 					</ul>
-				</div>
+			
 			</div>
 		</section>
 
@@ -79,16 +80,16 @@
 					<form>
 						<div class="field2">
 							<label for="username">이름</label> <input type="text"
-								class="form-control" id="username" placeholder="이름을 입력해 주세요">
+								class="form-control" id="username" name="username" value="${mypage.username}" readonly>
 						</div>
 						<div class="field2">
 							<label for="InputEmail">이메일 주소(ID)</label> <input type="email"
-								class="form-control" id="InputEmail" placeholder="이메일 주소">
+								class="form-control"name="userid" id="userid" value="${mypage.userid}" readonly>
 						</div>
 
 						<div class="field2 ">
 							<label for="InputPassword1">비밀번호</label> <input type="password"
-								class="form-control" id="InputPassword1" placeholder="비밀번호">
+								class="form-control" name="passwd" id="passwd" placeholder="비밀번호" value="${mypage.passwd}">
 						</div>
 						<div class="field2 ">
 							<label for="InputPassword2">비밀번호 확인</label> <input
@@ -100,32 +101,32 @@
 
                           <div class="field3">
 							<label for="InputPhone">휴대폰 번호</label><input type="tel"
-								class="form-control" id="phone" placeholder="- 없이 입력해 주세요">
+								class="form-control" name="phone" id="phone" value="${mypage.phone}" placeholder="- 없이 입력해 주세요">
 							</div>
 							
 		
 							  <div class="field3" >
 							 <label for="InputAddress">주소</label></div>
 							  <div class="field half2">
-	<input type="text" class="form-control" id="post1" placeholder="post1" readonly=""></div>
+	<input type="text" class="form-control" id="post1" name="post1" value="${mypage.post1}" readonly=""></div>
 	 <div class="field half">
-	- <input type="tel" class="form-control" id="post2" placeholder="post2" readonly=""></div>
+	- <input type="tel" class="form-control" id="post2" name="post2" value="${mypage.post2}" readonly=""></div>
 	
 		
 	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
 	<br>
 	<div class="field2">
 	<input type="text" name="addr1" id="addr1" size="40" readonly="" class="form-control"
-		placeholder="도로명주소">
+		placeholder="도로명주소" value="${mypage.addr1}">
 	<br>
 	<span style="line-height: 10%;"></span>
-	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="지번주소">
+	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="지번주소" value="${mypage.addr2}">
 	</div>
 							
 							
 						 <div class="form-group text-center">
 						
-							<button type="submit" class="btn btn-info">
+							<button onclick="memberUpdate(myform)"> <!-- type="submit" class="btn btn-info" -->
 								수정완료<i class="fa fa-check spaceLeft"></i>
 							</button>
 							<button type="submit" class="btn btn-warning">수정취소<i class="fa fa-times spaceLeft"></i></button>
@@ -140,9 +141,50 @@
 			</section>
 		</div>
 
+<script type="text/javascript">
 
 
+   function memberUpdate(f){
+	   f.action="MemberUpdateServlet";
+   }
 
+   $(document).ready(function(){
+		   $("form").on("submit", function(event){
+			   
+			    var userid = $("#userid").val();
+			    if(userid == ''){
+			    	alert("아이디를 입력하세요");
+			    	return false;
+			    }else if($("#passwd").val() == ''){
+			    	alert("비밀번호를 입력하세요");
+			    	return false;
+			    }else if($("#username").val() == ''){
+			    	alert("이름을 입력하세요");
+			    	return false;
+			    }else if($("#phone").val() == ''){
+			    	alert("전화번호를 입력하세요");
+			    	return false;
+			    }else if($("#post1").val() == ''){
+			    	alert("우편번호를 입력하세요");
+			    	return false;
+			    }else if($("#post2").val() == ''){
+			    	alert("우편번호를 입력하세요");
+			    	return false;
+			    }else if($("#addr2").val() == ''){
+			    	alert("주소를 입력하세요");
+			    	return false;
+			    }else if($("#addr1").val() == ''){
+			    	alert("주소를 입력하세요");
+			    	return false;
+			    }else{
+			    	//성공
+			    	//alert("회원가입을 환영합니다");
+			    }
+			   
+		   });
+		   
+	   });
+	</script>
 
 
 		<!-- Footer -->
@@ -176,7 +218,7 @@
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	
 	<script src="assets/js/main.js"></script>
 
 

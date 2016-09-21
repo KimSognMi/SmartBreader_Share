@@ -47,7 +47,7 @@
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="joinform.jsp" class="button special fit">Join</a></li>
+				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
 				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
 			</ul>
 			<%
@@ -104,9 +104,9 @@
 					<h2>Welcome.</h2> Please login.<br>
 				</span> <br>
 				<form method="post" action="LoginServlet">
-					<input type="text" name="m_id" id="m_id" placeholder="Username"
+					<input type="text" name="userid" id="userid" placeholder="Username"
 						required="required" class="input-txt" /> <br><input type="password"
-						name="m_pw" id="m_pw" placeholder="Password" required="required"
+						name="passwd" id="passwd" placeholder="Password" required="required"
 						class="input-txt" />
 					<div class="login-footer">
 						<br>
