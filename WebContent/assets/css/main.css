@@ -74,6 +74,7 @@ post{
 /* Grid */
 
 	.row {
+	margin-top: 0;
 		border-bottom: solid 1px transparent;
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
@@ -1898,6 +1899,9 @@ post{
 		form .field2{
 			margin: 2em 20em 0 20em;
 		}
+		form .field2_1{
+			margin: -2em 20em -3em 20em;
+		}
 		form .field3{
 		float: center;
 		
@@ -1905,14 +1909,20 @@ post{
 		}
 		
  form .field.half2{
-	width: 30%;
+	width: 35%;
 				float:  left;
 				padding: 0 0 0 20em;
 	
 	
 } 
+form .field.halfs {
+				width: 1%;
+				float: left;
+				 padding: 0 0 0 1em; 
+			}
+
 			form .field.half {
-				width: 30%;
+				width: 12%;
 				float: left;
 				 padding: 0 0 0 1em; 
 			}
@@ -2067,7 +2077,7 @@ post{
 		appearance: none;
 		display: block;
 		float: left;
-		margin-right: -2em;
+		margin-right: 4em;
 		opacity: 0;
 		width: 1em;
 		z-index: -1;

@@ -213,11 +213,14 @@
 							 </div>
 							  <div class="field half2">
 	<input type="text" class="form-control" id="post1" name="post1"  placeholder="post1" readonly=""></div>
-	 <div class="field half">
-	- <input type="tel" class="form-control" id="post2" name="post2" placeholder="post2" readonly=""></div>
 	
+		 <div class="field halfs">-</div>
+	 <div class="field half">
+	<input type="tel" class="form-control" id="post2" name="post2" placeholder="post2" readonly=""></div>
+	 <div class="field half">
+	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기"></div>
 		
-	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
+	<!-- <input onclick="openDaumPostcode()" type="button" value="우편번호찾기"> -->
 	<br>
 	<div class="field2">
 	<input type="text" name="addr1" id="addr1" size="40" readonly="" class="form-control"
@@ -261,6 +264,7 @@
               <a href="#">이용약관</a>에 동의합니다.
               </div>
             </div> -->
+						 <center>
 						 <div class=" text-center">
 						
 							<!-- <button type="submit" class="btn btn-info">
@@ -270,7 +274,8 @@
 							<button type="reset" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
 						
 						</div>
-						
+						</center>
+						<br>
 			</form>		
 			</div>
 

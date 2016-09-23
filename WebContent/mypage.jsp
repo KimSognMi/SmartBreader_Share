@@ -148,17 +148,18 @@
 							</div>
 							
 		
-							  <div class="field3" >
-							 <!-- <label for="InputAddress">주소</label> -->
+							   <div class="field3" >
+						<!-- 	 <label for="InputAddress">주소</label> -->
 							 <h5>주소</h5>
 							 </div>
 							  <div class="field half2">
-	<input type="text" class="form-control" id="post1" name="post1" value="${mypage.post1}" readonly=""></div>
-	 <div class="field half">
-	- <input type="tel" class="form-control" id="post2" name="post2" value="${mypage.post2}" readonly=""></div>
+	<input type="text" class="form-control" id="post1" name="post1"  placeholder="post1" readonly=""></div>
 	
-		
-	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
+		 <div class="field halfs">-</div>
+	 <div class="field half">
+	<input type="tel" class="form-control" id="post2" name="post2" placeholder="post2" readonly=""></div>
+	 <div class="field half">
+	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기"></div>
 	<br>
 	<div class="field2">
 	<input type="text" name="addr1" id="addr1" size="40" readonly="" class="form-control"

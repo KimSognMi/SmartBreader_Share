@@ -92,58 +92,76 @@
 						<div class="field2">
 							<!-- <label for="username">이름</label>  -->
 								<h5>이름</h5>
-							<input type="text" class="form-control" name="username" id="username" placeholder="이름을 입력해 주세요">
+							<input type="text" class="form-control" name="p_name" id="p_name" placeholder="이름을 입력해 주세요">
 						</div>
-						<div class="field2">
-							<!-- <label for="InputEmail">이메일 주소(ID) - 인증필요</label> -->
-								<h5>ID(이메일 주소 : 인증필요) &nbsp; <span id="result"></span></h5>
-							 <input type="email"
-								class="form-control" name="userid" id="userid" placeholder="이메일 주소">
+						<br>
+						<div class="field half2">
+								<h5>나이</h5>
+							 <input type="text"
+								class="form-control" name="p_age" id="p_age" placeholder="나이">
 						</div>
 
-						<div class="field2 ">
-							<!-- <label for="InputPassword1">비밀번호</label>  -->
-							<h5>비밀번호</h5>
-							<input type="password"
-								class="form-control" name="passwd" id="passwd" placeholder="비밀번호">
-						</div>
-						<div class="field2 ">
+						<div class="row uniform">
+							<div class="field2_1">
+
+							<h5>성별</h5>
+							 <br>
+							 <div class="field half">
+							<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+                              	<label for="demo-priority-low">남(♂)</label>
+															</div>
+			             <div class="field halfs">
+							
+							<input type="radio" id="demo-priority-normal" name="demo-priority">
+						<label for="demo-priority-normal">여(♀)</label>
+					</div></div></div>
+						
+							
+							
+							
+							
+							
+						<div class="field3 ">
 							<!-- <label for="passwd2">비밀번호 확인</label> -->
-							<h5>비밀번호 확인 &nbsp;&nbsp; <span id="result2"></span></h5>
+							<h5>생일</span></h5>
 							 <input
-								type="password" class="form-control" name="passwd2" id="passwd2"
-								placeholder="비밀번호 확인">
-							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+								type="text" class="form-control" name="p_birth" id="p_birth"
+								placeholder="생일">
+							
 						</div>
 
 
                           <div class="field3">
 						<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
-							<h5>휴대폰 번호</h5>
-							<input type="tel"
-								class="form-control" id="phone" name="phone"  placeholder="- 없이 입력해 주세요">
+							<h5>종</h5>
+							<input type="text"
+								class="form-control" id="p_type" name="p_type"  placeholder="종">
 							</div>
 							
-							<!-- 다음주소 시작-->
-
-							<!-- <div class="post">
-						<input name="post1" id="post1" size="5" readonly=""> -
-	<input name="post2" id="post2" size="5" readonly="">
-	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
-	<br>
-	</div> -->
-							
+		
+		<div class="field2">
+		<h5>특징</h5>
+		<textarea name="demo-message" id="demo-message" placeholder="특징을 입력 해 주세요" rows="5"></textarea>
+		</div>
+		
+		<div class="field2">
+		<h5>사진</h5>
+		
+		</div>
+		
+		
 							 <div class="field3" >
-							 <!-- <label for="InputAddress">주소</label> -->
+						<!-- 	 <label for="InputAddress">주소</label> -->
 							 <h5>주소</h5>
 							 </div>
 							  <div class="field half2">
-	<input type="text" class="form-control" id="post1" name="post1" value="${login.post1}" readonly=""></div>
-	 <div class="field half">
-	- <input type="tel" class="form-control" id="post2" name="post2" value="${login.post2}" readonly=""></div>
+	<input type="text" class="form-control" id="post1" name="post1"  placeholder="post1" readonly=""></div>
 	
-		
-	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
+		 <div class="field halfs">-</div>
+	 <div class="field half">
+	<input type="tel" class="form-control" id="post2" name="post2" placeholder="post2" readonly=""></div>
+	 <div class="field half">
+	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기"></div>
 	<br>
 	<div class="field2">
 	<input type="text" name="addr1" id="addr1" size="40" readonly="" class="form-control"
@@ -260,4 +278,8 @@
  
 
 </body>
-</html>
+</html>										</div>
+															
+															
+															
+													
