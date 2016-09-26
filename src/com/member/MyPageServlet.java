@@ -21,7 +21,7 @@ import com.service.MemberService;
 public class MyPageServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println();
 		HttpSession session = request.getSession();
 		MemberDTO dto = 
 				(MemberDTO)session.getAttribute("login");
@@ -34,6 +34,7 @@ public class MyPageServlet extends HttpServlet {
 			MemberService service = new MemberService();
 			try {
 				MemberDTO my = service.mypage(userid);
+				System.out.println(">>>>>>"+my);
 				request.setAttribute("mypage", my);
 			} catch (CommonException e) {
 				title= e.getMessage();

@@ -29,7 +29,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <update id="update" parameterType="BoardDTO">
       update myboard 
       set title=#{title}, 
-          author=#{author}, 
           content=#{content}
       where num = #{num}
     </update>

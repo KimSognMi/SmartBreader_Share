@@ -43,7 +43,7 @@ public class MemberDeleteServlet extends HttpServlet {
 		} catch (CommonException e) {
 			title= e.getMessage();
 			String link="MemberFormServlet";
-			target="error.jsp";
+			target="error.jsp"; 
 			request.setAttribute("title", title);
 			request.setAttribute("link", link);
 		}

@@ -112,8 +112,8 @@
 							<h5>비밀번호 확인 &nbsp;&nbsp; <span id="result2"></span></h5>
 							 <input
 								type="password" class="form-control" name="passwd2" id="passwd2"
-								placeholder="비밀번호 확인">
-							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+								placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요">
+							<!-- <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p> -->
 						</div>
 
 						<!-- <div class="field2 ">
@@ -192,7 +192,7 @@
 						</div> -->
 
                           <div class="field3">
-							<label for="InputPhone">휴대폰 번호</label>
+						<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
 							<h5>휴대폰 번호</h5>
 							<input type="tel"
 								class="form-control" id="phone" name="phone"  placeholder="- 없이 입력해 주세요">
@@ -213,11 +213,14 @@
 							 </div>
 							  <div class="field half2">
 	<input type="text" class="form-control" id="post1" name="post1"  placeholder="post1" readonly=""></div>
-	 <div class="field half">
-	- <input type="tel" class="form-control" id="post2" name="post2" placeholder="post2" readonly=""></div>
 	
+		 <div class="field halfs">-</div>
+	 <div class="field half">
+	<input type="tel" class="form-control" id="post2" name="post2" placeholder="post2" readonly=""></div>
+	 <div class="field half">
+	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기"></div>
 		
-	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기">
+	<!-- <input onclick="openDaumPostcode()" type="button" value="우편번호찾기"> -->
 	<br>
 	<div class="field2">
 	<input type="text" name="addr1" id="addr1" size="40" readonly="" class="form-control"
@@ -226,7 +229,7 @@
 	<span style="line-height: 10%;"></span>
 	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="상세주소">
 	</div>
-	
+	<br>
 <!-- 다음주소 끝 -->
 							
 							
@@ -261,6 +264,7 @@
               <a href="#">이용약관</a>에 동의합니다.
               </div>
             </div> -->
+						 <center>
 						 <div class=" text-center">
 						
 							<!-- <button type="submit" class="btn btn-info">
@@ -270,7 +274,8 @@
 							<button type="reset" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
 						
 						</div>
-						
+						</center>
+						<br>
 			</form>		
 			</div>
 
