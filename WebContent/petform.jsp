@@ -6,16 +6,6 @@
 <head>
 <title>SMART BREADER</title>
 
-<style type="text/css">
-
-   .blue{
-     color:blue;
-   }
-   .red{
-     color:red;
-   }
-</style>
-
 <script type="text/javascript" src="assets/js/jquery-3.1.0.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=" utf-8" />
 
@@ -27,8 +17,6 @@
 <link rel="stylesheet" href="assets/css/joinstyle.css" media="screen"
 	title="no title" charset="utf-8">
 	
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="assets/js/daum.js"></script>
 </head>
 <body>
 
@@ -88,7 +76,15 @@
 				<!-- <article class="container"> -->
 				<div class="col-md-6 col-md-offset-3">
 					
-					<form action="" >
+					<form action="PetAddServlet" >
+					<div class="field2">
+					<h5>회원코드</h5>
+							<input type="text" class="form-control" name="m_num" id="m_num" readonly="readonly" value="${login.m_num}">
+					</div>
+					<div class="field2">
+					<h5>kkc 등록번호</h5>
+							<input type="text" class="form-control" name="p_kkcnumber" id="p_kkcnumber" placeholder="입력해 주세요">
+					</div>
 						<div class="field2">
 							<!-- <label for="username">이름</label>  -->
 								<h5>이름</h5>
@@ -150,31 +146,11 @@
 		</div>
 		
 		
-							 <div class="field3" >
-						<!-- 	 <label for="InputAddress">주소</label> -->
-							 <h5>주소</h5>
-							 </div>
-							  <div class="field half2">
-	<input type="text" class="form-control" id="post1" name="post1"  placeholder="post1" readonly=""></div>
-	
-		 <div class="field halfs">-</div>
-	 <div class="field half">
-	<input type="tel" class="form-control" id="post2" name="post2" placeholder="post2" readonly=""></div>
-	 <div class="field half">
-	<input onclick="openDaumPostcode()" type="button" value="우편번호찾기"></div>
-	<br>
-	<div class="field2">
-	<input type="text" name="addr1" id="addr1" size="40" readonly="" class="form-control"
-		placeholder="도로명주소" value="${login.addr1}">
-	<br>
-	<span style="line-height: 10%;"></span>
-	<input type="text" class="form-control" name="addr2" id="addr2" size="40" placeholder="상세주소" value="${login.addr2}">
-	</div>
-		<br>
+							 
 		<center>
 						  <div class="form-group text-center">
-              <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
-              &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+            <input type="submit" value="등록">
+              &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-warning">취소<i class="fa fa-times spaceLeft"></i></button>
             </div>
             </center>
             <br>
@@ -187,45 +163,35 @@
 
    $(document).ready(function(){
 	  
-	    $("#passwd2").on("keyup", function(event){
-		 $("#result2").removeClass();
-		   var p = $("#passwd").val();
-		   var p2 = $("#passwd2").val();
-		   if(p == p2){
-			   $("#result2").text("일치").addClass("blue");
-		   }else{
-			   $("#result2").text("불일치").addClass("red");
-		   }
-	   }); 
 	   
 	
 	   
 	   $("form").on("submit", function(event){
 		   
-		    var userid = $("#userid").val();
-		    if(userid == ''){
-		    	alert("아이디를 입력하세요");
+		    var p_kkcnumber = $("#p_kkcnumber").val();
+		    if(p_kkcnumber == ''){
+		    	alert("kkc 등록번호를 입력하세요");
 		    	return false;
-		    }else if($("#passwd").val() == ''){
-		    	alert("비밀번호를 입력하세요");
-		    	return false;
-		    }else if($("#username").val() == ''){
+		    }else if($("#p_name").val() == ''){
 		    	alert("이름을 입력하세요");
 		    	return false;
-		    }else if($("#phone").val() == ''){
-		    	alert("전화번호를 입력하세요");
+		    }else if($("#p_age").val() == ''){
+		    	alert("나이을 입력하세요");
 		    	return false;
-		    }else if($("#post1").val() == ''){
-		    	alert("우편번호를 입력하세요");
+		    }else if($("#p_gender").val() == ''){
+		    	alert("성별을 선택하세요");
 		    	return false;
-		    }else if($("#post2").val() == ''){
-		    	alert("우편번호를 입력하세요");
+		    }else if($("#p_birth").val() == ''){
+		    	alert("생일을 입력하세요");
 		    	return false;
-		    }else if($("#addr2").val() == ''){
-		    	alert("주소를 입력하세요");
+		    }else if($("#p_type").val() == ''){
+		    	alert("종을 입력하세요");
 		    	return false;
-		    }else if($("#addr1").val() == ''){
-		    	alert("주소를 입력하세요");
+		    }else if($("#p_feature").val() == ''){
+		    	alert("특징을 입력하세요");
+		    	return false;
+		    }else if($("#p_photo").val() == ''){
+		    	alert("사진을 등록하세요");
 		    	return false;
 		    }else{
 		    	//성공
