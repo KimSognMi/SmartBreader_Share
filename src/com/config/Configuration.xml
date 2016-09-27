@@ -14,6 +14,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   <typeAliases>
    <typeAlias type="com.dto.MemberDTO" alias="MemberDTO"/>
    <typeAlias type="com.dto.BoardDTO" alias="BoardDTO"/>
+   <typeAlias type="com.dto.CommentDTO" alias="CommentDTO"/>
 
   </typeAliases>
   
@@ -34,6 +35,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="com/config/MemberMapper.xml" />
 		<mapper resource="com/config/BoardMapper.xml" />
+		<mapper resource="com/config/CommentMapper.xml" />
 
 	</mappers>
 </configuration>

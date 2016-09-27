@@ -104,7 +104,7 @@
 
 			<a href="BoardWriteUIServlet">글쓰기 화면</a>
 
-			
+
 			<div class="table-wrapper">
 				<table>
 
@@ -143,8 +143,8 @@
 					<%
 						} //end for
 					%> --%>
-					
-					
+
+
 						<tr>
 							<c:set var="ppp" value="${page}" />
 
@@ -158,7 +158,23 @@
 							<td>${xxx.readcnt}</td>
 
 						</tr>
+
 						</c:forEach>
+						<tr>
+							<td colspan="5">
+							<td>${xxx.curPage}</td>
+							<td>${xxx.perPage}</td>
+							<td>${xxx.totalRecord}</td>
+							<td>${xxx.totalCount}</td>
+							
+							<c:if test="${xxx.totalRecord%xxx.perPage !=0}">
+							
+							</c:if>
+							
+							
+						
+							
+						</tr>
 
 					</tbody>
 

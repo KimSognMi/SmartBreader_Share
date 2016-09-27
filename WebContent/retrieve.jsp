@@ -127,6 +127,9 @@ h1 {
 	function deleteBoard(f) {
 		f.action = "BoardDeleteServlet";
 	}
+	function writeBoard(f) {
+		f.action = "CommentWriteServlet";
+	}
 </script>
 		</head>
 		<body>
@@ -196,7 +199,72 @@ h1 {
 					</div>
 				</c:if>
 			</form>
+		<!-- 좌우측의 공간 확보 -->
+	<div class="container">
+		<hr />
+		<div class="row">
+			<div class="col-md-10">
+		
+				<table class="table table-condensed">
+					<thead>
 
+
+						<tr>
+							<c:set var="ppp" value="${page}" />
+
+							<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+						</tr>
+						<tr id="r1" name="commentParentCode">
+							<td colspan=2>${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
+
+								${xxx.commentParentPassword} ${xxx.commentwriteday}<a
+								href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
+								style="cursor: pointer;">수정</a> | <a
+								href="CommentDeleteServlet?commentNum=${xxx.commentNum}"
+								style="cursor: pointer;">삭제</a>
+						</tr>
+						<tr>
+							<td>${xxx.commentParentText}</td>
+						</tr>
+						<tr>
+							<span id="result"></span>
+						</tr>
+						</c:forEach>
+					</thead>
+					<tbody>
+
+
+					</tbody>
+
+
+				</table>
+				<table class="table table-condensed">
+					<form method="post" name="myForm2">
+					<input type="hidden" name="num" value="${retrieve.num}">
+						<tr>
+							<td><span class="form-inline" role="form">
+									<p>
+
+										<input type="text" id="commentParentName"
+											name="commentParentName" class="form-control col-lg-2"
+											data-rule-required="true" placeholder="이름" maxlength="10">
+
+
+										<input type="password" id="commentParentPassword"
+											name="commentParentPassword" class="form-control col-lg-2"
+											data-rule-required="true" placeholder="패스워드" maxlength="10">
+										
+										<button onclick="writeBoard(myForm2)" id="commentParentSubmit"
+											name="commentParentSubmit">확인</button>
+									
+
+									</p> <textarea id="commentParentText" name="commentParentText"
+										class="form-control col-lg-12" style="width: 100%" rows="4"></textarea>
+
+							</span></td>
+						</tr>
+					</form>
+				</table>
 
 
 

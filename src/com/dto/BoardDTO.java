@@ -8,11 +8,7 @@ public class BoardDTO {
 	private String content;
 	private String writeday;
 	private int readcnt;
-	
-	
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return "BoardDTO [num=" + num + ", title=" + title + ", author=" + author + ", content=" + content

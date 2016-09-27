@@ -10,42 +10,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.BoardService;
-import com.service.CommentService;
-import com.dto.BoardDTO;
 import com.dto.CommentPageDTO;
+import com.service.CommentService;
+
+
 
 /**
  * Servlet implementation class BoardListServlet
  */
-@WebServlet("/BoardRetrieveServlet")
-public class BoardRetrieveServlet extends HttpServlet {
+@WebServlet("/CommentListServlet")
+public class CommentListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String num = request.getParameter("num");
-		BoardService service = new BoardService();
-		
-		BoardDTO dto = service.retrieve(num);
-		
-		request.setAttribute("retrieve", dto);
-		
 		String curPage = request.getParameter("curPage");
-		if(curPage==null){
-			curPage="1";
+		if(curPage == null){
+			curPage = "1";
 		}
 		
-
-		CommentService service2 = new CommentService();
-		CommentPageDTO dto2 = 
-				service2.page(Integer.parseInt(curPage));
 		
-		request.setAttribute("page", dto2);
+		CommentService service = new CommentService();
+		CommentPageDTO dto = 
+				service.page(Integer.parseInt(curPage));
 		
-		RequestDispatcher dis =
-		request.getRequestDispatcher("retrieve.jsp");
+		request.setAttribute("page", dto);
+		
+		
+		
+		RequestDispatcher dis = 
+				request.getRequestDispatcher("retrieve.jsp");
 		dis.forward(request, response);
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
