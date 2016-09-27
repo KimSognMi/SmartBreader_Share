@@ -22,25 +22,27 @@ public class CommentWriteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("CommentWriteServlet");
 		request.setCharacterEncoding("UTF-8");
-		
+	
 		String commentParentName = request.getParameter("commentParentName");
 		String commentParentPassword = request.getParameter("commentParentPassword");
 		String commentParentText = request.getParameter("commentParentText");
 		
-	
+		
 		System.out.println(commentParentName);
 		System.out.println(commentParentPassword);
 		System.out.println(commentParentText);
 
 		CommentDTO dto = new CommentDTO();
 		
+
 		dto.setCommentParentName(commentParentName);
 		dto.setCommentParentPassword(Integer.parseInt(commentParentPassword));
 		dto.setCommentParentText(commentParentText);
 
 		CommentService service = new CommentService();
-	
+		service.write(dto);
 
 		System.out.println(dto);
 

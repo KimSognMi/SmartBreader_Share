@@ -210,12 +210,14 @@ h1 {
 
 
 						<tr>
+						<c:set var="retrieve2" value="${retrieve2}" scope="session"/>
 						<c:set var="retrieve" value="${retrieve}" scope="session"/>
 							<c:set var="ppp" value="${page}" scope="session"/>
 
 							<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
 						</tr>
 						<tr id="r1" name="commentParentCode">
+						
 							<td colspan=2>${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
 
 								${xxx.commentParentPassword} ${xxx.commentwriteday}<a
@@ -241,7 +243,8 @@ h1 {
 				</table>
 				<table class="table table-condensed">
 					<form method="post" name="myForm2">
-					<input type="hidden" name="num" value="${retrieve.num}">
+					
+					<input type="hidden" name="commentNum" value="${retrieve2.commentNum}">
 						<tr>
 							<td><span class="form-inline" role="form">
 									<p>

@@ -245,6 +245,8 @@ h1 {
 				<table class="table table-condensed">
 					<form method="post" name="myForm2">
 					<input type="hidden" name="commentNum" value="${retrieve2.commentNum}">
+					<input type="hidden" name="commentwriteday" value="${retrieve2.commentwriteday}">
+					
 						<tr>
 							<td><span class="form-inline" role="form">
 									<p>
