@@ -29,11 +29,11 @@ public class CommentRetrieveServlet extends HttpServlet {
 		
 		CommentDTO dto = service.retrieve(commentNum);
 		
-		request.setAttribute("retrieve", dto);
+		request.setAttribute("retrieve2", dto);
 		
 		System.out.println(dto);
 		RequestDispatcher dis =
-		request.getRequestDispatcher("test2.jsp");
+		request.getRequestDispatcher("retrieve2.jsp");
 		dis.forward(request, response);
 		
 	}

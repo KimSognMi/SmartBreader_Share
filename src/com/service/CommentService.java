@@ -94,10 +94,12 @@ public class CommentService {
 	// 글자세히 보기
 	public CommentDTO retrieve(String commentNum) {
 
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("xxx", Integer.parseInt(commentNum));
 		SqlSession session = MySqlSessionFactory.getSession();
 		CommentDTO dto = null;
 		try {
-			dto = session.selectOne("coretrieve", Integer.parseInt(commentNum));
+			dto = session.selectOne("coretrieve", map);
 		} finally {
 			session.close();
 		}

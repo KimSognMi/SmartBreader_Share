@@ -40,7 +40,7 @@ public class CommentWriteServlet extends HttpServlet {
 		dto.setCommentParentText(commentParentText);
 
 		CommentService service = new CommentService();
-		service.write(dto);
+	
 
 		System.out.println(dto);
 

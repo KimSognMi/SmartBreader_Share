@@ -22,7 +22,7 @@ public class CommentUpdateServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("BoardUpdateServlet");
+		System.out.println("CommentUpdateServlet");
 		request.setCharacterEncoding("UTF-8");
 		String commentNum = request.getParameter("commentNum");
 		String commentParentName = request.getParameter("commentParentName");
@@ -34,6 +34,7 @@ public class CommentUpdateServlet extends HttpServlet {
 		System.out.println(commentParentName);
 		System.out.println(commentParentPassword);
 		System.out.println(commentParentText);
+		System.out.println(commentwriteday);
 
 		CommentDTO dto = new CommentDTO();
 		dto.setCommentNum(Integer.parseInt(commentNum));
@@ -42,7 +43,7 @@ public class CommentUpdateServlet extends HttpServlet {
 		dto.setCommentParentText(commentParentText);
 		dto.setCommentwriteday(commentwriteday);
 		
-		System.out.println(dto);
+		
 		
 		CommentService service = new CommentService();
 		service.update(dto);

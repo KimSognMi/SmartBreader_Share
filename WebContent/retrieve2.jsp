@@ -127,8 +127,11 @@ h1 {
 	function deleteBoard(f) {
 		f.action = "BoardDeleteServlet";
 	}
-	function writeBoard(f) {
+	function CommentwriteBoard(f) {
 		f.action = "CommentWriteServlet";
+	}
+	function CommentUpdateBoard(f) {
+		f.action = "CommentUpdateServlet";
 	}
 </script>
 		</head>
@@ -210,7 +213,7 @@ h1 {
 
 
 						<tr>
-						<c:set var="retrieve" value="${retrieve}" scope="session"/>
+						<c:set var="retrieve2" value="${retrieve2}" scope="session"/>
 							<c:set var="ppp" value="${page}" scope="session"/>
 
 							<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
@@ -241,26 +244,26 @@ h1 {
 				</table>
 				<table class="table table-condensed">
 					<form method="post" name="myForm2">
-					<input type="hidden" name="num" value="${retrieve.num}">
+					<input type="hidden" name="commentNum" value="${retrieve2.commentNum}">
 						<tr>
 							<td><span class="form-inline" role="form">
 									<p>
 
 										<input type="text" id="commentParentName"
 											name="commentParentName" class="form-control inputTitle"
-											data-rule-required="true" placeholder="이름" maxlength="10">
+											data-rule-required="true" placeholder="이름" maxlength="10" value="${retrieve2.commentParentName}">
 
 
 										<input type="password" id="commentParentPassword"
 											name="commentParentPassword" class="form-control inputTitle"
 											data-rule-required="true" placeholder="패스워드" maxlength="10">
 										
-										<button onclick="writeBoard(myForm2)" id="commentParentSubmit"
-											name="commentParentSubmit">확인</button>
+										<button onclick="CommentUpdateBoard(myForm2)" id="commentParentSubmit"
+											name="commentParentSubmit">수정</button>
 									
 
 									</p> <textarea id="commentParentText" name="commentParentText"
-										class="form-control col-lg-12" style="width: 100%" rows="4"></textarea>
+										class="form-control col-lg-12" style="width: 100%" rows="4">${retrieve2.commentParentText}</textarea>
 
 							</span></td>
 						</tr>
