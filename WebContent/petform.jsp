@@ -105,13 +105,13 @@
 							<h5>성별</h5>
 							 <br>
 							 <div class="field half">
-							<input type="radio" id="m" name="p_gender" checked>
-                              	<label for="m">남(♂)</label>
+							<input type="radio" id="남" name="p_gender" value="남" checked>
+                              	<label for="남">남(♂)</label>
 															</div>
 			             <div class="field halfs">
 							
-							<input type="radio" id="w" name="p_gender">
-						<label for="w">여(♀)</label>
+							<input type="radio" id="여" name="p_gender" value="여">
+						<label for="여">여(♀)</label>
 					</div></div></div>
 						
 						

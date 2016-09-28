@@ -103,7 +103,8 @@ public class PetAddServlet extends HttpServlet {
 			          FileItem fi = itr.next();
 
 			          if( !fi.isFormField() ) { // input type="file" 인 경우
-			        	  fileName = fi.getName();
+			        	 String p_photo = fi.getName();
+			        	 dto.setP_photo(p_photo);
 			            System.out.println("\nNAME: "+fi.getName());
 			            System.out.println("SIZE: "+fi.getSize());
 			           
@@ -150,6 +151,8 @@ public class PetAddServlet extends HttpServlet {
 			          }
 			        }//end while
 				
+			        System.out.println(dto);
+			        
 			        PetService service = new PetService();
 				    String title="";
 				    String target="";
