@@ -10,6 +10,10 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<!-- -----롯통 멘토
+---한국정보기술연구원
+전화해서 교육과정 상담와하하하하하하핳 -->
+
 <style>
 .map_wrap, .map_wrap * {
 	margin: 0;
@@ -196,6 +200,12 @@
 	cursor: default;
 	color: #777;
 }
+
+#dog {
+	color: #fff;
+	width: 200px;
+	font-size: 70%;
+}
 </style>
 <head>
 <title>Near Me Dog</title>
@@ -234,6 +244,7 @@
 				<li><a href="about.jsp">ABOUT US</a></li>
 				<li><a href="generic.jsp">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
@@ -248,6 +259,7 @@
 				<li><a href="about.jsp">ABOUT US</a></li>
 				<li><a href="generic.jsp">BOARD</a></li>
 				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
@@ -266,12 +278,12 @@
 				<span class="image"> <img src="images/jj.jpg" alt="" />
 				</span>
 				<header class="major">
-					<h1>Near Me Now</h1>
+					<h1>Near Me Dog</h1>
 				</header>
 				<div class="content">
-					<p>근처의 편의시설을 찾아보세요</p>
+					<p>반려견의 짝을 찾아보세요</p>
 					<ul class="actions">
-						<li><a href="#four" class="button next scrolly">Get
+						<li><a href="#five" class="button next scrolly">Get
 								Started</a></li>
 					</ul>
 				</div>
@@ -281,15 +293,59 @@
 		<div id="main" class="alt">
 
 			<!-- One -->
-			<section id="four">
+			<section id="five">
 				<div class="inner">
 					<header class="major">
-						<h1>Near Me Now</h1>
+						<h1>Near Me Dog</h1>
 					</header>
 
 					<!-- Content -->
-					<h2 id="content">편의시설을 검색하세요</h2>
-					<div class="map_wrap">
+					<h2 id="content">근처 반려견을 검색하세요</h2>
+					<div class="4u 12u$(small)">
+						<input type="radio" id="demo-priority-low" name="demo-priority"
+							checked> <label for="demo-priority-low">남</label>
+					</div>
+					<div class="4u 12u$(small)">
+						<input type="radio" id="demo-priority-normal" name="demo-priority">
+						<label for="demo-priority-normal">여</label>
+					</div>
+					<div id="selectdog">
+						<select id="dog">
+							<option>말티즈</option>
+							<option>슈나우저</option>
+							<option>푸들</option>
+							<option>토이푸들</option>
+							<option>차우차우</option>
+							<option>달마시안</option>
+							<option>그레이하운드</option>
+							<option>콜리</option>
+							<option>셰퍼드</option>
+							<option>세인트버나드</option>
+							<option>그레이트데인</option>
+							<option>기타</option>
+						</select>
+					</div>
+					<h5>주소</h5>
+				</div>
+				<div class="field half2">
+					<input type="text" class="form-control" id="post1" name="post1"
+						placeholder="post1" readonly="" value="${mypage.post1}">
+				</div>
+
+				<div class="field halfs">-</div>
+				<div class="field half">
+					<input type="tel" class="form-control" id="post2" name="post2"
+						placeholder="post2" readonly="" value="${mypage.post2}">
+				</div>
+				<br>
+				<div class="field2">
+					<input type="text" name="addr1" id="addr1" size="40" readonly=""
+						class="form-control" placeholder="도로명주소" value="${mypage.addr1}">
+					<br> <span style="line-height: 10%;"></span> <input
+						type="text" class="form-control" name="addr2" id="addr2" size="40"
+						placeholder="상세주소" value="${mypage.addr2}">
+				</div>
+				<!-- <div class="map_wrap">
 						<div id="map"
 							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 
@@ -304,8 +360,8 @@
 										<input type="button" id="keyword3" value="공원"
 											onclick="searchPlaces(this)"> <input type="button"
 											id="keyword4" value="테마파크" onclick="searchPlaces(this)">
-										<!-- 키워드 : <input type="text" id="keyword"  size="15"> 
-                    <button type="submit">검색하기</button>  -->
+										키워드 : <input type="text" id="keyword"  size="15"> 
+                    <button type="submit">검색하기</button> 
 									</form>
 								</div>
 							</div>
@@ -630,41 +686,40 @@
 									}
 								}
 							</script>
+ -->
 
-							
 
-							<!-- Footer -->
-							<footer id="footer">
-								<div class="inner">
-									<ul class="icons">
-										<li><a href="#" class="icon alt fa-twitter"><span
-												class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon alt fa-facebook"><span
-												class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon alt fa-instagram"><span
-												class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon alt fa-github"><span
-												class="label">GitHub</span></a></li>
-										<li><a href="#" class="icon alt fa-linkedin"><span
-												class="label">LinkedIn</span></a></li>
-									</ul>
-									<ul class="copyright">
-										<li>&copy; Untitled</li>
-										<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="#" class="icon alt fa-twitter"><span
+									class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon alt fa-facebook"><span
+									class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon alt fa-instagram"><span
+									class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon alt fa-github"><span
+									class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon alt fa-linkedin"><span
+									class="label">LinkedIn</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li>
+							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 
-									</ul>
-								</div>
-							</footer>
+						</ul>
+					</div>
+				</footer>
+		</div>
 
-						</div>
-
-						<!-- Scripts -->
-						<script src="assets/js/jquery.min.js"></script>
-						<script src="assets/js/jquery.scrolly.min.js"></script>
-						<script src="assets/js/jquery.scrollex.min.js"></script>
-						<script src="assets/js/skel.min.js"></script>
-						<script src="assets/js/util.js"></script>
-						<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-						<script src="assets/js/main.js"></script>
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
 </body>
 </html>
