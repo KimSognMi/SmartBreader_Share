@@ -78,7 +78,7 @@
 			<li><a href="petform.jsp" class="button fit">My PET Page</a></li>
 				<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
-			</ul>
+			</ul>             
 			
 			
 			
