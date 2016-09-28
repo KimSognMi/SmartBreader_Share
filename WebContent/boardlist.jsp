@@ -95,43 +95,38 @@
 		</section>
 
 
-		<!-- Table -->
-		<div id="content">
+		<div id="main">
+			<!-- Table -->
 
-			<h3>게시판 시작</h3>
+			<section id="three" class="style3">
+				<div class="inner">
 
-			<h4>Default</h4>
+					<h2 id="content">Sample Content</h2>
+					<div class="content">
 
-			<a href="BoardWriteUIServlet">글쓰기 화면</a>
+						<p>
+						<h3>Text</h3>
+
+						<a href="BoardWriteUIServlet">글쓰기 화면</a>
 
 
-			<div class="table-wrapper">
-				
+						<div class="table-wrapper">
 
-				<table border="1">
-					<tr>
-						<td colspan="5">
-							<form action="BoardSearchServlet" method="get">
-								<select name="searchName">
-									<option value="title">제목</option>
-									<option value="author">작성자</option>
-								</select> <input type="text" name="searchValue">
-								<button>검색</button>
-							</form>
-						</td>
-					</tr>
 
-					
-						<tr>
-							<th>글번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
-							<th>조회수</th>
-						</tr>
-				
-					<tbody>
-						<%-- <tr>
+							<table border="1">
+
+
+
+								<tr>
+									<th>글번호</th>
+									<th>제목</th>
+									<th>작성자</th>
+									<th>작성일</th>
+									<th>조회수</th>
+								</tr>
+
+								<tbody>
+									<%-- <tr>
 						<%
 							PageDTO pageDTO = (PageDTO) request.getAttribute("page");
 
@@ -157,80 +152,117 @@
 					%> --%>
 
 
+									<tr>
+										<c:set var="ppp" value="${page}" />
+
+										<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+									</tr>
+									<tr>
+										<td>${xxx.num}</td>
+										<td><a href="BoardRetrieveServlet?num=${xxx.num}">${xxx.title}</td>
+										<td>${xxx.author}</td>
+										<td>${xxx.writeday}</td>
+										<td>${xxx.readcnt}</td>
+
+									</tr>
+
+									</c:forEach>
+									<tr>
+										<td colspan="5">
+											<%
+												PageDTO pageDTO = (PageDTO) request.getAttribute("page");
+												int curPage = pageDTO.getCurPage();
+												int perPage = pageDTO.getPerPage();
+												int totalRecord = pageDTO.getTotalRecord();
+
+												int totalCount = totalRecord / perPage;
+												if (totalRecord % perPage != 0)
+													totalCount++;
+
+												for (int i = 1; i <= totalCount; i++) {
+
+													if (curPage == i) {
+														out.print(i + "&nbsp;");
+													} else {
+														out.print("<a href='BoardListServlet?curPage=" + i + "'>" + i + "</a>&nbsp;");
+													}
+
+												}
+											%>
+
+
+
+
+										</td>
+									</tr>
+
+								</tbody>
+
+
+							</table>
+						</div>
+
 						<tr>
-							<c:set var="ppp" value="${page}" />
 
-							<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+
+							<form action="BoardSearchServlet" method="get">
+
+								<ul class="actions">
+									<li><div class="field half">
+										<div class="6u 12u$(medium)">
+											<div class="select-wrapper">
+												<select name="searchName">
+													<option value="title">제목</option>
+													<option value="author">작성자</option>
+												</select>
+											</div>
+										</div>
+									</div></li>
+
+									<li><div class="field half">
+										<div class="input-txt">
+											<input type="text" name="searchValue">
+										</div>
+									</div></li>
+									<li><div class="field half">
+										<button>검색</button>
+									</div></li>
+								</ul>
+							</form>
+
 						</tr>
-						<tr>
-							<td>${xxx.num}</td>
-							<td><a href="BoardRetrieveServlet?num=${xxx.num}">${xxx.title}</td>
-							<td>${xxx.author}</td>
-							<td>${xxx.writeday}</td>
-							<td>${xxx.readcnt}</td>
-
-						</tr>
-
-						</c:forEach>
-						<tr>
-							<td colspan="5">
-								<%
-									PageDTO pageDTO = (PageDTO) request.getAttribute("page");
-									int curPage = pageDTO.getCurPage();
-									int perPage = pageDTO.getPerPage();
-									int totalRecord = pageDTO.getTotalRecord();
-
-									int totalCount = totalRecord / perPage;
-									if (totalRecord % perPage != 0)
-										totalCount++;
-
-									for (int i = 1; i <= totalCount; i++) {
-
-										if (curPage == i) {
-											out.print(i + "&nbsp;");
-										} else {
-											out.print("<a href='BoardListServlet?curPage=" + i + "'>" + i + "</a>&nbsp;");
-										}
-
-									}
-								%>
-
-
-
-
-							</td>
-						</tr>
-
-					</tbody>
-
 					</div>
-				</table>
-			</div>
+					</p>
 
+				</div>
+
+
+
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span
+								class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span
+								class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span
+								class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span
+								class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span
+								class="label">LinkedIn</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li>
+						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+					</ul>
+				</div>
+			</footer>
 		</div>
-
-		<!-- Footer -->
-		<footer id="footer">
-			<div class="inner">
-				<ul class="icons">
-					<li><a href="#" class="icon alt fa-twitter"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon alt fa-facebook"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon alt fa-github"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon alt fa-linkedin"><span
-							class="label">LinkedIn</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-
-				</ul>
-			</div>
-		</footer>
 
 	</div>
 
