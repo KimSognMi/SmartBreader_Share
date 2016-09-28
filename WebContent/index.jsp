@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 
 <html>
-<head>
+<head> 
 <title>SMART BREADER</title>
 <meta http-equiv="Content-Type" content="text/html; charset=" utf-8" />
 <meta name="viewport"

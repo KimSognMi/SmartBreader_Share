@@ -76,7 +76,9 @@
 				<!-- <article class="container"> -->
 				<div class="col-md-6 col-md-offset-3">
 					
-					<form action="PetAddServlet" >
+					<form action="PetAddServlet" method="post" enctype="multipart/form-data">
+					
+				<!-- 	<form action="UploadServlet" method="post" > -->
 					<div class="field2">
 					<h5>회원코드</h5>
 							<input type="text" class="form-control" name="m_num" id="m_num" readonly="readonly" value="${login.m_num}">
@@ -103,19 +105,16 @@
 							<h5>성별</h5>
 							 <br>
 							 <div class="field half">
-							<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-                              	<label for="demo-priority-low">남(♂)</label>
+							<input type="radio" id="m" name="p_gender" checked>
+                              	<label for="m">남(♂)</label>
 															</div>
 			             <div class="field halfs">
 							
-							<input type="radio" id="demo-priority-normal" name="demo-priority">
-						<label for="demo-priority-normal">여(♀)</label>
+							<input type="radio" id="w" name="p_gender">
+						<label for="w">여(♀)</label>
 					</div></div></div>
 						
-							
-							
-							
-							
+						
 							
 						<div class="field3 ">
 							<!-- <label for="passwd2">비밀번호 확인</label> -->
@@ -137,21 +136,23 @@
 		
 		<div class="field2">
 		<h5>특징</h5>
-		<textarea name="demo-message" id="demo-message" placeholder="특징을 입력 해 주세요" rows="5"></textarea>
+		<textarea name="p_feature" id="p_feature" placeholder="특징을 입력 해 주세요" rows="5"></textarea>
 		</div>
 		
 		<div class="field2">
 		<h5>사진</h5>
 		
+
+ 		<input type="file" name="theFile">
+ 		<!-- <input type="submit" value="upload"> -->
+
 		</div>
 		
-		
+		<br>
 							 
 		<center>
-						  <div class="form-group text-center">
             <input type="submit" value="등록">
               &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-warning">취소<i class="fa fa-times spaceLeft"></i></button>
-            </div>
             </center>
             <br>
 			</form>		
@@ -163,11 +164,7 @@
 
    $(document).ready(function(){
 	  
-	   
-	
-	   
 	   $("form").on("submit", function(event){
-		   
 		    var p_kkcnumber = $("#p_kkcnumber").val();
 		    if(p_kkcnumber == ''){
 		    	alert("kkc 등록번호를 입력하세요");
@@ -237,9 +234,7 @@
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
-<!--   <script src="js/bootstrap.min.js"></script> -->
 
  
 
