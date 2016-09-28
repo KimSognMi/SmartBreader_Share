@@ -80,7 +80,7 @@
 					
 				<!-- 	<form action="UploadServlet" method="post" > -->
 					
-							<input type="hidden" class="form-control" name="p_num" id="p_num" readonly="readonly" value="${login.p_num}">
+							
 					
 					<div class="field2">
 					<h5>kkc 등록번호</h5>
