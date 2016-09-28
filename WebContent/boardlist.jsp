@@ -96,7 +96,7 @@
 
 
 		<!-- Table -->
-		<div id="main">
+		<div id="content">
 
 			<h3>게시판 시작</h3>
 
@@ -106,10 +106,22 @@
 
 
 			<div class="table-wrapper">
-				<table>
+				
 
+				<table border="1">
+					<tr>
+						<td colspan="5">
+							<form action="BoardSearchServlet" method="get">
+								<select name="searchName">
+									<option value="title">제목</option>
+									<option value="author">작성자</option>
+								</select> <input type="text" name="searchValue">
+								<button>검색</button>
+							</form>
+						</td>
+					</tr>
 
-					<thead>
+					
 						<tr>
 							<th>글번호</th>
 							<th>제목</th>
@@ -117,7 +129,7 @@
 							<th>작성일</th>
 							<th>조회수</th>
 						</tr>
-					</thead>
+				
 					<tbody>
 						<%-- <tr>
 						<%
@@ -191,6 +203,7 @@
 
 					</tbody>
 
+					</div>
 				</table>
 			</div>
 

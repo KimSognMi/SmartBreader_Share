@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/FileDown")
+@WebServlet("/FileDownServlet")
 public class FileDownServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {

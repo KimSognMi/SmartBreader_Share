@@ -54,20 +54,26 @@ public class BoardService {
 	
 	
 	
-	
-	//검색하기
-	public List<BoardDTO>
-	       search(HashMap<String, String> map){
+	public PageDTO search(int curPage, HashMap<String, String> map) {
+		PageDTO dto = new PageDTO();
 		List<BoardDTO> list = null;
-		SqlSession session = 
-				MySqlSessionFactory.getSession();
-		try{
-		  list = session.selectList("search", map);
-		}finally {
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			int count = dto.getPerPage();
+			int skip = (curPage - 1) * count;
+			list = session.selectList("search", map, new RowBounds(skip, count));
+			for (BoardDTO boardDTO : list) {
+				System.out.println(boardDTO);
+			}
+			} finally {
 			session.close();
 		}
-		return list;
-	}//end list()
+
+		dto.setList(list);
+		dto.setCurPage(curPage);
+		dto.setTotalRecord(totalCount());
+		return dto;
+	}// end list()
 	
 	
 	
