@@ -35,7 +35,8 @@ public class PetAddServlet extends HttpServlet {
 		
 		//나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
-		
+
+		/*		
 		String m_num = request.getParameter("m_num");
 		String p_kkcnumber = request.getParameter("p_kkcnumber");
 		String p_name = request.getParameter("p_name");
@@ -44,12 +45,11 @@ public class PetAddServlet extends HttpServlet {
 		String p_birth = request.getParameter("p_birth");
 		String p_type = request.getParameter("p_type");
 		String p_photo = request.getParameter("p_photo");
-		String p_feature = request.getParameter("p_feature");
-	
+		String p_feature = request.getParameter("p_feature");*/
+
 		
 		
-		PetDTO dto =new PetDTO();
-		dto.setM_num(Integer.parseInt(m_num));
+/*		dto.setM_num(Integer.parseInt(m_num));
 		dto.setP_kkcnumber(p_kkcnumber);
 		dto.setP_name(p_name);
 		dto.setP_age(Integer.parseInt(p_age));
@@ -57,33 +57,16 @@ public class PetAddServlet extends HttpServlet {
 		dto.setP_birth(p_birth);
 		dto.setP_type(p_type);
 		dto.setP_feature(p_feature);
-		dto.setP_photo(p_photo);
+		dto.setP_photo(p_photo);*/
 		
-	    PetService service = new PetService();
-	    String title="";
-	    String target="";
-	    try {
-			service.addPet(dto);
-			target = "index.jsp";
-			request.setAttribute("result", "success");
-		} catch (CommonException e) {
-			title= e.getMessage();
-			String link="PetFormServlet";
-			target="error.jsp";
-			request.setAttribute("title", title);
-			request.setAttribute("link", link);
-		}
-		
-		RequestDispatcher dis =
-				request.getRequestDispatcher(target);
-		dis.forward(request, response);
+	  
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		
+		PetDTO dto =new PetDTO();
 		// request.setCharacterEncoding("UTF-8");   // multipart인 경우에는 무의미하다.
 
 
@@ -145,17 +128,46 @@ public class PetAddServlet extends HttpServlet {
 						}
 			          }else { // input type="file" 아닌 경우
 			            System.out.println("Field ="+fi.getFieldName()+"\t"+fi.getString("UTF-8"));  // getString("UTF-8") 지정해야 한글처리 가능
+			            if("m_num".equals(fi.getFieldName())){
+			            	dto.setM_num(Integer.parseInt(fi.getString("UTF-8")));
+			            }else if("p_kkcnumber".equals(fi.getFieldName())){
+			            	dto.setP_kkcnumber(fi.getString("UTF-8"));
+			            }else if("p_name".equals(fi.getFieldName())){
+			            	dto.setP_name(fi.getString("UTF-8"));
+			            }else if("p_age".equals(fi.getFieldName())){
+			            	dto.setP_age(Integer.parseInt(fi.getString("UTF-8")));
+			            }else if("p_gender".equals(fi.getFieldName())){
+			            	dto.setP_gender(fi.getString("UTF-8"));
+			            }else if("p_birth".equals(fi.getFieldName())){
+			            	dto.setP_birth(fi.getString("UTF-8"));
+			            }else if("p_type".equals(fi.getFieldName())){
+			            	dto.setP_type(fi.getString("UTF-8"));
+			            }else if("p_feature".equals(fi.getFieldName())){
+			            	dto.setP_feature(fi.getString("UTF-8"));
+			            } 
+			            
+			         
 			          }
 			        }//end while
 				
-			        response.setContentType("text/html;charset=UTF-8");
-			        PrintWriter out = response.getWriter();
-			        out.print("<html><body>");
-			        // 업로드한 이미지 파일 보기
-			        out.print("<img src='images/"+fileName+"' width='200' height='200' >");
-			       /* out.print("파일명: <a href='FileDown?fileName="+fileName+"'>"+ fileName+"</a>" );*/
-			        
-			        out.print("</body></html");
+			        PetService service = new PetService();
+				    String title="";
+				    String target="";
+				    try {
+						service.addPet(dto);
+						target = "index.jsp";
+						request.setAttribute("result", "success");
+					} catch (CommonException e) {
+						title= e.getMessage();
+						String link="PetFormServlet";
+						target="error.jsp";
+						request.setAttribute("title", title);
+						request.setAttribute("link", link);
+					}
+					
+					RequestDispatcher dis =
+							request.getRequestDispatcher(target);
+					dis.forward(request, response);
 			        
 	}
 
