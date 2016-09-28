@@ -50,7 +50,7 @@
 			</c:if>
 			
 			<c:if test="${sessionScope.login!=null}">
-			<c:if test="${sessionScope.onPet==null}">
+			<c:if test="${sessionScope.onPet!=null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -65,7 +65,7 @@
 				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 			</ul>
 			</c:if>
-			<c:if test="${sessionScope.onPet!=null}">
+			<c:if test="${sessionScope.onPet==null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -75,7 +75,7 @@
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-			<li><a href="petform.jsp" class="button fit">My PET Page</a></li>
+			<li><a href="MyPetPageServlet" class="button fit">My PET Page</a></li>
 				<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 			</ul>             
