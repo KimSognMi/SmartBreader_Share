@@ -79,14 +79,14 @@
 					<form action="PetAddServlet" method="post" enctype="multipart/form-data">
 					
 				<!-- 	<form action="UploadServlet" method="post" > -->
-					<div class="field2">
-					<h5>회원코드</h5>
-							<input type="text" class="form-control" name="m_num" id="m_num" readonly="readonly" value="${login.m_num}">
-					</div>
+					
+							<input type="hidden" class="form-control" name="p_num" id="p_num" readonly="readonly" value="${login.p_num}">
+					
 					<div class="field2">
 					<h5>kkc 등록번호</h5>
 							<input type="text" class="form-control" name="p_kkcnumber" id="p_kkcnumber" placeholder="입력해 주세요">
 					</div>
+					<input type="hidden" class="form-control" name="userid" id="userid" readonly="readonly" value="${login.userid}">
 						<div class="field2">
 							<!-- <label for="username">이름</label>  -->
 								<h5>이름</h5>

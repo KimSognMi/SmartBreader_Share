@@ -7,17 +7,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert parameterType="PetDTO" id="addPet">
-		insert into pet( m_num,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature)
-		values( #{m_num},#{p_kkcnumber},#{p_name},#{p_age},
+		insert into pet( p_num,userid,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature)
+		values( #{p_num},#{userid},#{p_kkcnumber},#{p_name},#{p_age},
 		#{p_gender},#{p_birth},#{p_type},#{p_photo},#{p_feature})
 	</insert>
 
 
 <select resultType="PetDTO" parameterType="hashmap" id="onPet">
-		select m_num,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
+		select p_num,userid ,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
 		from
 		pet
-		where m_num = #{m_num} and p_kkcnumber=#{p_kkcnumber}
+		where userid = #{userid}
 	</select>
 </mapper>
 

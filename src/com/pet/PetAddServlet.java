@@ -129,8 +129,10 @@ public class PetAddServlet extends HttpServlet {
 						}
 			          }else { // input type="file" 아닌 경우
 			            System.out.println("Field ="+fi.getFieldName()+"\t"+fi.getString("UTF-8"));  // getString("UTF-8") 지정해야 한글처리 가능
-			            if("m_num".equals(fi.getFieldName())){
-			            	dto.setM_num(Integer.parseInt(fi.getString("UTF-8")));
+			            if("p_num".equals(fi.getFieldName())){
+			            	dto.setP_num(Integer.parseInt(fi.getString("UTF-8")));
+			            }else if("userid".equals(fi.getFieldName())){
+			            	dto.setUserid(fi.getString("UTF-8"));
 			            }else if("p_kkcnumber".equals(fi.getFieldName())){
 			            	dto.setP_kkcnumber(fi.getString("UTF-8"));
 			            }else if("p_name".equals(fi.getFieldName())){
