@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.MemberDTO;
+import com.dto.PetDTO;
 import com.exception.CommonException;
 import com.service.MemberService;
 
@@ -36,16 +37,27 @@ public class LoginServlet extends HttpServlet {
 		    String target="";
 		try {
 			MemberDTO dto = service.login(map);
+			PetDTO p_dto=service.onPet(map);
 			if(dto==null){
 				title= "아이디 또는 비밀번호 불일치";
 				String link="LoginFormServlet";
 				target="error.jsp";
 				request.setAttribute("title", title);
 				request.setAttribute("link", link);
+		
 			}else{
 				HttpSession session=request.getSession();
 				session.setAttribute("login", dto);
 				target="index.jsp";
+				session.setAttribute("onPet", p_dto);
+				
+				/*	if(p_dto==null){
+				title= "펫";
+				String link="LoginFormServlet";
+				target="error.jsp";
+				request.setAttribute("title", title);
+				request.setAttribute("link", link);
+			}*/
 			}
 			
 		} catch (CommonException e) {

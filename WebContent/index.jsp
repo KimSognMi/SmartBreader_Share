@@ -50,6 +50,7 @@
 			</c:if>
 			
 			<c:if test="${sessionScope.login!=null}">
+			<c:if test="${sessionScope.onPet==null}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -63,6 +64,27 @@
 				<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 			</ul>
+			</c:if>
+			<c:if test="${sessionScope.onPet!=null}">
+			<ul class="links">
+				<li><a href="index.jsp">HOME</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+			</ul>
+			<ul class="actions vertical">
+			<li><a href="petform.jsp" class="button fit">My PET Page</a></li>
+				<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+			</ul>
+			
+			
+			
+			</c:if>
+			
+			
 			</c:if>
 			
 		</nav>
