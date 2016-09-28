@@ -95,4 +95,18 @@ public class MemberService {
 		}
 
 	}
+	
+	public MemberDTO nearmedog(String userid) throws CommonException {
+		MemberDTO dto = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			dto = session.selectOne("nearmedog", userid);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new CommonException("nearmedog 실패");
+		} finally {
+			session.close();
+		}
+		return dto;
+	}
 }

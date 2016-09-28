@@ -36,14 +36,6 @@ public class PetSearchServlet extends HttpServlet {
 
 		// 나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-
 		MemberDTO dto = new MemberDTO();
 		// request.setCharacterEncoding("UTF-8"); // multipart인 경우에는 무의미하다.
 
@@ -51,13 +43,12 @@ public class PetSearchServlet extends HttpServlet {
 		String title = "";
 		if (dto != null) {
 			target = "nearmedog.jsp";
-
 			String userid = dto.getUserid();
 			MemberService service = new MemberService();
 			try {
-				MemberDTO my = service.mypage(userid);
+				MemberDTO my = service.nearmedog(userid);
 				System.out.println(">>>>>>" + my);
-				request.setAttribute("mypage", my);
+				request.setAttribute("nearmedog", my);
 			} catch (CommonException e) {
 				title = e.getMessage();
 				String link = "LoginFormServlet";
@@ -70,5 +61,13 @@ public class PetSearchServlet extends HttpServlet {
 			dis.forward(request, response);
 
 		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+
+		
 	}
 }

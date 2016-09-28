@@ -329,21 +329,21 @@
 				</div>
 				<div class="field half2">
 					<input type="text" class="form-control" id="post1" name="post1"
-						placeholder="post1" readonly="" value="${mypage.post1}">
+						placeholder="post1" readonly="" value="${nearmedog.post1}">
 				</div>
 
 				<div class="field halfs">-</div>
 				<div class="field half">
 					<input type="tel" class="form-control" id="post2" name="post2"
-						placeholder="post2" readonly="" value="${mypage.post2}">
+						placeholder="post2" readonly="" value="${nearmedog.post2}">
 				</div>
 				<br>
 				<div class="field2">
 					<input type="text" name="addr1" id="addr1" size="40" readonly=""
-						class="form-control" placeholder="도로명주소" value="${mypage.addr1}">
+						class="form-control" placeholder="도로명주소" value="${nearmedog.addr1}">
 					<br> <span style="line-height: 10%;"></span> <input
 						type="text" class="form-control" name="addr2" id="addr2" size="40"
-						placeholder="상세주소" value="${mypage.addr2}">
+						placeholder="상세주소" value="${nearmedog.addr2}">
 				</div>
 				<!-- <div class="map_wrap">
 						<div id="map"
