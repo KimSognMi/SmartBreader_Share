@@ -54,6 +54,7 @@ public class MemberService {
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
 			dto = session.selectOne("mypage", userid);
+			System.out.println(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CommonException("mypage 실패");
@@ -99,8 +100,10 @@ public class MemberService {
 	public MemberDTO nearmedog(String userid) throws CommonException {
 		MemberDTO dto = null;
 		SqlSession session = MySqlSessionFactory.getSession();
+		
 		try {
 			dto = session.selectOne("nearmedog", userid);
+			System.out.println(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CommonException("nearmedog 실패");

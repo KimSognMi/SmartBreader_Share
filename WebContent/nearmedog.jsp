@@ -328,21 +328,21 @@
 					<h5>주소</h5>
 				</div>
 				<div class="field half2">
-					<input type="text" class="form-control" id="post1" name="post1"
+					<input type="text" class="form-control" id="postpet1" name="post1"
 						placeholder="post1" readonly="" value="${nearmedog.post1}">
 				</div>
 
 				<div class="field halfs">-</div>
 				<div class="field half">
-					<input type="tel" class="form-control" id="post2" name="post2"
+					<input type="tel" class="form-control" id="postpet2" name="post2"
 						placeholder="post2" readonly="" value="${nearmedog.post2}">
 				</div>
 				<br>
 				<div class="field2">
-					<input type="text" name="addr1" id="addr1" size="40" readonly=""
+					<input type="text" name="addr1" id="addrpet1" size="40" readonly=""
 						class="form-control" placeholder="도로명주소" value="${nearmedog.addr1}">
 					<br> <span style="line-height: 10%;"></span> <input
-						type="text" class="form-control" name="addr2" id="addr2" size="40"
+						type="text" class="form-control" name="addrpet2" id="addr2" size="40"
 						placeholder="상세주소" value="${nearmedog.addr2}">
 				</div>
 				<!-- <div class="map_wrap">

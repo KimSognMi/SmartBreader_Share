@@ -1,29 +1,18 @@
 package com.pet;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import javax.servlet.http.HttpSession;
 
 import com.dto.MemberDTO;
-import com.dto.PetDTO;
 import com.exception.CommonException;
 import com.service.MemberService;
-import com.service.PetService;
 
 /**
  * Servlet implementation class LognFormServlet
@@ -36,8 +25,9 @@ public class PetSearchServlet extends HttpServlet {
 
 		// 나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
-		MemberDTO dto = new MemberDTO();
-		// request.setCharacterEncoding("UTF-8"); // multipart인 경우에는 무의미하다.
+		HttpSession session = request.getSession();
+		MemberDTO dto = 
+				(MemberDTO)session.getAttribute("login");
 
 		String target = "";
 		String title = "";
