@@ -1,16 +1,61 @@
 package com.service;
 
 import java.util.HashMap;
+import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
+import com.dto.BoardDTO;
 import com.dto.MemberDTO;
+import com.dto.PageDTO;
 import com.dto.PetDTO;
 import com.exception.CommonException;
 
 public class MemberService {
 
+	
+	
+	
+	public PageDTO page(int curPage){
+		PageDTO dto = new PageDTO();
+		List<BoardDTO> list = null;
+		SqlSession session = 
+				MySqlSessionFactory.getSession();
+		try{
+		   //new RowBounds(시작, 갯수))
+		int count = dto.getPerPage();	
+		int skip = (curPage-1)*count;
+        list =
+		session.selectList("memlist", null,
+				new RowBounds(skip, count));
+			
+			
+		}finally {
+			session.close();
+		}
+		
+		//3가지 저장
+		dto.setList(list);
+		dto.setCurPage(curPage);
+		dto.setTotalRecord(totalCount());
+		return dto;
+	}//end list()
+	
+	
+	public int totalCount(){
+		int count = 0;
+		SqlSession session = 
+				MySqlSessionFactory.getSession();
+		try{
+		 count = session.selectOne("totalCount");
+		}finally {
+			session.close();
+		}
+		return count;
+	}//end totalCount
+	
 	// 회원등록
 	public void addMember(MemberDTO dto) throws CommonException {
 		SqlSession session = MySqlSessionFactory.getSession();
@@ -112,4 +157,15 @@ public class MemberService {
 		}
 		return dto;
 	}
+	
+	public List<MemberDTO> list() {
+		List<MemberDTO> list = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			list = session.selectList("memlist");
+		} finally {
+			session.close();
+		}
+		return list;
+	}// end list()
 }

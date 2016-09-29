@@ -8,12 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
-<script src="jquery-2.2.3.js"></script>
-<script>
-	function writesen(f) {
-		f.action = "BoardWriteUIServlet";
-	}
-</script>
+
 <html>
 <head>
 <title>SMART BREADER</title>
@@ -106,134 +101,170 @@
 			<section id="three" class="style3">
 				<div class="inner">
 
-					<h2 id="content">게시글 보기</h2>
+					<h2 id="content">회원리스트 </h2>
 					<div class="content">
+
 						<p>
 						<h3>Text</h3>
-						<form method="post" action="BoardWriteUIServlet">
-						<input type="submit" value="글쓰기" />
-					
-						</form>
+
+						<!-- <a href="BoardWriteUIServlet">글쓰기 화면</a> -->
+
+
 						<div class="table-wrapper">
+
+
 							<table border="1">
-								<thead>
-									<tr>
-										<th>글번호</th>
-										<th>제목</th>
-										<th>작성자</th>
-										<th>작성일</th>
-										<th>조회수</th>
-									</tr>
-								</thead>
+
+
 
 								<tr>
+									<th>번호</th>
+									<th>이름</th>
+									<th>아이디</th>
+
+								</tr>
+
 								<tbody>
-									<c:set var="ppp" value="${page}" />
+									<%-- <tr>
+						<%
+							PageDTO pageDTO = (PageDTO) request.getAttribute("page");
 
-									<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
-										
-										<tr>
-											<td>${xxx.num}</td>
-											<td><a href="BoardRetrieveServlet?num=${xxx.num}">${xxx.title}</td>
-											<td>${xxx.author}</td>
-											<td>${xxx.writeday}</td>
-											<td>${xxx.readcnt}</td>
+							List<BoardDTO> list = pageDTO.getList();
 
-										</tr>
+							for (BoardDTO dto2 : list) {
+								int num = dto2.getNum();
+								String title = dto2.getTitle();
+								String author = dto2.getAuthor();
+								String writday = dto2.getWriteday();
+								int readcnt = dto2.getReadcnt();
+						%>
+					</tr>
+					<tr>
+						<td><%=num%></td>
+						<td><%=title%></td>
+						<td><%=author%></td>
+						<td><%=writday%></td>
+						<td><%=readcnt%></td>
+					</tr>
+					<%
+						} //end for
+					%> --%>
+
+
+									<tr>
+										<c:set var="ppp" value="${page}" />
+
+										<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+									</tr>
+									<%-- <input type="hidden" name="passwd" value="${mypage.passwd}"> --%>
+
+									<tr>
+										<td>${xxx.m_num}</td>
+										<td>${xxx.username}</td>
+										<td>${xxx.userid}</td>
+
+
+									</tr>
+
 
 									</c:forEach>
+
+									<%-- <tr>
+										<td colspan="5">
+											<%
+												PageDTO pageDTO = (PageDTO) request.getAttribute("page");
+												int curPage = pageDTO.getCurPage();
+												int perPage = pageDTO.getPerPage();
+												int totalRecord = pageDTO.getTotalRecord();
+
+												int totalCount = totalRecord / perPage;
+												if (totalRecord % perPage != 0)
+													totalCount++;
+
+												for (int i = 1; i <= totalCount; i++) {
+
+													if (curPage == i) {
+														out.print(i + "&nbsp;");
+													} else {
+														out.print("<a href='BoardListServlet?curPage=" + i + "'>" + i + "</a>&nbsp;");
+													}
+
+												}
+											%>
+
+
+
+
+										</td>
+									</tr> --%>
+
 								</tbody>
+
+
 							</table>
 						</div>
-						<tr>
-							<div class="field2" style="height:100px;">
-								<div class="field2">
 
-									<td colspan="5">
-										<%
-											PageDTO pageDTO = (PageDTO) request.getAttribute("page");
-											int curPage = pageDTO.getCurPage();
-											int perPage = pageDTO.getPerPage();
-											int totalRecord = pageDTO.getTotalRecord();
-
-											int totalCount = totalRecord / perPage;
-											if (totalRecord % perPage != 0)
-												totalCount++;
-
-											for (int i = 1; i <= totalCount; i++) {
-
-												if (curPage == i) {
-													out.print(i + "&nbsp;");
-												} else {
-													out.print("<a href='BoardListServlet?curPage=" + i + "'>" + i + "</a>&nbsp;");
-												}
-
-											}
-										%>
-									</td>
-								</div>
-							</div>
-
-						</tr>
+						<!-- <tr>
 
 
+							<form action="BoardSearchServlet" method="get">
+
+								<ul class="actions">
+									<li><div class="field half">
+										<div class="6u 12u$(medium)">
+											<div class="select-wrapper">
+												<select name="searchName">
+													<option value="title">제목</option>
+													<option value="author">작성자</option>
+												</select>
+											</div>
+										</div>
+									</div></li>
+
+									<li><div class="field half">
+										<div class="input-txt">
+											<input type="text" name="searchValue">
+										</div>
+									</div></li>
+									<li><div class="field half">
+										<button>검색</button>
+									</div></li>
+								</ul>
+							</form>
+
+						</tr> -->
 					</div>
+					</p>
 
-					<tr>
-						<form action="BoardSearchServlet" method="get">
-
-							<div class="row uniform">
-								<div class="field half">
-
-									<div class="select-wrapper">
-										<select name="searchName">
-											<option value="title">제목</option>
-											<option value="author">작성자</option>
-										</select>
-									</div>
-
-								</div>
-
-								<div class="field half" style="width: 250px;">
-
-									<input type="text" name="searchValue">
-
-								</div>
-								<div class="field half">
-									<button>검색</button>
-								</div>
-							</div>
-						</form>
-
-					</tr>
 				</div>
-				</p>
+
+
+
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span
+								class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span
+								class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span
+								class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span
+								class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span
+								class="label">LinkedIn</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li>
+						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+					</ul>
+				</div>
+			</footer>
 		</div>
-		</section>
-
-		<!-- Footer -->
-		<footer id="footer">
-			<div class="inner">
-				<ul class="icons">
-					<li><a href="#" class="icon alt fa-twitter"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon alt fa-facebook"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon alt fa-github"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon alt fa-linkedin"><span
-							class="label">LinkedIn</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-
-				</ul>
-			</div>
-		</footer>
-	</div>
 
 	</div>
 

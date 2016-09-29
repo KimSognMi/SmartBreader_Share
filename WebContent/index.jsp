@@ -62,7 +62,7 @@
 						</ul>
 						<ul class="actions vertical">
 							<li><a href="petform.jsp" class="button fit">Manage Pet</a></li>
-							<li><a href="MyPageServlet" class="button special fit">Manage Member</a></li>
+							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
 					</c:if>

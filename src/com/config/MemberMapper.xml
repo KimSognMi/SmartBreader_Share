@@ -4,6 +4,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
+
+<select id="memtotalCount" resultType="int">
+		select count(*)
+		from member
+	</select>
 	<select resultType="MemberDTO" parameterType="hashmap" id="login">
 		select m_num,username,userid,passwd,phone,
 		post1,post2,addr1,addr2
@@ -52,6 +57,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where userid = #{userid}
 	</select>
 	
+	
+	<select id="memlist" resultType="MemberDTO">
+	   select m_num, username, userid
+	   from member order by m_num      
+	</select>
 </mapper>
 
 
