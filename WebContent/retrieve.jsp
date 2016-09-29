@@ -37,32 +37,32 @@
 		<nav id="menu">
 
 			<c:if test="${sessionScope.login == null}">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
-				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
-			</ul>
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="board.jsp">BOARD</a></li>
+					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="memberform.jsp" class="button special fit">Join</a></li>
+					<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
+				</ul>
 
 			</c:if>
-			
+
 			<c:if test="${sessionScope.login != null}">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-			</ul>
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="board.jsp">BOARD</a></li>
+					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
+					<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+				</ul>
 			</c:if>
 
 		</nav>
@@ -149,21 +149,22 @@ h1 {
 					<div class="col-md-1">제목</div>
 					<div class="col-md-5">
 						<c:if test="${sessionScope.login == null}">
-						
+
 							<input class="form-control inputTitle" type="text" name="title"
 								value="${retrieve.title}" readonly="readonly">
 						</c:if>
 						<c:if test="${sessionScope.login != null}">
-						
+
 							<input class="form-control inputTitle" type="text" name="title"
 								value="${retrieve.title}">
 						</c:if>
 					</div>
 					<div class="col-md-3 titleHelper"></div>
 				</div>
-				
 
-				<br><div class="field2">
+
+				<br>
+				<div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">내용</div>
 					<div class="col-md-5">
@@ -174,7 +175,7 @@ h1 {
 				</div>
 				<br>
 
-				 <div class="field2">
+				<div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
@@ -182,10 +183,10 @@ h1 {
 					</div>
 					<div class="col-md-3 pwHelper"></div>
 					<div class="col-md-3"></div>
-				</div> 
+				</div>
 				<br>
 				<c:if test="${sessionScope.login != null}">
-				<div class="field2">
+					<div class="field2">
 						<div class="col-md-3"></div>
 						<div class="col-md-1"></div>
 						<ul class="actions">
@@ -199,108 +200,149 @@ h1 {
 					</div>
 				</c:if>
 			</form>
-		<!-- 좌우측의 공간 확보 -->
-	<div class="container">
-		<hr />
-		<div class="field2">
-			<div class="field2">
-		
-				<table class="table table-condensed">
-					<thead>
+			<!-- 좌우측의 공간 확보 -->
 
+			<hr />
 
-						<tr>
-						<c:set var="retrieve2" value="${retrieve2}" scope="session"/>
-						<c:set var="retrieve" value="${retrieve}" scope="session"/>
-							<c:set var="ppp" value="${page}" scope="session"/>
+			<section id="three">
+				<div class="field2" style="padding-left: 300px;">
+					<table class="table field2">
 
-							<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
-						</tr>
-						<tr id="r1" name="commentParentCode">
-						
-							<td colspan=2>${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
+						<thead>
 
-								${xxx.commentParentPassword} ${xxx.commentwriteday}<a
-								href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
-								style="cursor: pointer;">수정</a> | <a
-								href="CommentDeleteServlet?commentNum=${xxx.commentNum}"
-								style="cursor: pointer;">삭제</a>
-						</tr>
-						<tr>
-							<td>${xxx.commentParentText}</td>
-						</tr>
-						<tr>
-							<span id="result"></span>
-						</tr>
-						</c:forEach>
-					</thead>
-					<tbody>
+							<div class="field2">
+								<c:set var="retrieve2" value="${retrieve2}" scope="session" />
+								<c:set var="retrieve" value="${retrieve}" scope="session" />
+								<c:set var="ppp" value="${page}" scope="session" />
 
+								<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
 
-					</tbody>
+									<tr id="r1" name="commentParentCode">
 
+										<td colspan=2>${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
 
-				</table>
-				<table class="table table-condensed">
-					<form method="post" name="myForm2">
-					
-					<input type="hidden" name="commentNum" value="${retrieve2.commentNum}">
-						<tr>
-							<td><span class="form-inline" role="form">
-									<p>
+											${xxx.commentParentPassword} ${xxx.commentwriteday}<a
+											href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
+											style="cursor: pointer;">수정</a> | <a
+											href="CommentDeleteServlet?commentNum=${xxx.commentNum}"
+											style="cursor: pointer;">삭제</a>
+									</tr>
+									<td>${xxx.commentParentText}</td>
 
-										<input type="text" id="commentParentName"
-											name="commentParentName" class="form-control inputTitle"
-											data-rule-required="true" placeholder="이름" maxlength="10">
+								</c:forEach>
 
+							</div>
+						</thead>
 
-										<input type="password" id="commentParentPassword"
-											name="commentParentPassword" class="form-control inputTitle"
-											data-rule-required="true" placeholder="패스워드" maxlength="10">
-										
-										<button onclick="writeBoard(myForm2)" id="commentParentSubmit"
-											name="commentParentSubmit">확인</button>
-									
+					</table>
 
-									</p> <textarea id="commentParentText" name="commentParentText"
-										class="form-control col-lg-12" style="width: 100%" rows="4"></textarea>
-
-							</span></td>
-						</tr>
-					</form>
-				</table>
-
-
-
-
-</div>
-</div>
-</div>
-
-
-
-			<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon alt fa-twitter"><span
-								class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon alt fa-facebook"><span
-								class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon alt fa-instagram"><span
-								class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon alt fa-github"><span
-								class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon alt fa-linkedin"><span
-								class="label">LinkedIn</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled</li>
-						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-
-					</ul>
 				</div>
-			</footer>
+			</section>
+
+			<hr />
+			<form method="post" action="CommentWriteServlet">
+				<div class="field2">
+					<div class="row uniform">
+						<div class="6u 12u$(xsmall)">
+						
+							<input type="text" name="commentParentName" id="commentParentName" value=""
+								placeholder="Name" />
+						</div>
+						
+						<div class="6u$ 12u$(xsmall)">
+							<input type="password" name="commentParentPassword" id="commentParentPassword" value=""
+								placeholder="password" />
+						</div>
+
+
+						<!-- Break -->
+						<div class="12u$">
+							<textarea name="commentParentText" id="commentParentText"
+								placeholder="Enter your message" rows="6"></textarea>
+						</div>
+						<!-- Break -->
+						<div class="12u$">
+							<ul class="actions">
+								<li><input type="submit" value="Send Message"
+									class="special" /></li>
+								<li><input type="reset" value="Reset" /></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</form>
+			<%-- <section>
+				<div class="field2" style="padding-left: 300px;">
+					<form method="post" name="myForm2">
+
+						<input type="hidden" name="commentNum"
+							value="${retrieve2.commentNum}">
+
+
+						<div class="field half first">
+							<label for="name">Name</label> 
+							<input type="text"
+								id="commentParentName" name="commentParentName"
+								data-rule-required="true" placeholder="이름" maxlength="10">
+						</div>
+
+
+						<div class="field half">
+						<label for="name">Password</label> 
+							<input type="password" id="commentParentPassword"
+								name="commentParentPassword"
+								data-rule-required="true" placeholder="패스워드" maxlength="10">
+						</div>
+
+
+
+						<div class="field">
+							<textarea id="commentParentText" name="commentParentText"
+								style="width: 60%" rows="4"></textarea>
+						</div>
+
+
+						<button onclick="writeBoard(myForm2)" id="commentParentSubmit"
+							name="commentParentSubmit">확인</button>
+
+
+
+					</form>
+				</div>
+			</section> --%>
+	</div>
+
+
+
+
+
+
+
+
+
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="#" class="icon alt fa-twitter"><span
+						class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon alt fa-facebook"><span
+						class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon alt fa-instagram"><span
+						class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon alt fa-github"><span
+						class="label">GitHub</span></a></li>
+				<li><a href="#" class="icon alt fa-linkedin"><span
+						class="label">LinkedIn</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled</li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+			</ul>
+		</div>
+	</footer>
 	</div>
 
 	<!-- Scripts -->
