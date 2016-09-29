@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     
 	<select id="nearmedog" resultType="MemberDTO" parameterType="string">
-	select m_num,username,userid,passwd,phone,post1,post2,addr1,addr2
+	select post1,post2,addr1,addr2
 		from member
 		where userid = #{userid}
 	</select>
