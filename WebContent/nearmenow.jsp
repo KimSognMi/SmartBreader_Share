@@ -34,7 +34,7 @@
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 380px;
+	width: 400px;
 	margin: 10px 0 30px 10px;
 	padding: 5px;
 	overflow-y: auto;
@@ -301,9 +301,9 @@
 										<input type="button" id="keyword1" value="애견샵"
 											onclick="searchPlaces(this)"> <input type="button"
 											id="keyword2" value="동물병원" onclick="searchPlaces(this)">
-										<input type="button" id="keyword3" value="공원"
+										<input type="button" id="keyword3" value="동물공원"
 											onclick="searchPlaces(this)"> <input type="button"
-											id="keyword4" value="테마파크" onclick="searchPlaces(this)">
+											id="keyword4" value="동물테마파크" onclick="searchPlaces(this)">
 										<!-- 키워드 : <input type="text" id="keyword"  size="15"> 
                     <button type="submit">검색하기</button>  -->
 									</form>
@@ -421,11 +421,11 @@
 										ps.keywordSearch(keyword2,
 												placesSearchCB);
 										console.log("동물병원 나와라 얍");
-									} else if (f.value == "공원") {
+									} else if (f.value == "동물공원") {
 										ps.keywordSearch(keyword3,
 												placesSearchCB);
-										console.log("공원 나와라 얍");
-									} else if (f.value == "테마파크") {
+										console.log("동물공원 나와라 얍");
+									} else if (f.value == "동물테마파크") {
 										ps.keywordSearch(keyword4,
 												placesSearchCB);
 										console.log("테마파크 나와라 얍");
