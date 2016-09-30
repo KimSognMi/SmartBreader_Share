@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 
 
-<select id="memtotalCount" resultType="int">
+<select id="totalCount" resultType="int">
 		select count(*)
 		from member
 	</select>
