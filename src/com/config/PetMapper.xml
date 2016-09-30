@@ -13,7 +13,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 
-<select resultType="PetDTO" parameterType="hashmap" id="onPet">
+<select id="list" resultType="PetDTO" parameterType="String">
+	
 		select p_num,userid ,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
 		from
 		pet

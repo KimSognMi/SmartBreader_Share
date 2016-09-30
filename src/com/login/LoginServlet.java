@@ -2,6 +2,7 @@ package com.login;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,16 +30,13 @@ public class LoginServlet extends HttpServlet {
 		String userid = request.getParameter("userid");
 		String passwd = request.getParameter("passwd");
 		
-		String m_num=request.getParameter("m_num");
-		String p_kkcnumber=request.getParameter("p_kkcnumber");
+	
 		
 		HashMap<String, String> map= new HashMap<>();
 		map.put("userid", userid);
 		map.put("passwd", passwd);
 		
-		HashMap<String, String> p_map= new HashMap<>();
-		p_map.put("m_num", m_num);
-		p_map.put("p_kkcnumber", p_kkcnumber);
+	
 		
 		MemberService service = new MemberService();
 		PetService p_service=new PetService();
@@ -47,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 		    String target="";
 		try {
 			MemberDTO dto = service.login(map);
-			PetDTO p_dto=p_service.onPet(p_map);
+			
 			if(dto==null){
 				title= "아이디 또는 비밀번호 불일치";
 				String link="LoginFormServlet";
@@ -56,23 +54,14 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("link", link);
 		
 			}else{ //로그인 성공
+				
 				HttpSession session=request.getSession();
-				if(p_dto==null){
-			
 				session.setAttribute("login", dto);
 				target="index.jsp";
-				}else{
-					session.setAttribute("login", dto);
-					target="index.jsp";
-				session.setAttribute("onPet", p_dto);
-				}
-				/*	if(p_dto==null){
-				title= "펫";
-				String link="LoginFormServlet";
-				target="error.jsp";
-				request.setAttribute("title", title);
-				request.setAttribute("link", link);
-			}*/
+				
+				List<PetDTO> p_dto=p_service.list(userid); 
+				session.setAttribute("list",p_dto);
+				System.out.println(p_dto.size());
 			}
 			
 		} catch (CommonException e) {
@@ -86,6 +75,7 @@ public class LoginServlet extends HttpServlet {
 				request.getRequestDispatcher(target);
 		dis.forward(request, response);
 	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

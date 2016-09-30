@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -15,7 +16,7 @@ public class PetService {
 	public void addPet(PetDTO dto) throws CommonException {
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			int n = session.insert("addPet", dto); 
+			int n = session.insert("pet.addPet", dto); 
 			session.commit();
 
 		} catch (Exception e) {
@@ -28,20 +29,19 @@ public class PetService {
 	}// end addMember
 
 	
-	// 로그인
-			public PetDTO onPet(HashMap<String, String> map) throws CommonException {
-				PetDTO dto = null;
-				SqlSession session = MySqlSessionFactory.getSession();
-				try {
-					dto = session.selectOne("onPet", map);
-				} catch (Exception e) {
-					e.printStackTrace();
-					throw new CommonException("펫온 실패");
-				} finally {
+	//목록보기
+			public List<PetDTO> list(String userid){
+				List<PetDTO> list = null;
+				SqlSession session = 
+						MySqlSessionFactory.getSession();
+				try{
+				  list = session.selectList("pet.list",userid);
+				}finally {
 					session.close();
 				}
-				return dto;
-			}
-		
+				return list;
+			}//end list()
+			
+
 	
 }
