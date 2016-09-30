@@ -34,18 +34,20 @@
 
 		<!-- Menu -->
 		<nav id="menu">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="petform.jsp" class="button fit">My PET</a></li>
-				<li><a href="MyPageServlet" class="button special fit">MY PAGE</a></li>
-				<li><a href="index.jsp" class="button fit">Log Out</a></li>
-			</ul>
+				<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
+						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="MyPetListServlet" class="button fit">My PET Page</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+
 		</nav>
 
 		<!-- Banner -->
@@ -55,7 +57,7 @@
 				<span class="image"> <img src="images/dd.jpg" alt="" />
 				</span>
 				<header class="major">
-					<h1>MY PET</h1>
+					<h1>MY PET PAGE</h1>
 				</header>
 				<div class="content">
 					<p>
@@ -63,7 +65,7 @@
 						tempus adipiscing nulla.
 					</p>
 					<ul class="actions">
-						<li><a href="#two" class="button next scrolly">JOIN US!</a></li>
+						<li><a href="#two" class="button next scrolly">GO!</a></li>
 					</ul>
 				</div>
 			</div>
@@ -72,92 +74,63 @@
 		<!-- Main -->
 
 		<div id="main">
-			<section id="two">
-				<!-- <article class="container"> -->
-				<div class="col-md-6 col-md-offset-3">
-					
-					<form action="PetAddServlet" method="post" enctype="multipart/form-data">
-					
-				<!-- 	<form action="UploadServlet" method="post" > -->
-					<div class="field2">
-					<h5>회원코드</h5>
-							<input type="text" class="form-control" name="m_num" id="m_num" readonly="readonly" value="${login.m_num}">
+			<section id="three" class="style3">
+				<div class="inner">
+
+					<h2 id="content">MY PET </h2>
+					<div class="content">
+
+		
+						<div class="table-wrapper">
+
+
+							<table border="1">
+
+
+
+								<tr>
+									<th>kkc 인증번호</th>
+									<th>이름</th>
+									<th>종</th>
+
+								</tr>
+
+								<tbody>
+			
+
+
+									<tr>
+										<c:set var="ppp" value="${page}" />
+
+										<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+									</tr>
+
+									<tr>
+										<td>${xxx.p_kkcnumber}</td>
+										<td>${xxx.p_name}</td>
+										<td>${xxx.p_type}</td>
+
+
+									</tr>
+
+
+									</c:forEach>
+
+
+								</tbody>
+
+
+							</table>
+						</div>
+
 					</div>
-					<div class="field2">
-					<h5>kkc 등록번호</h5>
-							<input type="text" class="form-control" name="p_kkcnumber" id="p_kkcnumber" placeholder="입력해 주세요" readonly="readonly">
-					</div>
-						<div class="field2">
-							<!-- <label for="username">이름</label>  -->
-								<h5>이름</h5>
-							<input type="text" class="form-control" name="p_name" id="p_name" placeholder="이름을 입력해 주세요">
-						</div>
-						<br>
-						<div class="field half2">
-								<h5>나이</h5>
-							 <input type="text"
-								class="form-control" name="p_age" id="p_age" placeholder="나이">
-						</div>
-
-						<div class="row uniform">
-							<div class="field2_1">
-
-							<h5>성별</h5>
-							 <br>
-							 <div class="field half">
-							<input type="radio" id="남" name="p_gender" value="남" checked>
-                              	<label for="남">남(♂)</label>
-															</div>
-			             <div class="field halfs">
-							
-							<input type="radio" id="여" name="p_gender" value="여">
-						<label for="여">여(♀)</label>
-					</div></div></div>
-						
-						
-							
-						<div class="field3 ">
-							<!-- <label for="passwd2">비밀번호 확인</label> -->
-							<h5>생일</span></h5>
-							 <input
-								type="text" class="form-control" name="p_birth" id="p_birth"
-								placeholder="생일">
-							
-						</div>
+				
+				</div>
 
 
-                          <div class="field3">
-						<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
-							<h5>종</h5>
-							<input type="text"
-								class="form-control" id="p_type" name="p_type"  placeholder="종">
-							</div>
-							
-		
-		<div class="field2">
-		<h5>특징</h5>
-		<textarea name="p_feature" id="p_feature" placeholder="특징을 입력 해 주세요" rows="5"></textarea>
-		</div>
-		
-		<div class="field2">
-		<h5>사진</h5>
-		
 
- 		<input type="file" name="theFile">
- 		<!-- <input type="submit" value="upload"> -->
-
-		</div>
-		
-		<br>
-							 
-		<center>
-            <input type="submit" value="등록">
-              &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-warning">취소<i class="fa fa-times spaceLeft"></i></button>
-            </center>
-            <br>
-			</form>		
-			</div>
 			</section>
+
 		</div>
 
 <script type="text/javascript">

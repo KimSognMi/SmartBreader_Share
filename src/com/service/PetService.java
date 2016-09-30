@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
+import com.dto.BoardDTO;
 import com.dto.MemberDTO;
 import com.dto.PetDTO;
 import com.exception.CommonException;
@@ -42,6 +43,18 @@ public class PetService {
 				return list;
 			}//end list()
 			
-
+			//목록보기
+			public List<PetDTO> mlist(String userid){
+				List<PetDTO> list = null;
+				SqlSession session = 
+						MySqlSessionFactory.getSession();
+				try{
+				  list = session.selectList("pet.mlist",userid);
+				}finally {
+					session.close();
+				}
+				return list;
+			}//end list()
+			
 	
 }

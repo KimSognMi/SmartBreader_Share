@@ -96,7 +96,7 @@
 						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 					</ul>
 					<ul class="actions vertical">
-						<li><a href="mypetlist.jsp" class="button fit">My PET Page</a></li>
+						<li><a href="MyPetListServlet" class="button fit">My PET Page</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>

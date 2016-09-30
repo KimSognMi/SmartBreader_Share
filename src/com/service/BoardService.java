@@ -23,7 +23,7 @@ public class BoardService {
 		int count = dto.getPerPage();	
 		int skip = (curPage-1)*count;
         list =
-		session.selectList("list", null,
+		session.selectList("myboard.list", null,
 				new RowBounds(skip, count));
 			
 			
@@ -44,7 +44,7 @@ public class BoardService {
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
-		 count = session.selectOne("totalCount");
+		 count = session.selectOne("myboard.totalCount");
 		}finally {
 			session.close();
 		}
@@ -61,7 +61,7 @@ public class BoardService {
 		try {
 			int count = dto.getPerPage();
 			int skip = (curPage - 1) * count;
-			list = session.selectList("search", map, new RowBounds(skip, count));
+			list = session.selectList("myboard.search", map, new RowBounds(skip, count));
 			for (BoardDTO boardDTO : list) {
 				System.out.println(boardDTO);
 			}
@@ -84,7 +84,7 @@ public class BoardService {
 					MySqlSessionFactory.getSession();
 			try{
 	        int n =  	
-	    session.delete("delete", Integer.parseInt(num));
+	    session.delete("myboard.delete", Integer.parseInt(num));
 	        session.commit();
 			}finally {
 				session.close();
@@ -100,7 +100,7 @@ public class BoardService {
 				MySqlSessionFactory.getSession();
 		try{
         int n =  	
-      session.update("update", dto);
+      session.update("myboard.update", dto);
         session.commit();
 		}finally {
 			session.close();
@@ -116,7 +116,7 @@ public class BoardService {
 				MySqlSessionFactory.getSession();
 		try{
         int n =  	
-      session.update("readCnt", Integer.parseInt(num));
+      session.update("myboard.readCnt", Integer.parseInt(num));
         session.commit();
 		}finally {
 			session.close();
@@ -132,7 +132,7 @@ public class BoardService {
 		BoardDTO dto = null;
 		try{
 		  dto = 
-	 session.selectOne("retrieve", Integer.parseInt(num));
+	 session.selectOne("myboard.retrieve", Integer.parseInt(num));
 		}finally {
 			session.close();
 		}
@@ -148,7 +148,7 @@ public class BoardService {
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
-		 int n = session.insert("write", dto);
+		 int n = session.insert("myboard.write", dto);
 		 session.commit();
 		}finally {
 			session.close();
@@ -163,7 +163,7 @@ public class BoardService {
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
-		  list = session.selectList("list");
+		  list = session.selectList("myboard.list");
 		}finally {
 			session.close();
 		}

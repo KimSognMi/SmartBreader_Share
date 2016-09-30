@@ -28,7 +28,7 @@ public class MemberService {
 		int count = dto.getPerPage();	
 		int skip = (curPage-1)*count;
         list =
-		session.selectList("memlist", null,
+		session.selectList("member.memlist", null,
 				new RowBounds(skip, count));
 			
 			
@@ -49,7 +49,7 @@ public class MemberService {
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
-		 count = session.selectOne("totalCount");
+		 count = session.selectOne("member.totalCount");
 		}finally {
 			session.close();
 		}
@@ -60,7 +60,7 @@ public class MemberService {
 	public void addMember(MemberDTO dto) throws CommonException {
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			int n = session.insert("addMember", dto);
+			int n = session.insert("member.addMember", dto);
 			session.commit();
 
 		} catch (Exception e) {
@@ -77,7 +77,7 @@ public class MemberService {
 		MemberDTO dto = null;
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			dto = session.selectOne("login", map);
+			dto = session.selectOne("member.login", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CommonException("로그인 실패");
@@ -98,7 +98,7 @@ public class MemberService {
 		MemberDTO dto = null;
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			dto = session.selectOne("mypage", userid);
+			dto = session.selectOne("member.mypage", userid);
 			System.out.println(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -113,7 +113,7 @@ public class MemberService {
 	public void updateMember(MemberDTO dto) throws CommonException {
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			int n = session.update("updateMember", dto);
+			int n = session.update("member.updateMember", dto);
 			session.commit();
 
 		} catch (Exception e) {
@@ -130,7 +130,7 @@ public class MemberService {
 	public void deleteMember(String userid) throws CommonException {
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			int n = session.delete("deleteMember", userid);
+			int n = session.delete("member.deleteMember", userid);
 			session.commit();
 
 		} catch (Exception e) {
@@ -147,7 +147,7 @@ public class MemberService {
 		SqlSession session = MySqlSessionFactory.getSession();
 		
 		try {
-			dto = session.selectOne("nearmedog", userid);
+			dto = session.selectOne("member.nearmedog", userid);
 			System.out.println(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -162,7 +162,7 @@ public class MemberService {
 		List<MemberDTO> list = null;
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			list = session.selectList("memlist");
+			list = session.selectList("member.memlist");
 		} finally {
 			session.close();
 		}
