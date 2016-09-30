@@ -141,11 +141,12 @@
 		
 		<div class="field2">
 		<h5>사진</h5>
-		
-
- 		<input type="file" name="theFile">
+ 		<input id="image" type="file" name="theFile"  onchange="InputImage();"><br><br>
  		<!-- <input type="submit" value="upload"> -->
+		<div id="imagePreview"></div><br>
 
+    </div>
+		
 		</div>
 		
 		<br>
@@ -161,6 +162,48 @@
 		</div>
 
 <script type="text/javascript">
+
+var InputImage = 
+	 (function loadImageFile() {
+	    if (window.FileReader) {
+	        var ImagePre; 
+	        var ImgReader = new window.FileReader();
+	        var fileType = /^(?:image\/bmp|image\/gif|image\/jpeg|image\/png|image\/x\-xwindowdump|image\/x\-portable\-bitmap)$/i; 
+	 
+	        ImgReader.onload = function (Event) {
+	            if (!ImagePre) {
+	                var newPreview = document.getElementById("imagePreview");
+	                ImagePre = new Image();
+	                ImagePre.style.width = "450px"; 
+	                ImagePre.style.height = "340px"; //세로
+	                newPreview.appendChild(ImagePre);
+	            }
+	            ImagePre.src = Event.target.result;
+	            
+	        };
+	 
+	        return function () {
+	         
+	            var img = document.getElementById("image").files;
+	           
+	            if (!fileType.test(img[0].type)) { 
+	             alert("이미지 파일을 업로드 하세요"); 
+	             return; 
+	            }
+	            
+	            ImgReader.readAsDataURL(img[0]);
+	        }
+	 
+	    }
+	   
+	            document.getElementById("imagePreview").src = document.getElementById("image").value;
+	 
+	      
+	})();
+
+
+
+
 
    $(document).ready(function(){
 	  
