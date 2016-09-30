@@ -1,6 +1,8 @@
 package com.dto;
 
-public class PetDTO {
+import java.io.Serializable;
+
+public class PetDTO implements Serializable{
 	private int p_num;
 	private String userid;
 	private String p_kkcnumber;

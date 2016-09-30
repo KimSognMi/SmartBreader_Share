@@ -355,98 +355,98 @@
 						</select>
 					</div>
 
-				<div class="field2">
-					<input type="hidden" name="addr1" id="addrpet1" size="40" readonly=""
-						class="form-control" placeholder="도로명주소"
-						value="${nearmedog.addr1}"> <br> <span
-						style="line-height: 10%;"></span> <input type="hidden"
-						class="form-control" name="addrpet2" id="addr2" size="40"
-						placeholder="상세주소" value="${nearmedog.addr2}">
-				</div>
-				<input type="button" value="찾기" id="find">
-				<p style="margin-top: -12px"></p>
-				<div id="map" style="width: 100%; height: 350px;"></div>
-
-				<script type="text/javascript"
-					src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
-				<script>
-				
-					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-					mapOption = {
-						center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-						level : 4
-					// 지도의 확대 레벨
-					};
-
-					// 지도를 생성합니다    
-					var map = new daum.maps.Map(mapContainer, mapOption);
-
-					// 주소-좌표 변환 객체를 생성합니다
-					var geocoder = new daum.maps.services.Geocoder();
-
-					// 주소로 좌표를 검색합니다
-					geocoder
-							.addr2coord(
-									'${nearmedog.addr1}',
-									function(status, result) {
-
-										// 정상적으로 검색이 완료됐으면 
-										if (status === daum.maps.services.Status.OK) {
-
-											var coords = new daum.maps.LatLng(
-													result.addr[0].lat,
-													result.addr[0].lng);
-
-											// 결과값으로 받은 위치를 마커로 표시합니다
-											var marker = new daum.maps.Marker({
-												map : map,
-												position : coords
-											});
-
-											// 인포윈도우로 장소에 대한 설명을 표시합니다
-											var infowindow = new daum.maps.InfoWindow(
-													{
-														content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
-													});
-											infowindow.open(map, marker);
-
-											// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-											map.setCenter(coords);
-										}
-									});
-				</script>
-	<br>
-				<!-- Footer -->
-				<footer id="footer">
-					<div class="inner">
-						<ul class="icons">
-							<li><a href="#" class="icon alt fa-twitter"><span
-									class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon alt fa-facebook"><span
-									class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon alt fa-instagram"><span
-									class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon alt fa-github"><span
-									class="label">GitHub</span></a></li>
-							<li><a href="#" class="icon alt fa-linkedin"><span
-									class="label">LinkedIn</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Untitled</li>
-							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-
-						</ul>
+					<div class="field2">
+						<input type="text" name="addr1" id="addrpet1" size="40"
+							readonly="" class="form-control" placeholder="도로명주소"
+							value="${nearmedog.addr1}"> <br> <span
+							style="line-height: 10%;"></span> <input type="text"
+							class="form-control" name="addrpet2" id="addr2" size="40"
+							placeholder="상세주소" value="${nearmedog.addr2}">
 					</div>
-				</footer>
-		</div>
+					<input type="button" value="찾기" id="find">
+					<p style="margin-top: -12px"></p>
+					<div id="map" style="width: 100%; height: 350px;"></div>
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-		<script src="assets/js/main.js"></script>
+					<script type="text/javascript"
+						src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
+					<script>
+						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+						mapOption = {
+							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+							level : 4
+						// 지도의 확대 레벨
+						};
+
+						// 지도를 생성합니다    
+						var map = new daum.maps.Map(mapContainer, mapOption);
+
+						// 주소-좌표 변환 객체를 생성합니다
+						var geocoder = new daum.maps.services.Geocoder();
+
+						// 주소로 좌표를 검색합니다
+						geocoder
+								.addr2coord(
+										'${nearmedog.addr1}',
+										function(status, result) {
+
+											// 정상적으로 검색이 완료됐으면 
+											if (status === daum.maps.services.Status.OK) {
+
+												var coords = new daum.maps.LatLng(
+														result.addr[0].lat,
+														result.addr[0].lng);
+
+												// 결과값으로 받은 위치를 마커로 표시합니다
+												var marker = new daum.maps.Marker(
+														{
+															map : map,
+															position : coords
+														});
+
+												// 인포윈도우로 장소에 대한 설명을 표시합니다
+												var infowindow = new daum.maps.InfoWindow(
+														{
+															content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
+														});
+												infowindow.open(map, marker);
+
+												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+												map.setCenter(coords);
+											}
+										});
+					</script>
+					<br>
+					<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-twitter"><span
+										class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon alt fa-facebook"><span
+										class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon alt fa-instagram"><span
+										class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon alt fa-github"><span
+										class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span
+										class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li>
+								<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+							</ul>
+						</div>
+					</footer>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.scrolly.min.js"></script>
+				<script src="assets/js/jquery.scrollex.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+				<script src="assets/js/main.js"></script>
 </body>
 </html>

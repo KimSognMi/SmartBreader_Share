@@ -148,7 +148,7 @@ public class MemberService {
 		
 		try {
 			dto = session.selectOne("member.nearmedog", userid);
-			System.out.println(dto);
+			System.out.println("!!!!!!!"+dto);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CommonException("nearmedog 실패");
