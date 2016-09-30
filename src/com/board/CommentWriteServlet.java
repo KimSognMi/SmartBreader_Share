@@ -22,32 +22,64 @@ public class CommentWriteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * String commentParentName = request.getParameter("commentParentName");
+		 * String commentParentPassword =
+		 * request.getParameter("commentParentPassword"); String
+		 * commentParentText = request.getParameter("commentParentText");
+		 * 
+		 * 
+		 * System.out.println(commentParentName);
+		 * System.out.println(commentParentPassword);
+		 * System.out.println(commentParentText);
+		 * 
+		 * CommentDTO dto = new CommentDTO();
+		 * 
+		 * 
+		 * dto.setCommentParentName(commentParentName);
+		 * dto.setCommentParentPassword(Integer.parseInt(commentParentPassword))
+		 * ; dto.setCommentParentText(commentParentText);
+		 * 
+		 * CommentService service = new CommentService(); service.write(dto);
+		 * 
+		 * System.out.println(dto);
+		 * 
+		 * // 화면 ( list.jsp로 보내면 안됨. )
+		 * response.sendRedirect("CommentListServlet");
+		 */
+
 		System.out.println("CommentWriteServlet");
 		request.setCharacterEncoding("UTF-8");
-	
+
+		String num = request.getParameter("num");
+		String boardNum = request.getParameter("boardNum");
+
 		String commentParentName = request.getParameter("commentParentName");
 		String commentParentPassword = request.getParameter("commentParentPassword");
 		String commentParentText = request.getParameter("commentParentText");
-		
-		
+
+		System.out.println(num);
+		System.out.println(boardNum);
 		System.out.println(commentParentName);
 		System.out.println(commentParentPassword);
 		System.out.println(commentParentText);
 
 		CommentDTO dto = new CommentDTO();
-		
+
+		dto.setBoardNum(boardNum);
 
 		dto.setCommentParentName(commentParentName);
 		dto.setCommentParentPassword(Integer.parseInt(commentParentPassword));
 		dto.setCommentParentText(commentParentText);
 
 		CommentService service = new CommentService();
+
 		service.write(dto);
 
 		System.out.println(dto);
 
 		// 화면 ( list.jsp로 보내면 안됨. )
-		response.sendRedirect("CommentListServlet");
+		response.sendRedirect("BoardRetrieveServlet?num=" + num);
 
 	}// end doGet
 

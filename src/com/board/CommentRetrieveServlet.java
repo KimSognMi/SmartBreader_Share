@@ -22,7 +22,7 @@ import com.dto.CommentDTO;
 public class CommentRetrieveServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("CommentRetrieveServlet");
 		String commentNum = request.getParameter("commentNum");
 		CommentService service = new CommentService();
@@ -31,7 +31,7 @@ public class CommentRetrieveServlet extends HttpServlet {
 		
 		request.setAttribute("retrieve2", dto);
 		
-		System.out.println(dto);
+		System.out.println("abacsdfdfsdfsdfsa"+dto);
 		RequestDispatcher dis =
 		request.getRequestDispatcher("retrieve2.jsp");
 		dis.forward(request, response);

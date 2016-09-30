@@ -17,14 +17,20 @@ import com.service.CommentService;
 public class CommentDeleteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		System.out.println("CommentDeleteServlet");
+		String num = request.getParameter("num");
 		String commentNum = request.getParameter("commentNum");
+		
+		
+		System.out.println(num);
+		System.out.println(commentNum);
 		
 		CommentService service = new CommentService();
 		service.delete(commentNum);
 		
 		
-		response.sendRedirect("CommentListServlet");
+		response.sendRedirect("BoardRetrieveServlet?num="+num);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

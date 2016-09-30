@@ -213,18 +213,18 @@ h1 {
 							<div class="field2">
 								<c:set var="retrieve2" value="${retrieve2}" scope="session" />
 								<c:set var="retrieve" value="${retrieve}" scope="session" />
-								<c:set var="ppp" value="${page}" scope="session" />
+								<c:set var="ppp" value="${list}" scope="session" />
 
-								<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+								<c:forEach var="xxx" items="${ppp}" varStatus="status">
 
 									<tr id="r1" name="commentParentCode">
 
-										<td colspan=2>${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
+										<td colspan=2>${xxx.boardNum}${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
 
 											${xxx.commentParentPassword} ${xxx.commentwriteday}<a
-											href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
+											href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
 											style="cursor: pointer;">수정</a> | <a
-											href="CommentDeleteServlet?commentNum=${xxx.commentNum}"
+											href="CommentDeleteServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
 											style="cursor: pointer;">삭제</a>
 									</tr>
 									<td>${xxx.commentParentText}</td>
@@ -240,18 +240,24 @@ h1 {
 			</section>
 
 			<hr />
-			<form method="post" action="CommentWriteServlet">
+			<form method="get" action="CommentWriteServlet">
 				<div class="field2">
 					<div class="row uniform">
 						<div class="6u 12u$(xsmall)">
-						
-							<input type="text" name="commentParentName" id="commentParentName" value=""
-								placeholder="Name" />
+
+							<input type="hidden" name="num" value="${retrieve.num}">
+							<input type="hidden" name="boardNum" value="${retrieve.num}">
+							<input type="hidden" name="commentNum"
+								value="${retrieve2.commentNum}"> <input type="hidden"
+								name="commentwriteday" value="${retrieve2.commentwriteday}">
+
+							<input type="text" name="commentParentName"
+								id="commentParentName" value="" placeholder="Name" />
 						</div>
-						
+
 						<div class="6u$ 12u$(xsmall)">
-							<input type="password" name="commentParentPassword" id="commentParentPassword" value=""
-								placeholder="password" />
+							<input type="password" name="commentParentPassword"
+								id="commentParentPassword" value="" placeholder="password" />
 						</div>
 
 

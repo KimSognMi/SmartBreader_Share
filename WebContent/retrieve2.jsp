@@ -214,12 +214,12 @@ h1 {
 
 						<tr>
 						<c:set var="retrieve2" value="${retrieve2}" scope="session"/>
-							<c:set var="ppp" value="${page}" scope="session"/>
+							<c:set var="ppp" value="${list}" scope="session"/>
 
-							<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+							<c:forEach var="xxx" items="${ppp}" varStatus="status">
 						</tr>
 						<tr id="r1" name="commentParentCode">
-							<td colspan=2>${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
+							<td colspan=2>${xxx.boardNum}${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
 
 								${xxx.commentParentPassword} ${xxx.commentwriteday}<a
 								href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
@@ -230,9 +230,7 @@ h1 {
 						<tr>
 							<td>${xxx.commentParentText}</td>
 						</tr>
-						<tr>
-							<span id="result"></span>
-						</tr>
+						
 						</c:forEach>
 					</thead>
 					<tbody>
@@ -242,8 +240,47 @@ h1 {
 
 
 				</table>
-				<table class="table table-condensed">
+				
+				<form method="get" action="CommentUpdateServlet">
+				<div class="field2">
+					<div class="row uniform">
+						<div class="6u 12u$(xsmall)">
+
+							<input type="hidden" name="num" value="${retrieve.num}">
+							<input type="hidden" name="boardNum" value="${retrieve.num}">
+							<input type="hidden" name="commentNum"
+								value="${retrieve2.commentNum}"> <input type="hidden"
+								name="commentwriteday" value="${retrieve2.commentwriteday}">
+
+							<input type="text" name="commentParentName"
+								id="commentParentName" value="${retrieve2.commentParentName}" placeholder="Name" />
+						</div>
+
+						<div class="6u$ 12u$(xsmall)">
+							<input type="password" name="commentParentPassword"
+								id="commentParentPassword" value="" placeholder="password" />
+						</div>
+
+
+						<!-- Break -->
+						<div class="12u$">
+							<textarea name="commentParentText" id="commentParentText"
+								placeholder="Enter your message" rows="6">${retrieve2.commentParentText}</textarea>
+						</div>
+						<!-- Break -->
+						<div class="12u$">
+							<ul class="actions">
+								<li><input type="submit" value="Update Message"
+									class="special" /></li>
+								<li><input type="reset" value="Reset" /></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</form>
+				<%-- <table class="table table-condensed">
 					<form method="post" name="myForm2">
+					<input type="hidden" name="boardNum" value="${retrieve2.boardNum}">
 					<input type="hidden" name="commentNum" value="${retrieve2.commentNum}">
 					<input type="hidden" name="commentwriteday" value="${retrieve2.commentwriteday}">
 					
@@ -271,7 +308,7 @@ h1 {
 						</tr>
 					</form>
 				</table>
-
+ --%>
 
 
 

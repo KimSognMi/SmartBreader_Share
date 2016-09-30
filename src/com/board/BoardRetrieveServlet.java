@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.service.BoardService;
 import com.service.CommentService;
 import com.dto.BoardDTO;
+import com.dto.CommentDTO;
 import com.dto.CommentPageDTO;
 
 /**
@@ -22,7 +23,7 @@ import com.dto.CommentPageDTO;
 public class BoardRetrieveServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
 		String num = request.getParameter("num");
 		BoardService service = new BoardService();
 		
@@ -35,12 +36,20 @@ public class BoardRetrieveServlet extends HttpServlet {
 			curPage="1";
 		}
 		
-
-		CommentService service2 = new CommentService();
-		CommentPageDTO dto2 = 
-				service2.page(Integer.parseInt(curPage));
 		
-		request.setAttribute("page", dto2);
+		String num2 = request.getParameter("num");
+		CommentService service2 = new CommentService();
+		List<CommentDTO> dto2 = 
+				service2.list(Integer.parseInt(num2));
+		
+	
+		
+		request.setAttribute("list", dto2);
+		
+		System.out.println("jaksdjflkajeijaf"+dto2);
+		
+		String commentNum = request.getParameter("commentNum");
+		/*request.setAttribute("list", dto2);*/
 		
 		RequestDispatcher dis =
 		request.getRequestDispatcher("retrieve.jsp");

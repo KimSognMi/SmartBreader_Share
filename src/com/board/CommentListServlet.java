@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dto.CommentDTO;
 import com.dto.CommentPageDTO;
 import com.service.CommentService;
 
@@ -23,22 +24,21 @@ public class CommentListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String curPage = request.getParameter("curPage");
-		if(curPage == null){
-			curPage = "1";
-		}
+		String commentNum = request.getParameter("commentNum");
+	
 		
 		
 		CommentService service = new CommentService();
-		CommentPageDTO dto = 
-				service.page(Integer.parseInt(curPage));
+		List<CommentDTO> dto = 
+				service.list(Integer.parseInt(commentNum));
 		
-		request.setAttribute("page", dto);
+		request.setAttribute("list", dto);
 		
+		System.out.println("delete"+dto);
 		
 		
 		RequestDispatcher dis = 
-				request.getRequestDispatcher("retrieve.jsp");
+				request.getRequestDispatcher("BoardRetrieveServlet");
 		dis.forward(request, response);
 	}
 

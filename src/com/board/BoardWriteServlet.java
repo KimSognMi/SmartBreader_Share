@@ -21,11 +21,17 @@ public class BoardWriteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		String num = request.getParameter("num");
 		String title = request.getParameter("title");
 		String author = request.getParameter("author");
 		String content = request.getParameter("content");
-	    
+		System.out.println(num);
+		System.out.println(title);
+		System.out.println(author);
+		System.out.println(content);
+		
 		BoardDTO dto = new BoardDTO();
+		dto.setNum(Integer.parseInt(num));
 		dto.setTitle(title);
 		dto.setAuthor(author);
 		dto.setContent(content);
@@ -33,6 +39,7 @@ public class BoardWriteServlet extends HttpServlet {
 		BoardService service = new BoardService();
 		service.write(dto);
 		
+		System.out.println(dto);
 		
 		//화면 ( list.jsp로 보내면 안됨. )
 		response.sendRedirect("BoardListServlet");
