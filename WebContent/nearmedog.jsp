@@ -32,10 +32,12 @@
 	width: 100%;
 	height: 500px;
 }
+
 .title {
 	font-weight: bold;
 	display: block;
 }
+
 .hAddr {
 	position: absolute;
 	left: 10px;
@@ -46,6 +48,7 @@
 	z-index: 1;
 	padding: 5px;
 }
+
 #centerAddr {
 	display: block;
 	margin-top: 2px;
@@ -58,6 +61,7 @@
 	overflow: hidden;
 	white-space: nowrap;
 }
+
 #menu_wrap {
 	position: absolute;
 	top: 0;
@@ -350,116 +354,68 @@
 							<option>기타</option>
 						</select>
 					</div>
-					<h5>주소</h5>
-				</div>
-				<div class="field half2">
-					<input type="text" class="form-control" id="postpet1" name="post1"
-						placeholder="post1" readonly="" value="${nearmedog.post1}">
-				</div>
 
-				<div class="field halfs">-</div>
-				<div class="field half">
-					<input type="tel" class="form-control" id="postpet2" name="post2"
-						placeholder="post2" readonly="" value="${nearmedog.post2}">
-				</div>
-				<br>
 				<div class="field2">
-					<input type="text" name="addr1" id="addrpet1" size="40" readonly=""
-						class="form-control" placeholder="도로명주소" value="${nearmedog.addr1}">
-					<br> <span style="line-height: 10%;"></span> <input
-						type="text" class="form-control" name="addrpet2" id="addr2" size="40"
+					<input type="hidden" name="addr1" id="addrpet1" size="40" readonly=""
+						class="form-control" placeholder="도로명주소"
+						value="${nearmedog.addr1}"> <br> <span
+						style="line-height: 10%;"></span> <input type="hidden"
+						class="form-control" name="addrpet2" id="addr2" size="40"
 						placeholder="상세주소" value="${nearmedog.addr2}">
 				</div>
-				<div class="map_wrap">
-		<div id="map"
-			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-		<div class="hAddr">
-			<span class="title">지도중심기준 행정동 주소정보</span> <span id="centerAddr"></span>
-		</div>
-	</div>
+				<input type="button" value="찾기" id="find">
+				<p style="margin-top: -12px"></p>
+				<div id="map" style="width: 100%; height: 350px;"></div>
 
-	<script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
-	<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		mapOption = {
-			center : new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-			level : 1
-		// 지도의 확대 레벨
-		};
+				<script type="text/javascript"
+					src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
+				<script>
+				
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+					mapOption = {
+						center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+						level : 4
+					// 지도의 확대 레벨
+					};
 
-		// 지도를 생성합니다    
-		var map = new daum.maps.Map(mapContainer, mapOption);
+					// 지도를 생성합니다    
+					var map = new daum.maps.Map(mapContainer, mapOption);
 
-		// 주소-좌표 변환 객체를 생성합니다
-		var geocoder = new daum.maps.services.Geocoder();
+					// 주소-좌표 변환 객체를 생성합니다
+					var geocoder = new daum.maps.services.Geocoder();
 
-		var marker = new daum.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
-		infowindow = new daum.maps.InfoWindow({
-			zindex : 1
-		}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
-
-		// 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
-		searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-
-		// 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
-		daum.maps.event
-				.addListener(
-						map,
-						'click',
-						function(mouseEvent) {
-							searchDetailAddrFromCoords(
-									mouseEvent.latLng,
+					// 주소로 좌표를 검색합니다
+					geocoder
+							.addr2coord(
+									'${nearmedog.addr1}',
 									function(status, result) {
+
+										// 정상적으로 검색이 완료됐으면 
 										if (status === daum.maps.services.Status.OK) {
-											var detailAddr = !!result[0].roadAddress.name ? '<div>도로명주소 : '
-													+ result[0].roadAddress.name
-													+ '</div>'
-													: '';
-											detailAddr += '<div>지번 주소 : '
-													+ result[0].jibunAddress.name
-													+ '</div>';
 
-											var content = '<div class="bAddr">'
-													+ '<span class="title">법정동 주소정보</span>'
-													+ detailAddr + '</div>';
+											var coords = new daum.maps.LatLng(
+													result.addr[0].lat,
+													result.addr[0].lng);
 
-											// 마커를 클릭한 위치에 표시합니다 
-											marker
-													.setPosition(mouseEvent.latLng);
-											marker.setMap(map);
+											// 결과값으로 받은 위치를 마커로 표시합니다
+											var marker = new daum.maps.Marker({
+												map : map,
+												position : coords
+											});
 
-											// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-											infowindow.setContent(content);
+											// 인포윈도우로 장소에 대한 설명을 표시합니다
+											var infowindow = new daum.maps.InfoWindow(
+													{
+														content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
+													});
 											infowindow.open(map, marker);
+
+											// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+											map.setCenter(coords);
 										}
 									});
-						});
-
-		// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
-		daum.maps.event.addListener(map, 'idle', function() {
-			searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-		});
-
-		function searchAddrFromCoords(coords, callback) {
-			// 좌표로 행정동 주소 정보를 요청합니다
-			geocoder.coord2addr(coords, callback);
-		}
-
-		function searchDetailAddrFromCoords(coords, callback) {
-			// 좌표로 법정동 상세 주소 정보를 요청합니다
-			geocoder.coord2detailaddr(coords, callback);
-		}
-
-		// 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-		function displayCenterInfo(status, result) {
-			if (status === daum.maps.services.Status.OK) {
-				var infoDiv = document.getElementById('centerAddr');
-				infoDiv.innerHTML = result[0].fullName;
-			}
-		}
-	</script>
-
+				</script>
+	<br>
 				<!-- Footer -->
 				<footer id="footer">
 					<div class="inner">
