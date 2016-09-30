@@ -86,7 +86,7 @@
 
 							<table border="1">
 
-
+<div class="field2">
 
 								<tr>
 									<th>kkc 인증번호</th>
@@ -100,9 +100,9 @@
 
 
 									<tr>
-										<c:set var="ppp" value="${page}" />
+										<c:set var="ppp" value="${mlist}" />
 
-										<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+										<c:forEach var="xxx" items="${ppp}" varStatus="status">
 									</tr>
 
 									<tr>
@@ -119,8 +119,9 @@
 
 								</tbody>
 
-
+	</div>
 							</table>
+						
 						</div>
 
 					</div>

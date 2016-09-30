@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.service.BoardService;
+import com.service.PetService;
 import com.dto.BoardDTO;
 import com.dto.PageDTO;
+import com.dto.PetDTO;
 
 /**
  * Servlet implementation class BoardListServlet
@@ -22,18 +24,14 @@ public class MyPetListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String curPage = request.getParameter("curPage");
-		if(curPage == null){
-			curPage = "1";
-		}
+		request.setCharacterEncoding("UTF-8");
+		String userid = request.getParameter("userid");
 		
+		PetService service = new PetService();
+		List<PetDTO> dto = service.mlist(userid);
 		
-		BoardService service = new BoardService();
-		PageDTO dto = 
-				service.page(Integer.parseInt(curPage));
-		
-		request.setAttribute("page", dto);
-		
+		request.setAttribute("mlist", dto);
+		System.out.println(dto);
 		
 		RequestDispatcher dis = 
 				request.getRequestDispatcher("mypetlist.jsp");

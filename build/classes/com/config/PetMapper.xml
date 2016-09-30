@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
  	
-	<select id="mlist" resultType="PetDTO">
+	<select id="mlist" resultType="PetDTO" parameterType="String">
 	   select p_kkcnumber, p_name, p_type
 	   from pet
 	   where userid = #{userid}     
