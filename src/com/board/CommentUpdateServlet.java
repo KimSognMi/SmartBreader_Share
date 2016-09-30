@@ -24,6 +24,7 @@ public class CommentUpdateServlet extends HttpServlet {
 		
 		System.out.println("CommentUpdateServlet");
 		request.setCharacterEncoding("UTF-8");
+		String num = request.getParameter("num");
 		String commentNum = request.getParameter("commentNum");
 		String commentParentName = request.getParameter("commentParentName");
 		String commentParentPassword = request.getParameter("commentParentPassword");
@@ -49,7 +50,7 @@ public class CommentUpdateServlet extends HttpServlet {
 		service.update(dto);
 		
 		
-		response.sendRedirect("CommentListServlet");
+		response.sendRedirect("BoardRetrieveServlet?num="+num);
 	}//end doGet
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
