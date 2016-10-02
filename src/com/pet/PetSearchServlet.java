@@ -1,6 +1,7 @@
 package com.pet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.BoardDTO;
 import com.dto.MemberDTO;
+import com.dto.PageDTO;
 import com.exception.CommonException;
+import com.service.BoardService;
 import com.service.MemberService;
 
 /**
@@ -26,19 +30,24 @@ public class PetSearchServlet extends HttpServlet {
 		// 나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		MemberDTO dto = 
-				(MemberDTO)session.getAttribute("login");
+		MemberDTO dto = (MemberDTO)session.getAttribute("login");
 
 		String target = "";
 		String title = "";
 		if (dto != null) {
+			
+			MemberService service = new MemberService();
+			List<MemberDTO> member = service.list();
+			request.setAttribute("list", dto);
+			System.out.println("============================================"+dto);
+			
 			target = "nearmedog.jsp";
 			String userid = dto.getUserid();
-			MemberService service = new MemberService();
+			//MemberService service = new MemberService();
 			try {
-				MemberDTO my = service.nearmedog(userid);
-				System.out.println(">>>>>>" + my);
-				request.setAttribute("nearmedog", my);
+				MemberDTO searchhome = service.nearmedog(userid);
+				System.out.println(">>>>>>" + searchhome);
+				request.setAttribute("nearmedog", searchhome);
 			} catch (CommonException e) {
 				title = e.getMessage();
 				String link = "LoginFormServlet";

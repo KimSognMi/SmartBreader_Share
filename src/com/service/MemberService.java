@@ -86,6 +86,7 @@ public class MemberService {
 		}
 		return dto;
 	}
+
 	
 	
 
@@ -156,7 +157,7 @@ public class MemberService {
 			session.close();
 		}
 		return dto;
-	}
+	}//end nearmedog
 	
 	public List<MemberDTO> list() {
 		List<MemberDTO> list = null;
