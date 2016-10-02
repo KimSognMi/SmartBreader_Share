@@ -21,17 +21,17 @@ public class BoardWriteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String num = request.getParameter("num");
+		/*String num = request.getParameter("num");*/
 		String title = request.getParameter("title");
 		String author = request.getParameter("author");
 		String content = request.getParameter("content");
-		System.out.println(num);
+	/*	System.out.println(num);*/
 		System.out.println(title);
 		System.out.println(author);
 		System.out.println(content);
 		
 		BoardDTO dto = new BoardDTO();
-		dto.setNum(Integer.parseInt(num));
+		/*dto.setNum(Integer.parseInt(num));*/
 		dto.setTitle(title);
 		dto.setAuthor(author);
 		dto.setContent(content);

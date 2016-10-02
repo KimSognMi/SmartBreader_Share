@@ -104,22 +104,23 @@
 				<div class="inner">
 					<h2 id="content">회원리스트</h2>
 					<div class="content">
-					<p>
+						<p>
 						<h3>Text</h3>
 						<!-- <a href="BoardWriteUIServlet">글쓰기 화면</a> -->
 						<div class="table-wrapper">
 							<table border="1">
-								<tr>
-									<th>번호</th>
-									<th>이름</th>
-									<th>아이디</th>
-									<th>펫</th>
+								<thead>
+									<tr>
+										<th>번호</th>
+										<th>이름</th>
+										<th>아이디</th>
+										<th>펫</th>
 
-								</tr>
+									</tr>
+								</thead>
 								<tbody>
-								<tr>
+									<tr>
 										<c:set var="ppp" value="${page}" />
-
 										<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
 									</tr>
 									<%-- <input type="hidden" name="passwd" value="${mypage.passwd}"> --%>
@@ -129,95 +130,101 @@
 										<td><a href="MemberRetrieveServlet?userid=${xxx.userid}">${xxx.username}</td>
 										<td>${xxx.userid}</td>
 
+
 									</tr>
 									</c:forEach>
-
-									<tr>
-										<td colspan="5">
-											<%
-												MemberPageDTO memberpageDTO = (MemberPageDTO) request.getAttribute("page");
-												int curPage = memberpageDTO.getCurPage();
-												int perPage = memberpageDTO.getPerPage();
-												int totalRecord = memberpageDTO.getTotalRecord();
-
-												int totalCount = totalRecord / perPage;
-												if (totalRecord % perPage != 0)
-													totalCount++;
-
-												for (int i = 1; i <= totalCount; i++) {
-
-													if (curPage == i) {
-														out.print(i + "&nbsp;");
-													} else {
-														out.print("<a href='MemberListServlet?curPage=" + i + "'>" + i + "</a>&nbsp;");
-													}
-
-												}
-											%>
-										</td>
-									</tr>
 								</tbody>
 							</table>
 						</div>
+
 						<tr>
-						<form action="MemberSearchServlet" method="get">
+							<div class="field2" style="height: 100px;">
+								<div class="field2">
 
-								<ul class="actions">
-									<li><div class="field half">
-											<div class="6u 12u$(medium)">
-												<div class="select-wrapper">
-													<select name="searchName">
-														<option value="username">이름</option>
-														<option value="userid">아이디</option>
-													</select>
-												</div>
-											</div>
-										</div></li>
+									<td colspan="5">
+										<%
+											MemberPageDTO memberpageDTO = (MemberPageDTO) request.getAttribute("page");
+											int curPage = memberpageDTO.getCurPage();
+											int perPage = memberpageDTO.getPerPage();
+											int totalRecord = memberpageDTO.getTotalRecord();
 
-									<li><div class="field half">
-											<div class="input-txt">
-												<input type="text" name="searchValue">
-											</div>
-										</div></li>
-									<li><div class="field half">
-											<button>검색</button>
-										</div></li>
-								</ul>
-							</form>
+											int totalCount = totalRecord / perPage;
+											if (totalRecord % perPage != 0)
+												totalCount++;
+
+											for (int i = 1; i <= totalCount; i++) {
+
+												if (curPage == i) {
+													out.print(i + "&nbsp;");
+												} else {
+													out.print("<a href='MemberListServlet?curPage=" + i + "'>" + i + "</a>&nbsp;");
+												}
+
+											}
+										%>
+									</td>
+								</div>
+							</div>
 
 						</tr>
+
+
 					</div>
-					</p>
+					<tr>
+						<form action="MemberSearchServlet" method="get">
 
+							<div class="row uniform">
+								<div class="field half">
+									<div class="6u 12u$(medium)">
+										<div class="select-wrapper">
+											<select name="searchName">
+												<option value="username">이름</option>
+												<option value="userid">아이디</option>
+											</select>
+										</div>
+
+									</div>
+
+									<div class="field half" style="width: 250px;">
+
+										<input type="text" name="searchValue">
+
+									</div>
+									<div class="field half">
+										<button>검색</button>
+									</div>
+								</div>
+						</form>
+
+					</tr>
 				</div>
-
-
-
-			</section>
-
-			<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon alt fa-twitter"><span
-								class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon alt fa-facebook"><span
-								class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon alt fa-instagram"><span
-								class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon alt fa-github"><span
-								class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon alt fa-linkedin"><span
-								class="label">LinkedIn</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled</li>
-						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-
-					</ul>
-				</div>
-			</footer>
+				</p>
 		</div>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="#" class="icon alt fa-twitter"><span
+							class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon alt fa-facebook"><span
+							class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon alt fa-instagram"><span
+							class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-github"><span
+							class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon alt fa-linkedin"><span
+							class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+				</ul>
+			</div>
+		</footer>
+	</div>
 
 	</div>
 

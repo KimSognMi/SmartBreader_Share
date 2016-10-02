@@ -73,6 +73,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where userid = #{userid}
 	</select>
 	
+	<!-- 
+	<select id="memlist" resultType="MemberDTO">
+	   select m.m_num, m.username, m.userid, p.p_name
+	   from member m, pet p    
+	   where m.userid = p.userid
+	</select> -->
 	
 	<select id="memlist" resultType="MemberDTO">
 	   select m_num, username, userid

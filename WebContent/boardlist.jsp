@@ -51,11 +51,11 @@
 			%>
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
-					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
@@ -67,11 +67,11 @@
 
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
-					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
@@ -113,8 +113,8 @@
 						<p>
 						<h3>Text</h3>
 						<form method="post" action="BoardWriteUIServlet">
-						<input type="submit" value="글쓰기" />
-					
+							<input type="submit" value="글쓰기" />
+
 						</form>
 						<div class="table-wrapper">
 							<table border="1">
@@ -133,7 +133,7 @@
 									<c:set var="ppp" value="${page}" />
 
 									<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
-										
+
 										<tr>
 											<td>${xxx.num}</td>
 											<td><a href="BoardRetrieveServlet?num=${xxx.num}">${xxx.title}</td>
@@ -148,7 +148,7 @@
 							</table>
 						</div>
 						<tr>
-							<div class="field2" style="height:100px;">
+							<div class="field2" style="height: 100px;">
 								<div class="field2">
 
 									<td colspan="5">
