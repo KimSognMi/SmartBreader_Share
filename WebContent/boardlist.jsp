@@ -42,43 +42,83 @@
 		<!-- Menu -->
 		<nav id="menu">
 
+			<c:if test="${sessionScope.login==null}">
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="BoardListServlet">BOARD</a></li>
+					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="memberform.jsp" class="button special fit">JOIN</a></li>
+					<li><a href="loginform.jsp" class="button fit">Log In</a></li>
+				</ul>
+			</c:if>
 
-			<%
-				MemberDTO dto = (MemberDTO) session.getAttribute("login");
-			%>
-			<%
-				if (dto == null) {
-			%>
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="BoardListServlet">BOARD</a></li>
-				<li><a href="elements.jsp">NEAR ME NOW</a></li>
-				<li><a href="elements.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
-				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
-			</ul>
-			<%
-				} else {
-			%>
+			<c:if test="${sessionScope.login!=null}">
 
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="BoardListServlet">BOARD</a></li>
-				<li><a href="elements.jsp">NEAR ME NOW</a></li>
-				<li><a href="elements.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-			</ul>
+				<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+						<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="petform.jsp" class="button fit">Manage Pet</a></li>
+						<li><a href="MemberListServlet" class="button special fit">Manage
+								Member</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+				</c:if>
 
-			<%
-				}
-			%>
+				<c:if test="${login.userid!='adminkongju@naver.com'}">
+					<c:if test="${sessionScope.list.size()==0}">
+						<ul class="links">
+							<li><a href="index.jsp">HOME</a></li>
+							<li><a href="about.jsp">ABOUT US</a></li>
+							<li><a href="BoardListServlet">BOARD</a></li>
+							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+							<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
+							<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+						</ul>
+						<ul class="actions vertical">
+							<li><a href="petform.jsp" class="button fit">My PET</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						</ul>
+
+					</c:if>
+				
+ ${sessionScope.list.size()}
+				<c:if test="${sessionScope.list.size()!=0}">
+						<ul class="links">
+							<li><a href="index.jsp">HOME</a></li>
+							<li><a href="about.jsp">ABOUT US</a></li>
+							<li><a href="BoardListServlet">BOARD</a></li>
+							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+							<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
+							<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+						</ul>
+						<ul class="actions vertical">
+							<li><a href="MyPetListServlet" class="button fit">My PET
+									Page</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						</ul>
+
+
+
+					</c:if>
+				</c:if>
+
+
+			</c:if>
+
 		</nav>
 
 		<!-- Banner -->

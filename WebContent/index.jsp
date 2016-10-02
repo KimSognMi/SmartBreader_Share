@@ -18,7 +18,7 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
-  
+
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -30,8 +30,8 @@
 			</nav>
 		</header>
 
-	<!-- Menu -->
- 
+		<!-- Menu -->
+
 		<nav id="menu">
 
 			<c:if test="${sessionScope.login==null}">
@@ -50,65 +50,67 @@
 			</c:if>
 
 			<c:if test="${sessionScope.login!=null}">
-				
-					<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+
+				<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+						<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="petform.jsp" class="button fit">Manage Pet</a></li>
+						<li><a href="MemberListServlet" class="button special fit">Manage
+								Member</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+				</c:if>
+
+				<c:if test="${login.userid!='adminkongju@naver.com'}">
+					<c:if test="${sessionScope.list.size()==0}">
 						<ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
 							<li><a href="BoardListServlet">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+							<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
 							<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="petform.jsp" class="button fit">Manage Pet</a></li>
-							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
+							<li><a href="petform.jsp" class="button fit">My PET</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
-					</c:if>  
-						
-						<c:if test="${login.userid!='adminkongju@naver.com'}">
-						<c:if test="${sessionScope.list.size()==0}">
-					<ul class="links">
-						<li><a href="index.jsp">HOME</a></li>
-						<li><a href="about.jsp">ABOUT US</a></li>
-						<li><a href="BoardListServlet">BOARD</a></li>
-						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-						<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
-						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-					</ul>
-					<ul class="actions vertical">
-						<li><a href="petform.jsp" class="button fit">My PET</a></li>
-						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
-					</ul>
-					
-				</c:if>
+
+					</c:if>
 				
  ${sessionScope.list.size()}
 				<c:if test="${sessionScope.list.size()!=0}">
-					<ul class="links">
-						<li><a href="index.jsp">HOME</a></li>
-						<li><a href="about.jsp">ABOUT US</a></li>
-						<li><a href="BoardListServlet">BOARD</a></li>
-						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-						<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
-						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-					</ul>
-					<ul class="actions vertical">
-						<li><a href="MyPetListServlet" class="button fit">My PET Page</a></li>
-						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
-					</ul>
+						<ul class="links">
+							<li><a href="index.jsp">HOME</a></li>
+							<li><a href="about.jsp">ABOUT US</a></li>
+							<li><a href="BoardListServlet">BOARD</a></li>
+							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+							<li><a href="nearmedog.jsp">NEAR ME DOG</a></li>
+							<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+						</ul>
+						<ul class="actions vertical">
+							<li><a href="MyPetListServlet" class="button fit">My PET
+									Page</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						</ul>
 
 
 
-				</c:if>
 					</c:if>
-					
-			
-	</c:if>
-			
+				</c:if>
+
+
+			</c:if>
+
 		</nav>
 
 		<!-- Banner -->
