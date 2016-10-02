@@ -33,8 +33,9 @@ public class MemberPageDTO {
 	public void setTotalRecord(int totalRecord) {
 		this.totalRecord = totalRecord;
 	}
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "MemberPageDTO [list=" + list + ", curPage=" + curPage + ", perPage=" + perPage + ", totalRecord="
+				+ totalRecord + "]";
+	}
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dto.BoardDTO;
 import com.dto.MemberDTO;
+import com.dto.MemberPageDTO;
 import com.dto.PageDTO;
 import com.exception.CommonException;
 import com.service.BoardService;
@@ -24,8 +25,7 @@ import com.service.MemberService;
 @WebServlet("/PetSearchServlet")
 public class PetSearchServlet extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// 나중에 필터로 설정하기
 		request.setCharacterEncoding("UTF-8");
@@ -34,15 +34,13 @@ public class PetSearchServlet extends HttpServlet {
 
 		String target = "";
 		String title = "";
+		String userid=dto.getUserid();
+		
+		System.out.println("=========================="+userid);
 		if (dto != null) {
-			
 			MemberService service = new MemberService();
-			List<MemberDTO> member = service.list();
-			request.setAttribute("list", dto);
-			System.out.println("============================================"+dto);
-			
 			target = "nearmedog.jsp";
-			String userid = dto.getUserid();
+			//String userid = dto.getUserid();
 			//MemberService service = new MemberService();
 			try {
 				MemberDTO searchhome = service.nearmedog(userid);
@@ -55,10 +53,8 @@ public class PetSearchServlet extends HttpServlet {
 				request.setAttribute("title", title);
 				request.setAttribute("link", link);
 			}
-
 			RequestDispatcher dis = request.getRequestDispatcher(target);
 			dis.forward(request, response);
-
 		}
 	}
 
@@ -66,7 +62,5 @@ public class PetSearchServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-
-		
 	}
 }
