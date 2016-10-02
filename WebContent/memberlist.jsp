@@ -1,3 +1,4 @@
+<%@page import="com.dto.MemberPageDTO"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@page import="com.dto.PageDTO"%>
 <%@page import="com.dto.BoardDTO"%>
@@ -46,11 +47,11 @@
 			%>
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
-					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
@@ -62,11 +63,11 @@
 
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
-					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
@@ -99,61 +100,24 @@
 
 		<div id="main">
 			<!-- Table -->
-
 			<section id="three" class="style3">
 				<div class="inner">
-
-					<h2 id="content">회원리스트 </h2>
+					<h2 id="content">회원리스트</h2>
 					<div class="content">
-
-						<p>
+					<p>
 						<h3>Text</h3>
-
 						<!-- <a href="BoardWriteUIServlet">글쓰기 화면</a> -->
-
-
 						<div class="table-wrapper">
-
-
 							<table border="1">
-
-
-
 								<tr>
 									<th>번호</th>
 									<th>이름</th>
 									<th>아이디</th>
+									<th>펫</th>
 
 								</tr>
-
 								<tbody>
-									<%-- <tr>
-						<%
-							PageDTO pageDTO = (PageDTO) request.getAttribute("page");
-
-							List<BoardDTO> list = pageDTO.getList();
-
-							for (BoardDTO dto2 : list) {
-								int num = dto2.getNum();
-								String title = dto2.getTitle();
-								String author = dto2.getAuthor();
-								String writday = dto2.getWriteday();
-								int readcnt = dto2.getReadcnt();
-						%>
-					</tr>
-					<tr>
-						<td><%=num%></td>
-						<td><%=title%></td>
-						<td><%=author%></td>
-						<td><%=writday%></td>
-						<td><%=readcnt%></td>
-					</tr>
-					<%
-						} //end for
-					%> --%>
-
-
-									<tr>
+								<tr>
 										<c:set var="ppp" value="${page}" />
 
 										<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
@@ -162,22 +126,19 @@
 
 									<tr>
 										<td>${xxx.m_num}</td>
-										<td>${xxx.username}</td>
+										<td><a href="MemberRetrieveServlet?userid=${xxx.userid}">${xxx.username}</td>
 										<td>${xxx.userid}</td>
 
-
 									</tr>
-
-
 									</c:forEach>
 
-									<%-- <tr>
+									<tr>
 										<td colspan="5">
 											<%
-												PageDTO pageDTO = (PageDTO) request.getAttribute("page");
-												int curPage = pageDTO.getCurPage();
-												int perPage = pageDTO.getPerPage();
-												int totalRecord = pageDTO.getTotalRecord();
+												MemberPageDTO memberpageDTO = (MemberPageDTO) request.getAttribute("page");
+												int curPage = memberpageDTO.getCurPage();
+												int perPage = memberpageDTO.getPerPage();
+												int totalRecord = memberpageDTO.getTotalRecord();
 
 												int totalCount = totalRecord / perPage;
 												if (totalRecord % perPage != 0)
@@ -188,53 +149,43 @@
 													if (curPage == i) {
 														out.print(i + "&nbsp;");
 													} else {
-														out.print("<a href='BoardListServlet?curPage=" + i + "'>" + i + "</a>&nbsp;");
+														out.print("<a href='MemberListServlet?curPage=" + i + "'>" + i + "</a>&nbsp;");
 													}
 
 												}
 											%>
-
-
-
-
 										</td>
-									</tr> --%>
-
+									</tr>
 								</tbody>
-
-
 							</table>
 						</div>
-
-						<!-- <tr>
-
-
-							<form action="BoardSearchServlet" method="get">
+						<tr>
+						<form action="MemberSearchServlet" method="get">
 
 								<ul class="actions">
 									<li><div class="field half">
-										<div class="6u 12u$(medium)">
-											<div class="select-wrapper">
-												<select name="searchName">
-													<option value="title">제목</option>
-													<option value="author">작성자</option>
-												</select>
+											<div class="6u 12u$(medium)">
+												<div class="select-wrapper">
+													<select name="searchName">
+														<option value="username">이름</option>
+														<option value="userid">아이디</option>
+													</select>
+												</div>
 											</div>
-										</div>
-									</div></li>
+										</div></li>
 
 									<li><div class="field half">
-										<div class="input-txt">
-											<input type="text" name="searchValue">
-										</div>
-									</div></li>
+											<div class="input-txt">
+												<input type="text" name="searchValue">
+											</div>
+										</div></li>
 									<li><div class="field half">
-										<button>검색</button>
-									</div></li>
+											<button>검색</button>
+										</div></li>
 								</ul>
 							</form>
 
-						</tr> -->
+						</tr>
 					</div>
 					</p>
 

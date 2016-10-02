@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.config.MySqlSessionFactory;
 import com.dto.BoardDTO;
 import com.dto.MemberDTO;
+import com.dto.MemberPageDTO;
 import com.dto.PageDTO;
 import com.dto.PetDTO;
 import com.exception.CommonException;
@@ -18,9 +19,9 @@ public class MemberService {
 	
 	
 	
-	public PageDTO page(int curPage){
-		PageDTO dto = new PageDTO();
-		List<BoardDTO> list = null;
+	public MemberPageDTO page(int curPage){
+		MemberPageDTO dto = new MemberPageDTO();
+		List<MemberDTO> list = null;
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
@@ -168,5 +169,28 @@ public class MemberService {
 			session.close();
 		}
 		return list;
+	}// end list()
+	
+	
+	
+	public MemberPageDTO search(int curPage, HashMap<String, String> map) {
+		MemberPageDTO dto = new MemberPageDTO();
+		List<MemberDTO> list = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			int count = dto.getPerPage();
+			int skip = (curPage - 1) * count;
+			list = session.selectList("member.search", map, new RowBounds(skip, count));
+			for (MemberDTO memberDTO : list) {
+				System.out.println(memberDTO);
+			}
+			} finally {
+			session.close();
+		}
+
+		dto.setList(list);
+		dto.setCurPage(curPage);
+		dto.setTotalRecord(totalCount());
+		return dto;
 	}// end list()
 }

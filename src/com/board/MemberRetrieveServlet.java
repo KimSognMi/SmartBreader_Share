@@ -10,39 +10,50 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dto.CommentPageDTO;
-import com.dto.MemberPageDTO;
-import com.dto.PageDTO;
+import com.service.BoardService;
 import com.service.CommentService;
 import com.service.MemberService;
-
-
+import com.dto.BoardDTO;
+import com.dto.CommentDTO;
+import com.dto.CommentPageDTO;
+import com.dto.MemberDTO;
+import com.exception.CommonException;
 
 /**
  * Servlet implementation class BoardListServlet
  */
-@WebServlet("/MemberListServlet")
-public class MemberListServlet extends HttpServlet {
+@WebServlet("/MemberRetrieveServlet")
+public class MemberRetrieveServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+	
+		String userid = request.getParameter("userid");
+		MemberService service = new MemberService();
 		
-		String curPage = request.getParameter("curPage");
-		if(curPage == null){
-			curPage = "1";
+		MemberDTO dto;
+		try {
+			dto = service.mypage(userid);
+			request.setAttribute("mypage", dto);
+		} catch (CommonException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		
-		MemberService service = new MemberService();
-		MemberPageDTO dto = 
-				service.page(Integer.parseInt(curPage));
 		
-		request.setAttribute("page", dto);
+		String curPage = request.getParameter("curPage");
+		if(curPage==null){
+			curPage="1";
+		}
 		
 		
 		
-		RequestDispatcher dis = 
-				request.getRequestDispatcher("memberlist.jsp");
+		
+		RequestDispatcher dis =
+		request.getRequestDispatcher("mypage.jsp");
 		dis.forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

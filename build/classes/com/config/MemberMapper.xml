@@ -5,6 +5,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 
 
+ <select id="search" 
+       parameterType="hashmap" resultType="MemberDTO">
+        select m_num, username, userid
+	   from member
+       <if test="searchName=='username'">
+          where username LIKE  '%'||#{searchValue}||'%'
+       </if>
+       <if test="searchName=='userid'">
+         where userid LIKE  '%'||#{searchValue}||'%'
+       </if>
+       
+     </select>
+
+
+
 <select id="totalCount" resultType="int">
 		select count(*)
 		from member
