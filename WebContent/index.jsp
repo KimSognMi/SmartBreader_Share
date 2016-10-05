@@ -66,8 +66,9 @@
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
 					</c:if>  
-						
+					
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
+					
 						<c:if test="${sessionScope.list.size()==0}">
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
@@ -85,8 +86,12 @@
 					
 				</c:if>
 				
- ${sessionScope.list.size()}
+				
+								
+ ${sessionScope.list.size()} 
+ 		
 				<c:if test="${sessionScope.list.size()!=0}">
+				
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
@@ -100,14 +105,15 @@
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>
-
-
-
+				
 				</c:if>
+				
+	
 					</c:if>
 					
-			
+		
 	</c:if>
+
 			
 		</nav>
 

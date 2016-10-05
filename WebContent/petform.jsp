@@ -235,7 +235,7 @@ var InputImage =
 		    	return false;
 		    }else{
 		    	//성공
-		    	//alert("회원가입을 환영합니다");
+		    	alert("정상 등록되었습니다.");
 		    }
 		   
 	   });
