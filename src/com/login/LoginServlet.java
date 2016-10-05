@@ -1,6 +1,7 @@
 package com.login;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 
@@ -54,11 +55,12 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("link", link);
 		
 			}else{ //로그인 성공
-				
+			
 				HttpSession session=request.getSession();
 				session.setAttribute("login", dto);
 				target="index.jsp";
 				
+
 				List<PetDTO> p_dto=p_service.list(userid); 
 				session.setAttribute("list",p_dto);
 				System.out.println(p_dto.size());

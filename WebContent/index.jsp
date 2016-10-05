@@ -61,11 +61,13 @@
 							<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="petform.jsp" class="button fit">Manage Pet</a></li>
-							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
+							<li><a href="MemberListServlet2" class="button special fit">Manage Member</a></li>
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
-					</c:if>  
+				
+				
+				 
+				</c:if>  
 					
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
 					
@@ -73,6 +75,7 @@
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
+		
 						<li><a href="BoardListServlet">BOARD</a></li>
 						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
