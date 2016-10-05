@@ -71,7 +71,7 @@
 					
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
 					
-						<c:if test="${sessionScope.list.size()==0}">
+						<c:if test="${sessionScope.list.size()!=0}">
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
@@ -82,7 +82,7 @@
 						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 					</ul>
 					<ul class="actions vertical">
-						<li><a href="petform.jsp" class="button fit">My PET</a></li>
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>
@@ -93,7 +93,7 @@
 								
  ${sessionScope.list.size()} 
  		
-				<c:if test="${sessionScope.list.size()!=0}">
+				<c:if test="${sessionScope.list.size()==0}">
 				
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
@@ -104,7 +104,7 @@
 						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 					</ul>
 					<ul class="actions vertical">
-						<li><a href="MyPetListServlet" class="button fit">My PET Page</a></li>
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>

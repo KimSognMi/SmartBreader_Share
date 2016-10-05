@@ -16,7 +16,7 @@
 
 <link rel="stylesheet" href="assets/css/joinstyle.css" media="screen"
 	title="no title" charset="utf-8">
-	
+
 </head>
 <body>
 
@@ -34,19 +34,20 @@
 
 		<!-- Menu -->
 		<nav id="menu">
-				<ul class="links">
-						<li><a href="index.jsp">HOME</a></li>
-					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-					</ul>
-					<ul class="actions vertical">
-						<li><a href="MyPetListServlet" class="button fit">My PET Page</a></li>
-						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
-					</ul>
+			<ul class="links">
+				<li><a href="index.jsp">HOME</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+			</ul>
+			<ul class="actions vertical">
+				<li><a href="MyPetListServlet" class="button fit">My PET
+						Page</a></li>
+				<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+			</ul>
 
 		</nav>
 
@@ -77,55 +78,45 @@
 			<section id="three" class="style3">
 				<div class="inner">
 
-					<h2 id="content">MY PET </h2>
+					<h2 id="content">MY PET</h2>
 					<div class="content">
-
-		
+						<p>
+						<h3>Text</h3>
 						<div class="table-wrapper">
-
-
 							<table border="1">
 
-<div class="field2">
+								<div class="field2">
+									<thead>
+										<tr>
+											<th>kkc 인증번호</th>
+											<th>이름</th>
+											<th>종</th>
 
-								<tr>
-									<th>kkc 인증번호</th>
-									<th>이름</th>
-									<th>종</th>
-
-								</tr>
-
-								<tbody>
-			
-
-
-									<tr>
-										<c:set var="ppp" value="${mlist}" />
-
-										<c:forEach var="xxx" items="${ppp}" varStatus="status">
-									</tr>
-
-									<tr>
-										<td>${xxx.p_kkcnumber}</td>
-										<td>${xxx.p_name}</td>
-										<td>${xxx.p_type}</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<c:set var="ppp" value="${mlist}" />
+${list}
+											<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
+										</tr>
+										<tr>
+											<td>${xxx.p_kkcnumber}</td>
+											<td>${xxx.p_name}</td>
+											<td>${xxx.p_type}</td>
+										</tr>
+										</c:forEach>
 
 
-									</tr>
+									</tbody>
 
-
-									</c:forEach>
-
-
-								</tbody>
-
-	</div>
+								</div>
 							</table>
-						
+
 						</div>
 
 					</div>
-				
+
 				</div>
 
 
@@ -134,45 +125,44 @@
 
 		</div>
 
-<script type="text/javascript">
+		<script type="text/javascript">
+			$(document).ready(function() {
 
-   $(document).ready(function(){
-	  
-	   $("form").on("submit", function(event){
-		    var p_kkcnumber = $("#p_kkcnumber").val();
-		    if(p_kkcnumber == ''){
-		    	alert("kkc 등록번호를 입력하세요");
-		    	return false;
-		    }else if($("#p_name").val() == ''){
-		    	alert("이름을 입력하세요");
-		    	return false;
-		    }else if($("#p_age").val() == ''){
-		    	alert("나이을 입력하세요");
-		    	return false;
-		    }else if($("#p_gender").val() == ''){
-		    	alert("성별을 선택하세요");
-		    	return false;
-		    }else if($("#p_birth").val() == ''){
-		    	alert("생일을 입력하세요");
-		    	return false;
-		    }else if($("#p_type").val() == ''){
-		    	alert("종을 입력하세요");
-		    	return false;
-		    }else if($("#p_feature").val() == ''){
-		    	alert("특징을 입력하세요");
-		    	return false;
-		    }else if($("#p_photo").val() == ''){
-		    	alert("사진을 등록하세요");
-		    	return false;
-		    }else{
-		    	//성공
-		    	//alert("회원가입을 환영합니다");
-		    }
-		   
-	   });
-	   
-   });
-</script>
+				$("form").on("submit", function(event) {
+					var p_kkcnumber = $("#p_kkcnumber").val();
+					if (p_kkcnumber == '') {
+						alert("kkc 등록번호를 입력하세요");
+						return false;
+					} else if ($("#p_name").val() == '') {
+						alert("이름을 입력하세요");
+						return false;
+					} else if ($("#p_age").val() == '') {
+						alert("나이을 입력하세요");
+						return false;
+					} else if ($("#p_gender").val() == '') {
+						alert("성별을 선택하세요");
+						return false;
+					} else if ($("#p_birth").val() == '') {
+						alert("생일을 입력하세요");
+						return false;
+					} else if ($("#p_type").val() == '') {
+						alert("종을 입력하세요");
+						return false;
+					} else if ($("#p_feature").val() == '') {
+						alert("특징을 입력하세요");
+						return false;
+					} else if ($("#p_photo").val() == '') {
+						alert("사진을 등록하세요");
+						return false;
+					} else {
+						//성공
+						//alert("회원가입을 환영합니다");
+					}
+
+				});
+
+			});
+		</script>
 
 
 
@@ -210,11 +200,11 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
- 
+
 
 </body>
-</html>										</div>
-															
-															
-															
-													
+</html>
+</div>
+
+
+
