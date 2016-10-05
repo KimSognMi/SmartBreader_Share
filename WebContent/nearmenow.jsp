@@ -331,7 +331,7 @@
 								mapOption = {
 									center : new daum.maps.LatLng(37.566826,
 											126.9786567), // 지도의 중심좌표
-									level : 3
+									level : 5
 								// 지도의 확대 레벨
 								};
 

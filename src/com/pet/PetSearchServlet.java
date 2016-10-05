@@ -34,19 +34,39 @@ public class PetSearchServlet extends HttpServlet {
 
 		String target = "";
 		String title = "";
-		String userid=dto.getUserid();
 		
-		System.out.println("=========================="+userid);
+		String searchid = request.getParameter("searchId");
+		System.out.println("=========================="+searchid);
 		if (dto != null) {
+			String userid=dto.getUserid();
+			System.out.println("=========================="+userid);
 			MemberService service = new MemberService();
 			target = "nearmedog.jsp";
 			//String userid = dto.getUserid();
 			//MemberService service = new MemberService();
 			try {
-				MemberDTO searchhome = service.nearmedog(userid);
+				MemberDTO searchhome = null;
+				MemberDTO myhome = service.nearmedog(userid);
+				if(searchid !=null && searchid.trim().length()!=0){
+					searchhome = service.nearmedog(searchid);
+				}
 				System.out.println(">>>>>>" + searchhome);
-				request.setAttribute("nearmedog", searchhome);
+				request.setAttribute("nearmedog", myhome);
+				request.setAttribute("nearmeSdog", searchhome);
 			} catch (CommonException e) {
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				title = e.getMessage();
 				String link = "LoginFormServlet";
 				target = "error.jsp";
