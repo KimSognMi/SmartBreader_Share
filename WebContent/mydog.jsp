@@ -20,6 +20,14 @@
 <link rel="stylesheet" href="assets/css/joinstyle.css" media="screen"
 	title="no title" charset="utf-8">
 
+<script>
+	function PetupdateBoard(f) {
+		f.action = "PetUpdateServlet";
+	}
+	function PetdeleteBoard(f) {
+		f.action = "PetDeleteServlet";
+	}
+</script>
 </head>
 <body>
 
@@ -80,8 +88,7 @@
 				<!-- <article class="container"> -->
 				<div class="col-md-6 col-md-offset-3">
 
-					<form action="PetAddServlet" method="post"
-						enctype="multipart/form-data">
+					<form name="myForm" method="post" enctype="multipart/form-data">
 
 						<!-- 	<form action="UploadServlet" method="post" > -->
 
@@ -90,8 +97,7 @@
 						<div class="field2">
 							<h5>kkc 등록번호</h5>
 							<input type="text" class="form-control"
-								value="${mydog.p_kkcnumber}" name="p_kkcnumber" id="p_kkcnumber"
-								>
+								value="${mydog.p_kkcnumber}" name="p_kkcnumber" id="p_kkcnumber">
 						</div>
 						<input type="hidden" class="form-control" name="userid"
 							id="userid" readonly="readonly" value="${login.userid}">
@@ -155,8 +161,7 @@
 						<div class="field2">
 							<h5>사진</h5>
 							<input id="image" type="file" name="theFile"
-								onchange="InputImage();"><br>
-							<br>
+								onchange="InputImage();"><br> <br>
 							<!-- <input type="submit" value="upload"> -->
 							<div id="imagePreview"></div>
 							<br>
@@ -166,12 +171,18 @@
 
 				<br>
 
-				<center>
-					<input type="submit" value="등록"> &nbsp;&nbsp;&nbsp;&nbsp;
-					<button type="submit" class="btn btn-warning">
-						취소<i class="fa fa-times spaceLeft"></i>
-					</button>
-				</center>
+				<div class="field2">
+					<div class="col-md-3"></div>
+					<div class="col-md-1"></div>
+					<ul class="actions">
+						<button onclick="PetupdateBoard(myForm)">수정</button>
+						<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
+
+					</ul>
+
+					<div class="col-md-3"></div>
+					<div class="col-md-3"></div>
+				</div>
 				<br>
 				</form>
 		</div>
