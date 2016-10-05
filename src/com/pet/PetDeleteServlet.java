@@ -13,7 +13,7 @@ import com.service.BoardService;
 /**
  * Servlet implementation class BoardListServlet
  */
-@WebServlet("/BoardDeleteServlet")
+@WebServlet("/PetDeleteServlet")
 public class PetDeleteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
