@@ -10,6 +10,7 @@ import com.dto.BoardDTO;
 import com.dto.MemberDTO;
 import com.dto.PetDTO;
 import com.exception.CommonException;
+import com.exception.PetException;
 
 public class PetService {
 
@@ -56,5 +57,20 @@ public class PetService {
 				return list;
 			}//end list()
 			
+			
+			public PetDTO mypage(String p_num) throws PetException {
+				PetDTO dto = null;
+				SqlSession session = MySqlSessionFactory.getSession();
+				try {
+					dto = session.selectOne("pet.mypage", p_num);
+					System.out.println(dto);
+				} catch (Exception e) {
+					e.printStackTrace();
+					throw new PetException("mypage 실패");
+				} finally {
+					session.close();
+				}
+				return dto;
+			}
 	
 }

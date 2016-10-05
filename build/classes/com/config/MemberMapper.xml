@@ -84,6 +84,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   select m_num, username, userid
 	   from member order by m_num      
 	</select>
+	<select id="memberListByCity" resultType="MemberDTO">
+	   select m_num,username,userid,passwd,phone,
+		post1,post2,addr1,addr2
+	   from member
+	   where addr1 like '%'||#{keyword}||'%'
+	   order by m_num      
+	</select>
+	
 </mapper>
 
 

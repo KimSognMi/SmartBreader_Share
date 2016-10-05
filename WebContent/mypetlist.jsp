@@ -106,7 +106,7 @@
 
 											<tr>
 												<td>${xxx.p_kkcnumber}</td>
-												<td>${xxx.p_name}</td>
+												<td><a href="MydogServlet?p_num=${xxx.p_num}">${xxx.p_name}</td>
 												<td>${xxx.p_type}</td>
 											</tr>
 										</c:forEach>
