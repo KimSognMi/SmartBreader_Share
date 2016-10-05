@@ -10,19 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dto.CommentPageDTO;
-import com.dto.MemberPageDTO;
+import com.service.BoardService;
+import com.dto.BoardDTO;
 import com.dto.PageDTO;
-import com.service.CommentService;
-import com.service.MemberService;
-
-
 
 /**
  * Servlet implementation class BoardListServlet
  */
-@WebServlet("/MemberListServlet2")
-public class MemberListServlet2 extends HttpServlet {
+@WebServlet("/BoardListServlet2")
+public class BoardListServlet2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -32,16 +28,15 @@ public class MemberListServlet2 extends HttpServlet {
 		}
 		
 		
-		MemberService service = new MemberService();
-		MemberPageDTO dto = 
+		BoardService service = new BoardService();
+		PageDTO dto = 
 				service.page(Integer.parseInt(curPage));
 		
 		request.setAttribute("page", dto);
 		
 		
-		
 		RequestDispatcher dis = 
-				request.getRequestDispatcher("memberlist2.jsp");
+				request.getRequestDispatcher("boardlist2.jsp");
 		dis.forward(request, response);
 	}
 

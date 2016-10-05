@@ -136,8 +136,13 @@ h1 {
 		</head>
 		<body>
 			<form method="get" name="myForm">
-
-				<a href="BoardListServlet">목록보기</a> <input type="hidden" name="num"
+<c:if test="${login.userid!='adminkongju@naver.com'}">
+				<a href="BoardListServlet">목록보기</a> 
+				</c:if>
+				<c:if test="${login.userid=='adminkongju@naver.com'}">
+				<a href="BoardListServlet2">목록보기</a> 
+				</c:if>
+				<input type="hidden" name="num"
 					value="${retrieve.num}">
 				글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
 				&nbsp;조회수:${retrieve.readcnt}<br>

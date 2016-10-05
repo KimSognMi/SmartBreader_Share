@@ -2083,7 +2083,7 @@ form .field.halfs {
 		z-index: -1;
 	}
 
-		input[type="checkbox"] + label,
+		input[type="checkbox"] + label ,
 		input[type="radio"] + label {
 			text-decoration: none;
 			color: #ffffff;
