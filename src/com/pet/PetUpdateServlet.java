@@ -25,10 +25,7 @@ public class PetUpdateServlet extends HttpServlet {
 		String p_name = request.getParameter("p_name");
 		String p_age = request.getParameter("p_age");
 		String author = request.getParameter("p_gender");
-		String content = request.getParameter("p_birth");
 		
-		
-	
 		
 		
 		response.sendRedirect("BoardListServlet");
