@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
 <title>SMART BREADER</title>
@@ -88,6 +90,7 @@
 								<div class="field2">
 									<thead>
 										<tr>
+											
 											<th>kkc 인증번호</th>
 											<th>이름</th>
 											<th>종</th>
@@ -95,16 +98,17 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<c:set var="ppp" value="${mlist}" />
-${list}
-											<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
-										</tr>
-										<tr>
-											<td>${xxx.p_kkcnumber}</td>
-											<td>${xxx.p_name}</td>
-											<td>${xxx.p_type}</td>
-										</tr>
+
+
+
+										<c:forEach var="xxx" items="${mlist}" varStatus="status">
+
+
+											<tr>
+												<td>${xxx.p_kkcnumber}</td>
+												<td><a href="MydogServlet?p_num=${xxx.p_num}">${xxx.p_name}</td>
+												<td>${xxx.p_type}</td>
+											</tr>
 										</c:forEach>
 
 

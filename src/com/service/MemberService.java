@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -165,6 +166,18 @@ public class MemberService {
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
 			list = session.selectList("member.memlist");
+		} finally {
+			session.close();
+		}
+		return list;
+	}// end list()
+	
+	//수철 : 같은 시 기준으로 검색 하여 맴버 가져오기
+	public List<MemberDTO> memberListByCity(String keyword) {
+		List<MemberDTO> list = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			list = session.selectList("member.memberListByCity", keyword);
 		} finally {
 			session.close();
 		}
