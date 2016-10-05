@@ -7,34 +7,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert parameterType="PetDTO" id="addPet">
-		insert into pet( p_num,userid,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature)
+		insert into pet(
+		p_num,userid,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature)
 		values( pet_seq.nextval,#{userid},#{p_kkcnumber},#{p_name},#{p_age},
 		#{p_gender},#{p_birth},#{p_type},#{p_photo},#{p_feature})
 	</insert>
 
 
-<select id="list" resultType="PetDTO" parameterType="String">
-	
-		select p_num,userid ,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
+	<select id="list" resultType="PetDTO" parameterType="String">
+
+		select p_num,userid
+		,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
 		from
 		pet
 		where userid = #{userid}
 	</select>
-	
- 	
+
+
 	<select id="mlist" resultType="PetDTO" parameterType="String">
-	   select p_num,p_kkcnumber, p_name, p_type
-	   from pet
-	   where userid = #{userid}     
-	</select> 
-	
+		select p_num,p_kkcnumber, p_name, p_type
+		from pet
+		where userid = #{userid}
+	</select>
+
 	<select resultType="PetDTO" parameterType="string" id="mypage">
-		select p_num,userid ,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
+		select
+		p_num,userid
+		,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
 		from pet
 		where p_num = #{p_num}
 	</select>
-	
-	
+
+
+	<update id="update" parameterType="PetDTO">
+		update pet
+		set p_name=#{p_name},
+		p_age=#{p_age},
+		p_gender=#{p_gender},
+		p_birth=#{p_birth},
+		p_type=#{p_type},
+		p_photo=#{p_photo},
+		p_feature=#{p_feature}
+		where p_num = #{p_num}
+	</update>
+
 </mapper>
 
 
