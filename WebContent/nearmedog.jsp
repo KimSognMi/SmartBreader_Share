@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -269,11 +269,11 @@
 			%>
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
-					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="joinform.jsp" class="button special fit">JOIN</a></li>
@@ -284,11 +284,11 @@
 			%>
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
-					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				<li><a href="about.jsp">ABOUT US</a></li>
+				<li><a href="BoardListServlet">BOARD</a></li>
+				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
 				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
@@ -356,7 +356,7 @@
 
 					<div class="field2">
 						<input type="hidden" name="addr1" id="addrpet1" size="40"
-							readonly="" class="form-control" placeholder="도로명주소"
+							class="form-control" placeholder="도로명주소"
 							value="${nearmedog.addr1}"> <br> <span
 							style="line-height: 10%;"></span> <input type="hidden"
 							class="form-control" name="addrpet2" id="addr2" size="40"
@@ -369,6 +369,8 @@
 					<script type="text/javascript"
 						src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
 					<script>
+						
+
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
 							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -381,11 +383,12 @@
 
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new daum.maps.services.Geocoder();
-
 						// 주소로 좌표를 검색합니다
-						geocoder
+						//수철 : 나의 주변의 사람들 좌표 찍기
+						<c:forEach items="${nearmedoglist}" var="item2">
+							geocoder
 								.addr2coord(
-										'${nearmedog.addr1}',
+										'${item2.addr1}',
 										function(status, result) {
 
 											// 정상적으로 검색이 완료됐으면 
@@ -405,15 +408,46 @@
 												// 인포윈도우로 장소에 대한 설명을 표시합니다
 												var infowindow = new daum.maps.InfoWindow(
 														{
-															content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
+															content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">주변사람들</div>'
 														});
 												infowindow.open(map, marker);
 
 												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-												map.setCenter(coords);
+												//map.setCenter(coords);
 											}
 										});
-					
+						</c:forEach>
+						//수철 : 마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
+						geocoder
+						.addr2coord(
+								'${nearmedog.addr1}',
+								function(status, result) {
+
+									// 정상적으로 검색이 완료됐으면 
+									if (status === daum.maps.services.Status.OK) {
+
+										var coords = new daum.maps.LatLng(
+												result.addr[0].lat,
+												result.addr[0].lng);
+
+										// 결과값으로 받은 위치를 마커로 표시합니다
+										var marker = new daum.maps.Marker(
+												{
+													map : map,
+													position : coords
+												});
+
+										// 인포윈도우로 장소에 대한 설명을 표시합니다
+										var infowindow = new daum.maps.InfoWindow(
+												{
+													content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
+												});
+										infowindow.open(map, marker);
+
+										// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+										map.setCenter(coords);
+									}
+						});
 						var positions = [
 						                 {
 						                     content: '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">카카오</div>', 
