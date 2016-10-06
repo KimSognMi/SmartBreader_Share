@@ -44,8 +44,8 @@
 					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="memberform.jsp" class="button special fit">JOIN</a></li>
-					<li><a href="loginform.jsp" class="button fit">Log In</a></li>
+					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
+					<li><a href="LoginFormServlet" class="button fit">Log In</a></li>
 				</ul>
 			</c:if>
 
