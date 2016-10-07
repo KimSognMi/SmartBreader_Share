@@ -25,7 +25,9 @@
 		f.action = "PetUpdateServlet";
 	}
 	function PetdeleteBoard(f) {
+		/* f.action = "MyPetListServlet?userid=${login.userid}"; */
 		f.action = "PetDeleteServlet";
+		
 	}
 </script>
 </head>
@@ -92,7 +94,12 @@
 
 						<!-- 	<form action="UploadServlet" method="post" > -->
 
+${mydog.p_num}
+${login.userid}
 
+						<input type="hidden" name="p_num" id="p_num" value="${mydog.p_num}">
+					
+						
 
 						<div class="field2">
 							<h5>kkc 등록번호</h5>
@@ -111,7 +118,7 @@
 						<div class="field half2">
 							<h5>나이</h5>
 							<input type="text" class="form-control" name="p_age" id="p_age"
-								placeholder="나이">
+								placeholder="나이" value="${mydog.p_age}">
 						</div>
 
 						<div class="row uniform">
@@ -139,7 +146,7 @@
 								생일</span>
 							</h5>
 							<input type="text" class="form-control" name="p_birth"
-								id="p_birth" placeholder="생일">
+								id="p_birth" placeholder="생일" value="${mydog.p_birth}">
 
 						</div>
 
@@ -148,22 +155,23 @@
 							<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
 							<h5>종</h5>
 							<input type="text" class="form-control" id="p_type" name="p_type"
-								placeholder="종">
+								placeholder="종" value="${mydog.p_type}">
 						</div>
 
 
 						<div class="field2">
 							<h5>특징</h5>
 							<textarea name="p_feature" id="p_feature"
-								placeholder="특징을 입력 해 주세요" rows="5"></textarea>
+								placeholder="특징을 입력 해 주세요" rows="5">${mydog.p_feature}</textarea>
 						</div>
 
 						<div class="field2">
 							<h5>사진</h5>
 							<input id="image" type="file" name="theFile"
-								onchange="InputImage();"><br> <br>
+								onchange="InputImage();" value="${mydog.p_photo}"><br>${mydog.p_photo}
+							<br>
 							<!-- <input type="submit" value="upload"> -->
-							<div id="imagePreview"></div>
+							<div id="imagePreview" value="${mydog.p_photo}"></div>
 							<br>
 
 						</div>

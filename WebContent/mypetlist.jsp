@@ -84,13 +84,17 @@
 					<div class="content">
 						<p>
 						<h3>Text</h3>
+						<form method="post" action="PetFormServlet">
+							<input type="submit" value="글쓰기" />
+
+						</form>
 						<div class="table-wrapper">
 							<table border="1">
 
 								<div class="field2">
 									<thead>
 										<tr>
-											
+
 											<th>kkc 인증번호</th>
 											<th>이름</th>
 											<th>종</th>

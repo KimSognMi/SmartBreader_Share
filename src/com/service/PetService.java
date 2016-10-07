@@ -87,5 +87,21 @@ public class PetService {
 				}
 
 			}
+			
+			
+			public void delete(String p_num) throws PetException {
+				SqlSession session = MySqlSessionFactory.getSession();
+				try {
+					int n = session.delete("pet.delete", p_num);
+					session.commit();
+
+				} catch (Exception e) {
+					e.printStackTrace();
+					throw new PetException("회원삭제 실패");
+				} finally {
+					session.close();
+				}
+
+			}
 	
 }
