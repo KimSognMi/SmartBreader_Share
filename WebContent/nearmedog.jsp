@@ -369,8 +369,6 @@
 					<script type="text/javascript"
 						src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
 					<script>
-						
-
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
 							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -386,7 +384,7 @@
 						// 주소로 좌표를 검색합니다
 						//수철 : 나의 주변의 사람들 좌표 찍기
 						<c:forEach items="${nearmedoglist}" var="item2">
-							geocoder
+						geocoder
 								.addr2coord(
 										'${item2.addr1}',
 										function(status, result) {
@@ -419,118 +417,73 @@
 						</c:forEach>
 						//수철 : 마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
 						geocoder
-						.addr2coord(
-								'${nearmedog.addr1}',
-								function(status, result) {
+								.addr2coord(
+										'${nearmedog.addr1}',
+										function(status, result) {
 
-									// 정상적으로 검색이 완료됐으면 
-									if (status === daum.maps.services.Status.OK) {
+											// 정상적으로 검색이 완료됐으면 
+											if (status === daum.maps.services.Status.OK) {
 
-										var coords = new daum.maps.LatLng(
-												result.addr[0].lat,
-												result.addr[0].lng);
+												var coords = new daum.maps.LatLng(
+														result.addr[0].lat,
+														result.addr[0].lng);
 
-										// 결과값으로 받은 위치를 마커로 표시합니다
-										var marker = new daum.maps.Marker(
-												{
-													map : map,
-													position : coords
-												});
+												// 결과값으로 받은 위치를 마커로 표시합니다
+												var marker = new daum.maps.Marker(
+														{
+															map : map,
+															position : coords
+														});
 
-										// 인포윈도우로 장소에 대한 설명을 표시합니다
-										var infowindow = new daum.maps.InfoWindow(
-												{
-													content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
-												});
-										infowindow.open(map, marker);
+												// 인포윈도우로 장소에 대한 설명을 표시합니다
+												var infowindow = new daum.maps.InfoWindow(
+														{
+															content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
+														});
+												infowindow.open(map, marker);
 
-										// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-										map.setCenter(coords);
-									}
-						});
-						var positions = [
-						                 {
-						                     content: '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">카카오</div>', 
-						                     latlng: new daum.maps.LatLng(33.450705, 126.570677)
-						                 },
-						                 {
-						                     content: '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">생태연못</div>', 
-						                     latlng: new daum.maps.LatLng(33.450936, 126.569477)
-						                 },
-						                 {
-						                     content: '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">텃밭</div>', 
-						                     latlng: new daum.maps.LatLng(33.450879, 126.569940)
-						                 },
-						                 {
-						                     content: '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">근린공원</div>',
-						                     latlng: new daum.maps.LatLng(33.451393, 126.570738)
-						                 }
-						             ];
+												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+												map.setCenter(coords);
+											}
+										});
 
-						             for (var i = 0; i < positions.length; i ++) {
-						                 // 마커를 생성합니다
-						                 var marker = new daum.maps.Marker({
-						                     map: map, // 마커를 표시할 지도
-						                     position: positions[i].latlng // 마커의 위치
-						                 });
+						for (var i = 0; i < positions.length; i++) {
+							// 마커를 생성합니다
+							var marker = new daum.maps.Marker({
+								map : map, // 마커를 표시할 지도
+								position : positions[i].latlng
+							// 마커의 위치
+							});
 
-						                 // 마커에 표시할 인포윈도우를 생성합니다 
-						                 var infowindow = new daum.maps.InfoWindow({
-						                     content: positions[i].content // 인포윈도우에 표시할 내용
-						                 });
+							// 마커에 표시할 인포윈도우를 생성합니다 
+							var infowindow = new daum.maps.InfoWindow({
+								content : positions[i].content
+							// 인포윈도우에 표시할 내용
+							});
 
-						                 // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-						                 // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-						                 // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-						                 daum.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-						                 daum.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-						             }
+							// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+							// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+							// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+							/* daum.maps.event.addListener(marker, 'mouseover',
+									makeOverListener(map, marker, infowindow));
+							daum.maps.event.addListener(marker, 'mouseout',
+									makeOutListener(infowindow));  */
+						}
 
-						             // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-						             function makeOverListener(map, marker, infowindow) {
-						                 return function() {
-						                     infowindow.open(map, marker);
-						                 };
-						             }
+						// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+						/* function makeOverListener(map, marker, infowindow) {
+							return function() {
+								infowindow.open(map, marker);
+							};
+						}
 
-						             // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-						             function makeOutListener(infowindow) {
-						                 return function() {
-						                     infowindow.close();
-						                 };
-						             }
-
-						             /* 아래와 같이도 할 수 있습니다 */
-						             /*
-						             for (var i = 0; i < positions.length; i ++) {
-						                 // 마커를 생성합니다
-						                 var marker = new daum.maps.Marker({
-						                     map: map, // 마커를 표시할 지도
-						                     position: positions[i].latlng // 마커의 위치
-						                 });
-
-						                 // 마커에 표시할 인포윈도우를 생성합니다 
-						                 var infowindow = new daum.maps.InfoWindow({
-						                     content: positions[i].content // 인포윈도우에 표시할 내용
-						                 });
-
-						                 // 마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만듭니다
-						                 // 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-						                 (function(marker, infowindow) {
-						                     // 마커에 mouseover 이벤트를 등록하고 마우스 오버 시 인포윈도우를 표시합니다 
-						                     daum.maps.event.addListener(marker, 'mouseover', function() {
-						                         infowindow.open(map, marker);
-						                     });
-
-						                     // 마커에 mouseout 이벤트를 등록하고 마우스 아웃 시 인포윈도우를 닫습니다
-						                     daum.maps.event.addListener(marker, 'mouseout', function() {
-						                         infowindow.close();
-						                     });
-						                 })(marker, infowindow);
-						             }
-						             */
-						
-						</script>
+						// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+						function makeOutListener(infowindow) {
+							return function() {
+								infowindow.close();
+							};
+						} */
+					</script>
 					<br>
 					<!-- Footer -->
 					<footer id="footer">
