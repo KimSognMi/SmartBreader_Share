@@ -73,12 +73,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where userid = #{userid}
 	</select>
 	
-	<!-- 
-	<select id="memlist" resultType="MemberDTO">
+	
+	<select id="mempetlist" resultType="MemberPetDTO">
 	   select m.m_num, m.username, m.userid, p.p_name
-	   from member m, pet p    
-	   where m.userid = p.userid
-	</select> -->
+	   from member m
+	   LEFT OUTER JOIN pet p    
+	   on m.userid = p.userid
+	   order by m_num
+	</select>
 	
 	<select id="memlist" resultType="MemberDTO">
 	   select m_num, username, userid

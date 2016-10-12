@@ -1,3 +1,4 @@
+<%@page import="com.dto.MemberPetPageDTO"%>
 <%@page import="com.dto.MemberPageDTO"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@page import="com.dto.PageDTO"%>
@@ -129,6 +130,7 @@
 										<td>${xxx.m_num}</td>
 										<td><a href="MemberRetrieveServlet?userid=${xxx.userid}">${xxx.username}</td>
 										<td>${xxx.userid}</td>
+										<td>${xxx.p_name}</td>
 
 
 									</tr>
@@ -143,10 +145,10 @@
 
 									<td colspan="5">
 										<%
-											MemberPageDTO memberpageDTO = (MemberPageDTO) request.getAttribute("page");
-											int curPage = memberpageDTO.getCurPage();
-											int perPage = memberpageDTO.getPerPage();
-											int totalRecord = memberpageDTO.getTotalRecord();
+											MemberPetPageDTO memberpetpageDTO = (MemberPetPageDTO) request.getAttribute("page");
+											int curPage = memberpetpageDTO.getCurPage();
+											int perPage = memberpetpageDTO.getPerPage();
+											int totalRecord = memberpetpageDTO.getTotalRecord();
 
 											int totalCount = totalRecord / perPage;
 											if (totalRecord % perPage != 0)

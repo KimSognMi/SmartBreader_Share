@@ -11,6 +11,8 @@ import com.config.MySqlSessionFactory;
 import com.dto.BoardDTO;
 import com.dto.MemberDTO;
 import com.dto.MemberPageDTO;
+import com.dto.MemberPetDTO;
+import com.dto.MemberPetPageDTO;
 import com.dto.PageDTO;
 import com.dto.PetDTO;
 import com.exception.CommonException;
@@ -20,9 +22,9 @@ public class MemberService {
 	
 	
 	
-	public MemberPageDTO page(int curPage){
-		MemberPageDTO dto = new MemberPageDTO();
-		List<MemberDTO> list = null;
+	public MemberPetPageDTO page(int curPage){
+		MemberPetPageDTO dto = new MemberPetPageDTO();
+		List<MemberPetDTO> list = null;
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
@@ -30,7 +32,7 @@ public class MemberService {
 		int count = dto.getPerPage();	
 		int skip = (curPage-1)*count;
         list =
-		session.selectList("member.memlist", null,
+		session.selectList("member.mempetlist", null,
 				new RowBounds(skip, count));
 			
 			
@@ -206,4 +208,7 @@ public class MemberService {
 		dto.setTotalRecord(totalCount());
 		return dto;
 	}// end list()
+	
+	
+	
 }
