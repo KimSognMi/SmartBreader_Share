@@ -33,6 +33,8 @@ public class PetDeleteServlet extends HttpServlet {
 		PetService service = new PetService();
 		try {
 			service.delete(p_num);
+			HttpSession session=request.getSession();
+			session.removeAttribute("list");
 		} catch (PetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -70,7 +70,7 @@
 				</c:if>  
 					
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
-					
+				<c:if test="${!empty sessionScope.list}">	
 						<c:if test="${sessionScope.list.size()!=0}">
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
@@ -85,15 +85,15 @@
 						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
-					</ul>
+					</ul> 
 					
 				</c:if>
-				
+				</c:if>
 				
 								
 <%--  ${sessionScope.list.size()}  --%>
- 		${sessionScope.list}
-				<c:if test="${sessionScope.list.size()==0}">
+ 		${empty sessionScope.list}
+				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
 				
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>

@@ -9,6 +9,16 @@
 <head>
 <title>SMART BREADER</title>
 
+<script type="text/javascript">
+	function xxx(s) {
+		var price = document.getElementById("price").value;
+		var quantity = s.value;
+		var totalprice = document.getElementById("totalprice");
+		totalprice.innerText = parseInt(quantity) * parseInt(price);
+
+	}
+</script>
+
 <script type="text/javascript" src="assets/js/jquery-3.1.0.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=" utf-8" />
 
@@ -152,15 +162,16 @@
 
 						<div class="field2">
 							<h5>사진</h5>
-							<c:url value="c:/Temp/upload/rr.jpg" var="imageURL"/>
 							
 							<input id="image" type="file" name="theFile"
-								onchange="InputImage();" value="c:/Temp/upload/rr.jpg" ><br><%-- ${mydog.p_photo} --%>
+								onchange="InputImage();" ><br>
 							<br>
 							
 					<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
 							<div id="imagePreview"  src="<c:out value="${imageURL}"/>" /> --%>
-							<div id="imagePreview"></div>
+							<img id="photo" />
+							<div id="imagePreview">
+							</div>
 					
 							<br>
 
