@@ -10,12 +10,18 @@
 <title>SMART BREADER</title>
 
 <script type="text/javascript">
-	function xxx(s) {
-		var price = document.getElementById("price").value;
-		var quantity = s.value;
-		var totalprice = document.getElementById("totalprice");
-		totalprice.innerText = parseInt(quantity) * parseInt(price);
+	function photo() {
+	var photo2 = document.getElementById("imagePreview2");
+	console.log('${mydog.p_photo}');
+	
+	/* photo2.style.width = "450px";
+	photo2.style.height = "340px";  */
+		 photo2.innerHTML = "<img src='images/"+'${mydog.p_photo}'+"'/>";
 
+	}
+	
+	function remove(){
+		${'imagePreview2'}.remove();
 	}
 </script>
 
@@ -41,7 +47,7 @@
 	}
 </script>
 </head>
-<body>
+<body onload="photo()">
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -164,16 +170,18 @@
 							<h5>사진</h5>
 							
 							<input id="image" type="file" name="theFile"
-								onchange="InputImage();" ><br>
+								onchange="InputImage();" onclick="remove()"><br>
 							<br>
 							
 					<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
 							<div id="imagePreview"  src="<c:out value="${imageURL}"/>" /> --%>
-							<img id="photo" />
-							<div id="imagePreview">
+							<!-- <a href="javascript:photo()">d</a> -->
+							<div id="imagePreview2" >
+							</div>
+							<div id="imagePreview" >
 							</div>
 					
-							<br>
+							<br> 
 
 						</div>
 					</div>
@@ -211,7 +219,7 @@
 						var newPreview = document
 								.getElementById("imagePreview");
 						ImagePre = new Image();
-						ImagePre.style.width = "450px";
+						ImagePre.style.width = "550px";
 						ImagePre.style.height = "340px"; //세로
 						newPreview.appendChild(ImagePre);
 					}
