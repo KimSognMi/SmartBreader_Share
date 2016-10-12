@@ -26,7 +26,7 @@
 	}
 	function PetdeleteBoard(f) {
 		/* f.action = "MyPetListServlet?userid=${login.userid}"; */
-		f.action = "PetDeleteServlet";
+		f.action = "PetDeleteServlet?userid=${login.userid}&p_num=${mydog.p_num}";
 
 	}
 </script>
@@ -152,11 +152,16 @@
 
 						<div class="field2">
 							<h5>사진</h5>
+							<c:url value="c:/Temp/upload/rr.jpg" var="imageURL"/>
+							
 							<input id="image" type="file" name="theFile"
-								onchange="InputImage();" value="${mydog.p_photo}"><br>${mydog.p_photo}
+								onchange="InputImage();" value="c:/Temp/upload/rr.jpg" ><br><%-- ${mydog.p_photo} --%>
 							<br>
-							<!-- <input type="submit" value="upload"> -->
-							<div id="imagePreview" value="${mydog.p_photo}"></div>
+							
+					<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
+							<div id="imagePreview"  src="<c:out value="${imageURL}"/>" /> --%>
+							<div id="imagePreview"></div>
+					
 							<br>
 
 						</div>
@@ -252,7 +257,7 @@
 					return false;
 				} else {
 					//성공
-					alert("정상 등록되었습니다.");
+					alert("정상 처리되었습니다.");
 				}
 
 			});
