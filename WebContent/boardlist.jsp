@@ -131,7 +131,7 @@
 								<tr>
 								<tbody>
 									<c:set var="ppp" value="${page}" />
-${xxx.boardCategory}
+
 									<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
 
 										<tr>
