@@ -91,8 +91,8 @@
 				
 				
 								
- ${sessionScope.list.size()} 
- 		
+<%--  ${sessionScope.list.size()}  --%>
+ 		${sessionScope.list}
 				<c:if test="${sessionScope.list.size()==0}">
 				
 					<ul class="links">
