@@ -136,14 +136,13 @@ h1 {
 		</head>
 		<body>
 			<form method="get" name="myForm">
-<c:if test="${login.userid!='adminkongju@naver.com'}">
-				<a href="BoardListServlet">목록보기</a> 
+				<c:if test="${login.userid!='adminkongju@naver.com'}">
+					<a href="BoardListServlet">목록보기</a>
 				</c:if>
 				<c:if test="${login.userid=='adminkongju@naver.com'}">
-				<a href="BoardListServlet2">목록보기</a> 
+					<a href="BoardListServlet2">목록보기</a>
 				</c:if>
-				<input type="hidden" name="num"
-					value="${retrieve.num}">
+				<input type="hidden" name="num" value="${retrieve.num}">
 				글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
 				&nbsp;조회수:${retrieve.readcnt}<br>
 				<div>
@@ -152,6 +151,22 @@ h1 {
 				</div>
 				<br> <br>
 				<div class="field2">
+				
+				<div class="col-md-1">카테고리</div>
+				
+				<div class="field half" style="width: 150px;">
+			
+					<input type="radio" id="demo-priority-low" name="demo-priority"
+						checked> <label for="demo-priority-low">후기글</label>
+				</div>
+				<div class="field half" style="width: 150px;">
+					<input type="radio" id="demo-priority-normal" name="demo-priority">
+					<label for="demo-priority-normal">질문글</label>
+				</div>
+				<br> <br>
+				</div>
+				<div class="field2">
+
 					<div class="col-md-3"></div>
 					<div class="col-md-1">제목</div>
 					<div class="col-md-5">

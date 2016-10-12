@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@page import="com.dto.MemberDTO"%>
@@ -36,33 +36,33 @@
 		<nav id="menu">
 
 			<c:if test="${sessionScope.login == null}">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
-				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
-			</ul>
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="board.jsp">BOARD</a></li>
+					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="memberform.jsp" class="button special fit">Join</a></li>
+					<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
+				</ul>
 			</c:if>
 
-<c:if test="${sessionScope.login != null}">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
+			<c:if test="${sessionScope.login != null}">
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="about.jsp">ABOUT US</a></li>
 					<li><a href="BoardListServlet">BOARD</a></li>
 					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
 					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-			</ul>
-</c:if>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
+					<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+				</ul>
+			</c:if>
 		</nav>
 
 		<!-- Banner -->
@@ -114,33 +114,49 @@ h1 {
 		});
 		$(".cancelBtn").on("click", function() {
 			/* 클릭시 여기로 이동 */
-			
-				var url = "boardlist.jsp";
-				$(location).attr("href", url);	
-			
+
+			var url = "boardlist.jsp";
+			$(location).attr("href", url);
+
 		});
 	});
 </script>
 		</head>
 		<body>
 			<form action="BoardWriteServlet" method="post">
-		<c:if test="${login.userid!='adminkongju@naver.com'}">
-				<a href="BoardListServlet">목록보기</a>
+				<c:if test="${login.userid!='adminkongju@naver.com'}">
+					<a href="BoardListServlet">목록보기</a>
 				</c:if>
 				<c:if test="${login.userid=='adminkongju@naver.com'}">
-				<a href="BoardListServlet2">목록보기</a>
+					<a href="BoardListServlet2">목록보기</a>
 				</c:if>
 				<div>
 					<h1>게시글 등록</h1>
-					 <input type="hidden" name="author"
-					value="${login.username}">
+					<input type="hidden" name="author" value="${login.username}">
 				</div>
-				<br>
-				<br>
+				<br> <br>
+				<div class="field2">
+
+					<div class="col-md-1">카테고리</div>
+
+					<div class="field half" style="width: 150px;">
+
+						<input type="radio" id="boardCategory" name="boardCategory" value="후기글"
+							checked> <label for="boardCategory">후기글</label>
+					</div>
+					<div class="field half" style="width: 150px;">
+						<input type="radio" id="boardCategory1" name="boardCategory" value="질문글">
+						<label for="boardCategory1">질문글</label>
+					</div>
+					<br> <br>
+				</div>
 				<div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">제목</div>
 					<div class="col-md-5">
+					<c:if test="${login.userid=='adminkongju@naver.com'}">
+					<a href="BoardListServlet2">목록보기</a>
+				</c:if>
 						<input class="form-control inputTitle" type="text" name="title">
 					</div>
 					<div class="col-md-3 titleHelper"></div>
@@ -157,7 +173,7 @@ h1 {
 				</div>
 				<br>
 
-				 <div class="field2">
+				<div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
@@ -180,29 +196,28 @@ h1 {
 					<div class="col-md-3"></div>
 				</div>
 			</form>
-		<!-- Footer -->
-		<footer id="footer">
-			<div class="inner">
-				<ul class="icons">
-					<li><a href="#" class="icon alt fa-twitter"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon alt fa-facebook"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon alt fa-github"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon alt fa-linkedin"><span
-							class="label">LinkedIn</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span
+								class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span
+								class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span
+								class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span
+								class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span
+								class="label">LinkedIn</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li>
+						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 
-				</ul>
-			</div>
-		</footer>
-
+					</ul>
+				</div>
+			</footer>
 	</div>
 
 	<!-- Scripts -->
