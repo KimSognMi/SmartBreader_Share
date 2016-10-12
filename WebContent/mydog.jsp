@@ -27,7 +27,7 @@
 	function PetdeleteBoard(f) {
 		/* f.action = "MyPetListServlet?userid=${login.userid}"; */
 		f.action = "PetDeleteServlet";
-		
+
 	}
 </script>
 </head>
@@ -87,20 +87,13 @@
 
 		<div id="main">
 			<section id="two">
-				<!-- <article class="container"> -->
-				<div class="col-md-6 col-md-offset-3">
+				<form name="myForm" method="post" enctype="multipart/form-data">
+					<!-- <article class="container"> -->
+					<div class="col-md-6 col-md-offset-3">
 
-					<form name="myForm" method="post" enctype="multipart/form-data">
-
-						<!-- 	<form action="UploadServlet" method="post" > -->
-
-${mydog.p_num}
-${login.userid}
-
-						<input type="hidden" name="p_num" id="p_num" value="${mydog.p_num}">
-					
-						
-
+<c:set var="mydog" value="${mydog}" scope="session"/>
+						<input type="hidden" name="p_num" id="p_num"
+							value="${mydog.p_num}">
 						<div class="field2">
 							<h5>kkc 등록번호</h5>
 							<input type="text" class="form-control"
@@ -120,7 +113,6 @@ ${login.userid}
 							<input type="text" class="form-control" name="p_age" id="p_age"
 								placeholder="나이" value="${mydog.p_age}">
 						</div>
-
 						<div class="row uniform">
 							<div class="field2_1">
 
@@ -135,11 +127,9 @@ ${login.userid}
 									<input type="radio" id="여" name="p_gender" value="여"> <label
 										for="여">여(♀)</label>
 								</div>
+								${mydog.p_gender}
 							</div>
 						</div>
-
-
-
 						<div class="field3 ">
 							<!-- <label for="passwd2">비밀번호 확인</label> -->
 							<h5>
@@ -147,18 +137,13 @@ ${login.userid}
 							</h5>
 							<input type="text" class="form-control" name="p_birth"
 								id="p_birth" placeholder="생일" value="${mydog.p_birth}">
-
 						</div>
-
-
 						<div class="field3">
 							<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
 							<h5>종</h5>
 							<input type="text" class="form-control" id="p_type" name="p_type"
 								placeholder="종" value="${mydog.p_type}">
 						</div>
-
-
 						<div class="field2">
 							<h5>특징</h5>
 							<textarea name="p_feature" id="p_feature"
@@ -175,26 +160,27 @@ ${login.userid}
 							<br>
 
 						</div>
-				</div>
+					</div>
 
-				<br>
+					<br>
 
-				<div class="field2">
-					<div class="col-md-3"></div>
-					<div class="col-md-1"></div>
-					<ul class="actions">
-						<button onclick="PetupdateBoard(myForm)">수정</button>
-						<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
+					<div class="field2">
+						<div class="col-md-3"></div>
+						<div class="col-md-1"></div>
+						<ul class="actions">
+							<button onclick="PetupdateBoard(myForm)">수정</button>
+							<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
 
-					</ul>
+						</ul>
 
-					<div class="col-md-3"></div>
-					<div class="col-md-3"></div>
-				</div>
-				<br>
+						<div class="col-md-3"></div>
+						<div class="col-md-3"></div>
+					</div>
+					<br>
 				</form>
+			</section>
 		</div>
-		</section>
+
 	</div>
 
 	<script type="text/javascript">
