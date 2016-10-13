@@ -42,7 +42,7 @@ public class PetUpdateServlet extends HttpServlet {
 		System.out.println(p_age);
 		System.out.println(p_gender);
 		System.out.println(p_birth);
-		System.out.println(p_type);
+		System.out.println(p_type);   
 		System.out.println(p_photo);
 		System.out.println(p_feature);
 		
