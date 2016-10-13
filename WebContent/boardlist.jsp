@@ -136,7 +136,7 @@
 
 										<tr>
 											<td>${xxx.num}</td>
-											<td><a href="BoardRetrieveServlet?num=${xxx.num}">${xxx.title}</td>
+											<td>${xxx.boardCategory}<a href="BoardRetrieveServlet?num=${xxx.num}">${xxx.title}</td>
 											<td>${xxx.author}</td>
 											<td>${xxx.writeday}</td>
 											<td>${xxx.readcnt}</td>
