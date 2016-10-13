@@ -46,6 +46,8 @@ public class MemberAddServlet extends HttpServlet {
 		dto.setAddr2(addr2);
 		dto.setPhone(phone);
 		
+		System.out.println(dto);
+		
 	    MemberService service =
 	    		new MemberService();
 	    String title="";
