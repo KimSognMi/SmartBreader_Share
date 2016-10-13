@@ -16,6 +16,7 @@ import com.service.PetService;
 import com.dto.BoardDTO;
 import com.dto.CommentDTO;
 import com.dto.PetDTO;
+import com.exception.CommonException;
 import com.exception.PetException;
 
 /**
@@ -58,15 +59,25 @@ public class PetUpdateServlet extends HttpServlet {
 		
 		
 		PetService service = new PetService();
-		try {
-			service.update(dto);
-		} catch (PetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		 String title="";
+		    String target="";
+		    try {   
+				service.updatePet(dto);
+				target = "index.jsp";
+				request.setAttribute("update", "정상적으로 수정되었습니다.");
+			} catch (PetException e) {
+				title= e.getMessage();
+				String link="MydogServlet";
+				target="error.jsp";
+				request.setAttribute("title", title);
+				request.setAttribute("link", link);
+			}
+			
+			RequestDispatcher dis =
+					request.getRequestDispatcher(target);
+			dis.forward(request, response);
 		
-		
-		response.sendRedirect("BoardListServlet");
+		//response.sendRedirect("BoardListServlet");
 	}//end doGet
 
 	

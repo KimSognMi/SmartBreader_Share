@@ -73,15 +73,15 @@ public class PetService {
 				return dto;
 			}
 			
-			public void update(PetDTO dto) throws PetException {
+			public void updatePet(PetDTO dto) throws PetException {
 				SqlSession session = MySqlSessionFactory.getSession();
 				try {
-					int n = session.update("pet.update", dto);
+					int n = session.update("pet.updatePet", dto);
 					session.commit();
 
 				} catch (Exception e) {
 					e.printStackTrace();
-					throw new PetException("회원수정 실패");
+					throw new PetException("펫수정 실패");
 				} finally {
 					session.close();
 				}

@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 
-	<update id="update" parameterType="PetDTO">
+	<update id="updatePet" parameterType="PetDTO">
 		update pet
 		set p_name=#{p_name},
 		p_age=#{p_age},
