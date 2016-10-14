@@ -70,7 +70,7 @@
 				</c:if>  
 					${empty sessionScope.list}
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
-				<c:if test="${!empty sessionScope.list} ">	
+				<%-- <c:if test="${!empty sessionScope.list} ">	 --%>
 						<c:if test="${sessionScope.list.size()!=0}">
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
@@ -88,7 +88,7 @@
 					</ul> 
 					
 				</c:if>
-				</c:if>
+				<%-- </c:if> --%>
 				
 								
 <%--  ${sessionScope.list.size()}  --%>
