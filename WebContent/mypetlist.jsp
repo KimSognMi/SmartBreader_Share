@@ -96,6 +96,7 @@
 										<tr>
 
 											<th>kkc 인증번호</th>
+											<th>사진</th>
 											<th>이름</th>
 											<th>종</th>
 
@@ -110,6 +111,7 @@
 
 											<tr>
 												<td>${xxx.p_kkcnumber}</td>
+												<td><img src="images/${xxx.p_photo}" height="140px" width="250px"/></td>
 												<td><a href="MydogServlet?p_num=${xxx.p_num}">${xxx.p_name}</td>
 												<td>${xxx.p_type}</td>
 											</tr>

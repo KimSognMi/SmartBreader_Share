@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="mlist" resultType="PetDTO" parameterType="String">
-		select p_num,p_kkcnumber, p_name, p_type
+		select p_num,p_kkcnumber,p_photo, p_name, p_type
 		from pet
 		where userid = #{userid}
 	</select>

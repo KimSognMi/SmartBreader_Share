@@ -16,7 +16,7 @@
 	
 	/* photo2.style.width = "450px";
 	photo2.style.height = "340px";  */
-		 photo2.innerHTML = "<img src='images/"+'${mydog.p_photo}'+"'/>";
+		 photo2.innerHTML = "<img height='340px' width='620px' src='images/"+'${mydog.p_photo}'+"' />";
 
 	}
 	
