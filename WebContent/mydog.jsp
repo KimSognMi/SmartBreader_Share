@@ -105,7 +105,7 @@
 
 		<div id="main">
 			<section id="two">
-				<form name="myForm" method="post" enctype="multipart/form-data">
+				<form name="myForm" method="get" action="PetUpdateServlet" enctype="multipart/form-data">
 					<!-- <article class="container"> -->
 					<div class="col-md-6 col-md-offset-3">
 
@@ -171,7 +171,7 @@
 						<div class="field2">
 							<h5>사진</h5>
 
-							<input id="image" type="file" name="theFile"
+							<input id="image" type="file" name="theFile" value="${mydog.p_photo}"
 								onchange="InputImage();" onclick="remove()"><br> <br>
 
 							<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
@@ -191,7 +191,8 @@
 						<div class="col-md-3"></div>
 						<div class="col-md-1"></div>
 						<ul class="actions">
-							<button onclick="PetupdateBoard(myForm)">수정</button>
+							<li><input type="submit" value="Update Message"
+									class="special" /></li>
 							<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
 
 						</ul>
