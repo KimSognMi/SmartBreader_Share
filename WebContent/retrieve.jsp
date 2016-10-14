@@ -146,7 +146,7 @@ h1 {
 				글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
 				&nbsp;조회수:${retrieve.readcnt}<br>
 				<div>
-					<h1>게시글 내용</h1>
+					<h1>${retrieve.boardCategory} 내용</h1>
 
 				</div>
 				<br> <br>
