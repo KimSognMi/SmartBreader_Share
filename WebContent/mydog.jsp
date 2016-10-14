@@ -37,6 +37,8 @@
 	title="no title" charset="utf-8">
 
 <script>
+
+//?p_num=${mydog.p_num}&userid=${login.userid}&p_kkcnumber=${mydog.p_kkcnumber}&p_name=${mydog.p_name}&p_age=${mydog.p_age}&p_gender=${mydog.p_gender}&p_birth=${mydog.p_birth}&p_type=${mydog.p_type}&p_photo=${mydog.p_photo}&p_feature=${mydog.p_feature}
 	function PetupdateBoard(f) {
 		f.action = "PetUpdateServlet";
 	}
@@ -107,7 +109,7 @@
 					<!-- <article class="container"> -->
 					<div class="col-md-6 col-md-offset-3">
 
-<c:set var="mydog" value="${mydog}" scope="session"/>
+						
 						<input type="hidden" name="p_num" id="p_num"
 							value="${mydog.p_num}">
 						<div class="field2">
@@ -168,20 +170,17 @@
 
 						<div class="field2">
 							<h5>사진</h5>
-							
+
 							<input id="image" type="file" name="theFile"
-								onchange="InputImage();" onclick="remove()"><br>
-							<br>
-							
-					<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
+								onchange="InputImage();" onclick="remove()"><br> <br>
+
+							<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
 							<div id="imagePreview"  src="<c:out value="${imageURL}"/>" /> --%>
 							<!-- <a href="javascript:photo()">d</a> -->
-							<div id="imagePreview2" >
-							</div>
-							<div id="imagePreview" >
-							</div>
-					
-							<br> 
+							<div id="imagePreview2"></div>
+							<div id="imagePreview"></div>
+
+							<br>
 
 						</div>
 					</div>

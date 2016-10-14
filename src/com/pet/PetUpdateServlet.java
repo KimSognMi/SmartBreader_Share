@@ -63,7 +63,7 @@ public class PetUpdateServlet extends HttpServlet {
 		    String target="";
 		    try {   
 				service.updatePet(dto);
-				target = "index.jsp";
+				target = "MydogServlet?p_num="+p_num;
 				request.setAttribute("update", "정상적으로 수정되었습니다.");
 			} catch (PetException e) {
 				title= e.getMessage();

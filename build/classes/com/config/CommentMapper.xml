@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<select id="coretrieve" parameterType="map" resultType="CommentDTO">
-		select commentNum,commentParentName, commentParentPassword, commentParentText,commentwriteday
+		select boardNum,commentNum,commentParentName, commentParentPassword, commentParentText,commentwriteday
 		from comment_c
 		where commentNum = #{xxx}
 	</select>

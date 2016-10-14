@@ -133,10 +133,10 @@
 									<c:set var="ppp" value="${page}" />
 
 									<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
-
+${xxx.boardCategory}
 										<tr>
 											<td>${xxx.num}</td>
-											<td>${xxx.boardCategory}<a href="BoardRetrieveServlet?num=${xxx.num}">${xxx.title}</td>
+											<td><a href="BoardRetrieveServlet?num=${xxx.num}">[${xxx.boardCategory}]${xxx.title}</td>
 											<td>${xxx.author}</td>
 											<td>${xxx.writeday}</td>
 											<td>${xxx.readcnt}</td>

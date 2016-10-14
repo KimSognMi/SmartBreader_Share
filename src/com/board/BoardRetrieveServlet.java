@@ -41,14 +41,14 @@ public class BoardRetrieveServlet extends HttpServlet {
 		CommentService service2 = new CommentService();
 		List<CommentDTO> dto2 = 
 				service2.list(Integer.parseInt(num2));
-		
+		String commentNum = request.getParameter("commentNum");
 	
 		
 		request.setAttribute("list", dto2);
 		
 		System.out.println("jaksdjflkajeijaf"+dto2);
 		
-		String commentNum = request.getParameter("commentNum");
+		
 		/*request.setAttribute("list", dto2);*/
 		
 		RequestDispatcher dis =

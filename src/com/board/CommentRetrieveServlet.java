@@ -24,8 +24,14 @@ public class CommentRetrieveServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("CommentRetrieveServlet");
+		String num = request.getParameter("boardNum");
 		String commentNum = request.getParameter("commentNum");
 		CommentService service = new CommentService();
+		
+		
+		System.out.println(num);
+		
+		System.out.println(commentNum);
 		
 		CommentDTO dto = service.retrieve(commentNum);
 		

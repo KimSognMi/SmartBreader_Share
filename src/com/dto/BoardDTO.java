@@ -90,10 +90,4 @@ public class BoardDTO {
 				+ ", writeday=" + writeday + ", readcnt=" + readcnt + ", boardCategory=" + boardCategory + "]";
 	}
 
-	
-	
-	
-	
-	
-	
 }

@@ -119,7 +119,24 @@ h1 {
 			$(location).attr("href", url);
 
 		});
+		
+		$(".radioClick").click(function() {
+			var boardCategory = document.getElementsByName("boardCategory");
+			var str = "";
+			for (var i = 0; i<boardCategory.length;i++) {
+				var c = boardCategory[i];
+				if(c.checked) {
+					str += c.value + "&nbsp;"
+				}
+			}
+			console.log(str);
+			document.getElementById("title").innerHtml = str; 
+			
+		});
+		
+			
 	});
+		
 </script>
 		</head>
 		<body>
@@ -137,27 +154,32 @@ h1 {
 				<br> <br>
 				<div class="field2">
 
+					
 					<div class="col-md-1">카테고리</div>
 
 					<div class="field half" style="width: 150px;">
 
-						<input type="radio" id="boardCategory" name="boardCategory" value="후기글"
-							checked> <label for="boardCategory">후기글</label>
+						<input type="radio" class="radioClick" id="boardCategory"
+							name="boardCategory" value="후기글" checked> <label
+							for="boardCategory">후기글</label>
 					</div>
 					<div class="field half" style="width: 150px;">
-						<input type="radio" id="boardCategory1" name="boardCategory" value="질문글">
-						<label for="boardCategory1">질문글</label>
+						<input type="radio" class="radioClick" id="boardCategory1"
+							name="boardCategory" value="질문글"> <label
+							for="boardCategory1">질문글</label>
 					</div>
 					<br> <br>
 				</div>
+
 				<div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">제목</div>
 					<div class="col-md-5">
-					<c:if test="${login.userid=='adminkongju@naver.com'}">
-					<a href="BoardListServlet2">목록보기</a>
-				</c:if>
-						<input class="form-control inputTitle" type="text" name="title">
+						<c:if test="${login.userid=='adminkongju@naver.com'}">
+							<a href="BoardListServlet2">목록보기</a>
+						</c:if>
+						
+						<input class="inputDisplay" type="text" id="title" name="title">
 					</div>
 					<div class="col-md-3 titleHelper"></div>
 				</div>
@@ -167,7 +189,7 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1">내용</div>
 					<div class="col-md-5">
-						<textarea class="form-control inputContent" name="content" rows=20></textarea>
+						<textarea class="form-control inputTitle" name="content" rows=20></textarea>
 					</div>
 					<div class="col-md-3 contentHelper"></div>
 				</div>
