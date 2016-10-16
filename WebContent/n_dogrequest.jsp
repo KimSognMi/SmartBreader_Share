@@ -1,21 +1,11 @@
-<!-- -----롯통 멘토
----한국정보기술연구원
-전화해서 교육과정 상담와하하하하하하핳 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
-<!-- -----롯통 멘토
----한국정보기술연구원
-전화해서 교육과정 상담와하하하하하하핳 -->
 
 <style>
 .map_wrap, .map_wrap * {
@@ -310,10 +300,10 @@
 				<span class="image"> <img src="images/jj.jpg" alt="" />
 				</span>
 				<header class="major">
-					<h1>Near Me Dog</h1>
+					<h1>신청하기</h1>
 				</header>
 				<div class="content">
-					<p>반려견의 짝을 찾아보세요</p>
+					<p>반려견의 짝을 신청하세요</p>
 					<ul class="actions">
 						<li><a href="#five" class="button next scrolly">Get
 								Started</a></li>
@@ -331,159 +321,6 @@
 						<h1>Near Me Dog</h1>
 					</header>
 
-					<!-- Content -->
-					<h2 id="content">근처 반려견을 검색하세요</h2>
-					<div class="4u 12u$(small)">
-						<input type="radio" id="demo-priority-low" name="demo-priority"
-							checked> <label for="demo-priority-low">남</label>
-					</div>
-					<div class="4u 12u$(small)">
-						<input type="radio" id="demo-priority-normal" name="demo-priority">
-						<label for="demo-priority-normal">여</label>
-					</div>
-					<div id="selectdog">
-						<select id="dog">
-							<option>말티즈</option>
-							<option>슈나우저</option>
-							<option>푸들</option>
-							<option>토이푸들</option>
-							<option>차우차우</option>
-							<option>달마시안</option>
-							<option>그레이하운드</option>
-							<option>콜리</option>
-							<option>셰퍼드</option>
-							<option>세인트버나드</option>
-							<option>그레이트데인</option>
-							<option>기타</option>
-						</select>
-					</div>
-
-					<div class="field2">
-						<input type="hidden" name="addr1" id="addrpet1" size="40"
-							class="form-control" placeholder="도로명주소"
-							value="${nearmedog.addr1}"> <br> <span
-							style="line-height: 10%;"></span> <input type="hidden"
-							class="form-control" name="addrpet2" id="addr2" size="40"
-							placeholder="상세주소" value="${nearmedog.addr2}">
-					</div>
-					<input type="button" value="찾기" id="find">
-					<p style="margin-top: -12px"></p>
-					<div id="map" style="width: 100%; height: 350px;"></div>
-
-					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
-					<script>
-						window.onload = function() {
-							document.getElementById("idCheck")
-									.addEventListener("click", check, false);
-						};
-						function check() {
-							var child = window.open("child.html", "childName",
-									"width=200,height=200");
-						}
-
-						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-						mapOption = {
-							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-							level : 4
-						// 지도의 확대 레벨
-						};
-
-						// 지도를 생성합니다    
-						var map = new daum.maps.Map(mapContainer, mapOption);
-
-						// 주소-좌표 변환 객체를 생성합니다
-						var geocoder = new daum.maps.services.Geocoder();
-						// 주소로 좌표를 검색합니다
-						//수철 : 나의 주변의 사람들 좌표 찍기
-						<c:forEach items="${nearmedoglist}" var="item2">
-						geocoder
-								.addr2coord(
-										'${item2.addr1}',
-										function(status, result) {
-
-											// 정상적으로 검색이 완료됐으면 
-											if (status === daum.maps.services.Status.OK) {
-
-												var coords = new daum.maps.LatLng(
-														result.addr[0].lat,
-														result.addr[0].lng);
-
-												// 결과값으로 받은 위치를 마커로 표시합니다
-												var marker = new daum.maps.Marker(
-														{
-															//map : map,
-															position : coords,
-															clickable : true
-														});
-												marker.setMap(map);
-												var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;">주변사람들</div>', iwRemoveable = true;
-												// 인포윈도우로 장소에 대한 설명을 표시합니다
-												var infowindow = new daum.maps.InfoWindow(
-														{
-															content : iwContent,
-															removable : iwRemoveable
-														});
-												daum.maps.event
-														.addListener(
-																marker,
-																'click',
-																function() {																					
-																	var child=window.open("n_detaildog.jsp","childName","width=400,height=500");
-																});
-
-											}
-										});
-						</c:forEach>
-						//수철 : 마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
-						geocoder
-								.addr2coord(
-										'${nearmedog.addr1}',
-										function(status, result) {
-
-											// 정상적으로 검색이 완료됐으면 
-											if (status === daum.maps.services.Status.OK) {
-
-												var coords = new daum.maps.LatLng(
-														result.addr[0].lat,
-														result.addr[0].lng);
-
-												// 결과값으로 받은 위치를 마커로 표시합니다
-												var marker = new daum.maps.Marker(
-														{
-															map : map,
-															position : coords
-														});
-
-												// 인포윈도우로 장소에 대한 설명을 표시합니다
-												var infowindow = new daum.maps.InfoWindow(
-														{
-															content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
-														});
-												infowindow.open(map, marker);
-
-												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-												map.setCenter(coords);
-											}
-										});
-
-						/* for (var i = 0; i < positions.length; i++) {
-							// 마커를 생성합니다
-							var marker = new daum.maps.Marker({
-								map : map, // 마커를 표시할 지도
-								position : positions[i].latlng
-							// 마커의 위치
-							});
-
-							// 마커에 표시할 인포윈도우를 생성합니다 
-							var infowindow = new daum.maps.InfoWindow({
-								content : positions[i].content
-							// 인포윈도우에 표시할 내용
-							});
-
-							
-						} */
-					</script>
 					<br>
 					<!-- Footer -->
 					<footer id="footer">
