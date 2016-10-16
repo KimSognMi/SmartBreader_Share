@@ -373,15 +373,7 @@
 					<script type="text/javascript"
 						src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
 					<script>
-						window.onload = function() {
-							document.getElementById("idCheck")
-									.addEventListener("click", check, false);
-						};
-						function check() {
-							var child = window.open("child.html", "childName",
-									"width=200,height=200");
-						}
-
+						 
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
 							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -467,22 +459,7 @@
 											}
 										});
 
-						/* for (var i = 0; i < positions.length; i++) {
-							// 마커를 생성합니다
-							var marker = new daum.maps.Marker({
-								map : map, // 마커를 표시할 지도
-								position : positions[i].latlng
-							// 마커의 위치
-							});
-
-							// 마커에 표시할 인포윈도우를 생성합니다 
-							var infowindow = new daum.maps.InfoWindow({
-								content : positions[i].content
-							// 인포윈도우에 표시할 내용
-							});
-
-							
-						} */
+						
 					</script>
 					<br>
 					<!-- Footer -->

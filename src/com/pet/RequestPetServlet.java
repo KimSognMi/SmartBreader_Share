@@ -31,50 +31,10 @@ public class RequestPetServlet extends HttpServlet {
 		String userid = request.getParameter("userid");
 		String passwd = request.getParameter("passwd");
 		
-	
-		
-		HashMap<String, String> map= new HashMap<>();
-		map.put("userid", userid);
-		map.put("passwd", passwd);
-		
-	
-		
-		MemberService service = new MemberService();
-		PetService p_service=new PetService();
-		
-		  String title="";
-		    String target="";
-		try {
-			MemberDTO dto = service.login(map);
-			
-			if(dto==null){
-				title= "아이디 또는 비밀번호 불일치";
-				String link="LoginFormServlet";
-				target="error.jsp";
-				request.setAttribute("title", title);
-				request.setAttribute("link", link);
-		
-			}else{ //로그인 성공
-			
-				HttpSession session=request.getSession();
-				session.setAttribute("login", dto);
-				target="index.jsp";
-				
-
-				List<PetDTO> p_dto=p_service.list(userid); 
-				session.setAttribute("list",p_dto);
-				System.out.println(p_dto.size());
-			}
-			
-		} catch (CommonException e) {
-			title= e.getMessage();
-			String link="LognFormServlet";
-			target="error.jsp";
-			request.setAttribute("title", title);
-			request.setAttribute("link", link);
-		}
+		System.out.println(userid);
+		System.out.println(passwd);
 		RequestDispatcher dis =
-				request.getRequestDispatcher(target);
+				request.getRequestDispatcher("n_dogrequest.jsp");
 		dis.forward(request, response);
 	}
 
