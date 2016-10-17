@@ -243,8 +243,9 @@
 </script>
 <body>
 	<form action="RequestPetServlet">
-		<input type="submit" value="신청하기"> <br> <input
-			type="reset" value="취소"> <br>
+	
+		<button type="submit" class="button fit">신청하기</button>
+			<br> <input type="reset" value="취소"> <br>
 	</form>
 </body>
 </html>
