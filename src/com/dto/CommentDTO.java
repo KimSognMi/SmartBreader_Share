@@ -8,12 +8,13 @@ public class CommentDTO {
 	private String commentParentText;
 	private int commentNum;
 	private String commentwriteday;
+	private String userid;
 	public CommentDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public CommentDTO(String boardNum, String commentParentName, int commentParentPassword, String commentParentText,
-			int commentNum, String commentwriteday) {
+			int commentNum, String commentwriteday, String userid) {
 		super();
 		this.boardNum = boardNum;
 		this.commentParentName = commentParentName;
@@ -21,6 +22,7 @@ public class CommentDTO {
 		this.commentParentText = commentParentText;
 		this.commentNum = commentNum;
 		this.commentwriteday = commentwriteday;
+		this.userid = userid;
 	}
 	public String getBoardNum() {
 		return boardNum;
@@ -58,12 +60,19 @@ public class CommentDTO {
 	public void setCommentwriteday(String commentwriteday) {
 		this.commentwriteday = commentwriteday;
 	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 	@Override
 	public String toString() {
 		return "CommentDTO [boardNum=" + boardNum + ", commentParentName=" + commentParentName
 				+ ", commentParentPassword=" + commentParentPassword + ", commentParentText=" + commentParentText
-				+ ", commentNum=" + commentNum + ", commentwriteday=" + commentwriteday + "]";
+				+ ", commentNum=" + commentNum + ", commentwriteday=" + commentwriteday + ", userid=" + userid + "]";
 	}
+	
 	
 	
 	

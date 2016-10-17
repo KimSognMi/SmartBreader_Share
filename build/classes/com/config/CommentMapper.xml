@@ -6,16 +6,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert id="cowrite" parameterType="CommentDTO">
-		insert into comment_c(boardNum,commentNum,commentParentName,commentParentPassword,commentParentText)
+		insert into comment_c(boardNum,commentNum,commentParentName,commentParentPassword,commentParentText,userid)
 		values ( #{boardNum},comment_c_seq.nextval,
-		#{commentParentName},#{commentParentPassword},#{commentParentText})
+		#{commentParentName},#{commentParentPassword},#{commentParentText},#{userid})
 	</insert>
 
 
 	<select id="colist" resultType="CommentDTO" parameterType="int">
 		select boardNum, commentNum, commentParentName, commentParentPassword,
 		commentParentText, to_char(commentwriteday,'yyyy/mm/dd')
-		commentwriteday
+		commentwriteday, c.userid
 		from comment_c c, myboard m
 		where m.num=c.boardNum and m.num = #{num}
 		order by commentNum desc
@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<select id="coretrieve" parameterType="map" resultType="CommentDTO">
-		select boardNum,commentNum,commentParentName, commentParentPassword, commentParentText,commentwriteday
+		select boardNum,commentNum,commentParentName, commentParentPassword, commentParentText,commentwriteday,userid
 		from comment_c
 		where commentNum = #{xxx}
 	</select>

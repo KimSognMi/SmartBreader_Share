@@ -146,24 +146,24 @@ h1 {
 				글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
 				&nbsp;조회수:${retrieve.readcnt}<br>
 				<div>
-					<h1>${retrieve.boardCategory} 내용</h1>
+					<h1>${retrieve.boardCategory}내용</h1>
 
 				</div>
 				<br> <br>
 				<div class="field2">
-				
-				<div class="col-md-1">카테고리</div>
-				
-				<div class="field half" style="width: 150px;">
-			
-					<input type="radio" id="demo-priority-low" name="demo-priority"
-						checked> <label for="demo-priority-low">후기글</label>
-				</div>
-				<div class="field half" style="width: 150px;">
-					<input type="radio" id="demo-priority-normal" name="demo-priority">
-					<label for="demo-priority-normal">질문글</label>
-				</div>
-				<br> <br>
+
+					<div class="col-md-1">카테고리</div>
+
+					<div class="field half" style="width: 150px;">
+
+						<input type="radio" id="demo-priority-low" name="demo-priority"
+							checked> <label for="demo-priority-low">후기글</label>
+					</div>
+					<div class="field half" style="width: 150px;">
+						<input type="radio" id="demo-priority-normal" name="demo-priority">
+						<label for="demo-priority-normal">질문글</label>
+					</div>
+					<br> <br>
 				</div>
 				<div class="field2">
 
@@ -241,13 +241,18 @@ h1 {
 
 									<tr id="r1" name="commentParentCode">
 
-										<td colspan=2>${xxx.boardNum}${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
+										<td colspan=2><strong>${xxx.commentParentName}</strong>
 
-											${xxx.commentParentPassword} ${xxx.commentwriteday}<a
+											${xxx.commentwriteday} <a
 											href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
-											style="cursor: pointer;">수정</a> | <a
-											href="CommentDeleteServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
-											style="cursor: pointer;">삭제</a>
+											style="cursor: pointer;">신고</a> <c:if
+												test="${login.userid == xxx.userid}">
+												| <a
+													href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
+													style="cursor: pointer;">수정</a> | <a
+													href="CommentDeleteServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
+													style="cursor: pointer;">삭제</a>
+											</c:if>
 									</tr>
 									<td>${xxx.commentParentText}</td>
 
@@ -267,6 +272,7 @@ h1 {
 					<div class="row uniform">
 						<div class="6u 12u$(xsmall)">
 
+							<input type="hidden" name="userid" value="${login.userid}">
 							<input type="hidden" name="num" value="${retrieve.num}">
 							<input type="hidden" name="boardNum" value="${retrieve.num}">
 							<input type="hidden" name="commentNum"
@@ -274,7 +280,8 @@ h1 {
 								name="commentwriteday" value="${retrieve2.commentwriteday}">
 
 							<input type="text" name="commentParentName"
-								id="commentParentName" value="" placeholder="Name" />
+								id="commentParentName" value="${login.username}"
+								placeholder="Name" />
 						</div>
 
 						<div class="6u$ 12u$(xsmall)">

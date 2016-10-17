@@ -53,11 +53,12 @@ public class CommentWriteServlet extends HttpServlet {
 
 		String num = request.getParameter("num");
 		String boardNum = request.getParameter("boardNum");
-
+String userid = request.getParameter("userid");
 		String commentParentName = request.getParameter("commentParentName");
 		String commentParentPassword = request.getParameter("commentParentPassword");
 		String commentParentText = request.getParameter("commentParentText");
 
+		System.out.println(userid);
 		System.out.println(num);
 		System.out.println(boardNum);
 		System.out.println(commentParentName);
@@ -68,6 +69,7 @@ public class CommentWriteServlet extends HttpServlet {
 
 		dto.setBoardNum(boardNum);
 
+		dto.setUserid(userid);
 		dto.setCommentParentName(commentParentName);
 		dto.setCommentParentPassword(Integer.parseInt(commentParentPassword));
 		dto.setCommentParentText(commentParentText);
