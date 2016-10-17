@@ -239,13 +239,20 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <script type="text/javascript">
-	
+	function send() {
+		opener.document.location.href = "RequestPetServlet";
+		close();
+	}
+	function reset_close(){
+		close();
+	}
 </script>
 <body>
-	<form action="RequestPetServlet">
-	
-		<button type="submit" class="button fit">신청하기</button>
-			<br> <input type="reset" value="취소"> <br>
-	</form>
+
+	<button onClick="javascript:send()">신청하기</button>
+	<br>
+	<button onClick="javascript:reset_close()">취소</button>
+	<br>
+
 </body>
 </html>
