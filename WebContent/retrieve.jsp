@@ -207,7 +207,7 @@ h1 {
 					<div class="col-md-3"></div>
 				</div>
 				<br>
-				<c:if test="${sessionScope.login != null}">
+				<c:if test="${login.userid == retrieve.userid}">
 					<div class="field2">
 						<div class="col-md-3"></div>
 						<div class="col-md-1"></div>

@@ -119,24 +119,22 @@ h1 {
 			$(location).attr("href", url);
 
 		});
-		
+
 		$(".radioClick").click(function() {
 			var boardCategory = document.getElementsByName("boardCategory");
 			var str = "";
-			for (var i = 0; i<boardCategory.length;i++) {
+			for (var i = 0; i < boardCategory.length; i++) {
 				var c = boardCategory[i];
-				if(c.checked) {
+				if (c.checked) {
 					str += c.value + "&nbsp;"
 				}
 			}
 			console.log(str);
-			document.getElementById("title").innerHtml = str; 
-			
+			document.getElementById("title").innerHtml = str;
+
 		});
-		
-			
+
 	});
-		
 </script>
 		</head>
 		<body>
@@ -150,11 +148,12 @@ h1 {
 				<div>
 					<h1>게시글 등록</h1>
 					<input type="hidden" name="author" value="${login.username}">
+					<input type="hidden" name="userid" value="${login.userid}">
 				</div>
 				<br> <br>
 				<div class="field2">
 
-					
+
 					<div class="col-md-1">카테고리</div>
 
 					<div class="field half" style="width: 150px;">
@@ -178,7 +177,7 @@ h1 {
 						<c:if test="${login.userid=='adminkongju@naver.com'}">
 							<a href="BoardListServlet2">목록보기</a>
 						</c:if>
-						
+
 						<input class="inputDisplay" type="text" id="title" name="title">
 					</div>
 					<div class="col-md-3 titleHelper"></div>

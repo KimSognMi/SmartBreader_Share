@@ -44,22 +44,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        parameterType="int" resultType="BoardDTO">
         select num, title, author, content,
 	         to_char(writeday,'yyyy/mm/dd') writeday,
-	         readcnt,boardCategory
+	         readcnt,boardCategory,userid
 	   from myboard 
 	   where num = #{num}
      </select>
 
 
     <insert id="write" parameterType="BoardDTO">
-     insert into myboard( num,title,author,content,boardCategory)
-     values ( myboard_seq.nextval, #{title},#{author},#{content},#{boardCategory}) 
+     insert into myboard( num,title,author,content,boardCategory,userid)
+     values ( myboard_seq.nextval, #{title},#{author},#{content},#{boardCategory},#{userid}) 
     </insert>
 
 
 	<select id="list" resultType="BoardDTO">
 	   select num, title, author, 
 	         to_char(writeday,'yyyy/mm/dd') writeday,
-	         readcnt,boardCategory
+	         readcnt,boardCategory,userid
 	   from myboard order by num desc      
 	</select>
 	

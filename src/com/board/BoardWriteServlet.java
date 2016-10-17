@@ -22,6 +22,7 @@ public class BoardWriteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		/*String num = request.getParameter("num");*/
+		String userid = request.getParameter("userid");
 		String title = request.getParameter("title");
 		String author = request.getParameter("author");
 		String content = request.getParameter("content");
@@ -34,6 +35,7 @@ public class BoardWriteServlet extends HttpServlet {
 		
 		BoardDTO dto = new BoardDTO();
 		/*dto.setNum(Integer.parseInt(num));*/
+		dto.setUserid(userid);
 		dto.setBoardCategory(boardCategory);
 		dto.setTitle(title);
 		dto.setAuthor(author);
