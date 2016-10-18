@@ -36,6 +36,9 @@
 
 		<!-- Menu -->
 		<nav id="menu">
+		
+		<c:if test="${sessionScope.login!=null}">
+		<c:if test="${login.userid!='adminkongju@naver.com'}">
 			<ul class="links">
 				<li><a href="index.jsp">HOME</a></li>
 				<li><a href="about.jsp">ABOUT US</a></li>
@@ -45,11 +48,12 @@
 				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 			</ul>
 			<ul class="actions vertical">
-				<li><a href="MyPetListServlet" class="button fit">My PET
-						Page</a></li>
+				<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
 				<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 				<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 			</ul>
+			</c:if>
+			</c:if>
 
 		</nav>
 
@@ -83,9 +87,9 @@
 					<h2 id="content">MY PET</h2>
 					<div class="content">
 						<p>
-						<h3>Text</h3>
+					
 						<form method="post" action="PetFormServlet">
-							<input type="submit" value="글쓰기" />
+							<input type="submit" value="pet 추가" />
 
 						</form>
 						<div class="table-wrapper">
@@ -107,9 +111,7 @@
 
 
 										<c:forEach var="xxx" items="${mlist}" varStatus="status">
-
-
-											<tr>
+									<tr>
 												<td>${xxx.p_kkcnumber}</td>
 												<td><img src="images/${xxx.p_photo}" height="140px" width="250px"/></td>
 												<td><a href="MydogServlet?p_num=${xxx.p_num}">${xxx.p_name}</td>
@@ -214,7 +216,7 @@
 
 </body>
 </html>
-</div>
+
 
 
 

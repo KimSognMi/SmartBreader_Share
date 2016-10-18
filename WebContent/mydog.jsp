@@ -170,8 +170,8 @@
 
 						<div class="field2">
 							<h5>사진</h5>
-
-							<input id="image" type="file" name="theFile" value="${mydog.p_photo}"
+		
+							<input id="image" type="file" name="theFile" 
 								onchange="InputImage();" onclick="remove()"><br> <br>
 
 							<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
@@ -191,10 +191,10 @@
 						<div class="col-md-3"></div>
 						<div class="col-md-1"></div>
 						<ul class="actions">
-							<li><input type="submit" value="Update Message"
-									class="special" /></li>
+						<center>
+							<input type="submit" value="수정"> &nbsp;&nbsp;&nbsp;&nbsp;
 							<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
-
+</center>
 						</ul>
 
 						<div class="col-md-3"></div>
@@ -205,7 +205,7 @@
 			</section>
 		</div>
 
-	</div>
+
 
 	<script type="text/javascript">
 		var InputImage = (function loadImageFile() {
@@ -324,7 +324,7 @@
 
 </body>
 </html>
-</div>
+
 
 
 
