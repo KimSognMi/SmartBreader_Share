@@ -244,8 +244,8 @@ h1 {
 										<td colspan=2><strong>${xxx.commentParentName}</strong>
 
 											${xxx.commentwriteday} <a
-											href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
-											style="cursor: pointer;">신고</a> <c:if
+											href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')"/>
+											신고</a> <c:if
 												test="${login.userid == xxx.userid}">
 												| <a
 													href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
