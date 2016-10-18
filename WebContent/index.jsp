@@ -68,7 +68,7 @@
 				
 				 
 				</c:if>  
-				
+				${sessionScope.list}
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
 			 <c:if test="${!empty sessionScope.list}">	 
 						<c:if test="${sessionScope.list.size()!=0}">

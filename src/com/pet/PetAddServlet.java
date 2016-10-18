@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -153,11 +154,17 @@ public class PetAddServlet extends HttpServlet {
 				
 			        System.out.println(dto);
 			        
+			        PetService p_service=new PetService();
 			        PetService service = new PetService();
+			        String userid = request.getParameter("userid");
 				    String title="";
 				    String target="";
 				    try {
+				    	HttpSession session=request.getSession();
 						service.addPet(dto);
+						List<PetDTO> p_dto=p_service.list(userid); 
+						session.setAttribute("list",p_dto);
+						//System.out.println(dto);
 						target = "index.jsp";
 						request.setAttribute("result", "success");
 					} catch (CommonException e) {
