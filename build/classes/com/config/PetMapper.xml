@@ -16,7 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="list" resultType="PetDTO" parameterType="String">
 
-		select p_num,userid
+		select
+		p_num,userid
 		,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
 		from
 		pet
@@ -25,9 +26,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="mlist" resultType="PetDTO" parameterType="String">
-		select p_num,p_kkcnumber,p_photo, p_name, p_type
+		select
+		p_num,p_kkcnumber,p_photo, p_name, p_type
 		from pet
-		where userid = #{userid}
+		where userid =
+		#{userid}
 	</select>
 
 	<select resultType="PetDTO" parameterType="string" id="mypage">
@@ -41,7 +44,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="updatePet" parameterType="PetDTO">
 		update pet
-		set p_name=#{p_name},
+		set
+		p_name=#{p_name},
 		p_age=#{p_age},
 		p_gender=#{p_gender},
 		p_birth=#{p_birth},
@@ -50,12 +54,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		p_feature=#{p_feature}
 		where p_num = #{p_num}
 	</update>
-	
-	 <delete id="delete" parameterType="string">
-      delete from pet
-      where p_num = #{p_num}	
-    </delete>
-    
+
+	<delete id="delete" parameterType="string">
+		delete from pet
+		where p_num = #{p_num}
+	</delete>
+
+
+	<select id="petdetail" parameterType="int" resultType="BoardDTO">
+		select p_num, userid, p_kkcnumber, p_name, p_age, p_gender, p_birth, p_type,
+		p_photo, p_feature
+		from pet
+		where p_num=#{p_num}
+	</select>
+
 
 </mapper>
 

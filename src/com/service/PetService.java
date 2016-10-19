@@ -13,7 +13,7 @@ import com.exception.CommonException;
 import com.exception.PetException;
 
 public class PetService {
-
+	
 	// 회원등록
 	public void addPet(PetDTO dto) throws CommonException {
 		SqlSession session = MySqlSessionFactory.getSession();
@@ -102,6 +102,18 @@ public class PetService {
 					session.close();
 				}
 
+			}
+			public PetDTO petdetail(String p_num){
+				SqlSession session = MySqlSessionFactory.getSession();
+				PetDTO dto = null;
+				try{
+					dto = session.selectOne("pet.petdetail", Integer.parseInt(p_num));
+				}finally{
+					session.close();
+				}
+				
+				
+				return dto;
 			}
 	
 }

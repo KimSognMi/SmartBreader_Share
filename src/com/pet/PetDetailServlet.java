@@ -23,19 +23,19 @@ import com.service.PetService;
 /**
  * Servlet implementation class LognFormServlet
  */
-@WebServlet("/RequestPetServlet")
-public class RequestPetServlet extends HttpServlet {
+@WebServlet("/PetDetailServlet")
+public class PetDetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		String p_num = request.getParameter("p_num");
 		PetService service = new PetService();
 		PetDTO dto = service.petdetail(p_num);
 		request.setAttribute("petdetail", dto);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("n_dogrequest.jsp");
-		dis.forward(request, response);*/
+		RequestDispatcher dis = request.getRequestDispatcher("n_detaildog.jsp");
+		dis.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
