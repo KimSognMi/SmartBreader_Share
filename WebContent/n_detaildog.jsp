@@ -235,6 +235,11 @@
 	width: 48%;
 	height: 50%;
 }
+
+#dogform {
+	margin-left: 25%;
+	margin-top: 7%;
+}
 </style>
 <head>
 <title>Near Me Dog</title>
@@ -254,20 +259,39 @@
 	function reset_close() {
 		close();
 	}
+	function photo() {
+		var photo2 = document.getElementById("dogphoto");
+		console.log('${petdetail.p_photo}');
+
+		photo2.innerHTML = "<img style='width: 180%;' src='images/"
+				+ '${petdetail.p_photo}' + "' />";
+
+	}
 </script>
-<body>
-	<form method="get" name="dogform">
-		<img id="dogphoto" src="./images/aa.jpg" />
-		<div>멍멍이 이름 : ${petdetail.p_name}</div>
-		<div>멍멍이 나이 : ${petdetail.p_age}</div>
-		<div>멍멍이 성별 : ${petdetail.p_gender}</div>
-		<div>멍멍이 특징 : ${petdetail.p_feature}</div>
+<body onload="photo()">
 
-		<button onClick="javascript:send()">신청하기</button>
-		<button onClick="javascript:reset_close()">취소</button>
-		<br>
+	<div id="dogphoto"></div>
+	<form id="dogform">
+		<div style="margin-bottom:1.5%">멍멍이 이름 : ${petdetail.p_name}</div>
+		<div style="margin-bottom:1.5%">멍멍이 나이 : ${petdetail.p_age}</div>
+		<div style="margin-bottom:1.5%">멍멍이 성별 : ${petdetail.p_gender}</div>
+		<div style="margin-bottom:1.5%">멍멍이 특징 : ${petdetail.p_feature}</div>
 	</form>
+	<button style="margin-left:20%;" onClick="javascript:send()">신청하기</button>
+	<button style="margin-left:2%;" onClick="javascript:reset_close()">취소</button>
+	<br>
 
+
+	<script type="text/javascript">
+		var InputImage = (function loadImageFile() {
+			if (window.FileReader) {
+				var ImagePre;
+				var ImageReader = new window.FileReader();
+				var fileType = /^(?:image\/bmp|image\/gif|image\/jpeg|image\/png|image\/x\-xwindowdump|image\/x\-portable\-bitmap)$/i;
+			}
+
+		})();
+	</script>
 
 
 </body>
