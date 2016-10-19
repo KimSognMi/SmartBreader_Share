@@ -10,12 +10,13 @@ public class BoardDTO {
 	private int readcnt;
 	private String userid;
 	private String boardCategory;
+	private int boardpw;
 	public BoardDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public BoardDTO(int num, String title, String author, String content, String writeday, int readcnt, String userid,
-			String boardCategory) {
+			String boardCategory, int boardpw) {
 		super();
 		this.num = num;
 		this.title = title;
@@ -25,6 +26,7 @@ public class BoardDTO {
 		this.readcnt = readcnt;
 		this.userid = userid;
 		this.boardCategory = boardCategory;
+		this.boardpw = boardpw;
 	}
 	public int getNum() {
 		return num;
@@ -74,12 +76,20 @@ public class BoardDTO {
 	public void setBoardCategory(String boardCategory) {
 		this.boardCategory = boardCategory;
 	}
+	public int getBoardpw() {
+		return boardpw;
+	}
+	public void setBoardpw(int boardpw) {
+		this.boardpw = boardpw;
+	}
 	@Override
 	public String toString() {
 		return "BoardDTO [num=" + num + ", title=" + title + ", author=" + author + ", content=" + content
 				+ ", writeday=" + writeday + ", readcnt=" + readcnt + ", userid=" + userid + ", boardCategory="
-				+ boardCategory + "]";
+				+ boardCategory + ", boardpw=" + boardpw + "]";
 	}
+	
+	
 
 	
 	

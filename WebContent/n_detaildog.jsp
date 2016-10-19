@@ -1,8 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 
 <html>
@@ -227,6 +228,12 @@
 	width: 200px;
 	font-size: 70%;
 }
+#dogphoto{
+	margin-left : 7%;
+	margin-top : 7%;
+	width : 48%;
+	height : 50%;
+}
 </style>
 <head>
 <title>Near Me Dog</title>
@@ -248,11 +255,16 @@
 	}
 </script>
 <body>
-
+<form method="get" name="dogform">
+	<img id="dogphoto" src="./images/qq.jpg" />
+	<div>멍멍이 이름 : ${petdetail.p_name}</div>
+	<div>멍멍이 나이 : ${petdetail.p_age}</div>
+	<div>멍멍이 성별 : ${petdetail.p_gender}</div>
+	<div>멍멍이 특징 : ${petdetail.p_feature}</div>
+	
 	<button onClick="javascript:send()">신청하기</button>
-	<br>
 	<button onClick="javascript:reset_close()">취소</button>
 	<br>
-
+</form>
 </body>
 </html>

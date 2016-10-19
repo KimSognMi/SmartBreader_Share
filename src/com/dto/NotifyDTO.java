@@ -9,12 +9,13 @@ public class NotifyDTO {
 	private String notifyReason;
 	private int notifyCount;
 	private String notifyContent;
+	private String notifyrequest;
 	public NotifyDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public NotifyDTO(int notify_num, String username, String userid, String notifyReason, int notifyCount,
-			String notifyContent) {
+			String notifyContent, String notifyrequest) {
 		super();
 		this.notify_num = notify_num;
 		this.username = username;
@@ -22,6 +23,7 @@ public class NotifyDTO {
 		this.notifyReason = notifyReason;
 		this.notifyCount = notifyCount;
 		this.notifyContent = notifyContent;
+		this.notifyrequest = notifyrequest;
 	}
 	public int getNotify_num() {
 		return notify_num;
@@ -59,12 +61,21 @@ public class NotifyDTO {
 	public void setNotifyContent(String notifyContent) {
 		this.notifyContent = notifyContent;
 	}
+	public String getNotifyrequest() {
+		return notifyrequest;
+	}
+	public void setNotifyrequest(String notifyrequest) {
+		this.notifyrequest = notifyrequest;
+	}
 	@Override
 	public String toString() {
 		return "NotifyDTO [notify_num=" + notify_num + ", username=" + username + ", userid=" + userid
 				+ ", notifyReason=" + notifyReason + ", notifyCount=" + notifyCount + ", notifyContent=" + notifyContent
-				+ "]";
+				+ ", notifyrequest=" + notifyrequest + "]";
 	}
+	
+	
+	
 	
 	
 	

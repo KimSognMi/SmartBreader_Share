@@ -420,10 +420,10 @@
 														.addListener(
 																marker,
 																'click',
-																function() {																					
-																	var child=window.open("n_detaildog.jsp","childName","width=400,height=500");
+																function() {
+																	var child=window.open("PetDetailServlet","childName","width=400,height=500");
+																	
 																});
-
 											}
 										});
 						</c:forEach>

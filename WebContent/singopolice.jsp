@@ -7,6 +7,7 @@
 
 <html>
 <style>
+
 .map_wrap, .map_wrap * {
 	margin: 0;
 	padding: 0;
@@ -250,48 +251,47 @@
 <body>
 
 	<h3>신고하기</h3>
-	${retrieve2.commentParentName}
-	${retrieve2.userid}
+	
 <!-- 	
 	<button onClick="javascript:nofify()">신고하기</button>
 
 	<button onClick="javascript:reset_close()">취소</button>
  -->
 	<form method="post" action="NotifyRequestServlet">
+	
 		<div class="row uniform">
 			<div class="6u 12u$(xsmall)">
-				<input type="text" name="demo-name" id="demo-name" value="${retrieve2.commentParentName}"
+			
+			<c:set var="singopolice" value="${singopolice}" scope="session"/>
+			
+			<input type="hidden" name="notifyrequest" value="${login.userid}">
+			<input type="hidden" name="notifyCount" value="${singopolice.notifyCount}">
+			
+				<input type="text" name="username" id="username" value="${retrieve2.commentParentName}"
 					placeholder="Name" />
 			</div>
 			<div class="6u$ 12u$(xsmall)">
-				<input type="email" name="demo-email" id="demo-email" value="${retrieve2.userid}"
+				<input type="email" name="userid" id="userid" value="${retrieve2.userid}"
 					placeholder="Email" />
 			</div>
 			<!-- Break -->
 			<div class="12u$">
 				<div class="select-wrapper">
-					<select name="demo-category" id="demo-category">
+					<select name="notifyReason" id="notifyReason" value="${notify.notifyReason}">
 						<option value="">- Category -</option>
-						<option value="1">Manufacturing</option>
-						<option value="1">Shipping</option>
+						<option value="1">욕설</option>
+						<option value="1">약속 파기</option>
 						<option value="1">Administration</option>
 						<option value="1">Human Resources</option>
 					</select>
 				</div>
 			</div>
 			
-			<!-- Break -->
-			<div class="6u 12u$(small)">
-				<input type="checkbox" id="demo-copy" name="demo-copy"> <label
-					for="demo-copy">Email me a copy</label>
-			</div>
-			<div class="6u$ 12u$(small)">
-				<input type="checkbox" id="demo-human" name="demo-human" checked>
-				<label for="demo-human">I am a human</label>
-			</div>
+			
 			<!-- Break -->
 			<div class="12u$">
-				<textarea name="demo-message" id="demo-message"
+			<h5>사유 </h5>
+				<textarea name="notifyContent" id="notifyContent"
 					placeholder="Enter your message" rows="6"></textarea>
 			</div>
 			<!-- Break -->

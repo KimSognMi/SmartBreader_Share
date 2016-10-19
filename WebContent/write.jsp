@@ -106,6 +106,10 @@ h1 {
 				$(".titleHelper").text("");
 				$(".contentHelper").text("");
 				$(".pwHelper").text("비밀번호를 입력해주세요");
+				/* } else if($(".inputPw").val() == ${retrieve.boardpw}){
+					
+				} */
+
 			} else {
 				$("form").submit();
 			}
