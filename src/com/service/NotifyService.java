@@ -58,7 +58,8 @@ public class NotifyService {
 	}//end totalCount
 	
 	// 회원등록
-	public void addNotify(NotifyDTO dto) throws CommonException {
+	public void addNotify(NotifyDTO dto,String userid) throws CommonException {
+		notifyCount(userid);
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
 			int n = session.insert("notify.addNotify", dto);
@@ -72,6 +73,19 @@ public class NotifyService {
 		}
 
 	}// end addMember
+
+	
+	private void notifyCount(String userid){
+		SqlSession session = 
+				MySqlSessionFactory.getSession();
+		try{
+        int n =  	
+      session.update("notify.notifyCount", userid);
+        session.commit();
+		}finally {
+			session.close();
+		}
+	}//end readCnt
 
 	// 로그인
 	public NotifyDTO login(HashMap<String, String> map) throws CommonException {
