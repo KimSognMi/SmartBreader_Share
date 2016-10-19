@@ -79,8 +79,7 @@ public class NotifyService {
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
-        int n =  	
-      session.update("notify.notifyCount", userid);
+        int n =  session.update("notify.notifyCount", userid);
         session.commit();
 		}finally {
 			session.close();

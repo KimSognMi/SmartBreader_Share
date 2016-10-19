@@ -262,10 +262,10 @@
 		<div class="row uniform">
 			<div class="6u 12u$(xsmall)">
 			
-			<c:set var="singopolice" value="${singopolice}" scope="session"/>
+			
 			
 			<input type="hidden" name="notifyrequest" value="${login.userid}">
-			<input type="hidden" name="notifyCount" value="${singopolice.notifyCount}">
+			
 			
 				<input type="text" name="username" id="username" value="${retrieve2.commentParentName}"
 					placeholder="Name" />

@@ -12,10 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert parameterType="NotifyDTO" id="addNotify">
 		insert into
 		notify(
-		notify_num,userid,username,notifyReason,notifyCount,notifyContent,notifyrequest)
+		notify_num,userid,username,notifyReason,notifyContent,notifyrequest)
 		values(
 		notify_seq.nextval,#{userid},#{username},#{notifyReason},
-		#{notifyCount},#{notifyContent},#{notifyrequest})
+		#{notifyCount},#{notifyrequest})
 	</insert>
 
 	 <delete id="deleteNotify" parameterType="string">
@@ -42,6 +42,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       set notifyCount = notifyCount + 1
       where userid = #{userid}
     </update>
+    
+     <!-- <update id="update" parameterType="NotifyDTO">
+      update notify 
+      set title=#{title}, 
+          content=#{content}
+      where userid = #{userid}
+    </update> -->
+    
 	
 	
 </mapper>

@@ -34,7 +34,7 @@ public class NotifyRequestServlet extends HttpServlet {
 		String userid = request.getParameter("userid");
 		String username = request.getParameter("username");
 		String notifyReason = request.getParameter("notifyReason");
-		String notifyCount = request.getParameter("notifyCount");
+		
 		String notifyContent = request.getParameter("notifyContent");
 		String notifyrequest = request.getParameter("notifyrequest");
 	
@@ -42,13 +42,13 @@ public class NotifyRequestServlet extends HttpServlet {
 		System.out.println(userid);
 		System.out.println(username);
 		System.out.println(notifyReason);
-		System.out.println(notifyCount);
+	
 		System.out.println(notifyContent);
 		System.out.println(notifyrequest);
 		
 		NotifyDTO dto = new NotifyDTO();
 		/*dto.setNum(Integer.parseInt(num));*/
-		dto.setNotifyCount(Integer.parseInt(notifyCount));
+		
 		dto.setNotifyReason(notifyReason);
 		dto.setUsername(username);
 		dto.setUserid(userid);
