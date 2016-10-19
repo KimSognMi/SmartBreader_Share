@@ -27,12 +27,14 @@ public class BoardWriteServlet extends HttpServlet {
 		String author = request.getParameter("author");
 		String content = request.getParameter("content");
 		String boardCategory = request.getParameter("boardCategory");
+		String boardpw = request.getParameter("boardpw");
 		
 	/*	System.out.println(num);*/
 		System.out.println(boardCategory);
 		System.out.println(title);
 		System.out.println(author);
 		System.out.println(content);
+		System.out.println(boardpw);
 		
 		
 		BoardDTO dto = new BoardDTO();
@@ -42,6 +44,7 @@ public class BoardWriteServlet extends HttpServlet {
 		dto.setTitle(title);
 		dto.setAuthor(author);
 		dto.setContent(content);
+		dto.setBoardpw(Integer.parseInt(boardpw));
 		
 		
 		BoardService service = new BoardService();

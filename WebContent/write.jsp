@@ -193,6 +193,7 @@ h1 {
 				</c:if>
 				<div>
 					<h1>게시글 등록</h1>
+					<c:set var="write" value="${write}" scope="session"/>
 					<input type="hidden" name="author" value="${login.username}">
 					<input type="hidden" name="userid" value="${login.userid}">
 				</div>
@@ -244,7 +245,7 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
-						<input class="form-control inputPw" type="password" name="readcnt">
+						<input class="form-control inputPw" type="password" id="boardpw1" name="boardpw">
 					</div>
 					<div class="col-md-3 pwHelper"></div>
 					<div class="col-md-3"></div>

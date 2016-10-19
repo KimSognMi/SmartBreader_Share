@@ -125,6 +125,20 @@ h1 {
 			$(location).attr("href", url);
 		});
 	});
+	
+
+	   $(document).ready(function(){
+		  
+		    $("#boardpw2").on("keyup", function(event){
+			 $("#secret").removeClass();
+			   var p = $("#boardpw2").val();
+			   var p2 = $("#boardpw1").val();
+			   if(p == p2){
+				   $("#secret").text("일치").addClass("blue");
+			   }else{
+				   $("#secret").text("불일치").addClass("red");
+			   }
+		   }); 
 
 	function updateBoard(f) {
 		f.action = "BoardUpdateServlet";
@@ -151,6 +165,8 @@ h1 {
 				&nbsp;조회수:${retrieve.readcnt}<br>
 				<div>
 					<h1>${retrieve.boardCategory}내용</h1>
+					<c:set var="write" value="${write}" scope="session"/>
+					${write.boardpw}
 
 				</div>
 				<br> <br>
@@ -219,8 +235,8 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
-						<input class="form-control inputPw" type="password" name="readcnt">
-					</div>
+						<input class="form-control inputPw" type="password" id="boardpw2"name="readcnt">
+					</div><span id="secret"></span>
 					<div class="col-md-3 pwHelper"></div>
 					<div class="col-md-3"></div>
 				</div>
