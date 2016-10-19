@@ -28,7 +28,7 @@ import com.service.NotifyService;
 public class NotifyRequestServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//충돌
 		request.setCharacterEncoding("UTF-8");
 		/*String num = request.getParameter("num");*/
 		String userid = request.getParameter("userid");

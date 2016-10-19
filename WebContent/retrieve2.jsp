@@ -230,7 +230,7 @@ h1 {
 							<c:forEach var="xxx" items="${ppp}" varStatus="status">
 						</tr>
 						<tr id="r1" name="commentParentCode">
-							<td colspan=2>${xxx.boardNum}${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
+							<td colspan=2>${xxx.boardNum} ${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
 
 								${xxx.commentParentPassword} ${xxx.commentwriteday}
 								<a href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"

@@ -1,7 +1,7 @@
 package com.dto;
 
 public class MemberPetDTO {
-
+//whghl
 	private int m_num;
 	private String username;
 	private String userid;

@@ -109,8 +109,6 @@
 										<td>${xxx.userid}</td>
 										<td>${xxx.p_name}</td>
 										<td>${xxx.notifyCount}</td>
-
-
 									</tr>
 									</c:forEach>
 								</tbody>

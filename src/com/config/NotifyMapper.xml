@@ -30,7 +30,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   LEFT OUTER JOIN pet p    
 	   on m.userid = p.userid
 	   order by m_num
-	</select> -->
+	</select>충돌 -->
+	
 	
 	<select id="list" resultType="NotifyDTO">
 	   select notify_num,username,userid,notifyReason,notifyCount,notifyContent,notifyrequest
