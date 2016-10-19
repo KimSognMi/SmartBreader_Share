@@ -247,10 +247,28 @@
 	function reset_close() {
 		close();
 	}
+	
+	
+	<%
+	String result = (String)request.getAttribute("result");
+	if(result!=null){
+	%>
+
+
+	
+	alert("신고가 처리되었습니다.");
+
+
+
+	<%
+	}
+	%>
 </script>
 <body>
 
 	<h3>신고하기</h3>
+	
+	
 	
 <!-- 	
 	<button onClick="javascript:nofify()">신고하기</button>
@@ -303,8 +321,6 @@
 			</div>
 		</div>
 	</form>
-
-
 
 
 </body>

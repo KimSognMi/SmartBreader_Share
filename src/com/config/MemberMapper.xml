@@ -75,10 +75,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="mempetlist" resultType="MemberPetDTO">
-	   select m.m_num, m.username, m.userid, p.p_name
+	   select m.m_num, m.username, m.userid, p.p_name, n.notifyCount
 	   from member m
-	   LEFT OUTER JOIN pet p    
+	   LEFT OUTER JOIN pet p
 	   on m.userid = p.userid
+	   LEFT OUTER JOIN notify n
+	   on m.userid = n.userid
 	   order by m_num
 	</select>
 	

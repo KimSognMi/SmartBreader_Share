@@ -61,11 +61,13 @@ public class NotifyService {
 	public void addNotify(NotifyDTO dto) throws CommonException {
 		System.out.println(dto);
 		
-		notifyCount(dto.getUserid());
+		
 		
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
 			int n = session.insert("notify.addNotify", dto);
+			session.commit();
+			notifyCount(dto.getUserid());
 			session.commit();
 
 		} catch (Exception e) {
