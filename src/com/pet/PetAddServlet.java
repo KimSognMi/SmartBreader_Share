@@ -153,7 +153,7 @@ public class PetAddServlet extends HttpServlet {
 			        }//end while
 				
 			        System.out.println(dto);
-			        
+			      //ㅊㄷ      
 			        PetService p_service=new PetService();
 			        PetService service = new PetService();
 			       // String userid = request.getParameter("userid");

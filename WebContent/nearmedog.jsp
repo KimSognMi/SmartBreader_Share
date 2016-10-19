@@ -371,7 +371,7 @@
 					<div id="map" style="width: 100%; height: 350px;"></div>
 
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
 					<script>
 						 
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -409,7 +409,7 @@
 															clickable : true
 														});
 												marker.setMap(map);
-												var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;">주변사람들</div>', iwRemoveable = true;
+												var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;"><a href="#">주변사람들</a></div>', iwRemoveable = true;
 												// 인포윈도우로 장소에 대한 설명을 표시합니다
 												var infowindow = new daum.maps.InfoWindow(
 														{
@@ -421,7 +421,7 @@
 																marker,
 																'click',
 																function() {
-																	var child=window.open("PetDetailServlet","childName","width=400,height=500");
+																	var child=window.open("PetDetailServlet?userid="+"${item2.userid}","childName","width=400,height=500");
 																	
 																});
 											}

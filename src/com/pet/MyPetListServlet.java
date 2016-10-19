@@ -39,7 +39,7 @@ public class MyPetListServlet extends HttpServlet {
 		request.setAttribute("mlist", dto);
 		
 		System.out.println("마이펫리스트"+dto);
-		
+		//ㅊㄷ
 
 		RequestDispatcher dis = 
 				request.getRequestDispatcher("mypetlist.jsp");

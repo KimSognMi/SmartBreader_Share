@@ -46,7 +46,7 @@ public class PetDeleteServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		//ㅊㄷ
 		response.sendRedirect("MyPetListServlet?userid="+userid);
 		
 /*request.setCharacterEncoding("UTF-8");

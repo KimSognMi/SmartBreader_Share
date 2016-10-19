@@ -92,6 +92,7 @@
 										<th>이름</th>
 										<th>아이디</th>
 										<th>펫</th>
+										<th>신고</th>
 
 									</tr>
 								</thead>
@@ -107,8 +108,7 @@
 										<td><a href="MemberRetrieveServlet?userid=${xxx.userid}">${xxx.username}</td>
 										<td>${xxx.userid}</td>
 										<td>${xxx.p_name}</td>
-
-
+										<td>${xxx.notifyCount}</td>
 									</tr>
 									</c:forEach>
 								</tbody>

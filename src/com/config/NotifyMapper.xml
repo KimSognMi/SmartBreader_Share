@@ -30,7 +30,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   LEFT OUTER JOIN pet p    
 	   on m.userid = p.userid
 	   order by m_num
-	</select> -->
+	</select>충돌 -->
+	
 	
 	<select id="list" resultType="NotifyDTO">
 	   select notify_num,username,userid,notifyReason,notifyCount,notifyContent,notifyrequest
@@ -39,8 +40,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="notifyCount" parameterType="String">
       update notify 
-      set notifyCount = notifyCount + 1
-      where userid = #{userid}
+      set notifyCount = 1 + (select max(notifyCount) from notify where userid=#{userid})
+      where userid = #{userid} and notify_num = (select max(notify_num) from notify)
     </update>
     
      <!-- <update id="update" parameterType="NotifyDTO">
