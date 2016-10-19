@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 
 				List<PetDTO> p_dto=p_service.list(userid); 
 				session.setAttribute("list",p_dto);
-				System.out.println(p_dto.size());
+				System.out.println("로그인"+p_dto);
 			}
 			
 		} catch (CommonException e) {

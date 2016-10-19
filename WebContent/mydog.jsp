@@ -66,18 +66,26 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="petform.jsp" class="button fit">My PET</a></li>
-				<li><a href="MyPageServlet" class="button special fit">MY
-						PAGE</a></li>
-				<li><a href="index.jsp" class="button fit">Log Out</a></li>
-			</ul>
+						 <c:if test="${!empty sessionScope.list}">	 
+						<c:if test="${sessionScope.list.size()!=0}">
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+		
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul> 
+					
+				</c:if>
+				</c:if> 
+				</ul>
 		</nav>
 
 		<!-- Banner -->
@@ -115,7 +123,7 @@
 						<div class="field2">
 							<h5>kkc 등록번호</h5>
 							<input type="text" class="form-control"
-								value="${mydog.p_kkcnumber}" name="p_kkcnumber" id="p_kkcnumber">
+								value="${mydog.p_kkcnumber}" name="p_kkcnumber" id="p_kkcnumber" readonly="readonly">
 						</div>
 						<input type="hidden" class="form-control" name="userid"
 							id="userid" readonly="readonly" value="${login.userid}">
@@ -129,23 +137,38 @@
 						<div class="field half2">
 							<h5>나이</h5>
 							<input type="text" class="form-control" name="p_age" id="p_age"
-								placeholder="나이" value="${mydog.p_age}">
+								placeholder="나이" value="${mydog.p_age}" >
 						</div>
 						<div class="row uniform">
 							<div class="field2_1">
 
 								<h5>성별</h5>
 								<br>
+								<c:if test="${mydog.p_gender=='남'}">
 								<div class="field half">
-									<input type="radio" id="남" name="p_gender" value="남" checked>
+								
+									<input type="radio" id="남" name="p_gender" value="남" checked >
 									<label for="남">남(♂)</label>
 								</div>
 								<div class="field halfs">
 
-									<input type="radio" id="여" name="p_gender" value="여"> <label
+									<input type="radio" id="여" name="p_gender" value="여" > <label
 										for="여">여(♀)</label>
 								</div>
-								${mydog.p_gender}
+								</c:if>
+								<c:if test="${mydog.p_gender=='여'}">
+								<div class="field half">
+								
+									<input type="radio" id="남" name="p_gender" value="남" >
+									<label for="남">남(♂)</label>
+								</div>
+								<div class="field halfs">
+
+									<input type="radio" id="여" name="p_gender" value="여" checked> <label
+										for="여">여(♀)</label>
+								</div>
+								</c:if>
+								
 							</div>
 						</div>
 						<div class="field3 ">

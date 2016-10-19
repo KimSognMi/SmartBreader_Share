@@ -6,7 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 
-<html>
+<html> 
 <head>
 <title>SMART BREADER</title>
 <meta http-equiv="Content-Type" content="text/html; charset=" utf-8" />
@@ -16,8 +16,14 @@
 <link rel="stylesheet" href="assets/css/main.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-</head>
+</head> 
 <body>
+
+ <c:if test="${result!=null }">
+ <script type="text/javascript">
+     alert("회원가입을 환영합니다.");
+  </script>
+  </c:if>
     
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -26,7 +32,10 @@
 		<header id="header" class="alt">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-				<a href="#menu">Menu</a>
+			<c:if test="${sessionScope.login!=null}">
+		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
+			</c:if>
+				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
 
@@ -41,7 +50,7 @@
 					<li><a href="BoardListServlet">BOARD</a></li>
 					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+				
 				</ul>
 				<ul class="actions vertical">
 					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
@@ -58,7 +67,7 @@
 							<li><a href="BoardListServlet2">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-							<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+						
 						</ul>
 						<ul class="actions vertical">
 							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
@@ -68,7 +77,7 @@
 				
 				 
 				</c:if>  
-				${sessionScope.list}
+				${sessionScope.list} 
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
 			 <c:if test="${!empty sessionScope.list}">	 
 						<c:if test="${sessionScope.list.size()!=0}">
@@ -79,7 +88,7 @@
 						<li><a href="BoardListServlet">BOARD</a></li>
 						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+					
 					</ul>
 					<ul class="actions vertical">
 						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
@@ -101,11 +110,10 @@
 						<li><a href="BoardListServlet">BOARD</a></li>
 						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-						<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+						
 					</ul>
 					<ul class="actions vertical">
-						<li><a href="petform.jsp
-						" class="button fit">My PET</a></li>
+						<li><a href="PetFormServlet" class="button fit">My PET</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>
@@ -125,11 +133,11 @@
 		<section id="banner" class="major">
 			<div class="inner">
 				<header class="major">
-					<h1>Hi, my name is BREADER</h1>
+					<h1>Hi, my name is BREEDER</h1>
 				</header>
 				<div class="content">
 					<p>
-						안녕하세요!!!~~~~~~~~~~~~~~~~~~~<br> 아이 귀여워~~~~~~~~~~~~~~~~~~~~
+						안녕하세요<br> SMART BREEDER
 					</p>
 					<ul class="actions">
 						<li><a href="#one" class="button next scrolly">Get
@@ -221,56 +229,6 @@
 
 		</div>
 
-		<!-- Contact --
-					<section id="contact">
-						<div class="inner">
-							<section>
-								<form method="post" action="#">
-									<div class="field half first">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field half">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="6"></textarea>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="special" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section>-->
 
 		<!-- Footer -->
 		<footer id="footer">

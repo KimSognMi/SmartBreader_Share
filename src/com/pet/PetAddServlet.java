@@ -164,7 +164,7 @@ public class PetAddServlet extends HttpServlet {
 						service.addPet(dto);
 						List<PetDTO> p_dto=p_service.list(userid); 
 						session.setAttribute("list",p_dto);
-						//System.out.println(dto);
+						System.out.println("펫추가"+p_dto);
 						target = "index.jsp";
 						request.setAttribute("result", "success");
 					} catch (CommonException e) {
