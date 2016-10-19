@@ -1,6 +1,7 @@
 package com.pet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.PetDTO;
 import com.exception.CommonException;
 import com.exception.PetException;
 import com.service.BoardService;
@@ -31,10 +33,15 @@ public class PetDeleteServlet extends HttpServlet {
 		System.out.println("p_num" + p_num);
 		System.out.println("userid" + userid);
 		PetService service = new PetService();
+		
+		 
 		try {
-			service.delete(p_num);
+			
 			HttpSession session=request.getSession();
-			session.removeAttribute("list");
+			service.delete(p_num);
+			List<PetDTO> p_dto=service.list(userid); 
+			session.setAttribute("list",p_dto);
+			//session.removeAttribute("list");
 		} catch (PetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
