@@ -56,7 +56,6 @@
 					<li><a href="BoardListServlet">BOARD</a></li>
 					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 				</ul>
 				<ul class="actions vertical">
 					<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
@@ -209,8 +208,8 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1"></div>
 					<ul class="actions">
-						<li><input type="submit" value="Send Message" class="special" /></li>
-						<li><input type="reset" value="Clear" /></li>
+						<li><input type="submit" value="등록" class="special" /></li>
+						<li><input type="reset" value="취소" /></li>
 					</ul>
 
 					<div class="col-md-3"></div>

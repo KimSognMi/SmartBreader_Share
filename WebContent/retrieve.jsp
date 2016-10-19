@@ -153,17 +153,31 @@ h1 {
 				<div class="field2">
 
 					<div class="col-md-1">카테고리</div>
-
+<c:if test="${retrieve.boardCategory=='후기글'}">
 					<div class="field half" style="width: 150px;">
 
 						<input type="radio" id="demo-priority-low" name="demo-priority"
-							checked> <label for="demo-priority-low">후기글</label>
+							checked > <label for="demo-priority-low">후기글</label>
 					</div>
 					<div class="field half" style="width: 150px;">
 						<input type="radio" id="demo-priority-normal" name="demo-priority">
 						<label for="demo-priority-normal">질문글</label>
 					</div>
 					<br> <br>
+					</c:if>
+					<c:if test="${retrieve.boardCategory=='질문글'}">
+					<div class="field half" style="width: 150px;">
+
+						<input type="radio" id="demo-priority-low" name="demo-priority">
+						 <label for="demo-priority-low">후기글</label>
+					</div>
+					<div class="field half" style="width: 150px;">
+						<input type="radio" id="demo-priority-normal" name="demo-priority" checked>
+						<label for="demo-priority-normal">질문글</label>
+					</div>
+					<br> <br>
+					</c:if>
+					
 				</div>
 				<div class="field2">
 
