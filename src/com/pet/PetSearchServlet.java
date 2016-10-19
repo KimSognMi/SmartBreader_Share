@@ -16,6 +16,7 @@ import com.dto.BoardDTO;
 import com.dto.MemberDTO;
 import com.dto.MemberPageDTO;
 import com.dto.PageDTO;
+import com.dto.PetDTO;
 import com.exception.CommonException;
 import com.service.BoardService;
 import com.service.MemberService;
@@ -32,13 +33,16 @@ public class PetSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		MemberDTO dto = (MemberDTO)session.getAttribute("login");
-
+		
 		String target = "";
 		String title = "";
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+		ArrayList<PetDTO> petlist = new ArrayList<PetDTO>(); 
 		// 수철 : 검색 사용시 searchId input tag name 쓰면 동작하게될 부분
 		String searchid = request.getParameter("searchId");
 		System.out.println("=========================="+searchid);
+		
+		
 		if (dto != null) {
 			//수철 : 사용자 정보 마지막 표시될 정보 기준 userid
 			String userid=dto.getUserid();

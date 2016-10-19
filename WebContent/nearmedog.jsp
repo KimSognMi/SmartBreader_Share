@@ -409,7 +409,7 @@
 															clickable : true
 														});
 												marker.setMap(map);
-												var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;">주변사람들</div>', iwRemoveable = true;
+												var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;"><a href="#">주변사람들</a></div>', iwRemoveable = true;
 												// 인포윈도우로 장소에 대한 설명을 표시합니다
 												var infowindow = new daum.maps.InfoWindow(
 														{
@@ -421,7 +421,7 @@
 																marker,
 																'click',
 																function() {
-																	var child=window.open("PetDetailServlet","childName","width=400,height=500");
+																	var child=window.open("PetDetailServlet?userid="+"${item2.userid}","childName","width=400,height=500");
 																	
 																});
 											}

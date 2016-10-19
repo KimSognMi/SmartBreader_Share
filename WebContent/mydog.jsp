@@ -59,9 +59,9 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-			<c:if test="${sessionScope.login!=null}">
+				<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
-			</c:if>
+				</c:if>
 				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
@@ -69,26 +69,27 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<ul class="links">
-						 <c:if test="${!empty sessionScope.list}">	 
-						<c:if test="${sessionScope.list.size()!=0}">
-					<ul class="links">
-						<li><a href="index.jsp">HOME</a></li>
-						<li><a href="about.jsp">ABOUT US</a></li>
-		
-						<li><a href="BoardListServlet">BOARD</a></li>
-						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					
-					</ul>
-					<ul class="actions vertical">
-						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
-						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
-					</ul> 
-					
+				<c:if test="${!empty sessionScope.list}">
+					<c:if test="${sessionScope.list.size()!=0}">
+						<ul class="links">
+							<li><a href="index.jsp">HOME</a></li>
+							<li><a href="about.jsp">ABOUT US</a></li>
+
+							<li><a href="BoardListServlet">BOARD</a></li>
+							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+
+						</ul>
+						<ul class="actions vertical">
+							<li><a href="MyPetListServlet?userid=${login.userid}"
+								class="button fit">My PET Page</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						</ul>
+
+					</c:if>
 				</c:if>
-				</c:if> 
-				</ul>
+			</ul>
 		</nav>
 
 		<!-- Banner -->
@@ -116,17 +117,19 @@
 
 		<div id="main">
 			<section id="two">
-				<form name="myForm" method="get" action="PetUpdateServlet" enctype="multipart/form-data">
+				<form name="myForm" method="get" action="PetUpdateServlet"
+					enctype="multipart/form-data">
 					<!-- <article class="container"> -->
 					<div class="col-md-6 col-md-offset-3">
 
-						
+
 						<input type="hidden" name="p_num" id="p_num"
 							value="${mydog.p_num}">
 						<div class="field2">
 							<h5>kkc 등록번호</h5>
 							<input type="text" class="form-control"
-								value="${mydog.p_kkcnumber}" name="p_kkcnumber" id="p_kkcnumber" readonly="readonly">
+								value="${mydog.p_kkcnumber}" name="p_kkcnumber" id="p_kkcnumber"
+								readonly="readonly">
 						</div>
 						<input type="hidden" class="form-control" name="userid"
 							id="userid" readonly="readonly" value="${login.userid}">
@@ -140,7 +143,7 @@
 						<div class="field half2">
 							<h5>나이</h5>
 							<input type="text" class="form-control" name="p_age" id="p_age"
-								placeholder="나이" value="${mydog.p_age}" >
+								placeholder="나이" value="${mydog.p_age}">
 						</div>
 						<div class="row uniform">
 							<div class="field2_1">
@@ -148,30 +151,30 @@
 								<h5>성별</h5>
 								<br>
 								<c:if test="${mydog.p_gender=='남'}">
-								<div class="field half">
-								
-									<input type="radio" id="남" name="p_gender" value="남" checked >
-									<label for="남">남(♂)</label>
-								</div>
-								<div class="field halfs">
+									<div class="field half">
 
-									<input type="radio" id="여" name="p_gender" value="여" > <label
-										for="여">여(♀)</label>
-								</div>
+										<input type="radio" id="남" name="p_gender" value="남" checked>
+										<label for="남">남(♂)</label>
+									</div>
+									<div class="field halfs">
+
+										<input type="radio" id="여" name="p_gender" value="여">
+										<label for="여">여(♀)</label>
+									</div>
 								</c:if>
 								<c:if test="${mydog.p_gender=='여'}">
-								<div class="field half">
-								
-									<input type="radio" id="남" name="p_gender" value="남" >
-									<label for="남">남(♂)</label>
-								</div>
-								<div class="field halfs">
+									<div class="field half">
 
-									<input type="radio" id="여" name="p_gender" value="여" checked> <label
-										for="여">여(♀)</label>
-								</div>
+										<input type="radio" id="남" name="p_gender" value="남">
+										<label for="남">남(♂)</label>
+									</div>
+									<div class="field halfs">
+
+										<input type="radio" id="여" name="p_gender" value="여" checked>
+										<label for="여">여(♀)</label>
+									</div>
 								</c:if>
-								
+
 							</div>
 						</div>
 						<div class="field3 ">
@@ -196,8 +199,8 @@
 
 						<div class="field2">
 							<h5>사진</h5>
-		
-							<input id="image" type="file" name="theFile" 
+
+							<input id="image" type="file" name="theFile"
 								onchange="InputImage();" onclick="remove()"><br> <br>
 
 							<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
@@ -217,10 +220,11 @@
 						<div class="col-md-3"></div>
 						<div class="col-md-1"></div>
 						<ul class="actions">
-						<center>
-							<input type="submit" value="수정"> &nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
-</center>
+							<center>
+								<input type="submit" value="수정">
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
+							</center>
 						</ul>
 
 						<div class="col-md-3"></div>
@@ -233,7 +237,7 @@
 
 
 
-	<script type="text/javascript">
+		<script type="text/javascript">
 		var InputImage = (function loadImageFile() {
 			if (window.FileReader) {
 				var ImagePre;
@@ -313,28 +317,28 @@
 
 
 
-	<!-- Footer -->
-	<footer id="footer">
-		<div class="inner">
-			<ul class="icons">
-				<li><a href="#" class="icon alt fa-twitter"><span
-						class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon alt fa-facebook"><span
-						class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon alt fa-instagram"><span
-						class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon alt fa-github"><span
-						class="label">GitHub</span></a></li>
-				<li><a href="#" class="icon alt fa-linkedin"><span
-						class="label">LinkedIn</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; Untitled</li>
-				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="#" class="icon alt fa-twitter"><span
+							class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon alt fa-facebook"><span
+							class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon alt fa-instagram"><span
+							class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-github"><span
+							class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon alt fa-linkedin"><span
+							class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 
-			</ul>
-		</div>
-	</footer>
+				</ul>
+			</div>
+		</footer>
 
 	</div>
 

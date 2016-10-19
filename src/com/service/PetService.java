@@ -103,11 +103,12 @@ public class PetService {
 				}
 
 			}
-			public PetDTO petdetail(String p_num){
+			public PetDTO petdetail(String userid){
 				SqlSession session = MySqlSessionFactory.getSession();
+				System.out.println("petdetail : Pet-Service");
 				PetDTO dto = null;
 				try{
-					dto = session.selectOne("pet.petdetail", Integer.parseInt(p_num));
+					dto = session.selectOne("pet.petdetail", userid);
 				}finally{
 					session.close();
 				}

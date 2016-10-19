@@ -256,7 +256,7 @@
 </script>
 <body>
 <form method="get" name="dogform">
-	<img id="dogphoto" src="./images/qq.jpg" />
+	<img id="dogphoto" src="C:\Temp\upload/${petdetail.p_photo}" />
 	<div>멍멍이 이름 : ${petdetail.p_name}</div>
 	<div>멍멍이 나이 : ${petdetail.p_age}</div>
 	<div>멍멍이 성별 : ${petdetail.p_gender}</div>
