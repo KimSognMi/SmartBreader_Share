@@ -111,7 +111,7 @@
 			<section id="three" class="style3">
 				<div class="inner">
 
-					<h2 id="content">후기 / 질문</h2>
+					<h1 id="content">후기 / 질문</h1>
 					<div class="content">
 						<p>
 						

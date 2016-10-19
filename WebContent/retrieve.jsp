@@ -29,7 +29,10 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-				<a href="#menu">Menu</a>
+			<c:if test="${sessionScope.login!=null}">
+		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
+			</c:if>
+				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
 
@@ -135,6 +138,7 @@ h1 {
 </script>
 		</head>
 		<body>
+		<div id="main">
 			<form method="get" name="myForm">
 				<c:if test="${login.userid!='adminkongju@naver.com'}">
 					<a href="BoardListServlet">목록보기</a>
@@ -226,9 +230,10 @@ h1 {
 						<div class="col-md-3"></div>
 						<div class="col-md-1"></div>
 						<ul class="actions">
+						<center>
 							<button onclick="updateBoard(myForm)">수정</button>
-							<button class="special" onclick="deleteBoard(myForm)">삭제</button>
-
+							 &nbsp;&nbsp;&nbsp;&nbsp;<button class="special" onclick="deleteBoard(myForm)">삭제</button>
+</center>
 						</ul>
 
 						<div class="col-md-3"></div>
@@ -246,7 +251,7 @@ h1 {
 
 						<thead>
 
-							<div class="field2">
+					<div class="field2">
 								<c:set var="retrieve2" value="${retrieve2}" scope="session" />
 								<c:set var="retrieve" value="${retrieve}" scope="session" />
 								<c:set var="ppp" value="${list}" scope="session" />
@@ -257,8 +262,7 @@ h1 {
 
 										<td colspan=2><strong>${xxx.commentParentName}</strong>
 
-											${xxx.commentwriteday} <a
-											href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')"/>
+											${xxx.commentwriteday} <a href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')"/>
 											신고</a> <c:if
 												test="${login.userid == xxx.userid}">
 												| <a
@@ -271,8 +275,7 @@ h1 {
 									<td>${xxx.commentParentText}</td>
 
 								</c:forEach>
-
-							</div>
+								</div>
 						</thead>
 
 					</table>
@@ -312,14 +315,16 @@ h1 {
 						<!-- Break -->
 						<div class="12u$">
 							<ul class="actions">
-								<li><input type="submit" value="Send Message"
+								<li><input type="submit" value="등록"
 									class="special" /></li>
-								<li><input type="reset" value="Reset" /></li>
+								<li><input type="reset" value="취소" /></li>
+								
 							</ul>
 						</div>
+					
 					</div>
 				</div>
-			</form>
+			</form>	<br>
 			<%-- <section>
 				<div class="field2" style="padding-left: 300px;">
 					<form method="post" name="myForm2">
@@ -359,14 +364,14 @@ h1 {
 					</form>
 				</div>
 			</section> --%>
-	</div>
+	
 
 
 
 
 
 
-
+</div>
 
 
 
