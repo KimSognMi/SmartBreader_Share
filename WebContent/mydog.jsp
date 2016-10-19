@@ -38,10 +38,7 @@
 
 <script>
 
-//?p_num=${mydog.p_num}&userid=${login.userid}&p_kkcnumber=${mydog.p_kkcnumber}&p_name=${mydog.p_name}&p_age=${mydog.p_age}&p_gender=${mydog.p_gender}&p_birth=${mydog.p_birth}&p_type=${mydog.p_type}&p_photo=${mydog.p_photo}&p_feature=${mydog.p_feature}
-	function PetupdateBoard(f) {
-		f.action = "PetUpdateServlet";
-	}
+
 	function PetdeleteBoard(f) {
 		/* f.action = "MyPetListServlet?userid=${login.userid}"; */
 		f.action = "PetDeleteServlet?userid=${login.userid}&p_num=${mydog.p_num}";
@@ -117,14 +114,18 @@
 
 		<div id="main">
 			<section id="two">
+ <!-- ㅊㄷ -->
+				<form name="myForm" method="post" action="PetUpdateServlet" enctype="multipart/form-data">
+
 				<form name="myForm" method="get" action="PetUpdateServlet"
 					enctype="multipart/form-data">
+
 					<!-- <article class="container"> -->
 					<div class="col-md-6 col-md-offset-3">
 
 
 						<input type="hidden" name="p_num" id="p_num"
-							value="${mydog.p_num}">
+							value="${mydog.p_num}">${mydog.p_num}
 						<div class="field2">
 							<h5>kkc 등록번호</h5>
 							<input type="text" class="form-control"
@@ -306,7 +307,7 @@
 					return false;
 				} else {
 					//성공
-					alert("정상 처리되었습니다.");
+					//alert("정상 처리되었습니다.");
 				}
 
 			});

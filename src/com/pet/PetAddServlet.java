@@ -153,16 +153,16 @@ public class PetAddServlet extends HttpServlet {
 			        }//end while
 				
 			        System.out.println(dto);
-			        
+			      //ㅊㄷ      
 			        PetService p_service=new PetService();
 			        PetService service = new PetService();
-			        String userid = request.getParameter("userid");
+			       // String userid = request.getParameter("userid");
 				    String title="";
 				    String target="";
 				    try {
 				    	HttpSession session=request.getSession();
 						service.addPet(dto);
-						List<PetDTO> p_dto=p_service.list(userid); 
+						List<PetDTO> p_dto=p_service.list(dto.getUserid()); 
 						session.setAttribute("list",p_dto);
 						System.out.println("펫추가"+p_dto);
 						target = "index.jsp";
