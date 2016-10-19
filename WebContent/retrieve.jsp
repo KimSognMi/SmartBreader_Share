@@ -29,9 +29,9 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-			<c:if test="${sessionScope.login!=null}">
+				<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
-			</c:if>
+				</c:if>
 				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
@@ -124,21 +124,19 @@ h1 {
 			var url = "boardlist.jsp";
 			$(location).attr("href", url);
 		});
-	});
-	
 
-	   $(document).ready(function(){
-		  
-		    $("#boardpw2").on("keyup", function(event){
-			 $("#secret").removeClass();
-			   var p = $("#boardpw2").val();
-			   var p2 = $("#boardpw1").val();
-			   if(p == p2){
-				   $("#secret").text("일치").addClass("blue");
-			   }else{
-				   $("#secret").text("불일치").addClass("red");
-			   }
-		   }); 
+		$("#boardpw2").on("keyup", function(event) {
+			$("#secret").removeClass();
+			var p = $("#boardpw2").val();
+			var p2 = ${retrieve.boardpw}
+
+			if (p == p2) {
+				$("#secret").text("일치").addClass("blue");
+			} else {
+				$("#secret").text("불일치").addClass("red");
+			}
+		});
+	});
 
 	function updateBoard(f) {
 		f.action = "BoardUpdateServlet";
@@ -152,196 +150,203 @@ h1 {
 </script>
 		</head>
 		<body>
-		<div id="main">
-			<form method="get" name="myForm">
-				<c:if test="${login.userid!='adminkongju@naver.com'}">
-					<a href="BoardListServlet">목록보기</a>
-				</c:if>
-				<c:if test="${login.userid=='adminkongju@naver.com'}">
-					<a href="BoardListServlet2">목록보기</a>
-				</c:if>
-				<input type="hidden" name="num" value="${retrieve.num}">
-				글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
-				&nbsp;조회수:${retrieve.readcnt}<br>
-				<div>
-					<h1>${retrieve.boardCategory}내용</h1>
-					<c:set var="write" value="${write}" scope="session"/>
-					${write.boardpw}
+			<div id="main">
+				<form method="get" name="myForm">
+					<c:if test="${login.userid!='adminkongju@naver.com'}">
+						<a href="BoardListServlet">목록보기</a>
+					</c:if>
+					<c:if test="${login.userid=='adminkongju@naver.com'}">
+						<a href="BoardListServlet2">목록보기</a>
+					</c:if>
+					<input type="hidden" name="num" value="${retrieve.num}">
+					글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
+					&nbsp;조회수:${retrieve.readcnt}<br>
+					<div>
+						<h1>${retrieve.boardCategory}내용</h1>
 
-				</div>
-				<br> <br>
-				<div class="field2">
+						${retrieve.boardpw}
 
-					<div class="col-md-1">카테고리</div>
-<c:if test="${retrieve.boardCategory=='후기글'}">
-					<div class="field half" style="width: 150px;">
-
-						<input type="radio" id="demo-priority-low" name="demo-priority"
-							checked > <label for="demo-priority-low">후기글</label>
-					</div>
-					<div class="field half" style="width: 150px;">
-						<input type="radio" id="demo-priority-normal" name="demo-priority">
-						<label for="demo-priority-normal">질문글</label>
 					</div>
 					<br> <br>
-					</c:if>
-					<c:if test="${retrieve.boardCategory=='질문글'}">
-					<div class="field half" style="width: 150px;">
+					<div class="field2">
 
-						<input type="radio" id="demo-priority-low" name="demo-priority">
-						 <label for="demo-priority-low">후기글</label>
-					</div>
-					<div class="field half" style="width: 150px;">
-						<input type="radio" id="demo-priority-normal" name="demo-priority" checked>
-						<label for="demo-priority-normal">질문글</label>
-					</div>
-					<br> <br>
-					</c:if>
-					
-				</div>
-				<div class="field2">
+						<div class="col-md-1">카테고리</div>
+						<c:if test="${retrieve.boardCategory=='후기글'}">
+							<div class="field half" style="width: 150px;">
 
-					<div class="col-md-3"></div>
-					<div class="col-md-1">제목</div>
-					<div class="col-md-5">
-						<c:if test="${sessionScope.login == null}">
-
-							<input class="form-control inputTitle" type="text" name="title"
-								value="${retrieve.title}" readonly="readonly">
+								<input type="radio" id="demo-priority-low" name="demo-priority"
+									checked> <label for="demo-priority-low">후기글</label>
+							</div>
+							<div class="field half" style="width: 150px;">
+								<input type="radio" id="demo-priority-normal"
+									name="demo-priority"> <label for="demo-priority-normal">질문글</label>
+							</div>
+							<br>
+							<br>
 						</c:if>
-						<c:if test="${sessionScope.login != null}">
+						<c:if test="${retrieve.boardCategory=='질문글'}">
+							<div class="field half" style="width: 150px;">
 
-							<input class="form-control inputTitle" type="text" name="title"
-								value="${retrieve.title}">
+								<input type="radio" id="demo-priority-low" name="demo-priority">
+								<label for="demo-priority-low">후기글</label>
+							</div>
+							<div class="field half" style="width: 150px;">
+								<input type="radio" id="demo-priority-normal"
+									name="demo-priority" checked> <label
+									for="demo-priority-normal">질문글</label>
+							</div>
+							<br>
+							<br>
 						</c:if>
+
 					</div>
-					<div class="col-md-3 titleHelper"></div>
-				</div>
+					<div class="field2">
 
+						<div class="col-md-3"></div>
+						<div class="col-md-1">제목</div>
+						<div class="col-md-5">
+							<c:if test="${sessionScope.login == null}">
 
-				<br>
-				<div class="field2">
-					<div class="col-md-3"></div>
-					<div class="col-md-1">내용</div>
-					<div class="col-md-5">
+								<input class="form-control inputTitle" type="text" name="title"
+									value="${retrieve.title}" readonly="readonly">
+							</c:if>
+							<c:if test="${sessionScope.login != null}">
 
-						<textarea class="form-control inputContent" name="content" rows=20>${retrieve.content}</textarea>
+								<input class="form-control inputTitle" type="text" name="title"
+									value="${retrieve.title}">
+							</c:if>
+						</div>
+						<div class="col-md-3 titleHelper"></div>
 					</div>
-					<div class="col-md-3 contentHelper"></div>
-				</div>
-				<br>
 
-				<div class="field2">
-					<div class="col-md-3"></div>
-					<div class="col-md-1">비밀번호</div>
-					<div class="col-md-2">
-						<input class="form-control inputPw" type="password" id="boardpw2"name="readcnt">
-					</div><span id="secret"></span>
-					<div class="col-md-3 pwHelper"></div>
-					<div class="col-md-3"></div>
-				</div>
-				<br>
-				<c:if test="${login.userid == retrieve.userid}">
+
+					<br>
 					<div class="field2">
 						<div class="col-md-3"></div>
-						<div class="col-md-1"></div>
-						<ul class="actions">
-						<center>
-							<button onclick="updateBoard(myForm)">수정</button>
-							 &nbsp;&nbsp;&nbsp;&nbsp;<button class="special" onclick="deleteBoard(myForm)">삭제</button>
-</center>
-						</ul>
+						<div class="col-md-1">내용</div>
+						<div class="col-md-5">
 
-						<div class="col-md-3"></div>
-						<div class="col-md-3"></div>
+							<textarea class="form-control inputContent" name="content"
+								rows=20>${retrieve.content}</textarea>
+						</div>
+						<div class="col-md-3 contentHelper"></div>
 					</div>
-				</c:if>
-			</form>
-			<!-- 좌우측의 공간 확보 -->
-
-			<hr />
-
-			<section id="three">
-				<div class="field2" style="padding-left: 300px;">
-					<table class="table field2">
-
-						<thead>
+					<br>
 
 					<div class="field2">
-								<c:set var="retrieve2" value="${retrieve2}" scope="session" />
-								<c:set var="retrieve" value="${retrieve}" scope="session" />
-								<c:set var="ppp" value="${list}" scope="session" />
-
-								<c:forEach var="xxx" items="${ppp}" varStatus="status">
-
-									<tr id="r1" name="commentParentCode">
-
-										<td colspan=2><strong>${xxx.commentParentName}</strong>
-
-											${xxx.commentwriteday} <a href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')"/>
-											신고</a> <c:if
-												test="${login.userid == xxx.userid}">
-												| <a
-													href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
-													style="cursor: pointer;">수정</a> | <a
-													href="CommentDeleteServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
-													style="cursor: pointer;">삭제</a>
-											</c:if>
-									</tr>
-									<td>${xxx.commentParentText}</td>
-
-								</c:forEach>
-								</div>
-						</thead>
-
-					</table>
-
-				</div>
-			</section>
-
-			<hr />
-			<form method="get" action="CommentWriteServlet">
-				<div class="field2">
-					<div class="row uniform">
-						<div class="6u 12u$(xsmall)">
-
-							<input type="hidden" name="userid" value="${login.userid}">
-							<input type="hidden" name="num" value="${retrieve.num}">
-							<input type="hidden" name="boardNum" value="${retrieve.num}">
-							<input type="hidden" name="commentNum"
-								value="${retrieve2.commentNum}"> <input type="hidden"
-								name="commentwriteday" value="${retrieve2.commentwriteday}">
-
-							<input type="text" name="commentParentName"
-								id="commentParentName" value="${login.username}"
-								placeholder="Name" />
+						<div class="col-md-3"></div>
+						<div class="col-md-1">비밀번호</div>
+						<div class="col-md-2">
+							<input class="form-control inputPw" type="password" id="boardpw2"
+								name="boardpw">
 						</div>
-
-						<div class="6u$ 12u$(xsmall)">
-							<input type="password" name="commentParentPassword"
-								id="commentParentPassword" value="" placeholder="password" />
-						</div>
-
-
-						<!-- Break -->
-						<div class="12u$">
-							<textarea name="commentParentText" id="commentParentText"
-								placeholder="Enter your message" rows="6"></textarea>
-						</div>
-						<!-- Break -->
-						<div class="12u$">
+						<span id="secret"></span>
+						<div class="col-md-3 pwHelper"></div>
+						<div class="col-md-3"></div>
+					</div>
+					<br>
+					<c:if test="${login.userid == retrieve.userid}">
+						<div class="field2">
+							<div class="col-md-3"></div>
+							<div class="col-md-1"></div>
 							<ul class="actions">
-								<li><input type="submit" value="등록"
-									class="special" /></li>
-								<li><input type="reset" value="취소" /></li>
-								
+								<center>
+									<button onclick="updateBoard(myForm)">수정</button>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<button class="special" onclick="deleteBoard(myForm)">삭제</button>
+								</center>
 							</ul>
+
+							<div class="col-md-3"></div>
+							<div class="col-md-3"></div>
 						</div>
-					
+					</c:if>
+				</form>
+				<!-- 좌우측의 공간 확보 -->
+
+				<hr />
+
+				<section id="three">
+					<div class="field2" style="padding-left: 300px;">
+						<table class="table field2">
+
+							<thead>
+
+								<div class="field2">
+									<c:set var="retrieve2" value="${retrieve2}" scope="session" />
+									<c:set var="retrieve" value="${retrieve}" scope="session" />
+									<c:set var="ppp" value="${list}" scope="session" />
+
+									<c:forEach var="xxx" items="${ppp}" varStatus="status">
+
+										<tr id="r1" name="commentParentCode">
+
+											<td colspan=2><strong>${xxx.commentParentName}</strong>
+
+												${xxx.commentwriteday} <a
+												href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')" />
+												신고</a> <c:if test="${login.userid == xxx.userid}">
+												| <a
+														href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
+														style="cursor: pointer;">수정</a> | <a
+														href="CommentDeleteServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
+														style="cursor: pointer;">삭제</a>
+												</c:if>
+										</tr>
+										<td>${xxx.commentParentText}</td>
+
+									</c:forEach>
+								</div>
+							</thead>
+
+						</table>
+
 					</div>
-				</div>
-			</form>	<br>
-			<%-- <section>
+				</section>
+
+				<hr />
+				<form method="get" action="CommentWriteServlet">
+					<div class="field2">
+						<div class="row uniform">
+							<div class="6u 12u$(xsmall)">
+
+								<input type="hidden" name="userid" value="${login.userid}">
+								<input type="hidden" name="num" value="${retrieve.num}">
+								<input type="hidden" name="boardNum" value="${retrieve.num}">
+								<input type="hidden" name="commentNum"
+									value="${retrieve2.commentNum}"> <input type="hidden"
+									name="commentwriteday" value="${retrieve2.commentwriteday}">
+
+								<input type="text" name="commentParentName"
+									id="commentParentName" value="${login.username}"
+									placeholder="Name" />
+							</div>
+
+							<div class="6u$ 12u$(xsmall)">
+								<input type="password" name="commentParentPassword"
+									id="commentParentPassword" value="" placeholder="password" />
+							</div>
+
+
+							<!-- Break -->
+							<div class="12u$">
+								<textarea name="commentParentText" id="commentParentText"
+									placeholder="Enter your message" rows="6"></textarea>
+							</div>
+							<!-- Break -->
+							<div class="12u$">
+								<ul class="actions">
+									<li><input type="submit" value="등록" class="special" /></li>
+									<li><input type="reset" value="취소" /></li>
+
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</form>
+				<br>
+				<%-- <section>
 				<div class="field2" style="padding-left: 300px;">
 					<form method="post" name="myForm2">
 
@@ -380,39 +385,39 @@ h1 {
 					</form>
 				</div>
 			</section> --%>
-	
 
 
 
 
 
 
-</div>
+
+			</div>
 
 
 
-	<!-- Footer -->
-	<footer id="footer">
-		<div class="inner">
-			<ul class="icons">
-				<li><a href="#" class="icon alt fa-twitter"><span
-						class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon alt fa-facebook"><span
-						class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon alt fa-instagram"><span
-						class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon alt fa-github"><span
-						class="label">GitHub</span></a></li>
-				<li><a href="#" class="icon alt fa-linkedin"><span
-						class="label">LinkedIn</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; Untitled</li>
-				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span
+								class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span
+								class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span
+								class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span
+								class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span
+								class="label">LinkedIn</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li>
+						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 
-			</ul>
-		</div>
-	</footer>
+					</ul>
+				</div>
+			</footer>
 	</div>
 
 	<!-- Scripts -->
