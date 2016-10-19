@@ -214,7 +214,7 @@ var InputImage =
 	            if (!ImagePre) {
 	                var newPreview = document.getElementById("imagePreview");
 	                ImagePre = new Image();
-	                ImagePre.style.width = "450px"; 
+	                ImagePre.style.width = "550px"; 
 	                ImagePre.style.height = "340px"; //세로
 	                newPreview.appendChild(ImagePre);
 	            }

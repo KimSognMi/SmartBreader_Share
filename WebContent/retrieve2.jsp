@@ -29,7 +29,10 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-				<a href="#menu">Menu</a>
+			<c:if test="${sessionScope.login!=null}">
+		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
+			</c:if>
+				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
 
@@ -229,8 +232,8 @@ h1 {
 						<tr id="r1" name="commentParentCode">
 							<td colspan=2>${xxx.boardNum}${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
 
-								${xxx.commentParentPassword} ${xxx.commentwriteday}<a
-								href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
+								${xxx.commentParentPassword} ${xxx.commentwriteday}
+								<a href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
 								style="cursor: pointer;">수정</a> | <a
 								href="CommentDeleteServlet?commentNum=${xxx.commentNum}"
 								style="cursor: pointer;">삭제</a>

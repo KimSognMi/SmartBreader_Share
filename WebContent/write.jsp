@@ -28,7 +28,10 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-				<a href="#menu">Menu</a>
+			<c:if test="${sessionScope.login!=null}">
+		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
+			</c:if>
+				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
 
@@ -252,8 +255,9 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1"></div>
 					<ul class="actions">
+					<center>
 						<li><input type="submit" value="등록" class="special" /></li>
-						<li><input type="reset" value="취소" /></li>
+						 &nbsp;&nbsp;&nbsp;&nbsp;<li><input type="reset" value="취소" /></li></center>
 					</ul>
 
 					<div class="col-md-3"></div>
