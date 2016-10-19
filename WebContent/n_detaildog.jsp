@@ -281,8 +281,11 @@
 	<button style="margin-left:2%;" onClick="javascript:reset_close()">취소</button>
 	<br>
 
+<!-- 
 
-	<script type="text/javascript">
+
+ㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹ
+ -->	<script type="text/javascript">
 		var InputImage = (function loadImageFile() {
 			if (window.FileReader) {
 				var ImagePre;
