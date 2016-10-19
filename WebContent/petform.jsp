@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 
 <html>
@@ -28,24 +31,61 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-				<a href="#menu">Menu</a>
+			<c:if test="${sessionScope.login!=null}">
+		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
+			</c:if>
+				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
 
 		<!-- Menu -->
 		<nav id="menu">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="board.jsp">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="petform.jsp" class="button fit">My PET</a></li>
-				<li><a href="MyPageServlet" class="button special fit">MY PAGE</a></li>
-				<li><a href="index.jsp" class="button fit">Log Out</a></li>
-			</ul>
+			
+				<c:if test="${login.userid!='adminkongju@naver.com'}">
+			 <c:if test="${!empty sessionScope.list}">	 
+						<c:if test="${sessionScope.list.size()!=0}">
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+		
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul> 
+					
+				</c:if>
+				</c:if> 
+				
+								
+<%--  ${sessionScope.list.size()}  --%>
+ 			${empty sessionScope.list}
+				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+				
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+				
+				</c:if>
+				
+	
+					</c:if>
+					
 		</nav>
 
 		<!-- Banner -->
@@ -159,7 +199,7 @@
 			</form>		
 			</div>
 			</section>
-		</div>
+		
 
 <script type="text/javascript">
 
@@ -247,27 +287,27 @@ var InputImage =
 
 
 		<!-- Footer -->
-		<footer id="footer">
-			<div class="inner">
-				<ul class="icons">
-					<li><a href="#" class="icon alt fa-twitter"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon alt fa-facebook"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon alt fa-github"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon alt fa-linkedin"><span
-							class="label">LinkedIn</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="#" class="icon alt fa-twitter"><span
+						class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon alt fa-facebook"><span
+						class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon alt fa-instagram"><span
+						class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon alt fa-github"><span
+						class="label">GitHub</span></a></li>
+				<li><a href="#" class="icon alt fa-linkedin"><span
+						class="label">LinkedIn</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled</li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 
-				</ul>
-			</div>
-		</footer>
+			</ul>
+		</div>
+	</footer>
 
 	</div>
 
@@ -279,11 +319,10 @@ var InputImage =
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
- 
+
 
 </body>
-</html>										</div>
-															
-															
+</html>
+
 															
 													

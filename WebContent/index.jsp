@@ -19,11 +19,11 @@
 </head> 
 <body>
 
- <c:if test="${result!=null }">
+<%--  <c:if test="${result!=null }">
  <script type="text/javascript">
      alert("회원가입을 환영합니다.");
   </script>
-  </c:if>
+  </c:if> --%>
     
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -113,7 +113,7 @@
 						
 					</ul>
 					<ul class="actions vertical">
-						<li><a href="PetFormServlet" class="button fit">My PET</a></li>
+						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>

@@ -35,7 +35,10 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-				<a href="#menu">Menu</a>
+			<c:if test="${sessionScope.login!=null}">
+		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
+			</c:if>
+				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
 
@@ -108,12 +111,13 @@
 			<section id="three" class="style3">
 				<div class="inner">
 
-					<h2 id="content">게시글 보기</h2>
+					<h2 id="content">후기 / 질문</h2>
 					<div class="content">
 						<p>
-						<h3>Text</h3>
+						
 						<form method="post" action="BoardWriteUIServlet">
 							<input type="submit" value="글쓰기" />
+							<br>
 
 						</form>
 						<div class="table-wrapper">
@@ -133,7 +137,7 @@
 									<c:set var="ppp" value="${page}" />
 
 									<c:forEach var="xxx" items="${ppp.list}" varStatus="status">
-${xxx.boardCategory}
+
 										<tr>
 											<td>${xxx.num}</td>
 											<td><a href="BoardRetrieveServlet?num=${xxx.num}">[${xxx.boardCategory}]${xxx.title}</td>
@@ -182,6 +186,7 @@ ${xxx.boardCategory}
 					</div>
 
 					<tr>
+					
 						<form action="BoardSearchServlet" method="get">
 
 							<div class="row uniform">
@@ -205,11 +210,12 @@ ${xxx.boardCategory}
 									<button>검색</button>
 								</div>
 							</div>
+					
 						</form>
 
 					</tr>
 				</div>
-				</p>
+				
 		</div>
 		</section>
 
