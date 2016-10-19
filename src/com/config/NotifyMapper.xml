@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		notify_num,userid,username,notifyReason,notifyContent,notifyrequest)
 		values(
 		notify_seq.nextval,#{userid},#{username},#{notifyReason},
-		#{notifyCount},#{notifyrequest})
+		#{notifyContent},#{notifyrequest})
 	</insert>
 
 	 <delete id="deleteNotify" parameterType="string">
@@ -34,10 +34,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="list" resultType="NotifyDTO">
 	   select notify_num,username,userid,notifyReason,notifyCount,notifyContent,notifyrequest
-	   from notify order by notify_num     
+	   from notify order by notify_num asc     
 	</select>
 	
-	<update id="notifyCount" parameterType="int">
+	<update id="notifyCount" parameterType="String">
       update notify 
       set notifyCount = notifyCount + 1
       where userid = #{userid}

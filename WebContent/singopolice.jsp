@@ -279,8 +279,8 @@
 				<div class="select-wrapper">
 					<select name="notifyReason" id="notifyReason" value="${notify.notifyReason}">
 						<option value="">- Category -</option>
-						<option value="1">욕설</option>
-						<option value="1">약속 파기</option>
+						<option value="욕설">욕설</option>
+						<option value="약속 파기">약속 파기</option>
 						<option value="1">Administration</option>
 						<option value="1">Human Resources</option>
 					</select>

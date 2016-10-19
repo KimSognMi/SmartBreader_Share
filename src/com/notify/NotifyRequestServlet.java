@@ -58,7 +58,7 @@ public class NotifyRequestServlet extends HttpServlet {
 		
 		NotifyService service = new NotifyService();
 		try {
-			service.addNotify(dto,userid);
+			service.addNotify(dto);
 		} catch (CommonException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

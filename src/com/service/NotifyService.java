@@ -58,8 +58,11 @@ public class NotifyService {
 	}//end totalCount
 	
 	// 회원등록
-	public void addNotify(NotifyDTO dto,String userid) throws CommonException {
-		notifyCount(userid);
+	public void addNotify(NotifyDTO dto) throws CommonException {
+		System.out.println(dto);
+		
+		notifyCount(dto.getUserid());
+		
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
 			int n = session.insert("notify.addNotify", dto);

@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    <typeAlias type="com.dto.CommentDTO" alias="CommentDTO"/>
      <typeAlias type="com.dto.PetDTO" alias="PetDTO"/>
       <typeAlias type="com.dto.MemberPetDTO" alias="MemberPetDTO"/>
+       <typeAlias type="com.dto.NotifyDTO" alias="NotifyDTO"/>
    
 
   </typeAliases>
@@ -40,6 +41,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/config/BoardMapper.xml" />
 		<mapper resource="com/config/CommentMapper.xml" />
 <mapper resource="com/config/PetMapper.xml" />
+<mapper resource="com/config/NotifyMapper.xml" />
 
 	</mappers>
 </configuration>
