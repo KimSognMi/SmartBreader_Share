@@ -116,12 +116,12 @@
 						<p>
 						<form method="post" action="BoardWriteUIServlet">
 							<input style="margin-left: -250px;"type="submit" value="글쓰기" /> <input type="radio"
-								id="demo-priority-low" name="demo-priority"> <label
-								style="margin-left: 600px;" for="demo-priority-low" onClick="="location.href=BoardHSearchSevlet">후기글</label>
+								id="demo-priority-low" name="order"> <label
+								style="margin-left: 600px;" for="demo-priority-low" onClick="BoardHSearchSevlet">후기글</label>
 							<input type="radio" id="demo-priority-normal"
-								name="demo-priority" checked> <label
+								name="order" checked> <label
 								for="demo-priority-normal">질문글</label> <input type="radio"
-								id="demo-priority" name="demo-priority" checked> <label
+								id="demo-priority" name="order" checked> <label
 								for="demo-priority">질문글</label>
 
 
