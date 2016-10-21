@@ -18,7 +18,7 @@ import com.dto.PageDTO;
 /**
  * Servlet implementation class BoardListServlet
  */
-@WebServlet("/BoardSearchServlet")
+@WebServlet("/BoardHSearchServlet")
 public class BoardHSearchServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

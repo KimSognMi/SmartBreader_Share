@@ -124,6 +124,20 @@ h1 {
 			var url = "boardlist.jsp";
 			$(location).attr("href", url);
 		});
+		
+		
+		
+		$("#commentParentPassword2").on("keyup", function(event) {
+			$("#commentsecret").removeClass();
+			var p = $("#commentParentPassword2").val();
+			var p2 = ${retrieve2.commentParentPassword}
+
+			if (p == p2) {
+				$("#commentsecret").text("일치").addClass("blue");
+			} else {
+				$("#commentsecret").text("불일치").addClass("red");
+			}
+		}); 
 	});
 
 	function updateBoard(f) {
@@ -267,9 +281,9 @@ h1 {
 								id="commentParentName" value="${retrieve2.commentParentName}" placeholder="Name" />
 						</div>
 
-						<div class="6u$ 12u$(xsmall)">
+						<div class="6u$ 12u$(xsmall)"> <span id="commentsecret"></span>
 							<input type="password" name="commentParentPassword"
-								id="commentParentPassword" value="" placeholder="password" />
+								id="commentParentPassword2" value="" placeholder="password" />
 						</div>
 
 
