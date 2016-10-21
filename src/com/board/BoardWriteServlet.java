@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.service.BoardService;
 import com.dto.BoardDTO;
+import com.exception.CommonException;
 
 /**
  * Servlet implementation class BoardListServlet
@@ -54,6 +55,26 @@ public class BoardWriteServlet extends HttpServlet {
 		
 		//화면 ( list.jsp로 보내면 안됨. )
 		response.sendRedirect("BoardListServlet");
+		
+		
+		/*
+			String title="";
+		    String target="";
+		    try {
+				service.write(dto);
+				target = "BoardListServlet";
+				request.setAttribute("writeresult", "success");
+			} catch (CommonException e) {
+				title= e.getMessage();
+				String link="LoginFormServlet";
+				target="error.jsp";
+				request.setAttribute("title", title);
+				request.setAttribute("link", link);
+			}
+			
+			RequestDispatcher dis =
+					request.getRequestDispatcher(target);
+			dis.forward(request, response);*/
 		
 	}//end doGet
 

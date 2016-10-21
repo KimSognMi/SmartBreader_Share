@@ -15,6 +15,7 @@ import com.service.BoardService;
 import com.service.MemberService;
 import com.dto.BoardDTO;
 import com.dto.MemberPageDTO;
+import com.dto.MemberPetPageDTO;
 import com.dto.PageDTO;
 
 /**
@@ -41,7 +42,7 @@ public class MemberSearchServlet extends HttpServlet {
 		map.put("searchName", searchName);
 		map.put("searchValue", searchValue);
 
-		MemberPageDTO dto = service.search(Integer.parseInt(curPage), map);
+		MemberPetPageDTO dto = service.search(Integer.parseInt(curPage), map);
 
 		request.setAttribute("page", dto);
 

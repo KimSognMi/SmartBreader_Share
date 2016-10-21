@@ -153,30 +153,32 @@
 
 							<div class="row uniform">
 								<div class="field half">
-									<div class="6u 12u$(medium)">
-										<div class="select-wrapper">
-											<select name="searchName">
-												<option value="username">이름</option>
-												<option value="userid">아이디</option>
-											</select>
-										</div>
 
+									<div class="select-wrapper">
+										<select name="searchName">
+											<option value="username">이름</option>
+											<option value="userid">아이디</option>
+											<option value="p_name">펫이름</option>
+										</select>
 									</div>
 
-									<div class="field half" style="width: 250px;">
-
-										<input type="text" name="searchValue">
-
-									</div>
-									<div class="field half">
-										<button>검색</button>
-									</div>
 								</div>
+
+								<div class="field half" style="width: 250px;">
+
+									<input type="text" name="searchValue">
+
+								</div>
+								<div class="field half">
+									<button>검색</button>
+								</div>
+							</div>
+
 						</form>
 
 					</tr>
 				</div>
-				</p>
+				
 		</div>
 		</section>
 

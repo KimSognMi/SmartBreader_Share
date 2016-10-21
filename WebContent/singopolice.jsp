@@ -263,6 +263,25 @@
 	<%
 	}
 	%>
+	
+	
+	<%
+	String idresult = (String)request.getAttribute("idresult");
+	if(idresult!=null){
+	%>
+
+
+	
+	alert("아이디가 존재하지않습니다.");
+
+
+
+	<%
+	}
+	%>
+	
+	
+
 </script>
 <body>
 
@@ -282,7 +301,7 @@
 			
 			
 			
-			<input type="hidden" name="notifyrequest" value="${login.userid}">
+			<input type="hidden" name="notifyrequest" value="${login.userid}"> <!-- 신청하는사람 -->
 			
 			
 				<input type="text" name="username" id="username" value="${retrieve2.commentParentName}"
