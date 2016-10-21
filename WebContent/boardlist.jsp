@@ -35,9 +35,9 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-			<c:if test="${sessionScope.login!=null}">
+				<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
-			</c:if>
+				</c:if>
 				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
@@ -114,10 +114,16 @@
 					<h1 id="content">후기 / 질문</h1>
 					<div class="content">
 						<p>
-						
 						<form method="post" action="BoardWriteUIServlet">
-							<input type="submit" value="글쓰기" />
-							<br>
+							<input style="margin-left: -250px;"type="submit" value="글쓰기" /> <input type="radio"
+								id="demo-priority-low" name="demo-priority"> <label
+								style="margin-left: 600px;" for="demo-priority-low" onClick="="location.href=BoardHSearchSevlet">후기글</label>
+							<input type="radio" id="demo-priority-normal"
+								name="demo-priority" checked> <label
+								for="demo-priority-normal">질문글</label> <input type="radio"
+								id="demo-priority" name="demo-priority" checked> <label
+								for="demo-priority">질문글</label>
+
 
 						</form>
 						<div class="table-wrapper">
@@ -186,7 +192,7 @@
 					</div>
 
 					<tr>
-					
+
 						<form action="BoardSearchServlet" method="get">
 
 							<div class="row uniform">
@@ -210,12 +216,11 @@
 									<button>검색</button>
 								</div>
 							</div>
-					
+
 						</form>
 
 					</tr>
 				</div>
-				
 		</div>
 		</section>
 
