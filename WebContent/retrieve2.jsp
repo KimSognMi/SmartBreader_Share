@@ -127,7 +127,7 @@ h1 {
 		
 		
 		
-		$("#commentParentPassword2").on("keyup", function(event) {
+		/* $("#commentParentPassword2").on("keyup", function(event) {
 			$("#commentsecret").removeClass();
 			var p = $("#commentParentPassword2").val();
 			var p2 = ${retrieve2.commentParentPassword}
@@ -137,7 +137,7 @@ h1 {
 			} else {
 				$("#commentsecret").text("불일치").addClass("red");
 			}
-		}); 
+		});  */
 	});
 
 	function updateBoard(f) {
@@ -283,7 +283,7 @@ h1 {
 
 						<div class="6u$ 12u$(xsmall)"> <span id="commentsecret"></span>
 							<input type="password" name="commentParentPassword"
-								id="commentParentPassword2" value="" placeholder="password" />
+								id="commentParentPassword" value="" placeholder="password" />
 						</div>
 
 
