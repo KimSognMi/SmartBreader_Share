@@ -13,6 +13,10 @@
 	function writesen(f) {
 		f.action = "BoardWriteUIServlet";
 	}
+	
+	function SearchH(f) {
+		f.action = "BoardHSearchServlet";
+	}
 </script>
 <html>
 <head>
@@ -114,10 +118,10 @@
 					<h1 id="content">후기 / 질문</h1>
 					<div class="content">
 						<p>
-						<form method="post" action="BoardWriteUIServlet">
+						<form method="post" action="BoardWriteUIServlet" name="form">
 							<input style="margin-left: -250px;"type="submit" value="글쓰기" /> <input type="radio"
 								id="demo-priority-low" name="order"> <label
-								style="margin-left: 600px;" for="demo-priority-low" onClick="BoardHSearchSevlet">후기글</label>
+								style="margin-left: 600px;" for="demo-priority-low" onClick="SearchH(form)">후기글</label>
 							<input type="radio" id="demo-priority-normal"
 								name="order" checked> <label
 								for="demo-priority-normal">질문글</label> <input type="radio"

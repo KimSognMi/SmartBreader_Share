@@ -100,9 +100,9 @@ h1 {
 </style>
 <script>
 	$(document).on("ready", function() {
-		$(".registerBtn").on("click", function() {
+		$("form").on("click", function() {
 			/* 공백 입력 못하도록 유효성 검가 */
-			if ("" == $(".inputTitle").val()) {
+			/* if ("" == $(".inputTitle").val()) {
 				$(".titleHelper").text("제목을 입력해주세요");
 				$(".contentHelper").text("");
 				$(".pwHelper").text("");
@@ -116,7 +116,19 @@ h1 {
 				$(".pwHelper").text("비밀번호를 입력해주세요");
 			} else {
 				$("form").submit();
-			}
+			} */
+			
+			/* var boardtitle = $("#boardtitle").val();
+			if(boardtitle ==''){
+				alert("title 입력");
+				return false;
+			}else if($("#content").val()==''){
+				alert("content 입력");
+			}else if($("#boardpw2").val()==''){
+				alert("boardpw 입력");
+			}else{
+				alert("글등록완료")
+			} */
 
 		});
 		$(".cancelBtn").on("click", function() {
@@ -147,6 +159,8 @@ h1 {
 	function writeBoard(f) {
 		f.action = "CommentWriteServlet";
 	}
+	
+
 </script>
 		</head>
 		<body>
@@ -207,12 +221,12 @@ h1 {
 						<div class="col-md-5">
 							<c:if test="${sessionScope.login == null}">
 
-								<input class="form-control inputTitle" type="text" name="title"
+								<input class="form-control inputTitle" type="text" name="title" id="boardtitle"
 									value="${retrieve.title}" readonly="readonly">
 							</c:if>
 							<c:if test="${sessionScope.login != null}">
 
-								<input class="form-control inputTitle" type="text" name="title"
+								<input class="form-control inputTitle" type="text" name="title" id="boardtitle"
 									value="${retrieve.title}">
 							</c:if>
 						</div>
@@ -226,7 +240,7 @@ h1 {
 						<div class="col-md-1">내용</div>
 						<div class="col-md-5">
 
-							<textarea class="form-control inputContent" name="content"
+							<textarea class="form-control inputContent" name="content" id="content"
 								rows=20>${retrieve.content}</textarea>
 						</div>
 						<div class="col-md-3 contentHelper"></div>
