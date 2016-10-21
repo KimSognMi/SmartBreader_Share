@@ -15,7 +15,9 @@
 	}
 	
 	function SearchH(f) {
+		alert("마넝");
 		f.action = "BoardHSearchServlet";
+		f.submit();
 	}
 </script>
 <html>
@@ -120,8 +122,8 @@
 						<p>
 						<form method="post" action="BoardWriteUIServlet" name="form">
 							<input style="margin-left: -250px;"type="submit" value="글쓰기" /> <input type="radio"
-								id="demo-priority-low" name="order"> <label
-								style="margin-left: 600px;" for="demo-priority-low" onClick="SearchH(form)">후기글</label>
+								id="demo-priority-low" name="order" onclick="SearchH(form)"> <label
+								style="margin-left: 600px;" for="demo-priority-low">후기글</label>
 							<input type="radio" id="demo-priority-normal"
 								name="order" checked> <label
 								for="demo-priority-normal">질문글</label> <input type="radio"
