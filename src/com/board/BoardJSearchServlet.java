@@ -18,12 +18,12 @@ import com.dto.PageDTO;
 /**
  * Servlet implementation class BoardListServlet
  */
-@WebServlet("/BoardHSearchServlet")
-public class BoardHSearchServlet extends HttpServlet {
+@WebServlet("/BoardJSearchServlet")
+public class BoardJSearchServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("BoardHSearchServlet");
+		System.out.println("BoardJSearchServlet");
 		request.setCharacterEncoding("UTF-8");
 		String curPage = request.getParameter("curPage");
 		if(curPage == null){
@@ -34,7 +34,7 @@ public class BoardHSearchServlet extends HttpServlet {
 		BoardService service = new BoardService();
 		
 		
-		PageDTO dto = service.Hsearch(Integer.parseInt(curPage));
+		PageDTO dto = service.Jsearch(Integer.parseInt(curPage));
 
 		request.setAttribute("page", dto);
 

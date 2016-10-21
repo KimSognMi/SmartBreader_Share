@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        parameterType="hashmap" resultType="BoardDTO">
         select num, title, author, content,
 	         to_char(writeday,'yyyy/mm/dd') writeday,
-	         readcnt 
+	         readcnt,boardCategory,boardpw
 	   from myboard 
        <if test="searchName=='title'">
           where title LIKE  '%'||#{searchValue}||'%'
@@ -16,6 +16,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        <if test="searchName=='author'">
          where author LIKE  '%'||#{searchValue}||'%'
        </if>
+       
+     </select>
+     
+     <select id="Hsearch" 
+      parameterType="hashmap" resultType="BoardDTO">
+        select num, title, author, content,
+	         to_char(writeday,'yyyy/mm/dd') writeday,
+	         readcnt,boardCategory,boardpw 
+	   from myboard       
+       where boardCategory = '후기글'
+       
+       
+     </select>
+     
+      <select id="Jsearch" 
+      parameterType="hashmap" resultType="BoardDTO">
+        select num, title, author, content,
+	         to_char(writeday,'yyyy/mm/dd') writeday,
+	         readcnt,boardCategory,boardpw 
+	   from myboard       
+       where boardCategory = '질문글'
+       
        
      </select>
 

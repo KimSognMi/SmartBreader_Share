@@ -15,8 +15,19 @@
 	}
 	
 	function SearchH(f) {
-		alert("마넝");
+		alert("후기글");
 		f.action = "BoardHSearchServlet";
+		f.submit();
+	}
+	
+	function SearchJ(f) {
+		alert("질문글");
+		f.action = "BoardJSearchServlet";
+		f.submit();
+	}
+	function SearchAll(f) {
+		alert("모든글");
+		f.action = "BoardListServlet";
 		f.submit();
 	}
 </script>
@@ -122,13 +133,13 @@
 						<p>
 						<form method="post" action="BoardWriteUIServlet" name="form">
 							<input style="margin-left: -250px;"type="submit" value="글쓰기" /> <input type="radio"
-								id="demo-priority-low" name="order" onclick="SearchH(form)"> <label
+								id="demo-priority-low" name="order" onclick="SearchH(form)" > <label
 								style="margin-left: 600px;" for="demo-priority-low">후기글</label>
 							<input type="radio" id="demo-priority-normal"
-								name="order" checked> <label
+								name="order" onclick="SearchJ(form)" > <label
 								for="demo-priority-normal">질문글</label> <input type="radio"
-								id="demo-priority" name="order" checked> <label
-								for="demo-priority">질문글</label>
+								id="demo-priority" name="order" onclick="SearchAll(form)" checked> <label
+								for="demo-priority">모든글</label>
 
 
 						</form>
