@@ -38,7 +38,7 @@ public class PetDetailServlet extends HttpServlet {
 		if(dto == null){
 			//해당 사용자 등록된 펫정보 없을때 띄울 부분 넣어!
 			response.sendRedirect("/");
-		}
+		} 
 		System.out.println("!!!!!!!!!PetDetailServlet!!!!!!!!!!!!!!!11"+dto);
 		request.setAttribute("petdetail", dto);
 		

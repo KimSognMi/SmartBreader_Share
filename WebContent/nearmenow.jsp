@@ -202,12 +202,8 @@
 <head>
 <title>Near Me Now</title>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
 
@@ -218,9 +214,9 @@
 		<header id="header" class="alt">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-			<c:if test="${sessionScope.login!=null}">
+				<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
-			</c:if>
+				</c:if>
 				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
@@ -229,67 +225,69 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="BoardListServlet2">BOARD</a></li>
+					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="MemberListServlet" class="button special fit">Manage
+							Member</a></li>
+					<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+				</ul>
+
+
+
+			</c:if>
+			${sessionScope.list}
+			<c:if test="${login.userid!='adminkongju@naver.com'}">
+				<c:if test="${!empty sessionScope.list}">
+					<c:if test="${sessionScope.list.size()!=0}">
 						<ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
-							<li><a href="BoardListServlet2">BOARD</a></li>
+
+							<li><a href="BoardListServlet">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-						
+
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
+							<li><a href="MyPetListServlet?userid=${login.userid}"
+								class="button fit">My PET Page</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
-				
-				
-				 
-				</c:if>  
-				${sessionScope.list} 
-						<c:if test="${login.userid!='adminkongju@naver.com'}">
-			 <c:if test="${!empty sessionScope.list}">	 
-						<c:if test="${sessionScope.list.size()!=0}">
-					<ul class="links">
-						<li><a href="index.jsp">HOME</a></li>
-						<li><a href="about.jsp">ABOUT US</a></li>
-		
-						<li><a href="BoardListServlet">BOARD</a></li>
-						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					
-					</ul>
-					<ul class="actions vertical">
-						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
-						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
-					</ul> 
-					
+
+					</c:if>
 				</c:if>
-				</c:if> 
-				
-								
-<%--  ${sessionScope.list.size()}  --%>
+
+
+				<%--  ${sessionScope.list.size()}  --%>
  			${empty sessionScope.list}
-				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
-				
+				<c:if
+					test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
 						<li><a href="BoardListServlet">BOARD</a></li>
 						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-						
+
 					</ul>
 					<ul class="actions vertical">
 						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>
-				
+
 				</c:if>
-				
-	
-					</c:if>
+
+
+			</c:if>
 
 		</nav>
 		<!-- Banner -->
@@ -350,354 +348,338 @@
 
 					<hr class="major" />
 
-					
 
-							<script type="text/javascript"
-								src="//apis.daum.net/maps/maps3.js?apikey=!!!!!!!!!!!!!!!!!!!!&libraries=services"></script>
-							<script>
-								// 마커를 담을 배열입니다
-								var markers = [];
 
-								var mapContainer = document
-										.getElementById('map'), // 지도를 표시할 div 
-								mapOption = {
-									center : new daum.maps.LatLng(37.566826,
-											126.9786567), // 지도의 중심좌표
-									level : 5
-								// 지도의 확대 레벨
-								};
+					<script type="text/javascript"
+						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
+					<script>
+						// 마커를 담을 배열입니다
+						var markers = [];
 
-								// 지도를 생성합니다    
-								var map = new daum.maps.Map(mapContainer,
-										mapOption);
-								if (navigator.geolocation) {
+						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+						mapOption = {
+							center : new daum.maps.LatLng(37.566826,
+									126.9786567), // 지도의 중심좌표
+							level : 5
+						// 지도의 확대 레벨
+						};
 
-									// GeoLocation을 이용해서 접속 위치를 얻어옵니다
-									navigator.geolocation
-											.getCurrentPosition(function(
-													position) {
+						// 지도를 생성합니다    
+						var map = new daum.maps.Map(mapContainer, mapOption);
+						if (navigator.geolocation) {
 
-												var lat = position.coords.latitude, // 위도
-												lon = position.coords.longitude; // 경도
+							// GeoLocation을 이용해서 접속 위치를 얻어옵니다
+							navigator.geolocation
+									.getCurrentPosition(function(position) {
 
-												var locPosition = new daum.maps.LatLng(
-														lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-												message = '<div style="color:#000000;padding:5px;">현재 위치!</div>'; // 인포윈도우에 표시될 내용입니다
+										var lat = position.coords.latitude, // 위도
+										lon = position.coords.longitude; // 경도
 
-												// 마커와 인포윈도우를 표시합니다
-												displayMarker(locPosition,
-														message);
+										var locPosition = new daum.maps.LatLng(
+												lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+										message = '<div style="color:#000000;padding:5px;">현재 위치!</div>'; // 인포윈도우에 표시될 내용입니다
 
-											});
+										// 마커와 인포윈도우를 표시합니다
+										displayMarker(locPosition, message);
 
-								} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-
-									var locPosition = new daum.maps.LatLng(
-											33.450701, 126.570667), message = 'geolocation을 사용할수 없어요..'
-
-									displayMarker(locPosition, message);
-								}
-
-								// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-								function displayMarker(locPosition, message) {
-
-									// 마커를 생성합니다
-									var marker = new daum.maps.Marker({
-										map : map,
-										position : locPosition
 									});
 
-									var iwContent = message, // 인포윈도우에 표시할 내용
-									iwRemoveable = true;
+						} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
 
-									// 인포윈도우를 생성합니다
-									var infowindow = new daum.maps.InfoWindow({
-										content : iwContent,
-										removable : iwRemoveable
-									});
+							var locPosition = new daum.maps.LatLng(33.450701,
+									126.570667), message = 'geolocation을 사용할수 없어요..'
 
-									// 인포윈도우를 마커위에 표시합니다 
-									infowindow.open(map, marker);
+							displayMarker(locPosition, message);
+						}
 
-									// 지도 중심좌표를 접속위치로 변경합니다
-									map.setCenter(locPosition);
-								}
+						// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+						function displayMarker(locPosition, message) {
 
-								// 장소 검색 객체를 생성합니다
-								var ps = new daum.maps.services.Places();
+							// 마커를 생성합니다
+							var marker = new daum.maps.Marker({
+								map : map,
+								position : locPosition
+							});
 
-								// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
-								var infowindow = new daum.maps.InfoWindow({
-									zIndex : 1
-								});
+							var iwContent = message, // 인포윈도우에 표시할 내용
+							iwRemoveable = true;
 
-								// 키워드로 장소를 검색합니다
-								//searchPlaces();
+							// 인포윈도우를 생성합니다
+							var infowindow = new daum.maps.InfoWindow({
+								content : iwContent,
+								removable : iwRemoveable
+							});
 
-								// 키워드 검색을 요청하는 함수입니다
-								function searchPlaces(f) {
+							// 인포윈도우를 마커위에 표시합니다 
+							infowindow.open(map, marker);
 
-									var keyword1 = document
-											.getElementById('keyword1').value;
-									var keyword2 = document
-											.getElementById('keyword2').value;
-									var keyword3 = document
-											.getElementById('keyword3').value;
-									var keyword4 = document
-											.getElementById('keyword4').value;
-									var keyword = "";
-									if (f.value == "애견샵") {
-										ps.keywordSearch(keyword1,
-												placesSearchCB);
-										console.log("애견샵 나와라 얍");
-									} else if (f.value == "동물병원") {
-										ps.keywordSearch(keyword2,
-												placesSearchCB);
-										console.log("동물병원 나와라 얍");
-									} else if (f.value == "동물공원") {
-										ps.keywordSearch(keyword3,
-												placesSearchCB);
-										console.log("동물공원 나와라 얍");
-									} else if (f.value == "동물테마파크") {
-										ps.keywordSearch(keyword4,
-												placesSearchCB);
-										console.log("테마파크 나와라 얍");
-									}
-								}
+							// 지도 중심좌표를 접속위치로 변경합니다
+							map.setCenter(locPosition);
+						}
 
-								// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-								function placesSearchCB(status, data,
-										pagination) {
-									if (status === daum.maps.services.Status.OK) {
+						// 장소 검색 객체를 생성합니다
+						var ps = new daum.maps.services.Places();
 
-										// 정상적으로 검색이 완료됐으면
-										// 검색 목록과 마커를 표출합니다
-										displayPlaces(data.places);
+						// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+						var infowindow = new daum.maps.InfoWindow({
+							zIndex : 1
+						});
 
-										// 페이지 번호를 표출합니다
-										displayPagination(pagination);
+						// 키워드로 장소를 검색합니다
+						//searchPlaces();
 
-									} else if (status === daum.maps.services.Status.ZERO_RESULT) {
+						// 키워드 검색을 요청하는 함수입니다
+						function searchPlaces(f) {
 
-										alert('검색 결과가 존재하지 않습니다.');
-										return;
+							var keyword1 = document.getElementById('keyword1').value;
+							var keyword2 = document.getElementById('keyword2').value;
+							var keyword3 = document.getElementById('keyword3').value;
+							var keyword4 = document.getElementById('keyword4').value;
+							var keyword = "";
+							if (f.value == "애견샵") {
+								ps.keywordSearch(keyword1, placesSearchCB);
+								console.log("애견샵 나와라 얍");
+							} else if (f.value == "동물병원") {
+								ps.keywordSearch(keyword2, placesSearchCB);
+								console.log("동물병원 나와라 얍");
+							} else if (f.value == "동물공원") {
+								ps.keywordSearch(keyword3, placesSearchCB);
+								console.log("동물공원 나와라 얍");
+							} else if (f.value == "동물테마파크") {
+								ps.keywordSearch(keyword4, placesSearchCB);
+								console.log("테마파크 나와라 얍");
+							}
+						}
 
-									} else if (status === daum.maps.services.Status.ERROR) {
+						// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+						function placesSearchCB(status, data, pagination) {
+							if (status === daum.maps.services.Status.OK) {
 
-										alert('검색 결과 중 오류가 발생했습니다.');
-										return;
+								// 정상적으로 검색이 완료됐으면
+								// 검색 목록과 마커를 표출합니다
+								displayPlaces(data.places);
 
-									}
-								}
+								// 페이지 번호를 표출합니다
+								displayPagination(pagination);
 
-								// 검색 결과 목록과 마커를 표출하는 함수입니다
-								function displayPlaces(places) {
+							} else if (status === daum.maps.services.Status.ZERO_RESULT) {
 
-									var listEl = document
-											.getElementById('placesList'), menuEl = document
-											.getElementById('menu_wrap'), fragment = document
-											.createDocumentFragment(), bounds = new daum.maps.LatLngBounds(), listStr = '';
+								alert('검색 결과가 존재하지 않습니다.');
+								return;
 
-									// 검색 결과 목록에 추가된 항목들을 제거합니다
-									removeAllChildNods(listEl);
+							} else if (status === daum.maps.services.Status.ERROR) {
 
-									// 지도에 표시되고 있는 마커를 제거합니다
-									removeMarker();
+								alert('검색 결과 중 오류가 발생했습니다.');
+								return;
 
-									for (var i = 0; i < places.length; i++) {
+							}
+						}
 
-										// 마커를 생성하고 지도에 표시합니다
-										var placePosition = new daum.maps.LatLng(
-												places[i].latitude,
-												places[i].longitude), marker = addMarker(
-												placePosition, i), itemEl = getListItem(
-												i, places[i], marker); // 검색 결과 항목 Element를 생성합니다
+						// 검색 결과 목록과 마커를 표출하는 함수입니다
+						function displayPlaces(places) {
 
-										// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-										// LatLngBounds 객체에 좌표를 추가합니다
-										bounds.extend(placePosition);
+							var listEl = document.getElementById('placesList'), menuEl = document
+									.getElementById('menu_wrap'), fragment = document
+									.createDocumentFragment(), bounds = new daum.maps.LatLngBounds(), listStr = '';
 
-										// 마커와 검색결과 항목에 mouseover 했을때
-										// 해당 장소에 인포윈도우에 장소명을 표시합니다
-										// mouseout 했을 때는 인포윈도우를 닫습니다
-										(function(marker, title) {
-											daum.maps.event.addListener(marker,
-													'mouseover', function() {
+							// 검색 결과 목록에 추가된 항목들을 제거합니다
+							removeAllChildNods(listEl);
+
+							// 지도에 표시되고 있는 마커를 제거합니다
+							removeMarker();
+
+							for (var i = 0; i < places.length; i++) {
+
+								// 마커를 생성하고 지도에 표시합니다
+								var placePosition = new daum.maps.LatLng(
+										places[i].latitude, places[i].longitude), marker = addMarker(
+										placePosition, i), itemEl = getListItem(
+										i, places[i], marker); // 검색 결과 항목 Element를 생성합니다
+
+								// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+								// LatLngBounds 객체에 좌표를 추가합니다
+								bounds.extend(placePosition);
+
+								// 마커와 검색결과 항목에 mouseover 했을때
+								// 해당 장소에 인포윈도우에 장소명을 표시합니다
+								// mouseout 했을 때는 인포윈도우를 닫습니다
+								(function(marker, title) {
+									daum.maps.event
+											.addListener(marker, 'mouseover',
+													function() {
 														displayInfowindow(
 																marker, title);
 													});
 
-											daum.maps.event.addListener(marker,
-													'mouseout', function() {
-														infowindow.close();
-													});
-
-											itemEl.onmouseover = function() {
-												displayInfowindow(marker, title);
-											};
-
-											itemEl.onmouseout = function() {
+									daum.maps.event.addListener(marker,
+											'mouseout', function() {
 												infowindow.close();
-											};
-										})(marker, places[i].title);
-
-										fragment.appendChild(itemEl);
-									}
-
-									// 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
-									listEl.appendChild(fragment);
-									menuEl.scrollTop = 0;
-
-									// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-									map.setBounds(bounds);
-								}
-
-								// 검색결과 항목을 Element로 반환하는 함수입니다
-								function getListItem(index, places) {
-
-									var el = document.createElement('li'), itemStr = '<span class="markerbg marker_'
-											+ (index + 1)
-											+ '"></span>'
-											+ '<div class="info">'
-											+ '   <h5>'
-											+ places.title + '</h5>';
-
-									if (places.newAddress) {
-										itemStr += '    <span>'
-												+ places.newAddress
-												+ '</span>'
-												+ '   <span class="jibun gray">'
-												+ places.address + '</span>';
-									} else {
-										itemStr += '    <span>'
-												+ places.address + '</span>';
-									}
-
-									itemStr += '  <span class="tel">'
-											+ places.phone + '</span>'
-											+ '</div>';
-
-									el.innerHTML = itemStr;
-									el.className = 'item';
-
-									return el;
-								}
-
-								// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-								function addMarker(position, idx, title) {
-									var imageSrc = 'http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-									imageSize = new daum.maps.Size(36, 37), // 마커 이미지의 크기
-									imgOptions = {
-										spriteSize : new daum.maps.Size(36, 691), // 스프라이트 이미지의 크기
-										spriteOrigin : new daum.maps.Point(0,
-												(idx * 46) + 10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-										offset : new daum.maps.Point(13, 37)
-									// 마커 좌표에 일치시킬 이미지 내에서의 좌표
-									}, markerImage = new daum.maps.MarkerImage(
-											imageSrc, imageSize, imgOptions), marker = new daum.maps.Marker(
-											{
-												position : position, // 마커의 위치
-												image : markerImage
 											});
 
-									marker.setMap(map); // 지도 위에 마커를 표출합니다
-									markers.push(marker); // 배열에 생성된 마커를 추가합니다
+									itemEl.onmouseover = function() {
+										displayInfowindow(marker, title);
+									};
 
-									return marker;
-								}
+									itemEl.onmouseout = function() {
+										infowindow.close();
+									};
+								})(marker, places[i].title);
 
-								// 지도 위에 표시되고 있는 마커를 모두 제거합니다
-								function removeMarker() {
-									for (var i = 0; i < markers.length; i++) {
-										markers[i].setMap(null);
-									}
-									markers = [];
-								}
+								fragment.appendChild(itemEl);
+							}
 
-								// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
-								function displayPagination(pagination) {
-									var paginationEl = document
-											.getElementById('pagination'), fragment = document
-											.createDocumentFragment(), i;
+							// 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
+							listEl.appendChild(fragment);
+							menuEl.scrollTop = 0;
 
-									// 기존에 추가된 페이지번호를 삭제합니다
-									while (paginationEl.hasChildNodes()) {
-										paginationEl
-												.removeChild(paginationEl.lastChild);
-									}
+							// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+							map.setBounds(bounds);
+						}
 
-									for (i = 1; i <= pagination.last; i++) {
-										var el = document.createElement('a');
-										el.href = "#";
-										el.innerHTML = i;
+						// 검색결과 항목을 Element로 반환하는 함수입니다
+						function getListItem(index, places) {
 
-										if (i === pagination.current) {
-											el.className = 'on';
-										} else {
-											el.onclick = (function(i) {
-												return function() {
-													pagination.gotoPage(i);
-												}
-											})(i);
+							var el = document.createElement('li'), itemStr = '<span class="markerbg marker_'
+									+ (index + 1)
+									+ '"></span>'
+									+ '<div class="info">'
+									+ '   <h5>'
+									+ places.title + '</h5>';
+
+							if (places.newAddress) {
+								itemStr += '    <span>' + places.newAddress
+										+ '</span>'
+										+ '   <span class="jibun gray">'
+										+ places.address + '</span>';
+							} else {
+								itemStr += '    <span>' + places.address
+										+ '</span>';
+							}
+
+							itemStr += '  <span class="tel">' + places.phone
+									+ '</span>' + '</div>';
+
+							el.innerHTML = itemStr;
+							el.className = 'item';
+
+							return el;
+						}
+
+						// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+						function addMarker(position, idx, title) {
+							var imageSrc = 'http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+							imageSize = new daum.maps.Size(36, 37), // 마커 이미지의 크기
+							imgOptions = {
+								spriteSize : new daum.maps.Size(36, 691), // 스프라이트 이미지의 크기
+								spriteOrigin : new daum.maps.Point(0,
+										(idx * 46) + 10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+								offset : new daum.maps.Point(13, 37)
+							// 마커 좌표에 일치시킬 이미지 내에서의 좌표
+							}, markerImage = new daum.maps.MarkerImage(
+									imageSrc, imageSize, imgOptions), marker = new daum.maps.Marker(
+									{
+										position : position, // 마커의 위치
+										image : markerImage
+									});
+
+							marker.setMap(map); // 지도 위에 마커를 표출합니다
+							markers.push(marker); // 배열에 생성된 마커를 추가합니다
+
+							return marker;
+						}
+
+						// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+						function removeMarker() {
+							for (var i = 0; i < markers.length; i++) {
+								markers[i].setMap(null);
+							}
+							markers = [];
+						}
+
+						// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
+						function displayPagination(pagination) {
+							var paginationEl = document
+									.getElementById('pagination'), fragment = document
+									.createDocumentFragment(), i;
+
+							// 기존에 추가된 페이지번호를 삭제합니다
+							while (paginationEl.hasChildNodes()) {
+								paginationEl
+										.removeChild(paginationEl.lastChild);
+							}
+
+							for (i = 1; i <= pagination.last; i++) {
+								var el = document.createElement('a');
+								el.href = "#";
+								el.innerHTML = i;
+
+								if (i === pagination.current) {
+									el.className = 'on';
+								} else {
+									el.onclick = (function(i) {
+										return function() {
+											pagination.gotoPage(i);
 										}
-
-										fragment.appendChild(el);
-									}
-									paginationEl.appendChild(fragment);
+									})(i);
 								}
 
-								// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
-								// 인포윈도우에 장소명을 표시합니다
-								function displayInfowindow(marker, title) {
-									var content = '<div style="color:#000000;padding:5px;z-index:1;">'
-											+ title + '</div>';
+								fragment.appendChild(el);
+							}
+							paginationEl.appendChild(fragment);
+						}
 
-									infowindow.setContent(content);
-									infowindow.open(map, marker);
-								}
+						// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+						// 인포윈도우에 장소명을 표시합니다
+						function displayInfowindow(marker, title) {
+							var content = '<div style="color:#000000;padding:5px;z-index:1;">'
+									+ title + '</div>';
 
-								// 검색결과 목록의 자식 Element를 제거하는 함수입니다
-								function removeAllChildNods(el) {
-									while (el.hasChildNodes()) {
-										el.removeChild(el.lastChild);
-									}
-								}
-							</script>
+							infowindow.setContent(content);
+							infowindow.open(map, marker);
+						}
 
-							
+						// 검색결과 목록의 자식 Element를 제거하는 함수입니다
+						function removeAllChildNods(el) {
+							while (el.hasChildNodes()) {
+								el.removeChild(el.lastChild);
+							}
+						}
+					</script>
 
-							<!-- Footer -->
-							<footer id="footer">
-								<div class="inner">
-									<ul class="icons">
-										<li><a href="#" class="icon alt fa-twitter"><span
-												class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon alt fa-facebook"><span
-												class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon alt fa-instagram"><span
-												class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon alt fa-github"><span
-												class="label">GitHub</span></a></li>
-										<li><a href="#" class="icon alt fa-linkedin"><span
-												class="label">LinkedIn</span></a></li>
-									</ul>
-									<ul class="copyright">
-										<li>&copy; Untitled</li>
-										<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 
-									</ul>
-								</div>
-							</footer>
 
+					<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-twitter"><span
+										class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon alt fa-facebook"><span
+										class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon alt fa-instagram"><span
+										class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon alt fa-github"><span
+										class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span
+										class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li>
+								<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+
+							</ul>
 						</div>
+					</footer>
 
-						<!-- Scripts -->
-						<script src="assets/js/jquery.min.js"></script>
-						<script src="assets/js/jquery.scrolly.min.js"></script>
-						<script src="assets/js/jquery.scrollex.min.js"></script>
-						<script src="assets/js/skel.min.js"></script>
-						<script src="assets/js/util.js"></script>
-						<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-						<script src="assets/js/main.js"></script>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.scrolly.min.js"></script>
+				<script src="assets/js/jquery.scrollex.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+				<script src="assets/js/main.js"></script>
 </body>
 </html>

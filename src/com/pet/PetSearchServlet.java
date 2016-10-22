@@ -33,11 +33,11 @@ public class PetSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		MemberDTO dto = (MemberDTO)session.getAttribute("login");
-		
+		PetDTO petdto = (PetDTO)session.getAttribute("List");
+		System.out.println("petdto"+"-->"+petdto);
 		String target = "";
 		String title = "";
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
-		ArrayList<PetDTO> petlist = new ArrayList<PetDTO>(); 
 		// 수철 : 검색 사용시 searchId input tag name 쓰면 동작하게될 부분
 		String searchid = request.getParameter("searchId");
 		System.out.println("=========================="+searchid);

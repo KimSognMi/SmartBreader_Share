@@ -313,15 +313,40 @@
 		</section>
 		<!-- Main -->
 		<div id="main" class="alt">
+			<script type="text/javascript">
+				function send() {
 
+				}
+			</script>
 			<!-- One -->
 			<section id="five">
 				<div class="inner">
 					<header class="major">
-						<h1>Near Me Dog</h1>
+						<h1>신청하기</h1>
 					</header>
 
 					<br>
+
+
+
+					<div class="field2">
+						<div class="col-md-3"></div>
+						<div class="col-md-1">내용</div>
+						<div class="col-md-5">
+							<textarea class="form-control inputTitle" name="content" rows=10></textarea>
+						</div>
+						<div class="col-md-3 contentHelper"></div>
+					</div>
+					<br> <button
+						onClick="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
+						style="cursor: pointer;">수정</button> | <button
+						onClick="CommentDeleteServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
+						style="cursor: pointer;">삭제</button>
+
+
+
+
+
 					<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">

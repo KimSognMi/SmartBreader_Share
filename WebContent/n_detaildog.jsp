@@ -253,7 +253,10 @@
 </head>
 <script type="text/javascript">
 	function send() {
-		opener.document.location.href = "RequestPetServlet";
+
+		var userid = document.getElementById("petuserid");
+		console.log('${petdetail.userid}');
+		opener.document.location.href = "RequestPetServlet?userid=" + '${petdetail.userid}';
 		close();
 	}
 	function reset_close() {
@@ -272,20 +275,18 @@
 
 	<div id="dogphoto"></div>
 	<form id="dogform">
-		<div style="margin-bottom:1.5%">멍멍이 이름 : ${petdetail.p_name}</div>
-		<div style="margin-bottom:1.5%">멍멍이 나이 : ${petdetail.p_age}</div>
-		<div style="margin-bottom:1.5%">멍멍이 성별 : ${petdetail.p_gender}</div>
-		<div style="margin-bottom:1.5%">멍멍이 특징 : ${petdetail.p_feature}</div>
+		<div style="margin-bottom: 1.5%">멍멍이 이름 : ${petdetail.p_name}</div>
+		<div style="margin-bottom: 1.5%">멍멍이 나이 : ${petdetail.p_age}</div>
+		<div style="margin-bottom: 1.5%">멍멍이 성별 : ${petdetail.p_gender}</div>
+		<div style="margin-bottom: 1.5%">멍멍이 특징 : ${petdetail.p_feature}</div>
+		<div id="petuserid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div>
+
+		<button style="margin-left: 20%;"
+			onClick="javascript:send()">신청하기</button>
+		<button style="margin-left: 2%;" onClick="javascript:reset_close()">취소</button>
+		<br>
 	</form>
-	<button style="margin-left:20%;" onClick="javascript:send()">신청하기</button>
-	<button style="margin-left:2%;" onClick="javascript:reset_close()">취소</button>
-	<br>
-
-<!-- 
-
-
-ㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹ
- -->	<script type="text/javascript">
+	<script type="text/javascript">
 		var InputImage = (function loadImageFile() {
 			if (window.FileReader) {
 				var ImagePre;

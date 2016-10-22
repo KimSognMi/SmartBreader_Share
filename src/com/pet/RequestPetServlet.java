@@ -28,14 +28,21 @@ public class RequestPetServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*request.setCharacterEncoding("UTF-8");
-		String p_num = request.getParameter("p_num");
+		request.setCharacterEncoding("UTF-8");
+		System.out.println("ReqeustPetServlet");
+		String userid = request.getParameter("userid");
+		
 		PetService service = new PetService();
-		PetDTO dto = service.petdetail(p_num);
+		PetDTO dto = service.petdetail(userid);
+		if(dto == null){
+			//해당 사용자 등록된 펫정보 없을때 띄울 부분 넣어!
+			response.sendRedirect("/");
+		}
+		System.out.println("!!!!!!!!!ReqeustPetServlet!!!!!!!!!!!!!!!11"+dto);
 		request.setAttribute("petdetail", dto);
 		
 		RequestDispatcher dis = request.getRequestDispatcher("n_dogrequest.jsp");
-		dis.forward(request, response);*/
+		dis.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
