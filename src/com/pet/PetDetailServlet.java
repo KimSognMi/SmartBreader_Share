@@ -40,7 +40,7 @@ public class PetDetailServlet extends HttpServlet {
 		} 
 		System.out.println("!!!!!!!!!PetDetailServlet!!!!!!!!!!!!!!!11"+dto);
 		request.setAttribute("petdetail", dto);
-		
+	
 		RequestDispatcher dis = request.getRequestDispatcher("n_detaildog.jsp");
 		dis.forward(request, response);
 	}

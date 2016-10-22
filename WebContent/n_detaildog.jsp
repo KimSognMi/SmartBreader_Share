@@ -271,7 +271,6 @@
 	}
 </script>
 <body onload="photo()">
-
 	<div id="dogphoto"></div>
 	<form id="dogform">
 		<div style="margin-bottom: 1.5%">멍멍이 이름 : ${petdetail.p_name}</div>
