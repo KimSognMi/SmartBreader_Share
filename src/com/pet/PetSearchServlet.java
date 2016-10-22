@@ -42,7 +42,7 @@ public class PetSearchServlet extends HttpServlet {
 		String searchid = request.getParameter("searchId");
 		System.out.println("=========================="+searchid);
 		
-		
+	
 		if (dto != null) {
 			//수철 : 사용자 정보 마지막 표시될 정보 기준 userid
 			String userid=dto.getUserid();

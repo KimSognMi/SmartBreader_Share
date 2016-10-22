@@ -268,7 +268,6 @@
 
 		photo2.innerHTML = "<img style='width: 180%;' src='images/"
 				+ '${petdetail.p_photo}' + "' />";
-
 	}
 </script>
 <body onload="photo()">

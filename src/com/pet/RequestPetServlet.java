@@ -44,7 +44,6 @@ public class RequestPetServlet extends HttpServlet {
 		RequestDispatcher dis = request.getRequestDispatcher("n_dogrequest.jsp");
 		dis.forward(request, response);
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
