@@ -188,16 +188,16 @@ public class MemberService {
 	
 	
 	
-	public MemberPageDTO search(int curPage, HashMap<String, String> map) {
-		MemberPageDTO dto = new MemberPageDTO();
-		List<MemberDTO> list = null;
+	public MemberPetPageDTO search(int curPage, HashMap<String, String> map) {
+		MemberPetPageDTO dto = new MemberPetPageDTO();
+		List<MemberPetDTO> list = null;
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
 			int count = dto.getPerPage();
 			int skip = (curPage - 1) * count;
 			list = session.selectList("member.search", map, new RowBounds(skip, count));
-			for (MemberDTO memberDTO : list) {
-				System.out.println(memberDTO);
+			for (MemberPetDTO memberpetDTO : list) {
+				System.out.println(memberpetDTO);
 			}
 			} finally {
 			session.close();

@@ -13,6 +13,23 @@
 	function writesen(f) {
 		f.action = "BoardWriteUIServlet";
 	}
+	
+	function SearchH(f) {
+		alert("후기글");
+		f.action = "BoardHSearchServlet";
+		f.submit();
+	}
+	
+	function SearchJ(f) {
+		alert("질문글");
+		f.action = "BoardJSearchServlet";
+		f.submit();
+	}
+	function SearchAll(f) {
+		alert("모든글");
+		f.action = "BoardListServlet";
+		f.submit();
+	}
 </script>
 <html>
 <head>
@@ -35,9 +52,9 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-			<c:if test="${sessionScope.login!=null}">
+				<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
-			</c:if>
+				</c:if>
 				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
@@ -114,10 +131,16 @@
 					<h1 id="content">후기 / 질문</h1>
 					<div class="content">
 						<p>
-						
-						<form method="post" action="BoardWriteUIServlet">
-							<input type="submit" value="글쓰기" />
-							<br>
+						<form method="post" action="BoardWriteUIServlet" name="form">
+							<input style="margin-left: -250px;"type="submit" value="글쓰기" /> <input type="radio"
+								id="demo-priority-low" name="order" onclick="SearchH(form)" > <label
+								style="margin-left: 600px;" for="demo-priority-low">후기글</label>
+							<input type="radio" id="demo-priority-normal"
+								name="order" onclick="SearchJ(form)" > <label
+								for="demo-priority-normal">질문글</label> <input type="radio"
+								id="demo-priority" name="order" onclick="SearchAll(form)" checked> <label
+								for="demo-priority">모든글</label>
+
 
 						</form>
 						<div class="table-wrapper">
@@ -186,7 +209,7 @@
 					</div>
 
 					<tr>
-					
+
 						<form action="BoardSearchServlet" method="get">
 
 							<div class="row uniform">
@@ -210,12 +233,11 @@
 									<button>검색</button>
 								</div>
 							</div>
-					
+
 						</form>
 
 					</tr>
 				</div>
-				
 		</div>
 		</section>
 

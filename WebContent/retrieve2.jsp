@@ -29,9 +29,9 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-			<c:if test="${sessionScope.login!=null}">
+				<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
-			</c:if>
+				</c:if>
 				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
@@ -40,34 +40,34 @@
 		<nav id="menu">
 
 			<c:if test="${sessionScope.login == null}">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="about.jsp">ABOUT US</a></li>
 					<li><a href="BoardListServlet">BOARD</a></li>
 					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
 					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="memberform.jsp" class="button special fit">Join</a></li>
-				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
-			</ul>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="memberform.jsp" class="button special fit">Join</a></li>
+					<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
+				</ul>
 
 			</c:if>
-			
+
 			<c:if test="${sessionScope.login != null}">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="about.jsp">ABOUT US</a></li>
 					<li><a href="BoardListServlet">BOARD</a></li>
 					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
 					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-			</ul>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
+					<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+				</ul>
 			</c:if>
 
 		</nav>
@@ -124,6 +124,18 @@ h1 {
 			var url = "boardlist.jsp";
 			$(location).attr("href", url);
 		});
+
+		/* $("#commentParentPassword2").on("keyup", function(event) {
+			$("#commentsecret").removeClass();
+			var p = $("#commentParentPassword2").val();
+			var p2 = ${retrieve2.commentParentPassword}
+
+			if (p == p2) {
+				$("#commentsecret").text("일치").addClass("blue");
+			} else {
+				$("#commentsecret").text("불일치").addClass("red");
+			}
+		});  */
 	});
 
 	function updateBoard(f) {
@@ -144,13 +156,12 @@ h1 {
 			<form method="get" name="myForm">
 
 				<c:if test="${login.userid!='adminkongju@naver.com'}">
-				<a href="BoardListServlet">목록보기</a> 
+					<a href="BoardListServlet">목록보기</a>
 				</c:if>
 				<c:if test="${login.userid=='adminkongju@naver.com'}">
-				<a href="BoardListServlet2">목록보기</a> 
+					<a href="BoardListServlet2">목록보기</a>
 				</c:if>
-				 <input type="hidden" name="num"
-					value="${retrieve.num}">
+				<input type="hidden" name="num" value="${retrieve.num}">
 				글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
 				&nbsp;조회수:${retrieve.readcnt}<br>
 				<div>
@@ -163,21 +174,22 @@ h1 {
 					<div class="col-md-1">제목</div>
 					<div class="col-md-5">
 						<c:if test="${sessionScope.login == null}">
-						
+
 							<input class="form-control inputTitle" type="text" name="title"
 								value="${retrieve.title}" readonly="readonly">
 						</c:if>
 						<c:if test="${sessionScope.login != null}">
-						
+
 							<input class="form-control inputTitle" type="text" name="title"
 								value="${retrieve.title}">
 						</c:if>
 					</div>
 					<div class="col-md-3 titleHelper"></div>
 				</div>
-				
 
-				<br><div class="field2">
+
+				<br>
+				<div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">내용</div>
 					<div class="col-md-5">
@@ -188,7 +200,7 @@ h1 {
 				</div>
 				<br>
 
-				 <div class="field2">
+				<div class="field2">
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
@@ -196,10 +208,10 @@ h1 {
 					</div>
 					<div class="col-md-3 pwHelper"></div>
 					<div class="col-md-3"></div>
-				</div> 
+				</div>
 				<br>
 				<c:if test="${sessionScope.login != null}">
-				<div class="field2">
+					<div class="field2">
 						<div class="col-md-3"></div>
 						<div class="col-md-1"></div>
 						<ul class="actions">
@@ -213,83 +225,87 @@ h1 {
 					</div>
 				</c:if>
 			</form>
-		<!-- 좌우측의 공간 확보 -->
-	<div class="container">
-		<hr />
-		<div class="field2">
-			<div class="field2">
-		
-				<table class="table table-condensed">
-					<thead>
-
-
-						<tr>
-						<c:set var="retrieve2" value="${retrieve2}" scope="session"/>
-							<c:set var="ppp" value="${list}" scope="session"/>
-
-							<c:forEach var="xxx" items="${ppp}" varStatus="status">
-						</tr>
-						<tr id="r1" name="commentParentCode">
-							<td colspan=2>${xxx.boardNum} ${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
-
-								${xxx.commentParentPassword} ${xxx.commentwriteday}
-								<a href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
-								style="cursor: pointer;">수정</a> | <a
-								href="CommentDeleteServlet?commentNum=${xxx.commentNum}"
-								style="cursor: pointer;">삭제</a>
-						</tr>
-						<tr>
-							<td>${xxx.commentParentText}</td>
-						</tr>
-						
-						</c:forEach>
-					</thead>
-					<tbody>
-
-
-					</tbody>
-
-
-				</table>
-				
-				<form method="get" action="CommentUpdateServlet">
+			<!-- 좌우측의 공간 확보 -->
+			<div class="container">
+				<hr />
 				<div class="field2">
-					<div class="row uniform">
-						<div class="6u 12u$(xsmall)">
+					<div class="field2">
 
-							<input type="hidden" name="num" value="${retrieve.num}">
-							<input type="hidden" name="boardNum" value="${retrieve.num}">
-							<input type="hidden" name="commentNum"
-								value="${retrieve2.commentNum}"> <input type="hidden"
-								name="commentwriteday" value="${retrieve2.commentwriteday}">
-
-							<input type="text" name="commentParentName"
-								id="commentParentName" value="${retrieve2.commentParentName}" placeholder="Name" />
-						</div>
-
-						<div class="6u$ 12u$(xsmall)">
-							<input type="password" name="commentParentPassword"
-								id="commentParentPassword" value="" placeholder="password" />
-						</div>
+						<table class="table table-condensed">
+							<thead>
 
 
-						<!-- Break -->
-						<div class="12u$">
-							<textarea name="commentParentText" id="commentParentText"
-								placeholder="Enter your message" rows="6">${retrieve2.commentParentText}</textarea>
-						</div>
-						<!-- Break -->
-						<div class="12u$">
-							<ul class="actions">
-								<li><input type="submit" value="Update Message"
-									class="special" /></li>
-								<li><input type="reset" value="Reset" /></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</form>
-				<%-- <table class="table table-condensed">
+								<tr>
+
+									<c:set var="ppp" value="${list}" scope="session" />
+
+									<c:forEach var="xxx" items="${ppp}" varStatus="status">
+								</tr>
+								<tr id="r1" name="commentParentCode">
+									<td colspan=2>${xxx.boardNum}${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
+
+										${xxx.commentParentPassword} ${xxx.commentwriteday} <a
+										href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"
+										style="cursor: pointer;">수정</a> | <a
+										href="CommentDeleteServlet?commentNum=${xxx.commentNum}"
+										style="cursor: pointer;">삭제</a>
+								</tr>
+								<tr>
+									<td>${xxx.commentParentText}</td>
+								</tr>
+
+								</c:forEach>
+							</thead>
+							<tbody>
+
+
+							</tbody>
+
+
+						</table>
+
+						<form method="get" action="CommentUpdateServlet">
+							<div class="field2">
+								<div class="row uniform">
+									<div class="6u 12u$(xsmall)">
+
+
+										<c:set var="retrieve2" value="${retrieve2}" scope="session" />
+										<input type="hidden" name="num" value="${retrieve.num}">
+										<input type="hidden" name="boardNum" value="${retrieve.num}">
+										<input type="hidden" name="commentNum"
+											value="${retrieve2.commentNum}"> <input type="hidden"
+											name="commentwriteday" value="${retrieve2.commentwriteday}">
+
+										<input type="text" name="commentParentName"
+											id="commentParentName" value="${retrieve2.commentParentName}"
+											placeholder="Name" />
+									</div>
+
+									<div class="6u$ 12u$(xsmall)">
+										<span id="commentsecret"></span> <input type="password"
+											name="commentParentPassword" id="commentParentPassword"
+											value="" placeholder="password" />
+									</div>
+
+
+									<!-- Break -->
+									<div class="12u$">
+										<textarea name="commentParentText" id="commentParentText"
+											placeholder="Enter your message" rows="6">${retrieve2.commentParentText}</textarea>
+									</div>
+									<!-- Break -->
+									<div class="12u$">
+										<ul class="actions">
+											<li><input type="submit" value="Update Message"
+												class="special" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</form>
+						<%-- <table class="table table-condensed">
 					<form method="post" name="myForm2">
 					<input type="hidden" name="boardNum" value="${retrieve2.boardNum}">
 					<input type="hidden" name="commentNum" value="${retrieve2.commentNum}">
@@ -323,9 +339,9 @@ h1 {
 
 
 
-</div>
-</div>
-</div>
+					</div>
+				</div>
+			</div>
 
 
 

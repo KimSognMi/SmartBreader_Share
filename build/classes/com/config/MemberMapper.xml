@@ -5,15 +5,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 
 
-	<select id="search" parameterType="hashmap" resultType="MemberDTO">
-		select m_num, username, userid
-		from member
-		<if test="searchName=='username'">
-			where username LIKE '%'||#{searchValue}||'%'
+	<select id="search" parameterType="hashmap" resultType="MemberPetDTO">
+		select m.m_num,m.username,m.userid,p.p_name,max(n.notifyCount) as notifyCount
+		from member m,pet p, notify n
+		
+		<if test="searchName=='m.username'">
+			where m.username LIKE '%'||#{searchValue}||'%'
 		</if>
-		<if test="searchName=='userid'">
-			where userid LIKE '%'||#{searchValue}||'%'
+		<if test="searchName=='m.userid'">
+			where m.userid LIKE '%'||#{searchValue}||'%'
 		</if>
+		<if test="searchName=='p.p_name'">
+			where p.p_name LIKE '%'||#{searchValue}||'%'
+		</if>
+		group by m.userid,m.m_num,m.username,p.p_name
+		
 
 	</select>
 

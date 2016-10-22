@@ -12,43 +12,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.service.BoardService;
-import com.service.MemberService;
 import com.dto.BoardDTO;
-import com.dto.MemberPageDTO;
-import com.dto.MemberPetPageDTO;
 import com.dto.PageDTO;
 
 /**
  * Servlet implementation class BoardListServlet
  */
-@WebServlet("/MemberSearchServlet")
-public class MemberSearchServlet extends HttpServlet {
+@WebServlet("/BoardHSearchServlet")
+public class BoardHSearchServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("MemberSearchServlet");
+		System.out.println("BoardHSearchServlet");
 		request.setCharacterEncoding("UTF-8");
 		String curPage = request.getParameter("curPage");
 		if(curPage == null){
 			curPage = "1";
 		}
 		
-		String searchName = request.getParameter("searchName");
-		String searchValue = request.getParameter("searchValue");
-
-		MemberService service = new MemberService();
 		
-		HashMap<String, String> map = new HashMap<>();
-		map.put("searchName", searchName);
-		map.put("searchValue", searchValue);
-
-		MemberPetPageDTO dto = service.search(Integer.parseInt(curPage), map);
+		BoardService service = new BoardService();
+		
+		
+		PageDTO dto = service.Hsearch(Integer.parseInt(curPage));
 
 		request.setAttribute("page", dto);
 
 		System.out.println(dto);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("memberlist.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("boardlist.jsp");
 		dis.forward(request, response);
 	}// end doGet
 

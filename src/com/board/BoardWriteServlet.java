@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.service.BoardService;
 import com.dto.BoardDTO;
+import com.exception.CommonException;
 
 /**
  * Servlet implementation class BoardListServlet
@@ -27,12 +28,14 @@ public class BoardWriteServlet extends HttpServlet {
 		String author = request.getParameter("author");
 		String content = request.getParameter("content");
 		String boardCategory = request.getParameter("boardCategory");
+		String boardpw = request.getParameter("boardpw");
 		
 	/*	System.out.println(num);*/
 		System.out.println(boardCategory);
 		System.out.println(title);
 		System.out.println(author);
 		System.out.println(content);
+		System.out.println(boardpw);
 		
 		
 		BoardDTO dto = new BoardDTO();
@@ -42,6 +45,7 @@ public class BoardWriteServlet extends HttpServlet {
 		dto.setTitle(title);
 		dto.setAuthor(author);
 		dto.setContent(content);
+		dto.setBoardpw(Integer.parseInt(boardpw));
 		
 		
 		BoardService service = new BoardService();
@@ -51,6 +55,26 @@ public class BoardWriteServlet extends HttpServlet {
 		
 		//화면 ( list.jsp로 보내면 안됨. )
 		response.sendRedirect("BoardListServlet");
+		
+		
+		/*
+			String title="";
+		    String target="";
+		    try {
+				service.write(dto);
+				target = "BoardListServlet";
+				request.setAttribute("writeresult", "success");
+			} catch (CommonException e) {
+				title= e.getMessage();
+				String link="LoginFormServlet";
+				target="error.jsp";
+				request.setAttribute("title", title);
+				request.setAttribute("link", link);
+			}
+			
+			RequestDispatcher dis =
+					request.getRequestDispatcher(target);
+			dis.forward(request, response);*/
 		
 	}//end doGet
 

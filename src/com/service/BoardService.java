@@ -76,6 +76,48 @@ public class BoardService {
 	}// end list()
 	
 	
+	public PageDTO Hsearch(int curPage) {
+		PageDTO dto = new PageDTO();
+		List<BoardDTO> list = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			int count = dto.getPerPage();
+			int skip = (curPage - 1) * count;
+			list = session.selectList("myboard.Hsearch", new RowBounds(skip, count));
+			for (BoardDTO boardDTO : list) {
+				System.out.println(boardDTO);
+			}
+			} finally {
+			session.close();
+		}
+
+		dto.setList(list);
+		dto.setCurPage(curPage);
+		dto.setTotalRecord(totalCount());
+		return dto;
+	}// end list()
+	
+	public PageDTO Jsearch(int curPage) {
+		PageDTO dto = new PageDTO();
+		List<BoardDTO> list = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			int count = dto.getPerPage();
+			int skip = (curPage - 1) * count;
+			list = session.selectList("myboard.Jsearch", new RowBounds(skip, count));
+			for (BoardDTO boardDTO : list) {
+				System.out.println(boardDTO);
+			}
+			} finally {
+			session.close();
+		}
+
+		dto.setList(list);
+		dto.setCurPage(curPage);
+		dto.setTotalRecord(totalCount());
+		return dto;
+	}// end list()
+	
 	
 	//삭제하기
 		public void delete(String num){

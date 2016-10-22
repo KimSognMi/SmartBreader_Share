@@ -29,9 +29,9 @@
 		<header id="header" class="alt style2">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-			<c:if test="${sessionScope.login!=null}">
+				<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
-			</c:if>
+				</c:if>
 				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
@@ -61,7 +61,7 @@
 					<li><a href="about.jsp">ABOUT US</a></li>
 					<li><a href="BoardListServlet">BOARD</a></li>
 					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>`
 					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
 				</ul>
 				<ul class="actions vertical">
@@ -99,10 +99,10 @@ h1 {
 }
 </style>
 <script>
-	$(document).on("ready", function() {
-		$(".registerBtn").on("click", function() {
+$(document).on("ready", function() {
+		$("#onclick").on("click", function() {
 			/* 공백 입력 못하도록 유효성 검가 */
-			if ("" == $(".inputTitle").val()) {
+			/* if ("" == $(".inputTitle").val()) {
 				$(".titleHelper").text("제목을 입력해주세요");
 				$(".contentHelper").text("");
 				$(".pwHelper").text("");
@@ -116,6 +116,23 @@ h1 {
 				$(".pwHelper").text("비밀번호를 입력해주세요");
 			} else {
 				$("form").submit();
+			} */
+
+			/* var boardtitle = $("#boardtitle").val();
+			if(boardtitle ==''){
+				alert("title 입력");
+				return false;
+			}else if($("#content").val()==''){
+				alert("content 입력");
+			}else if($("#boardpw2").val()==''){
+				alert("boardpw 입력");
+			}else{
+				alert("글등록완료")
+			} */
+			var p3 = $("#boardpw2").val();
+			var p4 = ${retrieve.boardpw};
+			if (p3 != p4) {
+				alert("비밀번호 불일치");
 			}
 
 		});
@@ -123,6 +140,18 @@ h1 {
 			/* 클릭시 여기로 이동 */
 			var url = "boardlist.jsp";
 			$(location).attr("href", url);
+		});
+
+		$("#boardpw2").on("keyup", function(event) {
+			$("#secret").removeClass();
+			var p = $("#boardpw2").val();
+			var p2 = ${retrieve.boardpw};
+
+			if (p == p2) {
+				$("#secret").text("일치").addClass("blue");
+			} else {
+				$("#secret").text("불일치").addClass("red");
+			}
 		});
 	});
 
@@ -138,108 +167,148 @@ h1 {
 </script>
 		</head>
 		<body>
-		<div id="main">
-			<form method="get" name="myForm">
-				<c:if test="${login.userid!='adminkongju@naver.com'}">
-					<a href="BoardListServlet">목록보기</a>
-				</c:if>
-				<c:if test="${login.userid=='adminkongju@naver.com'}">
-					<a href="BoardListServlet2">목록보기</a>
-				</c:if>
-				<input type="hidden" name="num" value="${retrieve.num}">
-				글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
-				&nbsp;조회수:${retrieve.readcnt}<br>
-				<div>
-					<h1>${retrieve.boardCategory}내용</h1>
+			<div id="main">
+				<form method="get" name="myForm">
+					<c:if test="${login.userid!='adminkongju@naver.com'}">
+						<a href="BoardListServlet">목록보기</a>
+					</c:if>
+					<c:if test="${login.userid=='adminkongju@naver.com'}">
+						<a href="BoardListServlet2">목록보기</a>
+					</c:if>
+					<input type="hidden" name="num" value="${retrieve.num}">
+					글번호:${retrieve.num}&nbsp;작성일:${retrieve.writeday}
+					&nbsp;조회수:${retrieve.readcnt}<br>
+					<div>
+						<h1>${retrieve.boardCategory}내용</h1>
 
-				</div>
-				<br> <br>
-				<div class="field2">
+						${retrieve.boardpw}
 
-					<div class="col-md-1">카테고리</div>
-<c:if test="${retrieve.boardCategory=='후기글'}">
-					<div class="field half" style="width: 150px;">
-
-						<input type="radio" id="demo-priority-low" name="demo-priority"
-							checked > <label for="demo-priority-low">후기글</label>
-					</div>
-					<div class="field half" style="width: 150px;">
-						<input type="radio" id="demo-priority-normal" name="demo-priority">
-						<label for="demo-priority-normal">질문글</label>
 					</div>
 					<br> <br>
-					</c:if>
-					<c:if test="${retrieve.boardCategory=='질문글'}">
-					<div class="field half" style="width: 150px;">
+					<div class="field2">
 
-						<input type="radio" id="demo-priority-low" name="demo-priority">
-						 <label for="demo-priority-low">후기글</label>
-					</div>
-					<div class="field half" style="width: 150px;">
-						<input type="radio" id="demo-priority-normal" name="demo-priority" checked>
-						<label for="demo-priority-normal">질문글</label>
-					</div>
-					<br> <br>
-					</c:if>
-					
-				</div>
-				<div class="field2">
+						<div class="col-md-1">카테고리</div>
+						<c:if test="${retrieve.boardCategory=='후기글'}">
+							<div class="field half" style="width: 150px;">
 
-					<div class="col-md-3"></div>
-					<div class="col-md-1">제목</div>
-					<div class="col-md-5">
-						<c:if test="${sessionScope.login == null}">
-
-							<input class="form-control inputTitle" type="text" name="title"
-								value="${retrieve.title}" readonly="readonly">
+								<input type="radio" id="demo-priority-low" name="demo-priority"
+									checked> <label for="demo-priority-low">후기글</label>
+							</div>
+							<div class="field half" style="width: 150px;">
+								<input type="radio" id="demo-priority-normal"
+									name="demo-priority"> <label for="demo-priority-normal">질문글</label>
+							</div>
+							<br>
+							<br>
 						</c:if>
-						<c:if test="${sessionScope.login != null}">
+						<c:if test="${retrieve.boardCategory=='질문글'}">
+							<div class="field half" style="width: 150px;">
 
-							<input class="form-control inputTitle" type="text" name="title"
-								value="${retrieve.title}">
+								<input type="radio" id="demo-priority-low" name="demo-priority">
+								<label for="demo-priority-low">후기글</label>
+							</div>
+							<div class="field half" style="width: 150px;">
+								<input type="radio" id="demo-priority-normal"
+									name="demo-priority" checked> <label
+									for="demo-priority-normal">질문글</label>
+							</div>
+							<br>
+							<br>
 						</c:if>
+
 					</div>
-					<div class="col-md-3 titleHelper"></div>
-				</div>
+					<div class="field2">
 
+						<div class="col-md-3"></div>
+						<div class="col-md-1">제목</div>
+						<div class="col-md-5">
+							<c:if test="${login.userid != retrieve.userid}">
 
-				<br>
-				<div class="field2">
-					<div class="col-md-3"></div>
-					<div class="col-md-1">내용</div>
-					<div class="col-md-5">
+								<input class="form-control inputTitle" type="text" name="title"
+									id="boardtitle" value="${retrieve.title}" readonly="readonly">
+							</c:if>
+							<c:if test="${login.userid == retrieve.userid}">
 
-						<textarea class="form-control inputContent" name="content" rows=20>${retrieve.content}</textarea>
+								<input class="form-control inputTitle" type="text" name="title"
+									id="boardtitle" value="${retrieve.title}">
+							</c:if>
+						</div>
+						<div class="col-md-3 titleHelper"></div>
 					</div>
-					<div class="col-md-3 contentHelper"></div>
-				</div>
-				<br>
 
-				<div class="field2">
-					<div class="col-md-3"></div>
-					<div class="col-md-1">비밀번호</div>
-					<div class="col-md-2">
-						<input class="form-control inputPw" type="password" name="readcnt">
-					</div>
-					<div class="col-md-3 pwHelper"></div>
-					<div class="col-md-3"></div>
-				</div>
-				<br>
-				<c:if test="${login.userid == retrieve.userid}">
+
+					<br>
 					<div class="field2">
 						<div class="col-md-3"></div>
-						<div class="col-md-1"></div>
-						<ul class="actions">
-						<center>
-							<button onclick="updateBoard(myForm)">수정</button>
-							 &nbsp;&nbsp;&nbsp;&nbsp;<button class="special" onclick="deleteBoard(myForm)">삭제</button>
-</center>
-						</ul>
+						<div class="col-md-1">내용</div>
+						<div class="col-md-5">
 
-						<div class="col-md-3"></div>
-						<div class="col-md-3"></div>
+							<c:if test="${login.userid == retrieve.userid}">
+								<textarea class="form-control inputContent" name="content"
+									id="content" rows=20>${retrieve.content}</textarea>
+							</c:if>
+							<c:if test="${login.userid != retrieve.userid}">
+								<textarea class="form-control inputContent" name="content"
+									id="content" rows=20 readonly="readonly">${retrieve.content}</textarea>
+							</c:if>
+						</div>
+						<div class="col-md-3 contentHelper"></div>
 					</div>
-				</c:if>
+					<br>
+<!-- 
+					<div class="field2">
+						<div class="col-md-3"></div>
+						<div class="col-md-1">비밀번호<span id="secret"></span></div>
+						<div class="col-md-2">
+							<input class="form-control inputPw" type="password" id="boardpw2"
+								name="boardpw">
+						</div>
+						<span id="secret"></span>
+						<div class="col-md-3 pwHelper"></div>
+						<div class="col-md-3"></div>
+					</div> -->
+					<div class="field2">
+						<div class="col-md-3"></div>
+						<c:if test="${login.userid == retrieve.userid}">
+							<div class="col-md-1">비밀번호<span id="secret"></span></div>
+							<div class="col-md-2">
+								<input class="form-control inputPw" type="password"
+									id="boardpw2" name="boardpw">
+							</div>
+							
+							<div class="col-md-3 pwHelper"></div>
+							<div class="col-md-3"></div>
+						</c:if>
+
+						<c:if test="${login.userid != retrieve.userid}">
+							<div class="col-md-1">비밀번호<span id="secret"></span></div>
+							<div class="col-md-2">
+								<input class="form-control inputPw" type="password"
+									id="boardpw2" name="boardpw" readonly="readonly">
+							</div>
+							
+							<div class="col-md-3 pwHelper"></div>
+							<div class="col-md-3"></div>
+						</c:if>
+					</div> 
+			</div>
+			<br>
+			<c:if test="${login.userid == retrieve.userid}">
+				<div class="field2">
+					<div class="col-md-3"></div>
+					<div class="col-md-1"></div>
+					<ul class="actions">
+						<center>
+							<button id="onclick" onclick="updateBoard(myForm)">수정</button>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<button class="special" onclick="deleteBoard(myForm)">삭제</button>
+						</center>
+					</ul>
+
+					<div class="col-md-3"></div>
+					<div class="col-md-3"></div>
+				</div>
+			</c:if>
 			</form>
 			<!-- 좌우측의 공간 확보 -->
 
@@ -251,7 +320,7 @@ h1 {
 
 						<thead>
 
-					<div class="field2">
+							<div class="field2">
 								<c:set var="retrieve2" value="${retrieve2}" scope="session" />
 								<c:set var="retrieve" value="${retrieve}" scope="session" />
 								<c:set var="ppp" value="${list}" scope="session" />
@@ -262,9 +331,9 @@ h1 {
 
 										<td colspan=2><strong>${xxx.commentParentName}</strong>
 
-											${xxx.commentwriteday} <a href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')"/>
-											신고</a> <c:if
-												test="${login.userid == xxx.userid}">
+											${xxx.commentwriteday} <a
+											href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')" />
+											신고</a> <c:if test="${login.userid == xxx.userid}">
 												| <a
 													href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
 													style="cursor: pointer;">수정</a> | <a
@@ -275,7 +344,7 @@ h1 {
 									<td>${xxx.commentParentText}</td>
 
 								</c:forEach>
-								</div>
+							</div>
 						</thead>
 
 					</table>
@@ -296,9 +365,17 @@ h1 {
 								value="${retrieve2.commentNum}"> <input type="hidden"
 								name="commentwriteday" value="${retrieve2.commentwriteday}">
 
-							<input type="text" name="commentParentName"
-								id="commentParentName" value="${login.username}"
-								placeholder="Name" />
+
+							<c:if test="${sessionScope.login != null}">
+								<input type="text" name="commentParentName"
+									id="commentParentName" value="${login.username}"
+									placeholder="Name" />
+							</c:if>
+
+							<c:if test="${sessionScope.login == null}">
+								<input type="text" name="commentParentName"
+									id="commentParentName" value="로그인 해주세요" placeholder="Name" />
+							</c:if>
 						</div>
 
 						<div class="6u$ 12u$(xsmall)">
@@ -315,16 +392,16 @@ h1 {
 						<!-- Break -->
 						<div class="12u$">
 							<ul class="actions">
-								<li><input type="submit" value="등록"
-									class="special" /></li>
+								<li><input type="submit" value="등록" class="special" /></li>
 								<li><input type="reset" value="취소" /></li>
-								
+
 							</ul>
 						</div>
-					
+
 					</div>
 				</div>
-			</form>	<br>
+			</form>
+			<br>
 			<%-- <section>
 				<div class="field2" style="padding-left: 300px;">
 					<form method="post" name="myForm2">
@@ -364,14 +441,7 @@ h1 {
 					</form>
 				</div>
 			</section> --%>
-	
-
-
-
-
-
-
-</div>
+	</div>
 
 
 

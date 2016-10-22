@@ -63,6 +63,7 @@ public class NotifyRequestServlet extends HttpServlet {
 		} catch (CommonException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("idresult", "success");
 		}
 		
 		System.out.println(dto);

@@ -134,10 +134,10 @@ h1 {
 }
 </style>
 <script>
-	$(document).on("ready", function() {
-		$(".registerBtn").on("click", function() {
-			/* 공백 입력 못하도록 유효성 검가 */
-			if ("" == $(".inputTitle").val()) {
+	$(document).ready(function() {
+		$("form").on("submit", function() {
+			/* /* 공백 입력 못하도록 유효성 검가 */
+			/* if ("" == $(".inputTitle").val()) {
 				$(".titleHelper").text("제목을 입력해주세요");
 				$(".contentHelper").text("");
 				$(".pwHelper").text("");
@@ -153,9 +153,22 @@ h1 {
 					
 				} */
 
-			} else {
-				$("form").submit();
-			}
+			/*} else {
+				alert("정상 등록되었습니다."); */
+			/*} */
+			
+			 
+			if($("#title").val()==''){
+				alert("title 입력");
+			
+			}else if($("#content").val()==''){
+				alert("content 입력");
+			}else if($("#boardpw1").val()==''){
+				alert("boardpw 입력");
+		
+			}else{
+				alert("글등록완료")
+			} 
 
 		});
 		$(".cancelBtn").on("click", function() {
@@ -193,6 +206,7 @@ h1 {
 				</c:if>
 				<div>
 					<h1>게시글 등록</h1>
+					<c:set var="write" value="${write}" scope="session"/>
 					<input type="hidden" name="author" value="${login.username}">
 					<input type="hidden" name="userid" value="${login.userid}">
 				</div>
@@ -224,7 +238,7 @@ h1 {
 							<a href="BoardListServlet2">목록보기</a>
 						</c:if>
 
-						<input class="inputDisplay" type="text" id="title" name="title">
+						<input class="inputDisplay" type="text" id="title" name="title" id="title">
 					</div>
 					<div class="col-md-3 titleHelper"></div>
 				</div>
@@ -234,7 +248,7 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1">내용</div>
 					<div class="col-md-5">
-						<textarea class="form-control inputTitle" name="content" rows=20></textarea>
+						<textarea class="form-control inputTitle" id="content" name="content" rows=20></textarea>
 					</div>
 					<div class="col-md-3 contentHelper"></div>
 				</div>
@@ -244,7 +258,7 @@ h1 {
 					<div class="col-md-3"></div>
 					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-2">
-						<input class="form-control inputPw" type="password" name="readcnt">
+						<input class="form-control inputPw" type="password" id="boardpw1" name="boardpw">
 					</div>
 					<div class="col-md-3 pwHelper"></div>
 					<div class="col-md-3"></div>

@@ -77,7 +77,7 @@
 				
 				 
 				</c:if>  
-				${sessionScope.list} 
+			<%-- 	${sessionScope.list}  --%>
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
 			 <c:if test="${!empty sessionScope.list}">	 
 						<c:if test="${sessionScope.list.size()!=0}">
@@ -101,7 +101,7 @@
 				
 								
 <%--  ${sessionScope.list.size()}  --%>
- 			${empty sessionScope.list}
+ 			<%-- ${empty sessionScope.list} --%>
 				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
 				
 					<ul class="links">
@@ -142,7 +142,7 @@
 					<ul class="actions">
 						<li><a href="#one" class="button next scrolly">Get
 								Started</a></li>
-					</ul>
+					</ul>  
 				</div>
 			</div>
 		</section>
