@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	         readcnt,boardCategory,boardpw 
 	   from myboard       
        where boardCategory = '후기글'
+       order by num desc 
        
        
      </select>
@@ -37,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	         readcnt,boardCategory,boardpw 
 	   from myboard       
        where boardCategory = '질문글'
-       
+       order by num desc 
        
      </select>
 
