@@ -300,10 +300,10 @@
 				<span class="image"> <img src="images/jj.jpg" alt="" />
 				</span>
 				<header class="major">
-					<h1>신청하기</h1>
+					<h1>신청현황</h1>
 				</header>
 				<div class="content">
-					<p>반려견의 짝을 신청하세요</p>
+					<p>신청 현황을 확인하세요.</p>
 					<ul class="actions">
 						<li><a href="#five" class="button next scrolly">Get
 								Started</a></li>
@@ -335,28 +335,14 @@
 			<section id="five">
 				<div class="inner">
 					<header class="major">
-						<h1>신청하기</h1>
+						<h1>신청현황</h1>
 					</header>
 
-					<h3>${petdetail.userid}님의애견 ${petdetail.p_name} 에게 신청 내용을
-						작성하세요!</h3>
-					<form name="sendForm">
-						<div class="field2">
-							<div class="col-md-3"></div>
-							<div class="col-md-1">내용</div>
-							<div class="col-md-5">
-								<textarea class="form-control inputTitle" id="r_content"
-									name="content" rows=10></textarea>
-							</div>
-							<div class="col-md-3 contentHelper"></div>
-						</div>
-						<br>
-						<button onClick="send(sendForm)">신청 보내기</button>
-						<!-- <input type="submit" value="신청 보내기"> --> |
-						<input type="reset" value = "취소하기">
-
-					</form>
-
+					<h3>내 애견의 반려 신청 현황 입니다.</h3>
+					
+					여기에 이제 표가 들어갈꺼야
+					
+					
 					<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">

@@ -254,9 +254,10 @@
 <script type="text/javascript">
 	function send() {
 
-		var userid = document.getElementById("petuserid");
+		var userid = document.getElementById("userid");
 		console.log('${petdetail.userid}');
-		opener.document.location.href = "RequestPetServlet?userid=" + '${petdetail.userid}';
+		opener.document.location.href = "RequestPetServlet?userid="
+				+ '${petdetail.userid}';
 		close();
 	}
 	function reset_close() {
@@ -272,15 +273,17 @@
 </script>
 <body onload="photo()">
 	<div id="dogphoto"></div>
-	<form id="dogform">
+	<form id="dogform" action="RequestPetServlet">
 		<div style="margin-bottom: 1.5%">멍멍이 이름 : ${petdetail.p_name}</div>
 		<div style="margin-bottom: 1.5%">멍멍이 나이 : ${petdetail.p_age}</div>
 		<div style="margin-bottom: 1.5%">멍멍이 성별 : ${petdetail.p_gender}</div>
 		<div style="margin-bottom: 1.5%">멍멍이 특징 : ${petdetail.p_feature}</div>
-		<div id="petuserid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div>
+		<%-- <div id="userid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div> --%>
 
-		<button style="margin-left: 20%;"
-			onClick="javascript:send()">신청하기</button>
+		<div>내용</div>
+		<textarea id="r_content" name="content" rows=10></textarea>
+		<input type="submit" value="신청하기">
+		<button style="margin-left: 20%;" onClick="javascript:send()">신청하기</button>
 		<button style="margin-left: 2%;" onClick="javascript:reset_close()">취소</button>
 		<br>
 	</form>

@@ -420,7 +420,7 @@
 																marker,
 																'click',
 																function() {
-																	var child=window.open("PetDetailServlet?userid="+"${item2.userid}","childName","width=400,height=500, resizable=no");
+																	var child=window.open("PetDetailServlet?userid="+"${item2.userid}","childName","width=400,height=800, resizable=no");
 																	
 																});
 											}
