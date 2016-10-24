@@ -130,14 +130,12 @@ h1 {
 				alert("글등록완료")
 			} */
 			var p3 = $("#boardpw2").val();
-			var p4 = $
-			{
-				retrieve.boardpw
-			}
-			;
+			var p4 = ${retrieve.boardpw};
 			if (p3 != p4) {
 				alert("비밀번호 불일치");
-			}
+			} else {
+				$("form").submit();
+			} 
 
 		});
 		$(".cancelBtn").on("click", function() {
@@ -149,11 +147,7 @@ h1 {
 		$("#boardpw2").on("keyup", function(event) {
 			$("#secret").removeClass();
 			var p = $("#boardpw2").val();
-			var p2 = $
-			{
-				retrieve.boardpw
-			}
-			;
+			var p2 = ${retrieve.boardpw};
 
 			if (p == p2) {
 				$("#secret").text("일치").addClass("blue");
@@ -278,10 +272,10 @@ h1 {
 					<div class="field2">
 						<div class="col-md-3"></div>
 						<c:if test="${login.userid == retrieve.userid}">
-							<div class="col-md-1">
+							<!-- <div class="col-md-1">
 								비밀번호<span id="secret"></span>
-							</div>
-							<div class="col-md-2">
+							</div> -->
+							<div class="col-md-2">비밀번호<span id="secret"></span>
 								<input class="form-control inputPw" type="password"
 									id="boardpw2" name="boardpw">
 							</div>
