@@ -253,12 +253,11 @@
 </head>
 <script type="text/javascript">
 	function send() {
-
-		var userid = document.getElementById("userid");
-		console.log('${petdetail.userid}');
+		var txt = document.getElementById("r_content").value;
+		/* var userid = document.getElementById("userid"); */
 		opener.document.location.href = "RequestPetServlet?userid="
-				+ '${petdetail.userid}';
-		close();
+				+ '${petdetail.userid}'+"&p_num="+'${petdetail.p_num}' + "&r_content="+txt;
+		close(); 
 	}
 	function reset_close() {
 		close();
@@ -278,11 +277,12 @@
 		<div style="margin-bottom: 1.5%">멍멍이 나이 : ${petdetail.p_age}</div>
 		<div style="margin-bottom: 1.5%">멍멍이 성별 : ${petdetail.p_gender}</div>
 		<div style="margin-bottom: 1.5%">멍멍이 특징 : ${petdetail.p_feature}</div>
-		<%-- <div id="userid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div> --%>
+		<div type="hidden" id="userid" name="userid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div>
+		<div type="hidden" name="p_num" value="${petdetail.p_num}"></div>
 
 		<div>내용</div>
-		<textarea id="r_content" name="content" rows=10></textarea>
-		<input type="submit" value="신청하기">
+		<textarea id="r_content" name="r_content" rows=10></textarea>
+		
 		<button style="margin-left: 20%;" onClick="javascript:send()">신청하기</button>
 		<button style="margin-left: 2%;" onClick="javascript:reset_close()">취소</button>
 		<br>

@@ -10,17 +10,16 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
      <settings>
      <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
- 
-  <typeAliases>
-   <typeAlias type="com.dto.MemberDTO" alias="MemberDTO"/>
-   <typeAlias type="com.dto.BoardDTO" alias="BoardDTO"/>
-   <typeAlias type="com.dto.CommentDTO" alias="CommentDTO"/>
-     <typeAlias type="com.dto.PetDTO" alias="PetDTO"/>
-      <typeAlias type="com.dto.MemberPetDTO" alias="MemberPetDTO"/>
-       <typeAlias type="com.dto.NotifyDTO" alias="NotifyDTO"/>
-   
 
-  </typeAliases>
+	<typeAliases>
+		<typeAlias type="com.dto.MemberDTO" alias="MemberDTO" />
+		<typeAlias type="com.dto.BoardDTO" alias="BoardDTO" />
+		<typeAlias type="com.dto.CommentDTO" alias="CommentDTO" />
+		<typeAlias type="com.dto.PetDTO" alias="PetDTO" />
+		<typeAlias type="com.dto.MemberPetDTO" alias="MemberPetDTO" />
+		<typeAlias type="com.dto.NotifyDTO" alias="NotifyDTO" />
+		<typeAlias type="com.dto.RequestDTO" alias="RequestDTO" />
+	</typeAliases>
   
 
     
@@ -42,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/config/CommentMapper.xml" />
 <mapper resource="com/config/PetMapper.xml" />
 <mapper resource="com/config/NotifyMapper.xml" />
-
+<mapper resource="com/config/RequestMapper.xml" />
 	</mappers>
 </configuration>
 

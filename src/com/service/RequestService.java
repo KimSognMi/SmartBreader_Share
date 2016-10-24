@@ -31,7 +31,7 @@ public class RequestService {
 	*/
 	
 	
-	//글쓰기
+	//
 	public void request(RequestDTO dto){
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
