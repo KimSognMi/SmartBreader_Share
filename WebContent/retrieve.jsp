@@ -281,11 +281,11 @@ $(document).on("ready", function() {
 						</c:if>
 
 						<c:if test="${login.userid != retrieve.userid}">
-							<div class="col-md-1">비밀번호<span id="secret"></span></div>
-							<div class="col-md-2">
+							<!-- <div class="col-md-1">비밀번호<span id="secret"></span></div> -->
+							<!-- <div class="col-md-2">
 								<input class="form-control inputPw" type="password"
 									id="boardpw2" name="boardpw" readonly="readonly">
-							</div>
+							</div> -->
 							
 							<div class="col-md-3 pwHelper"></div>
 							<div class="col-md-3"></div>
