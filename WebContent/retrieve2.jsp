@@ -237,12 +237,14 @@ h1 {
 
 								<tr>
 
+									<c:set var="retrieve2" value="${retrieve2}" scope="session" />
+									<c:set var="retrieve" value="${retrieve}" scope="session" />
 									<c:set var="ppp" value="${list}" scope="session" />
 
 									<c:forEach var="xxx" items="${ppp}" varStatus="status">
 								</tr>
 								<tr id="r1" name="commentParentCode">
-									<td colspan=2>${xxx.boardNum}${xxx.commentNum}<strong>${xxx.commentParentName}</strong>
+									<td colspan=2>${xxx.commentParentName}</strong>
 
 										${xxx.commentParentPassword} ${xxx.commentwriteday} <a
 										href="CommentRetrieveServlet?commentNum=${xxx.commentNum}"

@@ -99,7 +99,7 @@ h1 {
 }
 </style>
 <script>
-$(document).on("ready", function() {
+	$(document).on("ready", function() {
 		$("#onclick").on("click", function() {
 			/* 공백 입력 못하도록 유효성 검가 */
 			/* if ("" == $(".inputTitle").val()) {
@@ -130,7 +130,11 @@ $(document).on("ready", function() {
 				alert("글등록완료")
 			} */
 			var p3 = $("#boardpw2").val();
-			var p4 = ${retrieve.boardpw};
+			var p4 = $
+			{
+				retrieve.boardpw
+			}
+			;
 			if (p3 != p4) {
 				alert("비밀번호 불일치");
 			}
@@ -145,7 +149,11 @@ $(document).on("ready", function() {
 		$("#boardpw2").on("keyup", function(event) {
 			$("#secret").removeClass();
 			var p = $("#boardpw2").val();
-			var p2 = ${retrieve.boardpw};
+			var p2 = $
+			{
+				retrieve.boardpw
+			}
+			;
 
 			if (p == p2) {
 				$("#secret").text("일치").addClass("blue");
@@ -255,7 +263,7 @@ $(document).on("ready", function() {
 						<div class="col-md-3 contentHelper"></div>
 					</div>
 					<br>
-<!-- 
+					<!-- 
 					<div class="field2">
 						<div class="col-md-3"></div>
 						<div class="col-md-1">비밀번호<span id="secret"></span></div>
@@ -270,12 +278,14 @@ $(document).on("ready", function() {
 					<div class="field2">
 						<div class="col-md-3"></div>
 						<c:if test="${login.userid == retrieve.userid}">
-							<div class="col-md-1">비밀번호<span id="secret"></span></div>
+							<div class="col-md-1">
+								비밀번호<span id="secret"></span>
+							</div>
 							<div class="col-md-2">
 								<input class="form-control inputPw" type="password"
 									id="boardpw2" name="boardpw">
 							</div>
-							
+
 							<div class="col-md-3 pwHelper"></div>
 							<div class="col-md-3"></div>
 						</c:if>
@@ -286,11 +296,11 @@ $(document).on("ready", function() {
 								<input class="form-control inputPw" type="password"
 									id="boardpw2" name="boardpw" readonly="readonly">
 							</div> -->
-							
+
 							<div class="col-md-3 pwHelper"></div>
 							<div class="col-md-3"></div>
 						</c:if>
-					</div> 
+					</div>
 			</div>
 			<br>
 			<c:if test="${login.userid == retrieve.userid}">
@@ -331,11 +341,9 @@ $(document).on("ready", function() {
 
 										<td colspan=2><strong>${xxx.commentParentName}</strong>
 
-											${xxx.commentwriteday} <a
-											href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')" />
-											신고</a> <c:if test="${login.userid == xxx.userid}">
-												| <a
-													href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
+											${xxx.commentwriteday} <a href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')" />
+											신고 <c:if test="${login.userid == xxx.userid}">
+												| <a href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&boardNum=${xxx.boardNum}"
 													style="cursor: pointer;">수정</a> | <a
 													href="CommentDeleteServlet?commentNum=${xxx.commentNum}&num=${xxx.boardNum}"
 													style="cursor: pointer;">삭제</a>
