@@ -237,7 +237,8 @@
 }
 
 #dogform {
-	margin-left: 25%;
+	 margin-left: 10%;
+ margin-right: 10%;
 	margin-top: 7%;
 }
 </style>
@@ -283,7 +284,7 @@
 		<div>내용</div>
 		<textarea id="r_content" name="r_content" rows=10></textarea>
 		
-		<button style="margin-left: 20%;" onClick="javascript:send()">신청하기</button>
+		<button style="margin-left: 25%;" onClick="javascript:send()">신청하기</button>
 		<button style="margin-left: 2%;" onClick="javascript:reset_close()">취소</button>
 		<br>
 	</form>

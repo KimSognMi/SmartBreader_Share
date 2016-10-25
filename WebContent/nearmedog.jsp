@@ -256,51 +256,81 @@
 	<div id="wrapper">
 
 		<!-- Header -->
-		<header id="header">
+		<header id="header" class="alt">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-				<a href="#menu">Menu</a>
+				<c:if test="${sessionScope.login!=null}">
+		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
+				</c:if>
+				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
 
+
 		<!-- Menu -->
 		<nav id="menu">
-			<%
-				MemberDTO dto = (MemberDTO) session.getAttribute("login");
-			%>
-			<%
-				if (dto == null) {
-			%>
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="BoardListServlet">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="joinform.jsp" class="button special fit">JOIN</a></li>
-				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
-			</ul>
-			<%
-				} else {
-			%>
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="BoardListServlet">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-			</ul>
-			<%
-				}
-			%>
+			<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="BoardListServlet2">BOARD</a></li>
+					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="MemberListServlet" class="button special fit">Manage
+							Member</a></li>
+					<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+				</ul>
+
+
+
+			</c:if>
+	
+			<c:if test="${login.userid!='adminkongju@naver.com'}">
+				<c:if test="${!empty sessionScope.list}">
+					<c:if test="${sessionScope.list.size()!=0}">
+						<ul class="links">
+							<li><a href="index.jsp">HOME</a></li>
+							<li><a href="about.jsp">ABOUT US</a></li>
+
+							<li><a href="BoardListServlet">BOARD</a></li>
+							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+
+						</ul>
+						<ul class="actions vertical">
+							<li><a href="MyPetListServlet?userid=${login.userid}"
+								class="button fit">My PET Page</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						</ul>
+
+					</c:if>
+				</c:if>
+
+
+				<c:if
+					test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+
+				</c:if>
+
+
+			</c:if>
 
 		</nav>
 		<!-- Banner -->
@@ -321,6 +351,8 @@
 				</div>
 			</div>
 		</section>
+		
+		
 		<!-- Main -->
 		<div id="main" class="alt">
 
@@ -370,8 +402,10 @@
 					<p style="margin-top: -12px"></p>
 					<div id="map" style="width: 100%; height: 350px;"></div>
 
+<hr class="major" />
+
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=2e6dd962f003ca69c0d1bc6ef0b0e571&libraries=services"></script>
 					<script>
 						 
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -461,7 +495,7 @@
 						
 					</script>
 					<br>
-					<!-- Footer -->
+						<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
@@ -483,6 +517,7 @@
 							</ul>
 						</div>
 					</footer>
+
 				</div>
 
 				<!-- Scripts -->

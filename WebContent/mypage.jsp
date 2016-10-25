@@ -73,7 +73,7 @@
 				
 				 
 				</c:if>  
-				${sessionScope.list} 
+				
 						<c:if test="${login.userid!='adminkongju@naver.com'}">
 			 <c:if test="${!empty sessionScope.list}">	 
 						<c:if test="${sessionScope.list.size()!=0}">
@@ -97,7 +97,7 @@
 				
 								
 <%--  ${sessionScope.list.size()}  --%>
- 			${empty sessionScope.list}
+ 			
 				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
 				
 					<ul class="links">
@@ -142,14 +142,16 @@
 					<ul class="actions">
 						<li><a href="#three" class="button next scrolly">수정!</a></li>
 					</ul>
-			
-			</div>
+				</div>
 		</section>
+		
+		
 
 		<!-- Main -->
 
 		<div id="main">
 			<section id="three">
+			
 				<!-- <article class="container"> -->
 				<div class="col-md-6 col-md-offset-3">
 				<form name="myform">
@@ -227,6 +229,9 @@
 
 			</section>
 		</div>
+		
+		
+		<hr class="major" />
 
 <script type="text/javascript">
 

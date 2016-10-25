@@ -238,10 +238,8 @@
 					<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 				</ul>
 
-
-
 			</c:if>
-			${sessionScope.list}
+	
 			<c:if test="${login.userid!='adminkongju@naver.com'}">
 				<c:if test="${!empty sessionScope.list}">
 					<c:if test="${sessionScope.list.size()!=0}">
@@ -265,10 +263,7 @@
 				</c:if>
 
 
-				<%--  ${sessionScope.list.size()}  --%>
- 			${empty sessionScope.list}
-				<c:if
-					test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
 
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
@@ -308,6 +303,8 @@
 				</div>
 			</div>
 		</section>
+		
+		
 		<!-- Main -->
 		<div id="main" class="alt">
 
