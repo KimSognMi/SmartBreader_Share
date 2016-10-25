@@ -32,16 +32,20 @@ public class NotifyServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		/*String num = request.getParameter("num");*/
 		String userid = request.getParameter("userid");
+		String username = request.getParameter("commentParentName");
 		
 	/*	System.out.println(num);*/
 		System.out.println(userid);
+		System.out.println(username);
 	
 		NotifyDTO dto = new NotifyDTO();
 		/*dto.setNum(Integer.parseInt(num));*/
 		
 		dto.setUserid(userid);
+		dto.setUsername(username);
 		
 		request.setAttribute("abcd", dto);
+		System.out.println("신고"+dto);
 		
 		
 		//화면 ( list.jsp로 보내면 안됨. )

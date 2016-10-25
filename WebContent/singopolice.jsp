@@ -304,7 +304,7 @@
 			<input type="hidden" name="notifyrequest" value="${login.userid}"> <!-- 신청하는사람 -->
 			
 			
-				<input type="text" name="username" id="username" value="${retrieve2.commentParentName}"
+				<input type="text" name="username" id="username" value="${abcd.username}"
 					placeholder="Name" />
 			</div>
 			<div class="6u$ 12u$(xsmall)">

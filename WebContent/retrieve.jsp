@@ -335,7 +335,7 @@ h1 {
 
 										<td colspan=2><strong>${xxx.commentParentName}</strong>
 
-											${xxx.commentwriteday} <a href="javascript:window.open('NotifyServlet?userid=${xxx.userid}','childName','width=800,height=500')" />
+											${xxx.commentwriteday} <a href="javascript:window.open('NotifyServlet?userid=${xxx.userid}&commentParentName=${xxx.commentParentName}','childName','width=800,height=500')" />
 											신고 <c:if test="${login.userid == xxx.userid}">
 												| <a href="CommentRetrieveServlet?commentNum=${xxx.commentNum}&boardNum=${xxx.boardNum}"
 													style="cursor: pointer;">수정</a> | <a
