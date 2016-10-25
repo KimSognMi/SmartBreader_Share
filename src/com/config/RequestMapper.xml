@@ -4,12 +4,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="request">
 
-     
-
-    <insert id="request" parameterType="RequestDTO">
-     	insert into request( r_num,userid,p_num,r_content)
-     	values ( request_seq.nextval, #{userid},#{p_num},#{r_content}) 
-    </insert>
-
+	<insert id="request" parameterType="RequestDTO">
+		insert into request( r_num,userid,p_num,r_content)
+		values ( request_seq.nextval, #{userid},#{p_num},#{r_content})
+	</insert>
 	
+	<select id="requestlist" resultType="RequestDTO" parameterType="String">
+		select
+		userid, p_num, r_content, agree
+		from request
+		where userid = #{userid}
+	</select>
+
 </mapper>

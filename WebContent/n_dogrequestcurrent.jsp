@@ -313,24 +313,7 @@
 		</section>
 		<!-- Main -->
 		<div id="main" class="alt">
-			<script type="text/javascript">
-			/* $(document).ready(function() {
-				$("form").on("submit", function() {
-					
-					if($("#r_content").val()==''){
-						alert("내용을 입력 하세요");
-					
-					}else{
-						alert("글등록완료")
-					} 
 
-				});
-			}); */
-			function send(f){
-				alert("신청 완료(수락 결과를 기다려 주세요)");
-				f.action = "RequestWritePetServlet"
-			}
-			</script>
 			<!-- One -->
 			<section id="five">
 				<div class="inner">
@@ -339,10 +322,30 @@
 					</header>
 
 					<h3>내 애견의 반려 신청 현황 입니다.</h3>
-					
-					여기에 이제 표가 들어갈꺼야
-					
-					
+
+
+					<div class="table-wrapper">
+						<table border="1">
+
+							<!-- <div class="field2"> -->
+							
+							<tbody>
+														
+								<c:forEach var="xxx" items="${requestlist}" varStatus="status">
+
+										<tr>
+											
+											<td><a href="MydogServlet?p_num=${request.p_num}">${request.p_name}</td>
+											
+										</tr>
+									</c:forEach>
+							</tbody>
+
+							<!-- </div> -->
+						</table>
+
+					</div>
+
 					<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">

@@ -257,7 +257,7 @@
 		var txt = document.getElementById("r_content").value;
 		/* var userid = document.getElementById("userid"); */
 		opener.document.location.href = "RequestPetServlet?userid="
-				+ '${petdetail.userid}'+"&p_num="+'${petdetail.p_num}' + "&r_content="+txt;
+				+ '${petdetail.userid}'+"&p_num="+'${petdetail.p_num}' + "&r_content="+txt+"&p_kkcnumber="+'${petdetail.p_kkcnumber}'+"&p_birth="+'${petdetail.p_birth}'+"&p_type="+'${petdetail.p_type}';	
 		close(); 
 	}
 	function reset_close() {
@@ -280,6 +280,9 @@
 		<div style="margin-bottom: 1.5%">멍멍이 특징 : ${petdetail.p_feature}</div>
 		<div type="hidden" id="userid" name="userid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div>
 		<div type="hidden" name="p_num" value="${petdetail.p_num}"></div>
+		<div type="hidden" name="p_kkcnumber" value="${petdetail.p_kkcnumber}"></div>
+		<div type="hidden" name="p_birth" value="${petdetail.p_birth}"></div>
+		<div type="hidden" name="p_type" value="${petdetail.p_type}"></div>
 
 		<div>내용</div>
 		<textarea id="r_content" name="r_content" rows=10></textarea>
