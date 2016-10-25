@@ -41,6 +41,7 @@ public class NotifyServlet extends HttpServlet {
 		
 		dto.setUserid(userid);
 		
+		request.setAttribute("abcd", dto);
 		
 		
 		//화면 ( list.jsp로 보내면 안됨. )
