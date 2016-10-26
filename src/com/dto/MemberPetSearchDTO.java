@@ -1,7 +1,7 @@
 package com.dto;
 
 public class MemberPetSearchDTO {
-//whghlㅁㄴㅇㄹ
+//whghlㅁㄴㅇㄹsadf
 
 	private String userid;
 	private String p_name;

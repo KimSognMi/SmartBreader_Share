@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
    
   
-    <!-- jdbc.propertiㄴㅁㅇㄹes 알려주기 -->
+    <!-- jdbc.propertiㄴㅁㅇㄹesasdf 알려주기 -->
  <properties resource="com/config/jdbc.properties" />
      <settings>
      <setting name="jdbcTypeForNull" value="NULL"/>

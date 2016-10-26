@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
 import com.dto.BoardDTO;
+import com.dto.PetDTO;
 import com.dto.RequestDTO;
 
 public class RequestService {
@@ -44,7 +45,18 @@ public class RequestService {
 		}
 	}//end write
 	
-	
+	//목록보기
+	public List<RequestDTO> requestlist(String userid){
+		List<RequestDTO> list = null;
+		SqlSession session = 
+				MySqlSessionFactory.getSession();
+		try{
+		  list = session.selectList("request.requestlist",userid);
+		}finally {
+			session.close();
+		}
+		return list;
+	}//end list()
 	
 	/*//목록보기
 	public List<BoardDTO> list(){

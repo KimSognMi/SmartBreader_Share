@@ -188,7 +188,7 @@ public class MemberService {
 	}// end list()
 	
 	
-	//ㄴㅇㄹㄴㅁ
+	//ㄴㅇㄹㄴㅁsdf
 	public MemberPetPageDTO search(int curPage, HashMap<String, String> map) {
 		MemberPetPageDTO dto = new MemberPetPageDTO();
 		List<MemberPetDTO> list = null;
