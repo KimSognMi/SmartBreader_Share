@@ -252,8 +252,8 @@
 
 <body>
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+	<!-- Wrapper 오마이갓-->
+	<div id="wrapper"> 
 
 		<!-- Header -->
 		<header id="header" class="alt">

@@ -48,7 +48,7 @@
 </head>
 <body onload="photo()">
 
-	<!-- Wrapper -->
+	<!-- Wrapper ㅁㄴㅇㄹ-->
 	<div id="wrapper">
 
 		<!-- Header -->

@@ -266,7 +266,7 @@
 	function photo() {
 		var photo2 = document.getElementById("dogphoto");
 		console.log('${petdetail.p_photo}');
-
+//어ㅏ너알
 		photo2.innerHTML = "<img style='width: 180%;' src='images/"
 				+ '${petdetail.p_photo}' + "' />";
 	}

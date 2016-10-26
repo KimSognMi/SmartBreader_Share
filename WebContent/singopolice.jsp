@@ -264,7 +264,7 @@
 	}
 	%>
 	
-	
+	//ㄹㄹㄹㄹ
 	<%
 	String idresult = (String)request.getAttribute("idresult");
 	if(idresult!=null){
