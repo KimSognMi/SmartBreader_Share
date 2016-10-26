@@ -253,13 +253,22 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <script type="text/javascript">
-	function send() {
-		var txt = document.getElementById("r_content").value;
-		/* var userid = document.getElementById("userid"); */
-		opener.document.location.href = "RequestPetServlet?userid="
-				+ '${petdetail.userid}'+"&p_num="+'${petdetail.p_num}' + "&r_content="+txt+"&p_kkcnumber="+'${petdetail.p_kkcnumber}'+"&p_birth="+'${petdetail.p_birth}'+"&p_type="+'${petdetail.p_type}';	
-		close(); 
-	}
+
+
+function send(f) {
+	f.action = "RequestPetServlet";
+	//opener.document.location.href = "RequestPetServlet";
+	close();
+}
+	/*  function send() {
+		/* var txt = document.getElementById("r_content").value;
+		/* var userid = document.getElementById("userid");  */
+		/* opener.document.location.href = "RequestPetServlet?userid="
+				+ '${petdetail.userid}'+"&p_num="+'${petdetail.p_num}' + "&r_content="+txt+"&p_kkcnumber="+'${petdetail.p_kkcnumber}'+"&p_birth="+'${petdetail.p_birth}'+"&p_type="+'${petdetail.p_type}'; */	
+			/* 	opener.document.location.href = "RequestPetServlet"
+				close();  */
+		/* console.log("asdfas"+${request}) */
+	//}  
 	function reset_close() {
 		close();
 	}
@@ -273,22 +282,35 @@
 </script>
 <body onload="photo()">
 	<div id="dogphoto"></div>
-	<form id="dogform" action="RequestPetServlet">
-		<div style="margin-bottom: 1.5%">멍멍이 이름 : ${petdetail.p_name}</div>
+	<form name="dogform" action="RequestPetServlet">
+	
+	<c:set var="petdetail" value="${petdetail}" scope="session" />
+		<%-- <div style="margin-bottom: 1.5%">멍멍이 이름 : ${petdetail.p_name}</div>
 		<div style="margin-bottom: 1.5%">멍멍이 나이 : ${petdetail.p_age}</div>
 		<div style="margin-bottom: 1.5%">멍멍이 성별 : ${petdetail.p_gender}</div>
-		<div style="margin-bottom: 1.5%">멍멍이 특징 : ${petdetail.p_feature}</div>
-		<div type="hidden" id="userid" name="userid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div>
-		<div type="hidden" name="p_num" value="${petdetail.p_num}"></div>
-		<div type="hidden" name="p_kkcnumber" value="${petdetail.p_kkcnumber}"></div>
-		<div type="hidden" name="p_birth" value="${petdetail.p_birth}"></div>
-		<div type="hidden" name="p_type" value="${petdetail.p_type}"></div>
+		<div style="margin-bottom: 1.5%">멍멍이 특징 : ${petdetail.p_feature}</div> --%>
+		<input type="text" name="p_name" id="p_name" value="${petdetail.p_name}"/>
+		<input type="text" name="userid" id="userid" value="${petdetail.userid}"/>
+		<input type="text" name="p_gender" id="p_gender" value="${petdetail.p_gender}"/>
+		<input type="text" name="p_age" id="p_age" value="${petdetail.p_age}"/>
+		<input type="text" name="p_feature" id="p_feature" value="${petdetail.p_feature}"/>
+		<input type="hidden" name="p_num" id="p_num" value="${petdetail.p_num}"/>
+		
+		
+		
+		<%-- <div type="hidden" id="userid" name="userid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div> --%>
+		<%-- <div type="hidden" name="p_num" value="${petdetail.p_num}"></div> --%>
+		<input type="hidden" name="p_kkcnumber" value="${petdetail.p_kkcnumber}"/>
+		<input type="hidden" name="p_birth" value="${petdetail.p_birth}"/>
+		<input type="hidden" name="p_type" value="${petdetail.p_type}"/>
+		<input type="hidden" name="agree" id="agree" value="대기중"/>
+		
 
 	<div>내용</div>
 		<textarea id="r_content" name="r_content" rows=8></textarea>
 		<br>
-		
-		<button style="margin-left: 16%;" onClick="javascript:send()">신청하기</button>
+		${petdetail.p_num}
+		<button style="margin-left: 2%;" id="onclick" onClick="send(dogform)">확인</button>
 		<button style="margin-left: 2%;" onClick="javascript:reset_close()">취소</button>
 		<br>
 	</form>

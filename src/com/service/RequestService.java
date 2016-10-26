@@ -8,6 +8,7 @@ import com.config.MySqlSessionFactory;
 import com.dto.BoardDTO;
 import com.dto.PetDTO;
 import com.dto.RequestDTO;
+import com.dto.RequestPetDTO;
 
 public class RequestService {
 
@@ -34,6 +35,7 @@ public class RequestService {
 	
 	//
 	public void request(RequestDTO dto){
+		System.out.println("requestDTO"+dto);
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
@@ -55,6 +57,20 @@ public class RequestService {
 		}finally {
 			session.close();
 		}
+		return list;
+	}//end list()
+	
+	
+	public List<RequestPetDTO> requestlist2(String userid){
+		List<RequestPetDTO> list = null;
+		SqlSession session = 
+				MySqlSessionFactory.getSession();
+		try{
+		  list = session.selectList("request.requestlist2",userid);
+		}finally {
+			session.close();
+		}
+		System.out.println("requestlist2"+list);
 		return list;
 	}//end list()
 	

@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="request">
 
 	<insert id="request" parameterType="RequestDTO">
-		insert into request( r_num,userid,p_num,r_content)
-		values ( request_seq.nextval, #{userid},#{p_num},#{r_content})
+		insert into request( r_num,userid,p_num,r_content,agree)
+		values ( request_seq.nextval, #{userid},#{p_num},#{r_content},#{agree})
 	</insert>
 	
 	<select id="requestlist" resultType="RequestDTO" parameterType="String">
