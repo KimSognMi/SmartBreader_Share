@@ -408,7 +408,7 @@
 					<hr class="major" />
 
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=2e6dd962f003ca69c0d1bc6ef0b0e571&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
 					<script>
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
