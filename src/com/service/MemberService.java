@@ -13,6 +13,7 @@ import com.dto.MemberDTO;
 import com.dto.MemberPageDTO;
 import com.dto.MemberPetDTO;
 import com.dto.MemberPetPageDTO;
+import com.dto.MemberPetSearchDTO;
 import com.dto.PageDTO;
 import com.dto.PetDTO;
 import com.exception.CommonException;
@@ -175,8 +176,8 @@ public class MemberService {
 	}// end list()
 	
 	//수철 : 같은 시 기준으로 검색 하여 맴버 가져오기
-	public List<MemberDTO> memberListByCity(String keyword) {
-		List<MemberDTO> list = null;
+	public List<MemberPetSearchDTO> memberListByCity(String keyword) {
+		List<MemberPetSearchDTO> list = null;
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
 			list = session.selectList("member.memberListByCity", keyword);

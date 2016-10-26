@@ -286,7 +286,7 @@
 
 
 			</c:if>
-	
+
 			<c:if test="${login.userid!='adminkongju@naver.com'}">
 				<c:if test="${!empty sessionScope.list}">
 					<c:if test="${sessionScope.list.size()!=0}">
@@ -351,8 +351,8 @@
 				</div>
 			</div>
 		</section>
-		
-		
+
+
 		<!-- Main -->
 		<div id="main" class="alt">
 
@@ -361,10 +361,13 @@
 				<div class="inner">
 					<header class="major">
 						<h1>Near Me Dog</h1>
+						${nearmedoglist}
+
 					</header>
 
 					<!-- Content -->
 					<h2 id="content">근처 반려견을 검색하세요</h2>
+
 					<div class="4u 12u$(small)">
 						<input type="radio" id="demo-priority-low" name="demo-priority"
 							checked> <label for="demo-priority-low">남</label>
@@ -402,12 +405,11 @@
 					<p style="margin-top: -12px"></p>
 					<div id="map" style="width: 100%; height: 350px;"></div>
 
-<hr class="major" />
+					<hr class="major" />
 
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=2e6dd962f003ca69c0d1bc6ef0b0e571&libraries=services"></script>
 					<script>
-						 
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
 							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -454,8 +456,13 @@
 																marker,
 																'click',
 																function() {
-																	var child=window.open("PetDetailServlet?userid="+"${item2.userid}","childName","width=400,height=800, resizable=no");
-																	
+																	var child = window
+																			.open(
+																					"PetDetailServlet?userid="
+																							+ "${item2.userid}",
+																					"childName",
+																					"width=400,height=800, resizable=no");
+
 																});
 											}
 										});
@@ -491,11 +498,51 @@
 												map.setCenter(coords);
 											}
 										});
-
-						
 					</script>
 					<br>
-						<!-- Footer -->
+
+
+
+					 <div class="field2">
+						<div class="table-wrapper">
+							<table border="1">
+								<thead>
+									<tr>
+										<th>아이디</th>
+										<th>kkc</th>
+										<th>펫 이름</th>
+										<th>나이</th>
+										<th>성별</th>
+										<th>종류</th>
+										<th>주소</th>
+									</tr>
+								</thead>
+
+								<tr>
+								<tbody>
+									<c:set var="ppp" value="${nearmedoglist}" />
+
+									<c:forEach var="xxx" items="${ppp}" varStatus="status">
+
+										<tr>
+											<td>${xxx.userid}</td>
+											<td><%-- <a href="BoardRetrieveServlet?num=${xxx.num}"> --%><%-- [${xxx.boardCategory}] --%>${xxx.p_kkcnumber}</td>
+											<td>${xxx.p_name}</td>
+											<td>${xxx.p_age}</td>
+											<td>${xxx.p_gender}</td>
+											<td>${xxx.p_type}</td>
+											<td>${xxx.addr1}</td>
+
+										</tr>
+
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</div> 
+
+
+					<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
@@ -528,5 +575,8 @@
 				<script src="assets/js/util.js"></script>
 				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 				<script src="assets/js/main.js"></script>
+
+			</section>
+		</div>
 </body>
 </html>

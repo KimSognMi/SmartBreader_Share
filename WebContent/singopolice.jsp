@@ -305,11 +305,11 @@
 			
 			
 				<input type="text" name="username" id="username" value="${abcd.username}"
-					placeholder="Name" />
+					placeholder="Name" readonly="readonly"/>
 			</div>
 			<div class="6u$ 12u$(xsmall)">
 				<input type="email" name="userid" id="userid" value="${abcd.userid}"
-					placeholder="Email" />
+					placeholder="Email" readonly="readonly" />
 			</div>
 			<!-- Break -->
 			<div class="12u$">

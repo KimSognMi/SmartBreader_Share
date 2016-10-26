@@ -19,6 +19,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.dto.MemberPetDTO" alias="MemberPetDTO" />
 		<typeAlias type="com.dto.NotifyDTO" alias="NotifyDTO" />
 		<typeAlias type="com.dto.RequestDTO" alias="RequestDTO" />
+		<typeAlias type="com.dto.MemberPetSearchDTO" alias="MemberPetSearchDTO" />
+		
 	</typeAliases>
   
 

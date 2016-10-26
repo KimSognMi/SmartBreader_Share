@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.dto.BoardDTO;
 import com.dto.MemberDTO;
 import com.dto.MemberPageDTO;
+import com.dto.MemberPetSearchDTO;
 import com.dto.PageDTO;
 import com.dto.PetDTO;
 import com.exception.CommonException;
@@ -37,7 +38,8 @@ public class PetSearchServlet extends HttpServlet {
 		System.out.println("petdto"+"-->"+petdto);
 		String target = "";
 		String title = "";
-		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+		ArrayList<MemberPetSearchDTO> list = new ArrayList<MemberPetSearchDTO>();
+		/*ArrayList<PetDTO> petlist = new ArrayList<PetDTO>();*/
 		// 수철 : 검색 사용시 searchId input tag name 쓰면 동작하게될 부분
 		String searchid = request.getParameter("searchId");
 		System.out.println("=========================="+searchid);
@@ -57,7 +59,7 @@ public class PetSearchServlet extends HttpServlet {
 				// 수철 : 사용자 기준 정보 토대로 주소의 6자리까지 잘라서 해당 기준으로 검색하여 맵에 표시
 				String keyword = myhome.getAddr1().substring(0,6);
 				System.out.println(keyword);
-				list = (ArrayList<MemberDTO>) service.memberListByCity(keyword);
+				list = (ArrayList<MemberPetSearchDTO>) service.memberListByCity(keyword);
 				
 				if(list.size()>0){
 					System.out.println("주변 사용자 수 : " + list.size());
@@ -68,7 +70,9 @@ public class PetSearchServlet extends HttpServlet {
 				}
 				System.out.println(">>>>>>" + searchhome);
 				request.setAttribute("nearmedog", myhome);
+				System.out.println("nearmedog"+myhome);
 				request.setAttribute("nearmeSdog", searchhome);
+				System.out.println("nearmeSdog"+searchhome);
 			} catch (CommonException e) {
 				String link = "LoginFormServlet";
 				target = "error.jsp";
