@@ -9,7 +9,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <script src="jquery-2.2.3.js"></script>
-<script>
+<script>  
 	function writesen(f) {
 		f.action = "BoardWriteUIServlet";
 	}
