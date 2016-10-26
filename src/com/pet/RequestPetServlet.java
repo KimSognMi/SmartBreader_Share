@@ -57,7 +57,7 @@ public class RequestPetServlet extends HttpServlet {
 		service.request(dto);
 		
 		System.out.println("과연과연"+dto);
-		
+		request.setAttribute("request", dto);
 		
 		
 		/*
