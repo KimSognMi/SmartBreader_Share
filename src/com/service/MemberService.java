@@ -1,6 +1,5 @@
 package com.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,14 +7,11 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
-import com.dto.BoardDTO;
 import com.dto.MemberDTO;
-import com.dto.MemberPageDTO;
 import com.dto.MemberPetDTO;
 import com.dto.MemberPetPageDTO;
 import com.dto.MemberPetSearchDTO;
-import com.dto.PageDTO;
-import com.dto.PetDTO;
+import com.dto.NoPetNoMapMemberDTO;
 import com.exception.CommonException;
 
 public class MemberService {
@@ -210,6 +206,15 @@ public class MemberService {
 		return dto;
 	}// end list()
 	
-	
+	public List<NoPetNoMapMemberDTO> nopetnomapmember(String keyword) {
+		List<NoPetNoMapMemberDTO> list = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			list = session.selectList("member.nopetnomapmember", keyword);
+		} finally {
+			session.close();
+		}
+		return list;
+	}// end list()
 	
 }

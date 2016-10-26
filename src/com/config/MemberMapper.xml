@@ -111,7 +111,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	
-	
+	<select id="nopetnomapmember" resultType="NoPetNoMapMemberDTO">
+		select p.p_num
+		from member m Left outer join pet p
+		on m.userid=p.userid
+	</select>
 	
 
 </mapper>
