@@ -15,5 +15,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from request
 		where userid = #{userid}
 	</select>
+	
+	
+<!-- <select id="requestlist" resultType="RequestDTO" parameterType="String">
+		select p.p_photo,r.agree
+		from pet p,request r
+		where r.p_num=p.p_num and p.userid = #{userid}
+	</select> -->
 
 </mapper>

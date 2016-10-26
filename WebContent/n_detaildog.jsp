@@ -284,10 +284,11 @@
 		<div type="hidden" name="p_birth" value="${petdetail.p_birth}"></div>
 		<div type="hidden" name="p_type" value="${petdetail.p_type}"></div>
 
-		<div>내용</div>
-		<textarea id="r_content" name="r_content" rows=10></textarea>
+	<div>내용</div>
+		<textarea id="r_content" name="r_content" rows=8></textarea>
+		<br>
 		
-		<button style="margin-left: 25%;" onClick="javascript:send()">신청하기</button>
+		<button style="margin-left: 16%;" onClick="javascript:send()">신청하기</button>
 		<button style="margin-left: 2%;" onClick="javascript:reset_close()">취소</button>
 		<br>
 	</form>
