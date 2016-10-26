@@ -238,11 +238,6 @@
 	width: 200px;
 	font-size: 70%;
 }
-
-#dogform {
-	 margin-left: -16%;
-
-}
 </style>
 <head>
 <title>Near Me Dog</title>
@@ -372,33 +367,15 @@
 
 					<!-- Content -->
 					<h2 id="content">근처 반려견을 검색하세요</h2>
-<<<<<<< HEAD
 
 					<div class="4u 12u$(small)">
-=======
-					<!-- <div class="4u 12u$(small)">
->>>>>>> branch 'master' of https://github.com/KimSognMi/SmartBreader_Share.git
 						<input type="radio" id="demo-priority-low" name="demo-priority"
 							checked> <label for="demo-priority-low">남</label>
 					</div>
 					<div class="4u 12u$(small)">
 						<input type="radio" id="demo-priority-normal" name="demo-priority">
 						<label for="demo-priority-normal">여</label>
-					</div> -->
-					
-					
-							<h4>성별</h4>
-							 <div id="dogform">
-							<input type="radio" id="남" name="p_gender" value="남" checked>
-                              	<label for="남"><h4>남(♂)</h4></label> &nbsp; &nbsp;
-                              	<input type="radio" id="여" name="p_gender" value="여">
-						<label for="여"><h4>여(♀)</h4></label>
-															</div>
-			        
-							<h4>종</h4>
-							
-		
-					
+					</div>
 					<div id="selectdog">
 						<select id="dog">
 							<option>말티즈</option>
