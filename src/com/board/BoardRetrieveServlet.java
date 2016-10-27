@@ -44,7 +44,7 @@ public class BoardRetrieveServlet extends HttpServlet {
 		String commentNum = request.getParameter("commentNum");
 	
 		
-		request.setAttribute("list", dto2);
+		request.setAttribute("commentlist", dto2);
 		
 		System.out.println("jaksdjflkajeijaf"+dto2);
 		

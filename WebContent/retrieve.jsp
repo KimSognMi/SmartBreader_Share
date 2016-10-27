@@ -327,7 +327,7 @@ h1 {
 							<div class="field2">
 								<c:set var="retrieve2" value="${retrieve2}" scope="session" />
 								<c:set var="retrieve" value="${retrieve}" scope="session" />
-								<c:set var="ppp" value="${list}" scope="session" />
+								<c:set var="ppp" value="${commentlist}" scope="session" />
 
 								<c:forEach var="xxx" items="${ppp}" varStatus="status">
 
