@@ -320,7 +320,7 @@
 				<div class="inner">
 					<header class="major">
 						<h1>신청현황</h1>
-						${request} 과연${requestlist}
+						<%-- ${request} 과연${requestlist} --%>
 					</header>
 
 					<h3>내 애견의 반려 신청 현황 입니다.</h3>
@@ -337,9 +337,9 @@
 								 <c:forEach var="c_pet" items="${ppp}" varStatus="status">
 
 										<tr>
-											
+										
 											<td><a href="MydogServlet?p_num=${c_pet.p_num}">${c_pet.p_name}</td>
-											
+											<td><img src="images/${c_pet.p_photo}" height="140px" width="250px"/></td>
 										</tr>
 									</c:forEach> 
 

@@ -68,8 +68,11 @@ public class RequestService {
 				MySqlSessionFactory.getSession();
 		try{
 		  list = session.selectList("request.requestlist2",userid);
+		  session.commit();
 		}finally {
+		
 			session.close();
+			
 		}
 		System.out.println("requestlist2"+list);
 		return list;
