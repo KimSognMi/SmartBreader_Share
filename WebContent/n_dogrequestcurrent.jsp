@@ -254,6 +254,7 @@
 		</header>
 
 		<!-- Menu -->
+		
 		<nav id="menu">
 			<%
 				MemberDTO dto = (MemberDTO) session.getAttribute("login");
@@ -319,6 +320,8 @@
 				<div class="inner">
 					<header class="major">
 						<h1>신청현황</h1>
+						${request}
+						과연${requestlist}
 					</header>
 
 					<h3>내 애견의 반려 신청 현황 입니다.</h3>
@@ -331,14 +334,14 @@
 							
 							<tbody>
 														
-								<c:forEach var="xxx" items="${requestlist}" varStatus="status">
+								<%-- <c:forEach var="xxx" items="${requestlist}" varStatus="status">
 
 										<tr>
 											
 											<td><a href="MydogServlet?p_num=${request.p_num}">${request.p_name}</td>
 											
 										</tr>
-									</c:forEach>
+									</c:forEach> --%>
 							</tbody>
 
 							<!-- </div> -->

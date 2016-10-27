@@ -256,10 +256,12 @@
 
 
 function send(f) {
+
 	/* f.action = "RequestPetServlet"; */
-	close();
 	f.action = "RequestPetServlet";
+	close();
 	
+	opener.location.href="n_dogrequestcurrent.jsp";
 	
 }
 	/*  function send() {
@@ -297,6 +299,7 @@ function send(f) {
 		<input type="text" name="p_age" id="p_age" value="${petdetail.p_age}"/>
 		<input type="text" name="p_feature" id="p_feature" value="${petdetail.p_feature}"/>
 		<input type="hidden" name="p_num" id="p_num" value="${petdetail.p_num}"/>
+		<input type="hidden" name="p_photo" id="p_photo" value="${petdetail.p_photo}"/>
 		
 		
 		
