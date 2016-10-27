@@ -31,7 +31,7 @@ public final class Result {
         credsProvider.setCredentials(
             new AuthScope(hostname, 443, AuthScope.ANY_REALM),
             new UsernamePasswordCredentials(Config.appid, Config.apikey)
-        );
+        );    
 
         // Create AuthCache instance
         AuthCache authCache = new BasicAuthCache();

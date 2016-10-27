@@ -6,3 +6,4 @@ public final class Config {
 	public static final String sender = "01089567652";
 	public static String receiver = "01087770624";
 }
+     

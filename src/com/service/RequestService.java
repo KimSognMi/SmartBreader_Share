@@ -62,6 +62,7 @@ public class RequestService {
 	
 	
 	public List<RequestPetDTO> requestlist2(String userid){
+		
 		List<RequestPetDTO> list = null;
 		SqlSession session = 
 				MySqlSessionFactory.getSession();

@@ -75,7 +75,7 @@
 						</ul>
 				
 				
-				 
+				       
 				</c:if>  
 			<%-- 	${sessionScope.list}  --%>
 						<c:if test="${login.userid!='adminkongju@naver.com'}">

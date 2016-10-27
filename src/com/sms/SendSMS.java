@@ -17,7 +17,7 @@ import org.apache.http.client.AuthCache;
 import org.apache.http.HttpHost;
 import org.apache.http.client.protocol.HttpClientContext;
 
-
+     
 
 /* XXX didn't use org.json to be simple
 import org.json.JSONObject; 

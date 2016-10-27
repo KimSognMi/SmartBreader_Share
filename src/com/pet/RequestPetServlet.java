@@ -50,7 +50,6 @@ public class RequestPetServlet extends HttpServlet {
 		System.out.println(p_age);
 		System.out.println(p_type);
 		System.out.println(p_gender);
-		System.out.println(p_photo);
 
 		RequestDTO dto = new RequestDTO();
 		RequestPetDTO dto2 = new RequestPetDTO();
@@ -68,7 +67,6 @@ public class RequestPetServlet extends HttpServlet {
 		dto2.setR_content(r_content);
 		dto2.setP_gender(p_gender);
 		dto2.setP_num(Integer.parseInt(p_num));
-		dto2.setP_photo(p_photo);
 
 		RequestService service = new RequestService();
 	/*	service.request(dto);
@@ -88,8 +86,8 @@ public class RequestPetServlet extends HttpServlet {
 			service.request(dto);
 			System.out.println("과연과연" + dto);
 			session.setAttribute("request", dto);
-			service.requestlist2(userid);
-			session.setAttribute("requestlist",dto2);
+			List<RequestPetDTO> xxx = service.requestlist2(userid);
+			session.setAttribute("requestlist",xxx);
 			System.out.println("사진"+dto2);
 			target = "n_dogrequestcurrent.jsp";
 		} catch (Exception e) {
