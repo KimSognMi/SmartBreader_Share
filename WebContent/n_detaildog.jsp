@@ -260,7 +260,7 @@ function send(f) {
 	/* f.action = "RequestPetServlet"; */
 	f.action = "RequestPetServlet";
 	close();
-	
+	////////////////////////////SendSMS자바 파일 함수로 호출하기!!!!
 	opener.location.href="n_dogrequestcurrent.jsp";
 	
 }

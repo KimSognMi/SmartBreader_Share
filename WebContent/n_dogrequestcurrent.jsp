@@ -330,33 +330,19 @@
 						<table border="1">
 
 							<!-- <div class="field2"> -->
-<<<<<<< HEAD
+
 							
 							<tbody>
 											<c:set var="ppp" value="${requestlist}" scope="session" />			
-								 <c:forEach var="c_pet" items="${ppp.list}" varStatus="status">
-=======
->>>>>>> branch 'master' of https://github.com/KimSognMi/SmartBreader_Share.git
+								 <c:forEach var="c_pet" items="${ppp}" varStatus="status">
 
-<<<<<<< HEAD
 										<tr>
 											
 											<td><a href="MydogServlet?p_num=${c_pet.p_num}">${c_pet.p_name}</td>
 											
 										</tr>
 									</c:forEach> 
-=======
-							<tbody>
-								<c:set var="ppp" value="${requestlist}" scope="session" />
-								<c:forEach var="xxx" items="${ppp}" varStatus="status">
 
-									<tr>
-
-										<td><a href="MydogServlet?p_num=${xxx.p_num}">${xxx.p_name}</td>
-
-									</tr>
-								</c:forEach> 
->>>>>>> branch 'master' of https://github.com/KimSognMi/SmartBreader_Share.git
 							</tbody>
 
 							<!-- </div> -->
