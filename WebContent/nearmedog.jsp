@@ -410,7 +410,7 @@
 					<hr class="major" />
 
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=0ffb9996bae71cc689478ff216dc130f&libraries=services"></script>
 					<script>
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {

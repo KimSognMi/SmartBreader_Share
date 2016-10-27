@@ -261,7 +261,7 @@ function send(f) {
 	f.action = "RequestPetServlet";
 	close();
 	////////////////////////////SendSMS자바 파일 함수로 호출하기!!!!
-	opener.location.href="n_dogrequestcurrent.jsp";
+	opener.location.href="RequestPetListServlet?requestid="+'${login.userid}';
 	
 }
 	/*  function send() {
@@ -300,7 +300,7 @@ function send(f) {
 		<input type="text" name="p_feature" id="p_feature" value="${petdetail.p_feature}"/>
 		<input type="hidden" name="p_num" id="p_num" value="${petdetail.p_num}"/>
 		<input type="hidden" name="p_photo" id="p_photo" value="${petdetail.p_photo}"/>
-		
+		<input type="text" name="requestid" id="requestid" value="${login.requestid}"/>
 		
 		
 		<%-- <div type="hidden" id="userid" name="userid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div> --%>

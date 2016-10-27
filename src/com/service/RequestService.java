@@ -61,13 +61,13 @@ public class RequestService {
 	}//end list()
 	
 	
-	public List<RequestPetDTO> requestlist2(String userid){
+	public List<RequestPetDTO> requestlist2(String requestid){
 		
 		List<RequestPetDTO> list = null;
 		SqlSession session = 
 				MySqlSessionFactory.getSession();
 		try{
-		  list = session.selectList("request.requestlist2",userid);
+		  list = session.selectList("request.requestlist2",requestid);
 		  session.commit();
 		}finally {
 		

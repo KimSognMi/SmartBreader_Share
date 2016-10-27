@@ -327,27 +327,30 @@
 
 
 					<div class="table-wrapper">
+					<!-- <div class="field half"> -->
 						<table border="1">
-
-							<!-- <div class="field2"> -->
-
-							
 							<tbody>
 											<c:set var="ppp" value="${requestlist}" scope="session" />			
 								 <c:forEach var="c_pet" items="${ppp}" varStatus="status">
 
 										<tr>
+										<th><img src="images/${c_pet.p_photo}" height="240px" width="350px"></th>
 										
-											<td><a href="MydogServlet?p_num=${c_pet.p_num}">${c_pet.p_name}</td>
-											<td><img src="images/${c_pet.p_photo}" height="140px" width="250px"/></td>
+									 
+								 		</tr>
+									
+										<tr>
+											
+											<th><a href="MydogServlet?p_num=${c_pet.p_num}">${c_pet.p_name}</th>
+											
 										</tr>
 									</c:forEach> 
 
 							</tbody>
 
-							<!-- </div> -->
+							
 						</table>
-
+<!--  </div> -->
 					</div>
 
 					<!-- Footer -->
