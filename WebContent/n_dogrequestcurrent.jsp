@@ -333,15 +333,15 @@
 							<!-- <div class="field2"> -->
 							
 							<tbody>
-														
-								<%-- <c:forEach var="xxx" items="${requestlist}" varStatus="status">
+											<c:set var="ppp" value="${requestlist}" scope="session" />			
+								 <c:forEach var="c_pet" items="${ppp.list}" varStatus="status">
 
 										<tr>
 											
-											<td><a href="MydogServlet?p_num=${request.p_num}">${request.p_name}</td>
+											<td><a href="MydogServlet?p_num=${c_pet.p_num}">${c_pet.p_name}</td>
 											
 										</tr>
-									</c:forEach> --%>
+									</c:forEach> 
 							</tbody>
 
 							<!-- </div> -->

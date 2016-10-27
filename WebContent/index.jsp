@@ -92,6 +92,7 @@
 					</ul>
 					<ul class="actions vertical">
 						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+						<!-- <li><a href="n_dogrequestcurrent.jsp" class="button special fit">신청현황</a></li> -->
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul> 
