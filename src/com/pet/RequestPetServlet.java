@@ -41,6 +41,7 @@ public class RequestPetServlet extends HttpServlet {
 		String p_type = request.getParameter("p_type");
 		String p_gender = request.getParameter("p_gender");
 		String p_photo = request.getParameter("p_photo");
+		String requestid = request.getParameter("requestid");
 
 		System.out.println(userid);
 		System.out.println(p_num);
@@ -58,6 +59,7 @@ public class RequestPetServlet extends HttpServlet {
 		dto.setR_content(r_content);
 		dto.setUserid(userid);
 		dto.setAgree(agree);
+		dto.setRequestid(requestid);
 		
 		dto2.setAgree(agree);
 		dto2.setUserid(userid);
@@ -67,6 +69,7 @@ public class RequestPetServlet extends HttpServlet {
 		dto2.setR_content(r_content);
 		dto2.setP_gender(p_gender);
 		dto2.setP_num(Integer.parseInt(p_num));
+		
 
 		RequestService service = new RequestService();
 	/*	service.request(dto);
@@ -86,10 +89,13 @@ public class RequestPetServlet extends HttpServlet {
 			service.request(dto);
 			System.out.println("과연과연" + dto);
 			session.setAttribute("request", dto);
-			List<RequestPetDTO> xxx = service.requestlist2(userid);
+			System.out.println(requestid);
+			List<RequestPetDTO> xxx = service.requestlist2(requestid);
+			System.out.println("이거가requestlist"+ xxx);
 			session.setAttribute("requestlist",xxx);
+			
 			System.out.println("사진"+dto2);
-			target = "n_dogrequestcurrent.jsp";
+			target = "RequestPetListServlet";
 		} catch (Exception e) {
 			title = e.getMessage();
 			String link = "MemberFormServlet";

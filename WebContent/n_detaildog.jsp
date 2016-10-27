@@ -257,8 +257,11 @@
 
 function send(f) {
 
-	/* f.action = "RequestPetServlet"; */
-	f.action = "RequestPetServlet";
+	alert("몇번호출?");
+
+	f.action ="RequestPetServlet";
+	
+	//f.submit();
 	close();
 	////////////////////////////SendSMS자바 파일 함수로 호출하기!!!!
 	opener.location.href="RequestPetListServlet?requestid="+'${login.userid}';

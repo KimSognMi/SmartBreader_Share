@@ -26,13 +26,13 @@ public class RequestPetListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+System.out.println("dddddddd");
 		HttpSession session = request.getSession();
 		List<RequestPetDTO> xxx  =
 				(List<RequestPetDTO>)session.getAttribute("requestlist");
 		 String title="";
 		 String target="";
-		 System.out.println("이게뭐야8"+xxx);
+		 System.out.println("이게뭐야8PetListServlet    "+xxx);
 		if(xxx==null){
 			title= "로그인 하세요";
 			String link="LoginFormServlet";
@@ -55,7 +55,7 @@ public class RequestPetListServlet extends HttpServlet {
 		List<RequestDTO> dtolist = service.requestlist(dto.getUserid());*/
 
 
-		RequestDispatcher dis = request.getRequestDispatcher("n_dogrequestcurrent.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher(target);
 		dis.forward(request, response);
 	}
 

@@ -327,7 +327,7 @@
 
 
 					<div class="table-wrapper">
-					<!-- <div class="field half"> -->
+					
 						<table border="1">
 							<tbody>
 											<c:set var="ppp" value="${requestlist}" scope="session" />			
@@ -350,12 +350,12 @@
 
 							
 						</table>
-<!--  </div> -->
 
-<div class="row">
+
+<!-- <div class="row">
 											<div class="6u 12u$(small)">
-												<!-- <h3>Sem turpis amet semper</h3>
-												<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat commodo eu sed ante lacinia. Sapien a lorem in integer ornare praesent commodo adipiscing arcu in massa commodo lorem accumsan at odio massa ac ac. Semper adipiscing varius montes viverra nibh in adipiscing blandit tempus accumsan.</p> -->
+												<h3>Sem turpis amet semper</h3>
+												<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat commodo eu sed ante lacinia. Sapien a lorem in integer ornare praesent commodo adipiscing arcu in massa commodo lorem accumsan at odio massa ac ac. Semper adipiscing varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
 												
 
 										
@@ -366,7 +366,7 @@
 													<img src="images/ee.jpg" height="240px" width="350px">
 											</div>
 											
-										</div>
+										</div> -->
 					</div>
 <hr>
 					<!-- Footer -->
