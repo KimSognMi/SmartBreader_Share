@@ -256,9 +256,11 @@
 
 
 function send(f) {
-	f.action = "RequestPetServlet";
-	//opener.document.location.href = "RequestPetServlet";
+	/* f.action = "RequestPetServlet"; */
 	close();
+	f.action = "RequestPetServlet";
+	
+	
 }
 	/*  function send() {
 		/* var txt = document.getElementById("r_content").value;
