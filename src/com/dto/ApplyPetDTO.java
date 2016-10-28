@@ -14,13 +14,15 @@ public class ApplyPetDTO {
 	private String phone;
 	private String p_feature;
 
+	private int r_num;
+
 	public ApplyPetDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public ApplyPetDTO(String p_kkcnumber, String p_name, int p_age, String p_gender, String p_type, String r_content,
-			String agree, int p_num, String p_photo, String phone, String p_feature) {
+			String agree, int p_num, String p_photo, String phone, String p_feature, int r_num) {
 		super();
 		this.p_kkcnumber = p_kkcnumber;
 		this.p_name = p_name;
@@ -33,13 +35,7 @@ public class ApplyPetDTO {
 		this.p_photo = p_photo;
 		this.phone = phone;
 		this.p_feature = p_feature;
-	}
-
-	@Override
-	public String toString() {
-		return "ApplyPetDTO [p_kkcnumber=" + p_kkcnumber + ", p_name=" + p_name + ", p_age=" + p_age + ", p_gender="
-				+ p_gender + ", p_type=" + p_type + ", r_content=" + r_content + ", agree=" + agree + ", p_num=" + p_num
-				+ ", p_photo=" + p_photo + ", phone=" + phone + ", p_feature=" + p_feature + "]";
+		this.r_num = r_num;
 	}
 
 	public String getP_kkcnumber() {
@@ -129,5 +125,22 @@ public class ApplyPetDTO {
 	public void setP_feature(String p_feature) {
 		this.p_feature = p_feature;
 	}
+
+	public int getR_num() {
+		return r_num;
+	}
+
+	public void setR_num(int r_num) {
+		this.r_num = r_num;
+	}
+
+	@Override
+	public String toString() {
+		return "ApplyPetDTO [p_kkcnumber=" + p_kkcnumber + ", p_name=" + p_name + ", p_age=" + p_age + ", p_gender="
+				+ p_gender + ", p_type=" + p_type + ", r_content=" + r_content + ", agree=" + agree + ", p_num=" + p_num
+				+ ", p_photo=" + p_photo + ", phone=" + phone + ", p_feature=" + p_feature + ", r_num=" + r_num + "]";
+	}
+	
+	
 
 }

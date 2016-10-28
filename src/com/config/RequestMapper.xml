@@ -10,16 +10,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 <select id="requestlist2" resultType="RequestPetDTO" parameterType="String">
-		select p.userid, p.p_name,p.p_age,p.p_gender,p.p_type,r_content,p.p_num,p.p_photo,r.agree,p_photo,requestid,m.phone
+		select r_num,p.userid, p.p_name,p.p_age,p.p_gender,p.p_type,r_content,p.p_num,p.p_photo,r.agree,p_photo,requestid,m.phone
 		from pet p,request r, member m
 		where r.p_num=p.p_num and p.userid = m.userid and requestid = #{requestid}
 	</select>
 
 <select resultType="ApplyPetDTO" parameterType="string" id="mypage">
 		select
-		p.p_num,p_kkcnumber,p_name,p_age,p_gender,p_type,p_photo,p_feature,agree,r_content,phone
+		r.r_num,p.p_num,p_kkcnumber,p_name,p_age,p_gender,p_type,p_photo,p_feature,agree,r_content,phone
 		from pet p ,request r ,member m
-    where p.p_num=r.p_num and m.userid=p.userid and p.p_num = #{p_num}
+    where p.p_num=r.p_num and m.userid=p.userid and r.r_num = #{r_num}
 	</select> 
 
 </mapper>

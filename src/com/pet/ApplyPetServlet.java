@@ -35,16 +35,16 @@ public class ApplyPetServlet extends HttpServlet {
 			String target="";
 			String title="";
 			
-			String p_num = request.getParameter("p_num");
+			String r_num = request.getParameter("r_num");
 			
-			System.out.println(p_num);
+			System.out.println(r_num);
 			if(dto!=null){
 				target="applypet.jsp";
 				
 			
 				RequestService service = new RequestService();
 				try {
-					ApplyPetDTO my = service.mypage(p_num);
+					ApplyPetDTO my = service.mypage(r_num);
 					System.out.println(">>>>>>"+my);
 					request.setAttribute("mydog", my);
 				} catch (PetException e) {

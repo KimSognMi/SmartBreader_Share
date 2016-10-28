@@ -14,11 +14,11 @@ import com.exception.PetException;
 
 public class RequestService {
 
-	public ApplyPetDTO mypage(String p_num) throws PetException {
+	public ApplyPetDTO mypage(String r_num) throws PetException {
 		ApplyPetDTO dto = null;
 		SqlSession session = MySqlSessionFactory.getSession();
 		try {
-			dto = session.selectOne("request.mypage", p_num);
+			dto = session.selectOne("request.mypage", r_num);
 			System.out.println(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
