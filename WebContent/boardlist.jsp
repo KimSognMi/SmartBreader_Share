@@ -138,7 +138,7 @@
 							<input type="radio" id="demo-priority-normal"
 								name="order" onclick="SearchJ(form)" > <label
 								for="demo-priority-normal">질문글</label> <input type="radio"
-								id="demo-priority" name="order" onclick="SearchAll(form)" value="모든글" <%-- <% if("모든글".equals(phone1)){ %>checked<% } %> --%>> <label
+								id="demo-priority" name="order" onclick="SearchAll(form)" value="모든글" <% if("모든글".equals("모든글")){ %>checked<% } %>> <label
 								for="demo-priority">모든글</label>
 
 

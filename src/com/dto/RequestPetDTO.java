@@ -13,12 +13,13 @@ public class RequestPetDTO {
 	private String agree;
 	private int p_num;
 	private String p_photo;
+	private String phone;
 	public RequestPetDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public RequestPetDTO(String userid, String p_name, int p_age, String p_gender, String p_type, String r_content,
-			int r_num, String agree, int p_num, String p_photo) {
+			int r_num, String agree, int p_num, String p_photo, String phone) {
 		super();
 		this.userid = userid;
 		this.p_name = p_name;
@@ -30,6 +31,13 @@ public class RequestPetDTO {
 		this.agree = agree;
 		this.p_num = p_num;
 		this.p_photo = p_photo;
+		this.phone = phone;
+	}
+	@Override
+	public String toString() {
+		return "RequestPetDTO [userid=" + userid + ", p_name=" + p_name + ", p_age=" + p_age + ", p_gender=" + p_gender
+				+ ", p_type=" + p_type + ", r_content=" + r_content + ", r_num=" + r_num + ", agree=" + agree
+				+ ", p_num=" + p_num + ", p_photo=" + p_photo + ", phone=" + phone + "]";
 	}
 	public String getUserid() {
 		return userid;
@@ -91,12 +99,14 @@ public class RequestPetDTO {
 	public void setP_photo(String p_photo) {
 		this.p_photo = p_photo;
 	}
-	@Override
-	public String toString() {
-		return "RequestPetDTO [userid=" + userid + ", p_name=" + p_name + ", p_age=" + p_age + ", p_gender=" + p_gender
-				+ ", p_type=" + p_type + ", r_content=" + r_content + ", r_num=" + r_num + ", agree=" + agree
-				+ ", p_num=" + p_num + ", p_photo=" + p_photo + "]";
+	public String getPhone() {
+		return phone;
 	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	
 	
 	
 	

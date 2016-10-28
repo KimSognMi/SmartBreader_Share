@@ -312,6 +312,7 @@ function send(f) {
 		<input type="hidden" name="p_birth" value="${petdetail.p_birth}"/>
 		<input type="hidden" name="p_type" value="${petdetail.p_type}"/>
 		<input type="hidden" name="agree" id="agree" value="대기중"/>
+		<input type="hidden" name="phone" id="phone" value="${mypage.phone}"/>
 		
 
 	<div>내용</div>

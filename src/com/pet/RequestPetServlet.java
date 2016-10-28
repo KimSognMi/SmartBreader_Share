@@ -42,6 +42,7 @@ public class RequestPetServlet extends HttpServlet {
 		String p_gender = request.getParameter("p_gender");
 		String p_photo = request.getParameter("p_photo");
 		String requestid = request.getParameter("requestid");
+		String phone = request.getParameter("phone");
 
 		System.out.println(userid);
 		System.out.println(p_num);
@@ -51,6 +52,7 @@ public class RequestPetServlet extends HttpServlet {
 		System.out.println(p_age);
 		System.out.println(p_type);
 		System.out.println(p_gender);
+		System.out.println(phone);
 
 		RequestDTO dto = new RequestDTO();
 		RequestPetDTO dto2 = new RequestPetDTO();
@@ -69,6 +71,7 @@ public class RequestPetServlet extends HttpServlet {
 		dto2.setR_content(r_content);
 		dto2.setP_gender(p_gender);
 		dto2.setP_num(Integer.parseInt(p_num));
+		dto2.setPhone(phone);
 		
 
 		RequestService service = new RequestService();
