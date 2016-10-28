@@ -337,7 +337,7 @@
 									
 										<img src="images/${c_pet.p_photo}" height="240px" width="350px">
 										  <br>
-									 <a href="MydogServlet?p_num=${c_pet.p_num}">${c_pet.agree}</a>
+									 <a href="ApplyPetServlet?p_num=${c_pet.p_num}">${c_pet.agree}</a>
 					<br>
 											
 										

@@ -22,7 +22,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.dto.MemberPetSearchDTO" alias="MemberPetSearchDTO" />
 		<typeAlias type="com.dto.NoPetNoMapMemberDTO" alias="NoPetNoMapMemberDTO" />
 		<typeAlias type="com.dto.RequestPetDTO" alias="RequestPetDTO" />
-		
+			<typeAlias type="com.dto.ApplyPetDTO" alias="ApplyPetDTO" />
+		   
 	</typeAliases>
   
 

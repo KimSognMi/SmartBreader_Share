@@ -11,18 +11,15 @@
 
 <script type="text/javascript">
 	function photo() {
-	var photo2 = document.getElementById("imagePreview2");
-	console.log('${mydog.p_photo}');
-	
-	/* photo2.style.width = "450px";
-	photo2.style.height = "340px";  */
-		 photo2.innerHTML = "<img height='340px' width='620px' src='images/"+'${mydog.p_photo}'+"' />";
+		var photo2 = document.getElementById("imagePreview2");
+		console.log('${mydog.p_photo}');
+		
+		/* photo2.style.width = "450px";
+		photo2.style.height = "340px";  */
+			 photo2.innerHTML = "<input type='image' height='340px' width='620px' src='images/"+'${mydog.p_photo}'+"' onclick=''/>";
 
-	}
+		}
 	
-	function remove(){
-		${'imagePreview2'}.remove();
-	}
 </script>
 
 <script type="text/javascript" src="assets/js/jquery-3.1.0.js"></script>
@@ -118,15 +115,22 @@
 				<form name="myForm" method="post" action="PetUpdateServlet"
 					enctype="multipart/form-data">
 
-					<form name="myForm" method="get" action="PetUpdateServlet"
-						enctype="multipart/form-data">
-
 						<!-- <article class="container"> -->
 						<div class="col-md-6 col-md-offset-3">
 
 
 							<input type="hidden" name="p_num" id="p_num"
-								value="${mydog.p_num}">
+								value="${mydog.p_num}">${mydog.p_num}
+								
+								<div class="field2">
+								<br>
+							
+								<div id="imagePreview2"></div>
+					
+
+							</div>
+							
+							
 							<div class="field2">
 								<h5>kkc 등록번호</h5>
 								<input type="text" class="form-control"
@@ -179,14 +183,7 @@
 
 								</div>
 							</div>
-							<div class="field3 ">
-								<!-- <label for="passwd2">비밀번호 확인</label> -->
-								<h5>
-									생일</span>
-								</h5>
-								<input type="text" class="form-control" name="p_birth"
-									id="p_birth" placeholder="생일" value="${mydog.p_birth}">
-							</div>
+						
 							<div class="field3">
 								<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
 								<h5>종</h5>
@@ -198,55 +195,19 @@
 								<textarea name="p_feature" id="p_feature"
 									placeholder="특징을 입력 해 주세요" rows="5">${mydog.p_feature}</textarea>
 							</div>
+							<br>
+<center>
+					<h1>${mydog.agree}</h1></center>
 
-							<div class="field2">
-								<h5>사진</h5>
-
-								<input id="image" type="file" name="theFile"
-									onchange="InputImage();" onclick="remove()"><br> <br>
-
-								<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
-							<div id="imagePreview"  src="<c:out value="${imageURL}"/>" /> --%>
-								<!-- <a href="javascript:photo()">d</a> -->
-								<div id="imagePreview2"></div>
-								<div id="imagePreview"></div>
-
-								<br>
-
-							</div>
-
-							<div class="field3 ">
-								<!-- <label for="passwd2">비밀번호 확인</label> -->
-								<h5>
-									모견 KKCNumber</span>
-								</h5>
-								
-								<input type="text" class="form-control" name="mom_kkc"
-									id="mom_kkc" placeholder="모견 KKCNumber" value="${mydog.mom_kkc}">
-
-							</div>
-
-							<div class="field3 ">
-								<!-- <label for="passwd2">비밀번호 확인</label> -->
-								<h5>
-									부견 KKCNumber</span>
-								</h5>
-								<input type="text" class="form-control" name="papa_kkc"
-									id="papa_kkc" placeholder="부견 KKCNumber" value="${mydog.papa_kkc}" >
-
-							</div>
 						</div>
 
-						<br>
 
 						<div class="field2">
 							<div class="col-md-3"></div>
 							<div class="col-md-1"></div>
 							<ul class="actions">
 								<center>
-									<input type="submit" value="수정">
-									&nbsp;&nbsp;&nbsp;&nbsp;
-									<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
+									<button class="special" onclick="PetdeleteBoard(myForm)">취소</button>
 								</center>
 							</ul>
 

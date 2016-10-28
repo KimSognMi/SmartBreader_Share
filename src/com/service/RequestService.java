@@ -5,32 +5,29 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
+import com.dto.ApplyPetDTO;
 import com.dto.BoardDTO;
 import com.dto.PetDTO;
 import com.dto.RequestDTO;
 import com.dto.RequestPetDTO;
+import com.exception.PetException;
 
 public class RequestService {
 
-/*	
-	
-	//글자세히 보기
-	public BoardDTO retrieve(String num){
-		//조회수 증가
-		readCnt(num);
-		SqlSession session = 
-				MySqlSessionFactory.getSession();
-		BoardDTO dto = null;
-		try{
-		  dto = 
-	 session.selectOne("myboard.retrieve", Integer.parseInt(num));
-		}finally {
+	public ApplyPetDTO mypage(String p_num) throws PetException {
+		ApplyPetDTO dto = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			dto = session.selectOne("request.mypage", p_num);
+			System.out.println(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new PetException("mypage 실패");
+		} finally {
 			session.close();
 		}
 		return dto;
-	}//end 
-	
-	*/
+	}
 	
 	
 	//
@@ -78,18 +75,6 @@ public class RequestService {
 		return list;
 	}//end list()
 	
-	/*//목록보기
-	public List<BoardDTO> list(){
-		List<BoardDTO> list = null;
-		SqlSession session = 
-				MySqlSessionFactory.getSession();
-		try{
-		  list = session.selectList("myboard.list");
-		}finally {
-			session.close();
-		}
-		return list;
-	}//end list()
-*/	
+	
 	
 }//end 
