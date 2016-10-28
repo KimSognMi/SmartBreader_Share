@@ -34,7 +34,7 @@ System.out.println("dddddddd");
 		 String target="";
 		 System.out.println("이게뭐야8PetListServlet    "+xxx); /////두번찍힘
 		if(xxx==null){
-			title= "로그인 하세요";
+			title= "신청현황 보기 실패";
 			String link="LoginFormServlet";
 			target="error.jsp";
 			request.setAttribute("title", title);
