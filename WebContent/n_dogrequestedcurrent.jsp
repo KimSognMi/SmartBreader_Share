@@ -4,18 +4,6 @@
 	pageEncoding="UTF-8"%>
 
 <!DOCTYPE HTML>
-<script>
-	function Request(f) {
-		alert("내가신청");
-		f.action = "RequestPetListServlet?requestid="+${login.userid};
-		f.submit();
-	}
-	function Requested(f) {
-		alert("나를신청");
-		f.action = "AnswerPetListServlet?userid="+${login.userid};
-		f.submit();
-	}
-</script>
 
 <html>
 
@@ -252,7 +240,6 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 
-
 <body>
 
 	<!-- Wrapper -->
@@ -337,42 +324,34 @@
 					</header>
 
 					<h3>내 애견의 반려 신청 현황 입니다.</h3>
-					<form method="post" name="form">
 
-						<input type="radio" id="demo-priority-normal" name="내가 신청"onclick="Request(form)" name="order"> 
-						<label for="demo-priority-normal">내가 신청</label> 
-						<input type="radio"id="demo-priority" name="order" onclick="Requested(form)"value="나를 신청">
-						<label for="demo-priority">나를 신청</label>
-					</form>
-
-					<!-- 모양잡기 -->
-					<div class="table-wrapper">
-
+<!-- 모양잡기 -->
+				<div class="table-wrapper">
+					
 						<table border="1">
+					
+							<tr><td>
+											<c:set var="ppp" value="${answerList}" scope="session" />			
+								 <c:forEach var="a_pet" items="${ppp}" varStatus="status">
 
-							<tr>
-								<td><c:set var="ppp" value="${requestlist}" scope="session" />
-									<c:forEach var="c_pet" items="${ppp}" varStatus="status">
+									
+										<img src="images/${a_pet.p_photo}" height="240px" width="350px">
+										  <br>
+									 <a href="ApplyPetServlet?r_num=${a_pet.r_num}">${a_pet.agree}</a>
+					<br>
+											
+										
+									</c:forEach> 
+
+						</td></tr>
+
+							
+						</table> 
+
+</div> 
 
 
-										<img src="images/${c_pet.p_photo}" height="240px"
-											width="350px">
-										<br>
-										<a href="ApplyPetServlet?r_num=${c_pet.r_num}">${c_pet.agree}</a>
-										<br>
-
-
-									</c:forEach></td>
-							</tr>
-
-
-						</table>
-
-					</div>
-
-
-					<!-- <div class="row"> -->
-					<%-- <div class="box alt">
+<!-- <div class="row"> -->	<%-- <div class="box alt">
 <c:set var="ppp" value="${requestlist}" scope="session" />			
 								 <c:forEach var="c_pet" items="${ppp}" varStatus="status">
 											<div class="6u 12u$(small)">
@@ -399,42 +378,48 @@
 											
 											
 											</c:forEach> --%>
+											
+										
+</div>
+										
+					
+					
+					
+					
+					
+					</div>
+<hr>
+					<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-twitter"><span
+										class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon alt fa-facebook"><span
+										class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon alt fa-instagram"><span
+										class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon alt fa-github"><span
+										class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span
+										class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li>
+								<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 
-
+							</ul>
+						</div>
+					</footer>
 				</div>
-		</div>
-		<hr>
-		<!-- Footer -->
-		<footer id="footer">
-			<div class="inner">
-				<ul class="icons">
-					<li><a href="#" class="icon alt fa-twitter"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon alt fa-facebook"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon alt fa-github"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon alt fa-linkedin"><span
-							class="label">LinkedIn</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 
-				</ul>
-			</div>
-		</footer>
-	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.scrolly.min.js"></script>
+				<script src="assets/js/jquery.scrollex.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+				<script src="assets/js/main.js"></script>
 </body>
 </html>

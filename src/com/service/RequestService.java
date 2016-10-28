@@ -75,6 +75,24 @@ public class RequestService {
 		return list;
 	}//end list()
 	
+	
+public List<RequestPetDTO> answer(String userid){
+		
+		List<RequestPetDTO> list = null;
+		SqlSession session = 
+				MySqlSessionFactory.getSession();
+		try{
+		  list = session.selectList("request.answer",userid);
+		  session.commit();
+		}finally {
+		
+			session.close();
+			
+		}
+		System.out.println("answer"+list);
+		return list;
+	}//end list()
+	
 
 	public void delete(String r_num) throws PetException {
 		SqlSession session = MySqlSessionFactory.getSession();
