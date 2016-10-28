@@ -21,5 +21,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from pet p ,request r ,member m
     where p.p_num=r.p_num and m.userid=p.userid and r.r_num = #{r_num}
 	</select> 
+	
+	
+	<delete id="delete" parameterType="string">
+		delete from request
+		where r_num = #{r_num}
+	</delete>
 
 </mapper>

@@ -36,9 +36,9 @@
 <script>
 
 
-	function PetdeleteBoard(f) {
+	function RequestdeleteBoard(f) {
 		/* f.action = "MyPetListServlet?userid=${login.userid}"; */
-		f.action = "PetDeleteServlet?userid=${login.userid}&p_num=${mydog.p_num}";
+		f.action = "RequestDeleteServlet?r_num=${mydog.r_num}&requestid=${login.userid}";
 
 	}
 </script>
@@ -207,7 +207,7 @@
 							<div class="col-md-1"></div>
 							<ul class="actions">
 								<center>
-									<button class="special" onclick="PetdeleteBoard(myForm)">취소</button>
+									<button class="special" onclick="RequestdeleteBoard(myForm)">취소</button>
 								</center>
 							</ul>
 
