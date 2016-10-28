@@ -325,49 +325,68 @@
 
 					<h3>내 애견의 반려 신청 현황 입니다.</h3>
 
-
-					<div class="table-wrapper">
+<!-- 모양잡기 -->
+				<div class="table-wrapper">
 					
 						<table border="1">
 					
-							<tbody>
+							<tr><td>
 											<c:set var="ppp" value="${requestlist}" scope="session" />			
 								 <c:forEach var="c_pet" items="${ppp}" varStatus="status">
 
-										<tr>
-										<th ><img src="images/${c_pet.p_photo}" height="240px" width="350px"></th>
-										
-									 
-								 		</tr>
 									
-										<tr>
+										<img src="images/${c_pet.p_photo}" height="240px" width="350px">
+										  <br>
+									 <a href="MydogServlet?p_num=${c_pet.p_num}">${c_pet.agree}</a>
+					<br>
 											
-											<th><a href="MydogServlet?p_num=${c_pet.p_num}">${c_pet.p_name}</th>
-											
-										</tr>
+										
 									</c:forEach> 
 
-							</tbody>
+						</td></tr>
 
 							
-						</table>
+						</table> 
+
+</div> 
 
 
-<!-- <div class="row">
+<!-- <div class="row"> -->	<%-- <div class="box alt">
+<c:set var="ppp" value="${requestlist}" scope="session" />			
+								 <c:forEach var="c_pet" items="${ppp}" varStatus="status">
 											<div class="6u 12u$(small)">
-												<h3>Sem turpis amet semper</h3>
-												<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat commodo eu sed ante lacinia. Sapien a lorem in integer ornare praesent commodo adipiscing arcu in massa commodo lorem accumsan at odio massa ac ac. Semper adipiscing varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+											
+												<img src="images/${c_pet.p_photo}" height="240px" width="350px">
 												
 
-										
-										<img src="images/oo.jpg" height="240px" width="350px">
-									
 											</div>
 											<div class="6u$ 12u$(small)">
-													<img src="images/ee.jpg" height="240px" width="350px">
+													<img src="images/${c_pet.p_photo}" height="240px" width="350px">
 											</div>
 											
-										</div> -->
+											
+										
+														<div class="row 50% uniform">
+															<div class="4u"><span class="image fit"><img src="images/${c_pet.p_photo}" height="240px" width="350px"></span></div>
+															<div class="4u"><span class="image fit"><img src="images/${c_pet.p_photo}" height="240px" width="350px"></span></div>
+ 															<div class="4u$"><span class="image fit"><img src="images/pic10.jpg" alt="" /></span></div>
+															
+															
+														</div>
+												
+											
+											
+											
+											</c:forEach> --%>
+											
+										
+</div>
+										
+					
+					
+					
+					
+					
 					</div>
 <hr>
 					<!-- Footer -->
