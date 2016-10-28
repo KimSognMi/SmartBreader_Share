@@ -409,7 +409,7 @@
 					<hr class="major" />
 					<div id="result"></div>
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=43fb1a6f7e59bcaf82d5e5992e600120&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
 					<script>
 					
 					var gender_value = '';
