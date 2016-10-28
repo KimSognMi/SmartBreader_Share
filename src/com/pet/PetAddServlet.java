@@ -146,8 +146,11 @@ public class PetAddServlet extends HttpServlet {
 			            	dto.setP_type(fi.getString("UTF-8"));
 			            }else if("p_feature".equals(fi.getFieldName())){
 			            	dto.setP_feature(fi.getString("UTF-8"));
-			            } 
-			            
+			            }else if("mom_kkc".equals(fi.getFieldName())){
+			            	dto.setMom_kkc(fi.getString("UTF-8")); 
+			            }else if("papa_kkc".equals(fi.getFieldName())){
+			            	dto.setPapa_kkc(fi.getString("UTF-8")); 
+			            }
 			         
 			          }
 			        }//end while

@@ -114,125 +114,147 @@
 
 		<div id="main">
 			<section id="two">
- <!-- ㅊㄷ -->
-				<form name="myForm" method="post" action="PetUpdateServlet" enctype="multipart/form-data">
-
-				<form name="myForm" method="get" action="PetUpdateServlet"
+				<!-- ㅊㄷ -->
+				<form name="myForm" method="post" action="PetUpdateServlet"
 					enctype="multipart/form-data">
 
-					<!-- <article class="container"> -->
-					<div class="col-md-6 col-md-offset-3">
+					<form name="myForm" method="get" action="PetUpdateServlet"
+						enctype="multipart/form-data">
+
+						<!-- <article class="container"> -->
+						<div class="col-md-6 col-md-offset-3">
 
 
-						<input type="hidden" name="p_num" id="p_num"
-							value="${mydog.p_num}">${mydog.p_num}
-						<div class="field2">
-							<h5>kkc 등록번호</h5>
-							<input type="text" class="form-control"
-								value="${mydog.p_kkcnumber}" name="p_kkcnumber" id="p_kkcnumber"
-								readonly="readonly">
-						</div>
-						<input type="hidden" class="form-control" name="userid"
-							id="userid" readonly="readonly" value="${login.userid}">
-						<div class="field2">
-							<!-- <label for="username">이름</label>  -->
-							<h5>이름</h5>
-							<input type="text" class="form-control" name="p_name"
-								value="${mydog.p_name}" id="p_name">
-						</div>
-						<br>
-						<div class="field half2">
-							<h5>나이</h5>
-							<input type="text" class="form-control" name="p_age" id="p_age"
-								placeholder="나이" value="${mydog.p_age}">
-						</div>
-						<div class="row uniform">
-							<div class="field2_1">
+							<input type="hidden" name="p_num" id="p_num"
+								value="${mydog.p_num}">${mydog.p_num}
+							<div class="field2">
+								<h5>kkc 등록번호</h5>
+								<input type="text" class="form-control"
+									value="${mydog.p_kkcnumber}" name="p_kkcnumber"
+									id="p_kkcnumber" readonly="readonly">
+							</div>
+							<input type="hidden" class="form-control" name="userid"
+								id="userid" readonly="readonly" value="${login.userid}">
+							<div class="field2">
+								<!-- <label for="username">이름</label>  -->
+								<h5>이름</h5>
+								<input type="text" class="form-control" name="p_name"
+									value="${mydog.p_name}" id="p_name">
+							</div>
+							<br>
+							<div class="field half2">
+								<h5>나이</h5>
+								<input type="text" class="form-control" name="p_age" id="p_age"
+									placeholder="나이" value="${mydog.p_age}">
+							</div>
+							<div class="row uniform">
+								<div class="field2_1">
 
-								<h5>성별</h5>
+									<h5>성별</h5>
+									<br>
+									<c:if test="${mydog.p_gender=='남'}">
+										<div class="field half">
+
+											<input type="radio" id="남" name="p_gender" value="남" checked>
+											<label for="남">남(♂)</label>
+										</div>
+										<div class="field halfs">
+
+											<input type="radio" id="여" name="p_gender" value="여">
+											<label for="여">여(♀)</label>
+										</div>
+									</c:if>
+									<c:if test="${mydog.p_gender=='여'}">
+										<div class="field half">
+
+											<input type="radio" id="남" name="p_gender" value="남">
+											<label for="남">남(♂)</label>
+										</div>
+										<div class="field halfs">
+
+											<input type="radio" id="여" name="p_gender" value="여" checked>
+											<label for="여">여(♀)</label>
+										</div>
+									</c:if>
+
+								</div>
+							</div>
+							<div class="field3 ">
+								<!-- <label for="passwd2">비밀번호 확인</label> -->
+								<h5>
+									생일</span>
+								</h5>
+								<input type="text" class="form-control" name="p_birth"
+									id="p_birth" placeholder="생일" value="${mydog.p_birth}">
+							</div>
+							<div class="field3">
+								<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
+								<h5>종</h5>
+								<input type="text" class="form-control" id="p_type"
+									name="p_type" placeholder="종" value="${mydog.p_type}">
+							</div>
+							<div class="field2">
+								<h5>특징</h5>
+								<textarea name="p_feature" id="p_feature"
+									placeholder="특징을 입력 해 주세요" rows="5">${mydog.p_feature}</textarea>
+							</div>
+
+							<div class="field2">
+								<h5>사진</h5>
+
+								<input id="image" type="file" name="theFile"
+									onchange="InputImage();" onclick="remove()"><br> <br>
+
+								<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
+							<div id="imagePreview"  src="<c:out value="${imageURL}"/>" /> --%>
+								<!-- <a href="javascript:photo()">d</a> -->
+								<div id="imagePreview2"></div>
+								<div id="imagePreview"></div>
+
 								<br>
-								<c:if test="${mydog.p_gender=='남'}">
-									<div class="field half">
 
-										<input type="radio" id="남" name="p_gender" value="남" checked>
-										<label for="남">남(♂)</label>
-									</div>
-									<div class="field halfs">
+							</div>
 
-										<input type="radio" id="여" name="p_gender" value="여">
-										<label for="여">여(♀)</label>
-									</div>
-								</c:if>
-								<c:if test="${mydog.p_gender=='여'}">
-									<div class="field half">
+							<div class="field3 ">
+								<!-- <label for="passwd2">비밀번호 확인</label> -->
+								<h5>
+									모견 KKCNumber</span>
+								</h5>
+								
+								<input type="text" class="form-control" name="mom_kkc"
+									id="mom_kkc" placeholder="모견 KKCNumber" value="${mydog.mom_kkc}">
 
-										<input type="radio" id="남" name="p_gender" value="남">
-										<label for="남">남(♂)</label>
-									</div>
-									<div class="field halfs">
+							</div>
 
-										<input type="radio" id="여" name="p_gender" value="여" checked>
-										<label for="여">여(♀)</label>
-									</div>
-								</c:if>
+							<div class="field3 ">
+								<!-- <label for="passwd2">비밀번호 확인</label> -->
+								<h5>
+									부견 KKCNumber</span>
+								</h5>
+								<input type="text" class="form-control" name="papa_kkc"
+									id="papa_kkc" placeholder="부견 KKCNumber" value="${mydog.papa_kkc}" >
 
 							</div>
 						</div>
-						<div class="field3 ">
-							<!-- <label for="passwd2">비밀번호 확인</label> -->
-							<h5>
-								생일</span>
-							</h5>
-							<input type="text" class="form-control" name="p_birth"
-								id="p_birth" placeholder="생일" value="${mydog.p_birth}">
-						</div>
-						<div class="field3">
-							<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
-							<h5>종</h5>
-							<input type="text" class="form-control" id="p_type" name="p_type"
-								placeholder="종" value="${mydog.p_type}">
-						</div>
-						<div class="field2">
-							<h5>특징</h5>
-							<textarea name="p_feature" id="p_feature"
-								placeholder="특징을 입력 해 주세요" rows="5">${mydog.p_feature}</textarea>
-						</div>
+
+						<br>
 
 						<div class="field2">
-							<h5>사진</h5>
+							<div class="col-md-3"></div>
+							<div class="col-md-1"></div>
+							<ul class="actions">
+								<center>
+									<input type="submit" value="수정">
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
+								</center>
+							</ul>
 
-							<input id="image" type="file" name="theFile"
-								onchange="InputImage();" onclick="remove()"><br> <br>
-
-							<%-- 		<c:url value="images/${mydog.p_photo}" var="imageURL"/>
-							<div id="imagePreview"  src="<c:out value="${imageURL}"/>" /> --%>
-							<!-- <a href="javascript:photo()">d</a> -->
-							<div id="imagePreview2"></div>
-							<div id="imagePreview"></div>
-
-							<br>
-
+							<div class="col-md-3"></div>
+							<div class="col-md-3"></div>
 						</div>
-					</div>
-
-					<br>
-
-					<div class="field2">
-						<div class="col-md-3"></div>
-						<div class="col-md-1"></div>
-						<ul class="actions">
-							<center>
-								<input type="submit" value="수정">
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<button class="special" onclick="PetdeleteBoard(myForm)">삭제</button>
-							</center>
-						</ul>
-
-						<div class="col-md-3"></div>
-						<div class="col-md-3"></div>
-					</div>
-					<br>
-				</form>
+						<br>
+					</form>
 			</section>
 		</div>
 

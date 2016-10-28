@@ -8,9 +8,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert parameterType="PetDTO" id="addPet">
 		insert into pet(
-		p_num,userid,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature)
+		p_num,userid,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature,mom_kkc,papa_kkc)
 		values( pet_seq.nextval,#{userid},#{p_kkcnumber},#{p_name},#{p_age},
-		#{p_gender},#{p_birth},#{p_type},#{p_photo},#{p_feature})
+		#{p_gender},#{p_birth},#{p_type},#{p_photo},#{p_feature},#{mom_kkc},#{papa_kkc})
 	</insert>
 
 
@@ -34,8 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select resultType="PetDTO" parameterType="string" id="mypage">
 		select
-		p_num,userid
-		,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature
+		p_num,userid,p_kkcnumber,p_name,p_age,p_gender,p_birth,p_type,p_photo,p_feature,mom_kkc,papa_kkc
 		from pet
 		where p_num = #{p_num}
 	</select>
@@ -51,6 +50,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		p_type=#{p_type},
 		p_photo=#{p_photo},
 		p_feature=#{p_feature}
+		mom_kkc=#{mom_kkc}
+		papa_kkc=#{papa_kkc}
 		where p_num = #{p_num}
 	</update>
 
@@ -61,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="petdetail" parameterType="string" resultType="PetDTO">
 		select p_num, userid, p_kkcnumber, p_name, p_age, p_gender, p_birth, p_type,
-		p_photo, p_feature
+		p_photo, p_feature,mom_kkc,papa_kkc
 		from pet
 		where userid=#{userid}
 	</select>
