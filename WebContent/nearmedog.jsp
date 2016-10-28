@@ -249,11 +249,16 @@
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
+<script src="jquery-2.2.3.js"></script>
+
+
+
+
 
 <body>
 
 	<!-- Wrapper 오마이갓-->
-	<div id="wrapper"> 
+	<div id="wrapper">
 
 		<!-- Header -->
 		<header id="header" class="alt">
@@ -367,51 +372,120 @@
 
 					<!-- Content -->
 					<h2 id="content">근처 반려견을 검색하세요</h2>
+					<form id="dogsearch">
 
-					<div class="4u 12u$(small)">
-						<input type="radio" id="demo-priority-low" name="demo-priority"
-							checked> <label for="demo-priority-low">남</label>
-					</div>
-					<div class="4u 12u$(small)">
-						<input type="radio" id="demo-priority-normal" name="demo-priority">
-						<label for="demo-priority-normal">여</label>
-					</div>
-					<div id="selectdog">
-						<select id="dog">
-							<option>말티즈</option>
-							<option>슈나우저</option>
-							<option>푸들</option>
-							<option>토이푸들</option>
-							<option>차우차우</option>
-							<option>달마시안</option>
-							<option>그레이하운드</option>
-							<option>콜리</option>
-							<option>셰퍼드</option>
-							<option>세인트버나드</option>
-							<option>그레이트데인</option>
-							<option>기타</option>
-						</select>
-					</div>
+						<div style="margin-left: -20%" id="radio">
+							<input type="radio" id="demo-priority-low" name="p_gender"
+								value="남" checked> <label for="demo-priority-low">남</label>
 
-					<div class="field2">
-						<input type="hidden" name="addr1" id="addrpet1" size="40"
-							class="form-control" placeholder="도로명주소"
-							value="${nearmedog.addr1}"> <br> <span
-							style="line-height: 10%;"></span> <input type="hidden"
-							class="form-control" name="addrpet2" id="addr2" size="40"
-							placeholder="상세주소" value="${nearmedog.addr2}">
-					</div>
-					<input type="button" value="찾기" id="find">
+							<input type="radio" id="demo-priority-normal" name="p_gender"
+								value="여"> <label for="demo-priority-normal">여</label>
+						</div>
+
+						<div id="selectdog" style="width: 30%; margin-left: 2%">
+							<input type="text" class="form-control" id="p_type" name="p_type"
+								placeholder="종">
+						</div>
+
+						<div class="field2">
+							<input type="hidden" name="addr1" id="addrpet1" size="40"
+								class="form-control" placeholder="도로명주소"
+								value="${nearmedog.addr1}"> <span
+								style="line-height: 10%;"></span> <input type="hidden"
+								class="form-control" name="addrpet2" id="addr2" size="40"
+								placeholder="상세주소" value="${nearmedog.addr2}">
+						</div>
+
+					</form>
+					<input type="button" value="찾기" id="find" onclick="searchdog()">
 					<p style="margin-top: -12px"></p>
 					<div id="map" style="width: 100%; height: 350px;"></div>
 
-
+					<script type="text/javascript">
+					
+						
+					</script>
 
 					<hr class="major" />
-
+					<div id="result"></div>
 					<script type="text/javascript"
 						src="//apis.daum.net/maps/maps3.js?apikey=00da2a2706b227b41e0c8eac6aa45838&libraries=services"></script>
 					<script>
+					
+					var gender_value = '';
+					var p_type;
+					var userid;
+					var kkcnumber;
+					var p_name;
+					var p_age;
+					var p_addr;
+					function searchdog(f) {
+						var gender = document.getElementsByName('p_gender');
+						var checked_index = -1;
+						var data;
+						for (i = 0; i < gender.length; i++) {
+							if (gender[i].checked) {
+								checked_index = i;
+								gender_value = gender[i].value;
+							}
+						}
+						console.log(gender_value);
+						p_type = document.getElementById("p_type").value;
+						console.log(p_type);
+						userid = document.getElementById("userid");
+						console.log(userid);
+						
+						//ajax
+						jQuery.ajaxSetup({
+							type : "GET",
+							url : "json.jsp"
+						});
+						console.log(gender_value, p_type);
+						jQuery
+								.ajax({
+									dataType : "json",
+									data : {
+										userid : userid,
+										kkcnumber : kkcnumber,
+										p_name : p_name,
+										p_age : p_age,
+											p_gender : gender_value,
+										p_type : p_type,
+										p_addr : p_addr
+									},
+									success : function(d, status, xhr) {
+										console.log(d[0]);
+										console.log(d[1]);
+										console.log(d[2]);
+										var xxx = '';
+										var searchaddress = [];
+										for ( var i in d) {
+											data = d[i];
+										xxx+=
+											"<tr><td>"
+											+ data.userid + "</td><td>"
+											+ data.kkcnumber + "</td><td>"
+											+ data.p_name + "</td><td>"
+											+ data.p_age + "</td><td>"
+											+ data.p_gender + "</td><td>"
+											+ data.p_type + "</td><td>"
+											+ data.p_addr + "</td></tr>";
+											console.log(i);
+											console.log(d[i]);
+											searchaddress.push(data.p_addr);
+										}
+										document
+										.getElementById("pettable").innerHTML  = xxx;
+										
+									},
+									error : function(xhr, status, error) {
+										console.log("error", error);
+									}
+								});
+
+					}
+					
+					
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
 							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -424,7 +498,8 @@
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new daum.maps.services.Geocoder();
 						// 주소로 좌표를 검색합니다
-						//수철 : 나의 주변의 사람들 좌표 찍기
+						//나의 주변의 사람들 좌표 찍기
+						//console.log(searchaddress);
 						<c:forEach items="${nearmedoglist}" var="item2">
 						geocoder
 								.addr2coord(
@@ -439,6 +514,7 @@
 														result.addr[0].lng);
 
 												// 결과값으로 받은 위치를 마커로 표시합니다
+
 												var marker = new daum.maps.Marker(
 														{
 															//map : map,
@@ -446,6 +522,7 @@
 															clickable : true
 														});
 												marker.setMap(map);
+
 												var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;"><a href="#">주변사람들</a></div>', iwRemoveable = true;
 												// 인포윈도우로 장소에 대한 설명을 표시합니다
 												var infowindow = new daum.maps.InfoWindow(
@@ -469,7 +546,7 @@
 											}
 										});
 						</c:forEach>
-						//수철 : 마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
+						//마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
 						geocoder
 								.addr2coord(
 										'${nearmedog.addr1}',
@@ -505,7 +582,7 @@
 
 
 
-					 <div class="field2">
+					<div class="field2">
 						<div class="table-wrapper">
 							<table border="1">
 								<thead>
@@ -521,14 +598,14 @@
 								</thead>
 
 								<tr>
-								<tbody>
+								<tbody id="pettable">
 									<c:set var="ppp" value="${nearmedoglist}" />
 
 									<c:forEach var="xxx" items="${ppp}" varStatus="status">
 
 										<tr>
 											<td>${xxx.userid}</td>
-											<td><%-- <a href="BoardRetrieveServlet?num=${xxx.num}"> --%><%-- [${xxx.boardCategory}] --%>${xxx.p_kkcnumber}</td>
+											<td>${xxx.p_kkcnumber}</td>
 											<td>${xxx.p_name}</td>
 											<td>${xxx.p_age}</td>
 											<td>${xxx.p_gender}</td>
@@ -536,12 +613,11 @@
 											<td>${xxx.addr1}</td>
 
 										</tr>
-
 									</c:forEach>
 								</tbody>
 							</table>
 						</div>
-					</div> 
+					</div>
 
 
 					<!-- Footer -->
@@ -570,13 +646,16 @@
 				</div>
 
 				<!-- Scripts -->
-				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.min.js">
+					
+				</script>
 				<script src="assets/js/jquery.scrolly.min.js"></script>
 				<script src="assets/js/jquery.scrollex.min.js"></script>
 				<script src="assets/js/skel.min.js"></script>
 				<script src="assets/js/util.js"></script>
 				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 				<script src="assets/js/main.js"></script>
+
 
 			</section>
 		</div>

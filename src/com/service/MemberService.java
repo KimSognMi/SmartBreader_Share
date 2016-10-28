@@ -171,17 +171,23 @@ public class MemberService {
 		return list;
 	}// end list()
 	
-	//수철 : 같은 시 기준으로 검색 하여 맴버 가져오기
-	public List<MemberPetSearchDTO> memberListByCity(String keyword) {
-		List<MemberPetSearchDTO> list = null;
-		SqlSession session = MySqlSessionFactory.getSession();
-		try {
-			list = session.selectList("member.memberListByCity", keyword);
-		} finally {
-			session.close();
-		}
-		return list;
-	}// end list()
+	// 같은 시 기준으로 검색 하여 맴버 가져오기
+		public List<MemberPetSearchDTO> memberListByCity(String keyword, String p_gender, String p_type) {
+			List<MemberPetSearchDTO> list = null;
+			
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("p_gender", p_gender);
+			map.put("p_type", p_type);
+
+			SqlSession session = MySqlSessionFactory.getSession();
+			try {
+				list = session.selectList("member.memberListByCity", map);
+				System.out.println(map);
+			} finally {
+				session.close();
+			}
+			return list;
+		}// end list()
 	
 	
 	//ㄴㅇㄹㄴㅁsdf
