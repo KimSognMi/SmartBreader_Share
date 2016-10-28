@@ -200,6 +200,9 @@
 					<h1>${mydog.agree}</h1></center>
 
 						</div>
+						
+						<%-- <c:if test="${request.userid= login.userid}">
+						</c:if> --%>
 
 
 						<div class="field2">
