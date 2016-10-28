@@ -337,17 +337,18 @@
 					</header>
 
 					<h3>내 애견의 반려 신청 현황 입니다.</h3>
-					<form method="post" name="form">
+					<!-- <form method="post" name="form">
 
 						<input type="radio" id="demo-priority-normal" name="내가 신청"onclick="Request(form)" name="order"> 
 						<label for="demo-priority-normal">내가 신청</label> 
 						<input type="radio"id="demo-priority" name="order" onclick="Requested(form)"value="나를 신청">
 						<label for="demo-priority">나를 신청</label>
-					</form>
+					</form> -->
 
 					<!-- 모양잡기 -->
 					<div class="table-wrapper">
 
+신청을 보냈어요 옆으로 정렬하자
 						<table border="1">
 
 							<tr>
@@ -359,6 +360,29 @@
 											width="350px">
 										<br>
 										<a href="ApplyPetServlet?r_num=${c_pet.r_num}">${c_pet.agree}</a>
+										<br>
+
+
+									</c:forEach></td>
+							</tr>
+
+
+						</table>
+						
+						<hr>
+				
+신청을 받았어요						
+						<table border="1">
+
+							<tr>
+								<td><c:set var="qqq" value="${answerList}" scope="session" />
+									<c:forEach var="a_pet" items="${qqq}" varStatus="status">
+
+
+										<img src="images/${a_pet.p_photo}" height="240px"
+											width="350px">
+										<br>
+										<a href="ApplyPetServlet?r_num=${a_pet.r_num}">${a_pet.agree}</a>
 										<br>
 
 

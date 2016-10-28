@@ -46,6 +46,7 @@ public class RequestPetListServlet extends HttpServlet {
 		//if (xxx == null) {
 			// 신청된 현황 가져오기
 			List<RequestPetDTO> requestList = (List<RequestPetDTO>) requestService.requestlist2(member.getUserid());
+			List<RequestPetDTO> answerList = (List<RequestPetDTO>) requestService.answer(member.getUserid());
 			//DB에도 존재하지 않으면
 			if(requestList ==null){
 				title = "신청현황 보기 실패 해당 사용자의 신청현황이 존재하지 않습니다.";
@@ -57,6 +58,7 @@ public class RequestPetListServlet extends HttpServlet {
 				//DB존재하면 리스트 가지고 뿌리기.
 				target = "n_dogrequestcurrent.jsp";
 				request.setAttribute("requestlist", requestList);
+				request.setAttribute("answerList", answerList);
 			}
 		//} else {
 			//실질적으로 원래는 DB에서 가져와서 뿌려주는게 맞아 SESSION 굳이 필요없다면
