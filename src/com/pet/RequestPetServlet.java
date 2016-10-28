@@ -19,17 +19,14 @@ import com.exception.CommonException;
 import com.service.BoardService;
 import com.service.RequestService;
 
-/**
- * Servlet implementation class LognFormServlet
- */
 @WebServlet("/RequestPetServlet")
 public class RequestPetServlet extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("RequestPetServlet");
 		request.setCharacterEncoding("UTF-8");
-		
+
 		HttpSession session = request.getSession();
 
 		String userid = request.getParameter("userid");
@@ -62,7 +59,7 @@ public class RequestPetServlet extends HttpServlet {
 		dto.setUserid(userid);
 		dto.setAgree(agree);
 		dto.setRequestid(requestid);
-		
+
 		dto2.setAgree(agree);
 		dto2.setUserid(userid);
 		dto2.setP_name(p_name);
@@ -72,33 +69,22 @@ public class RequestPetServlet extends HttpServlet {
 		dto2.setP_gender(p_gender);
 		dto2.setP_num(Integer.parseInt(p_num));
 		dto2.setPhone(phone);
-		
 
 		RequestService service = new RequestService();
-	/*	service.request(dto);
-
-		System.out.println("과연과연" + dto);
-		request.setAttribute("request", dto);*/
-
-		/*
-		 * RequestDispatcher dis =
-		 * request.getRequestDispatcher("n_dogrequestcurrent.jsp");
-		 * dis.forward(request, response);
-		 */
 
 		String title = "";
 		String target = "";
 		try {
 			service.request(dto);
-			System.out.println("과연과연" + dto);
+
 			session.setAttribute("request", dto);
 			System.out.println(requestid);
 			List<RequestPetDTO> xxx = service.requestlist2(requestid);
-			System.out.println("이거가requestlist"+ xxx);
-			session.setAttribute("requestlist",xxx);
-			
-			System.out.println("사진"+dto2);
-			  target = "test.jsp";
+
+			session.setAttribute("requestlist", xxx);
+
+			System.out.println("사진" + dto2);
+			target = "test.jsp";
 		} catch (Exception e) {
 			title = e.getMessage();
 			String link = "MemberFormServlet";
@@ -109,23 +95,6 @@ public class RequestPetServlet extends HttpServlet {
 
 		RequestDispatcher dis = request.getRequestDispatcher(target);
 		dis.forward(request, response);
-
-		/*
-		 * List<RequestPetDTO> dto2 = service.requestlist2(userid);
-		 * 
-		 * request.setAttribute("request", dto2);
-		 * 
-		 * System.out.println(dto2);
-		 */
-
-		/*
-		 * RequestService service = new RequestService(); RequestPetDTO dto =
-		 * new RequestPetDTO();
-		 * 
-		 * 
-		 * 
-		 * service.requestlist2(dto.getUserid()); System.out.println(dto);
-		 */
 
 	}
 

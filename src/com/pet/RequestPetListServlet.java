@@ -26,34 +26,23 @@ public class RequestPetListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-System.out.println("dddddddd");
+
 		HttpSession session = request.getSession();
-		List<RequestPetDTO> xxx  =
-				(List<RequestPetDTO>)session.getAttribute("requestlist");
-		 String title="";
-		 String target="";
-		 System.out.println("이게뭐야8PetListServlet    "+xxx); /////두번찍힘
-		if(xxx==null){
-			title= "신청현황 보기 실패";
-			String link="LoginFormServlet";
-			target="error.jsp";
+		List<RequestPetDTO> xxx = (List<RequestPetDTO>) session.getAttribute("requestlist");
+		String title = "";
+		String target = "";
+		System.out.println("이게뭐야8PetListServlet    " + xxx); ///// 두번찍힘
+		if (xxx == null) {
+			title = "신청현황 보기 실패";
+			String link = "LoginFormServlet";
+			target = "error.jsp";
 			request.setAttribute("title", title);
 			request.setAttribute("link", link);
-		}else{
-			target="n_dogrequestcurrent.jsp";
-	request.setAttribute("requestlist", xxx);
-		    	
+		} else {
+			target = "n_dogrequestcurrent.jsp";
+			request.setAttribute("requestlist", xxx);
+
 		}
-		
-		/*RequestDispatcher dis =
-				request.getRequestDispatcher(target);
-		dis.forward(request, response);
-		RequestService service = new RequestService();
-		RequestDTO dto = new RequestDTO();
-
-		System.out.println(dto);
-		List<RequestDTO> dtolist = service.requestlist(dto.getUserid());*/
-
 
 		RequestDispatcher dis = request.getRequestDispatcher(target);
 		dis.forward(request, response);

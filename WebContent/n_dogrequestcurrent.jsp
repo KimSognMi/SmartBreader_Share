@@ -329,12 +329,13 @@
 					<div class="table-wrapper">
 					
 						<table border="1">
+					
 							<tbody>
 											<c:set var="ppp" value="${requestlist}" scope="session" />			
 								 <c:forEach var="c_pet" items="${ppp}" varStatus="status">
 
 										<tr>
-										<th><img src="images/${c_pet.p_photo}" height="240px" width="350px"></th>
+										<th ><img src="images/${c_pet.p_photo}" height="240px" width="350px"></th>
 										
 									 
 								 		</tr>
