@@ -42,15 +42,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="updatePet" parameterType="PetDTO">
 		update pet
-		set
-		p_name=#{p_name},
+		set p_name=#{p_name},
 		p_age=#{p_age},
 		p_gender=#{p_gender},
 		p_birth=#{p_birth},
 		p_type=#{p_type},
 		p_photo=#{p_photo},
-		p_feature=#{p_feature}
-		mom_kkc=#{mom_kkc}
+		p_feature=#{p_feature},
+		mom_kkc=#{mom_kkc},
 		papa_kkc=#{papa_kkc}
 		where p_num = #{p_num}
 	</update>

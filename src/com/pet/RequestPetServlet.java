@@ -95,7 +95,7 @@ public class RequestPetServlet extends HttpServlet {
 			session.setAttribute("requestlist",xxx);
 			
 			System.out.println("사진"+dto2);
-			target = "RequestPetListServlet";
+			  target = "test.jsp";
 		} catch (Exception e) {
 			title = e.getMessage();
 			String link = "MemberFormServlet";

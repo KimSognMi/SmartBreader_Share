@@ -262,9 +262,9 @@ function send(f) {
 	f.action ="RequestPetServlet";
 	
 	//f.submit();
-	close();
+	//close();
 	////////////////////////////SendSMS자바 파일 함수로 호출하기!!!!
-	opener.location.href="RequestPetListServlet?requestid="+'${login.userid}';
+	//opener.location.href="RequestPetListServlet?requestid="+'${login.userid}';
 	
 }
 	/*  function send() {

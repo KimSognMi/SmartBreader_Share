@@ -32,7 +32,7 @@ System.out.println("dddddddd");
 				(List<RequestPetDTO>)session.getAttribute("requestlist");
 		 String title="";
 		 String target="";
-		 System.out.println("이게뭐야8PetListServlet    "+xxx);
+		 System.out.println("이게뭐야8PetListServlet    "+xxx); /////두번찍힘
 		if(xxx==null){
 			title= "로그인 하세요";
 			String link="LoginFormServlet";

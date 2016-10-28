@@ -12,23 +12,25 @@
 <div class="tree">
 	<ul>
 		<li>
-			<a>Parent <br> <img src="images/pp.jpg" height="120px" width="190px" alt="" /></a>
+			<a>Parent <br> <img src="images/pp.jpg" height="120px" width="190px" alt="" /> &nbsp <img src="images/ff.jpg" height="120px" width="190px" alt="" /></a>
+			
 			<ul>
-				<li>
+				 <li>
 					<a href="#">Child <br> <img src="images/jj.jpg"  height="120px" width="190px" alt="" /> </a>
-					<ul>
+					
+					<!-- <ul>
 						<li>
 							<a href="#">Grand Child <br> <img src="images/oo.jpg"  height="120px" width="190px" alt="" /> </a>
 						</li>
-					</ul>
-				</li>
+					</ul> -->
+				</li> 
 				<li>
-					<a href="#">Child <br> <img src="images/ff.jpg"  height="120px" width="190px" alt="" /></a>
+					<a href="#">Child <br> <img src="images/ff.jpg"  height="120px" width="190px" alt="" /> &nbsp <img src="images/oo.jpg" height="120px" width="190px" alt="" /></a>
 					<ul>
 						<li><a href="#">Grand Child <br> <img src="images/ee.jpg"  height="120px" width="190px" alt="" /></a></li>
 						<li>
 							<a href="#">Grand Child <br> <img src="images/dd.jpg"  height="120px" width="190px" alt="" /></a>
-							<ul>
+							<!-- <ul>
 								<li>
 									<a href="#">Great Grand Child</a>
 								</li>
@@ -38,7 +40,7 @@
 								<li>
 									<a href="#">Great Grand Child</a>
 								</li>
-							</ul>
+							</ul> -->
 						</li>
 						<li><a href="#">Grand Child <br> <img src="images/aa.jpg"  height="120px" width="190px" alt="" /></a></li>
 					</ul>
