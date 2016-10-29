@@ -351,20 +351,20 @@
 신청을 보냈어요 내가 이 개한테 신청 mydog
 						<table border="1">
 
-							<tr>
-								<td><c:set var="ppp" value="${requestlist}" scope="session" />
+							
+								<c:set var="ppp" value="${requestlist}" scope="session" />
 									<c:forEach var="c_pet" items="${ppp}" varStatus="status">
 
-
+									<td>
 										<img src="images/${c_pet.p_photo}" height="240px"
 											width="350px">
-										<br>
-										<a href="ApplyPetServlet?r_num=${c_pet.r_num}">${c_pet.agree}</a>
-										<br>
+									
+										<br><a href="ApplyPetServlet?r_num=${c_pet.r_num}">${c_pet.agree}</a>
+										
+									</td>
 
-
-									</c:forEach></td>
-							</tr>
+									</c:forEach>
+							
 
 
 						</table>
@@ -374,20 +374,20 @@
 신청을 받았어요 이 개가 나한테 신청 yourdog						
 						<table border="1">
 
-							<tr>
-								<td><c:set var="qqq" value="${answerList}" scope="session" />
+							
+								<c:set var="qqq" value="${answerList}" scope="session" />
 									<c:forEach var="a_pet" items="${qqq}" varStatus="status">
 
-
+									<td>
 										<img src="images/${a_pet.p_photo}" height="240px"
 											width="350px">
 										<br>
 										<a href="AnswerPetServlet?r_num=${a_pet.r_num}">${a_pet.agree}</a>
-										<br>
+										
+									</td>
 
-
-									</c:forEach></td>
-							</tr>
+									</c:forEach>
+							
 
 
 						</table>
