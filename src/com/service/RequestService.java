@@ -7,9 +7,11 @@ import org.apache.ibatis.session.SqlSession;
 import com.config.MySqlSessionFactory;
 import com.dto.ApplyPetDTO;
 import com.dto.BoardDTO;
+import com.dto.MemberDTO;
 import com.dto.PetDTO;
 import com.dto.RequestDTO;
 import com.dto.RequestPetDTO;
+import com.exception.CommonException;
 import com.exception.PetException;
 
 public class RequestService {
@@ -44,6 +46,21 @@ public class RequestService {
 		return dto;
 	}
 	
+	
+	public void updateRequest(ApplyPetDTO dto) throws CommonException {
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			int n = session.update("request.updateRequest", dto);
+			session.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new CommonException("신청확인 실패");
+		} finally {
+			session.close();
+		}
+
+	}
 	
 	//
 	public void request(RequestDTO dto){

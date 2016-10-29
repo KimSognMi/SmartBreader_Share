@@ -118,6 +118,8 @@
 						<!-- <article class="container"> -->
 						<div class="col-md-6 col-md-offset-3">
 
+<input type="hidden" name="userid" id="userid"
+								value="${mydog.userid}">${mydog.userid}
 
 							<input type="hidden" name="p_num" id="p_num"
 								value="${mydog.p_num}">${mydog.p_num}

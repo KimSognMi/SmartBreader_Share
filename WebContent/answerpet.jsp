@@ -22,16 +22,7 @@
 	
 	
 	
-	function Request(f) {
-		alert("수락");
-		/* f.action = "RequestPetListServlet?requestid="+${login.userid};
-		f.submit(); */
-	}
-	function Requested(f) {
-		alert("거부");
-		/* f.action = "AnswerPetListServlet?userid="+${login.userid};
-		f.submit(); */
-	}
+	
 
 	
 </script>
@@ -50,11 +41,23 @@
 <script>
 
 
-	function RequestdeleteBoard(f) {
+	function RequestUpdateBoard(f) {
 		/* f.action = "MyPetListServlet?userid=${login.userid}"; */
-		f.action = "RequestDeleteServlet?r_num=${yourdog.r_num}&requestid=${login.userid}";
-
+		f.action = "RequestUpdateServlet?r_num=${yourdog.r_num}";
 	}
+	
+		function Yes(f) {
+			alert("수락");
+			/* f.action = "RequestPetListServlet?requestid="+${login.userid};
+			f.submit(); */
+		}
+		function No(f) {
+			alert("거부");
+			/* f.action = "AnswerPetListServlet?userid="+${login.userid};
+			f.submit(); */
+		}
+
+	
 </script>
 </head>
 <body onload="photo()">
@@ -126,11 +129,23 @@
 		<div id="main">
 			<section id="two">
 				<!-- ㅊㄷ -->
-				<form name="myForm" method="post" action="PetUpdateServlet"
+				<form name="myForm" method="get" 
 					enctype="multipart/form-data">
 
 						<!-- <article class="container"> -->
 						<div class="col-md-6 col-md-offset-3">
+						<input type="hidden" name="p_photo" id="p_photo"
+								value="${yourdog.p_photo}">${yourdog.p_photo}
+<input type="hidden" name="r_num" id="r_num"
+								value="${yourdog.r_num}">${yourdog.r_num}
+<input type="hidden" name="phone" id="phone"
+								value="${yourdog.phone}">${yourdog.phone}
+<input type="hidden" name="userid" id="userid"
+								value="${yourdog.userid}">${yourdog.userid}
+
+
+<input type="hidden" name="userid" id="userid"
+								value="${yourdog.userid}">${yourdog.userid}
 
 
 							<input type="hidden" name="p_num" id="p_num"
@@ -222,15 +237,16 @@
 						</div>
 						
 						<%-- <c:if test="${request.userid= login.userid}">
-						</c:if> --%>
+						</c:if> --%> 
 						
-							<form method="post" name="form">
+							
 
-						<input type="radio" id="demo-priority-normal" name="수락"onclick="Yes(form)" name="order"> 
-						<label for="demo-priority-normal">수락</label> 
-						<input type="radio"id="demo-priority" name="order" onclick="No(form)"value="거부">
-						<label for="demo-priority">거부</label>
-					</form> 
+						<input type="radio" id="수락" name="agree" value="수락">
+						<label for="수락">수락</label> 
+						<input type="radio" id="거부" name="agree" value="거부">
+						<label for="거부">거부</label>
+						<%-- updateServlet 써야할듯! --%>
+			
 
 
 						<div class="field2">
@@ -238,7 +254,7 @@
 							<div class="col-md-1"></div>
 							<ul class="actions">
 								<center>
-									<button class="special" onclick="RequestdeleteBoard(myForm)">취소</button>
+									<button class="special" onclick="RequestUpdateBoard(myForm)">확인</button>
 								</center>
 							</ul>
 
