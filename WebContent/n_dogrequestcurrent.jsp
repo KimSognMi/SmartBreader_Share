@@ -382,7 +382,7 @@
 										<img src="images/${a_pet.p_photo}" height="240px"
 											width="350px">
 										<br>
-										<a href="ApplyPetServlet?r_num=${a_pet.r_num}">${a_pet.agree}</a>
+										<a href="AnswerPetServlet?r_num=${a_pet.r_num}">${a_pet.agree}</a>
 										<br>
 
 

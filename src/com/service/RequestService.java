@@ -29,6 +29,21 @@ public class RequestService {
 		return dto;
 	}
 	
+	public ApplyPetDTO yourpage(String r_num) throws PetException {
+		ApplyPetDTO dto = null;
+		SqlSession session = MySqlSessionFactory.getSession();
+		try {
+			dto = session.selectOne("request.yourpage", r_num);
+			System.out.println(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new PetException("mypage 실패");
+		} finally {
+			session.close();
+		}
+		return dto;
+	}
+	
 	
 	//
 	public void request(RequestDTO dto){
