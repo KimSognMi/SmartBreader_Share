@@ -20,6 +20,20 @@
 
 		}
 	
+	
+	
+	function Request(f) {
+		alert("수락");
+		/* f.action = "RequestPetListServlet?requestid="+${login.userid};
+		f.submit(); */
+	}
+	function Requested(f) {
+		alert("거부");
+		/* f.action = "AnswerPetListServlet?userid="+${login.userid};
+		f.submit(); */
+	}
+
+	
 </script>
 
 <script type="text/javascript" src="assets/js/jquery-3.1.0.js"></script>
@@ -195,6 +209,12 @@
 								<textarea name="p_feature" id="p_feature"
 									placeholder="특징을 입력 해 주세요" rows="5">${yourdog.p_feature}</textarea>
 							</div>
+							
+							<div class="field2">
+								<h5>신청내용</h5>
+								<textarea name="r_content" id="r_content"
+									placeholder="신청내용을 입력 해 주세요" rows="5">${yourdog.r_content}</textarea>
+							</div>
 							<br>
 <center>
 					<h1>${yourdog.agree}</h1></center>
@@ -203,6 +223,14 @@
 						
 						<%-- <c:if test="${request.userid= login.userid}">
 						</c:if> --%>
+						
+							<form method="post" name="form">
+
+						<input type="radio" id="demo-priority-normal" name="수락"onclick="Yes(form)" name="order"> 
+						<label for="demo-priority-normal">수락</label> 
+						<input type="radio"id="demo-priority" name="order" onclick="No(form)"value="거부">
+						<label for="demo-priority">거부</label>
+					</form> 
 
 
 						<div class="field2">
