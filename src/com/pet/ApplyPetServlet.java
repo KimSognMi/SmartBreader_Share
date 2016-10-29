@@ -45,7 +45,7 @@ public class ApplyPetServlet extends HttpServlet {
 				RequestService service = new RequestService();
 				try {
 					ApplyPetDTO my = service.mypage(r_num);
-					System.out.println(">>>>>>"+my);
+					System.out.println("mydog"+my);
 					request.setAttribute("mydog", my);
 				} catch (PetException e) {
 					title= e.getMessage();

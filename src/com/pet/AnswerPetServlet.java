@@ -45,7 +45,7 @@ public class AnswerPetServlet extends HttpServlet {
 				RequestService service = new RequestService();
 				try {
 					ApplyPetDTO my = service.yourpage(r_num);
-					System.out.println(">>>>>>"+my);
+					System.out.println("yourdog"+my);
 					request.setAttribute("yourdog", my);
 				} catch (PetException e) {
 					title= e.getMessage();

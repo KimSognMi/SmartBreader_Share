@@ -202,10 +202,17 @@
 					<h1>${mydog.agree}</h1></center>
 
 						</div>
-						
-						<%-- <c:if test="${request.userid= login.userid}">
-						</c:if> --%>
-
+<c:if test="${mydog.agree=='수락'}">						
+					<div class="field2">
+							<div class="col-md-3"></div>
+							<div class="col-md-1"></div>
+							<ul class="actions">
+								<center>
+								${mydog.phone}
+								</center>
+							</ul>
+						</c:if> 
+<c:if test="${mydog.agree=='대기중'}">
 
 						<div class="field2">
 							<div class="col-md-3"></div>
@@ -215,7 +222,7 @@
 									<button class="special" onclick="RequestdeleteBoard(myForm)">취소</button>
 								</center>
 							</ul>
-
+</c:if>
 							<div class="col-md-3"></div>
 							<div class="col-md-3"></div>
 						</div>

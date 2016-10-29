@@ -348,7 +348,7 @@
 					<!-- 모양잡기 -->
 					<div class="table-wrapper">
 
-신청을 보냈어요 옆으로 정렬하자
+신청을 보냈어요 내가 이 개한테 신청 mydog
 						<table border="1">
 
 							<tr>
@@ -371,7 +371,7 @@
 						
 						<hr>
 				
-신청을 받았어요						
+신청을 받았어요 이 개가 나한테 신청 yourdog						
 						<table border="1">
 
 							<tr>

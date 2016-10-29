@@ -231,8 +231,12 @@
 									placeholder="신청내용을 입력 해 주세요" rows="5">${yourdog.r_content}</textarea>
 							</div>
 							<br>
-<center>
+<center>	
+					
 					<h1>${yourdog.agree}</h1></center>
+					 	
+					
+				
 
 						</div>
 						
@@ -240,7 +244,7 @@
 						</c:if> --%> 
 						
 							
-
+					<c:if test="${yourdog.agree=='대기중'}">
 						<input type="radio" id="수락" name="agree" value="수락">
 						<label for="수락">수락</label> 
 						<input type="radio" id="거부" name="agree" value="거부">
@@ -257,8 +261,18 @@
 									<button class="special" onclick="RequestUpdateBoard(myForm)">확인</button>
 								</center>
 							</ul>
+</c:if>
 
-							<div class="col-md-3"></div>
+ <c:if test="${yourdog.agree=='수락'}">
+<div class="col-md-3"></div>
+							<div class="col-md-1"></div>
+							<ul class="actions">
+								<center>
+${yourdog.phone}
+	</center>
+							</ul>
+</c:if>
+			 				<div class="col-md-3"></div>
 							<div class="col-md-3"></div>
 						</div>
 						<br>
