@@ -402,90 +402,98 @@
 					<div id="map" style="width: 100%; height: 350px;"></div>
 
 					<script type="text/javascript">
-					
 						
 					</script>
 
 					<hr class="major" />
 					<div id="result"></div>
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=43fb1a6f7e59bcaf82d5e5992e600120&libraries=services"></script>
 					<script>
-					
-					var gender_value = '';
-					var p_type;
-					var userid;
-					var kkcnumber;
-					var p_name;
-					var p_age;
-					var p_addr;
-					function searchdog(f) {
-						var gender = document.getElementsByName('p_gender');
-						var checked_index = -1;
-						var data;
-						for (i = 0; i < gender.length; i++) {
-							if (gender[i].checked) {
-								checked_index = i;
-								gender_value = gender[i].value;
+						/* function photo() {
+							var photo2 = document.getElementById("dogphoto");
+							console.log('${petdetail.p_photo}');
+							//어ㅏ너알
+							photo2.innerHTML = "<img style='width: 50%;' src='images/"
+									+ '${petdetail.p_photo}' + "' />";
+						} */
+						var gender_value = '';
+						var p_type;
+						var userid;
+						var kkcnumber;
+						var p_name;
+						var p_age;
+						var p_addr;
+						function searchdog(f) {
+							var gender = document.getElementsByName('p_gender');
+							var checked_index = -1;
+							var data;
+							for (i = 0; i < gender.length; i++) {
+								if (gender[i].checked) {
+									checked_index = i;
+									gender_value = gender[i].value;
+								}
 							}
-						}
-						console.log(gender_value);
-						p_type = document.getElementById("p_type").value;
-						console.log(p_type);
-						userid = document.getElementById("userid");
-						console.log(userid);
-						
-						//ajax
-						jQuery.ajaxSetup({
-							type : "GET",
-							url : "json.jsp"
-						});
-						console.log(gender_value, p_type);
-						jQuery
-								.ajax({
-									dataType : "json",
-									data : {
-										userid : userid,
-										kkcnumber : kkcnumber,
-										p_name : p_name,
-										p_age : p_age,
-											p_gender : gender_value,
-										p_type : p_type,
-										p_addr : p_addr
-									},
-									success : function(d, status, xhr) {
-										console.log(d[0]);
-										console.log(d[1]);
-										console.log(d[2]);
-										var xxx = '';
-										var searchaddress = [];
-										for ( var i in d) {
-											data = d[i];
-										xxx+=
-											"<tr><td>"
-											+ data.userid + "</td><td>"
-											+ data.kkcnumber + "</td><td>"
-											+ data.p_name + "</td><td>"
-											+ data.p_age + "</td><td>"
-											+ data.p_gender + "</td><td>"
-											+ data.p_type + "</td><td>"
-											+ data.p_addr + "</td></tr>";
-											console.log(i);
-											console.log(d[i]);
-											searchaddress.push(data.p_addr);
-										}
-										document
-										.getElementById("pettable").innerHTML  = xxx;
-										
-									},
-									error : function(xhr, status, error) {
-										console.log("error", error);
-									}
-								});
+							console.log(gender_value);
+							p_type = document.getElementById("p_type").value;
+							console.log(p_type);
+							userid = document.getElementById("userid");
+							console.log(userid);
 
-					}
-					
-					
+							//ajax
+							jQuery.ajaxSetup({
+								type : "GET",
+								url : "json.jsp"
+							});
+							console.log(gender_value, p_type);
+							jQuery
+									.ajax({
+										dataType : "json",
+										data : {
+											userid : userid,
+											kkcnumber : kkcnumber,
+											p_name : p_name,
+											p_age : p_age,
+											p_gender : gender_value,
+											p_type : p_type,
+											p_addr : p_addr
+										},
+										success : function(d, status, xhr) {
+											console.log(d[0]);
+											console.log(d[1]);
+											console.log(d[2]);
+											var xxx = '';
+											var searchaddress = [];
+											for ( var i in d) {
+												data = d[i];
+												xxx += "<tr><td>" + data.userid
+														+ "</td><td>"
+														+ data.kkcnumber
+														+ "</td><td>"
+														+ data.p_name
+														+ "</td><td>"
+														+ data.p_age
+														+ "</td><td>"
+														+ data.p_gender
+														+ "</td><td>"
+														+ data.p_type
+														+ "</td><td>"
+														+ data.p_addr
+														+ "</td></tr>";
+												console.log(i);
+												console.log(d[i]);
+												searchaddress.push(data.p_addr);
+											}
+											document.getElementById("pettable").innerHTML = xxx;
+
+										},
+										error : function(xhr, status, error) {
+											console.log("error", error);
+										}
+									});
+
+						}
+
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
 							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -515,12 +523,32 @@
 
 												// 결과값으로 받은 위치를 마커로 표시합니다
 
+												console.log('${item2.p_photo}');
+												// 결과값으로 받은 위치를 마커로 표시합니다
+												var imageSrc = 'images/'+'${item2.p_photo}',
+														imageSize = new daum.maps.Size(
+																64, 69), // 마커이미지의 크기입니다
+														imageOprion = {
+															offset : new daum.maps.Point(
+																	27, 69)
+														}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+												var markerImage = new daum.maps.MarkerImage(
+														imageSrc, imageSize,
+														imageOprion), markerPosition = new daum.maps.LatLng(
+														37.54699, 127.09598);
 												var marker = new daum.maps.Marker(
+														{
+															position : coords,
+															image : markerImage,
+														//clickable : true
+														// 마커이미지 설정 
+														});
+												/* var marker = new daum.maps.Marker(
 														{
 															//map : map,
 															position : coords,
 															clickable : true
-														});
+														}); */
 												marker.setMap(map);
 
 												var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;"><a href="#">주변사람들</a></div>', iwRemoveable = true;
@@ -577,6 +605,15 @@
 												map.setCenter(coords);
 											}
 										});
+
+						var InputImage = (function loadImageFile() {
+							if (window.FileReader) {
+								var ImagePre;
+								var ImageReader = new window.FileReader();
+								var fileType = /^(?:image\/bmp|image\/gif|image\/jpeg|image\/png|image\/x\-xwindowdump|image\/x\-portable\-bitmap)$/i;
+							}
+
+						})();
 					</script>
 					<br>
 

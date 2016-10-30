@@ -11,12 +11,13 @@ public class MemberPetSearchDTO {
 	private int p_age;
 	private String p_gender;
 	private String p_type;
+	private String p_photo;
 	public MemberPetSearchDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public MemberPetSearchDTO(String userid, String p_name, String addr1, String addr2, String p_kkcnumber, int p_age,
-			String p_gender, String p_type) {
+			String p_gender, String p_type, String p_photo) {
 		super();
 		this.userid = userid;
 		this.p_name = p_name;
@@ -26,6 +27,7 @@ public class MemberPetSearchDTO {
 		this.p_age = p_age;
 		this.p_gender = p_gender;
 		this.p_type = p_type;
+		this.p_photo = p_photo;
 	}
 	public String getUserid() {
 		return userid;
@@ -75,19 +77,17 @@ public class MemberPetSearchDTO {
 	public void setP_type(String p_type) {
 		this.p_type = p_type;
 	}
+	public String getP_photo() {
+		return p_photo;
+	}
+	public void setP_photo(String p_photo) {
+		this.p_photo = p_photo;
+	}
 	@Override
 	public String toString() {
 		return "MemberPetSearchDTO [userid=" + userid + ", p_name=" + p_name + ", addr1=" + addr1 + ", addr2=" + addr2
 				+ ", p_kkcnumber=" + p_kkcnumber + ", p_age=" + p_age + ", p_gender=" + p_gender + ", p_type=" + p_type
-				+ "]";
+				+ ", p_photo=" + p_photo + "]";
 	}
 	
-	
-	
-	
-	
-	
-
-	
-
 }

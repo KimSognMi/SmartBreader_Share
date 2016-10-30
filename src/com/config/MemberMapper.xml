@@ -105,7 +105,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from member order by m_num
 	</select>
 	<select id="memberListByCity" resultType="MemberPetSearchDTO">
-		select m.userid,p_name,addr1,addr2,p_kkcnumber,p_age,p_gender,p_type
+		select m.userid,p_name,addr1,addr2,p_kkcnumber,p_age,p_gender,p_type,p_photo
 		from member m, pet p
 		where m.userid = p.userid and addr1 like '%'||#{keyword}||'%'
 		<if test="p_gender!=null and p_type !=null" >

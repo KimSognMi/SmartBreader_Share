@@ -172,7 +172,7 @@ public class MemberService {
 	}// end list()
 	
 	// 같은 시 기준으로 검색 하여 맴버 가져오기
-		public List<MemberPetSearchDTO> memberListByCity(String keyword, String p_gender, String p_type) {
+		public List<MemberPetSearchDTO> memberListByCity(String keyword, String p_gender, String p_type,String p_photo) {
 			List<MemberPetSearchDTO> list = null;
 			
 			HashMap<String, String> map = new HashMap<String, String>();

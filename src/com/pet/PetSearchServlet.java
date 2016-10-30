@@ -46,6 +46,7 @@ public class PetSearchServlet extends HttpServlet {
 			String userid = dto.getUserid();
 			String p_gender = mpdto.getP_gender();
 			String p_type = mpdto.getP_type();
+			String p_photo = mpdto.getP_photo();
 			System.out.println("==========================" + userid + "===" + p_gender + "===" + p_type);
 			MemberService service = new MemberService();
 			target = "nearmedog.jsp";
@@ -59,7 +60,7 @@ public class PetSearchServlet extends HttpServlet {
 				
 				//사용자 기준 정보 토대로 주소의 6자리까지 잘라서 해당 기준으로 검색하여 맵에 표시
 
-				list = (ArrayList<MemberPetSearchDTO>) service.memberListByCity(keyword, p_gender, p_type);
+				list = (ArrayList<MemberPetSearchDTO>) service.memberListByCity(keyword, p_gender, p_type, p_photo);
 
 				if (list.size() > 0) {
 					System.out.println("주변 사용자 수 : " + list.size());
