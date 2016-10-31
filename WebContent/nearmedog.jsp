@@ -463,9 +463,11 @@
 											console.log(d[1]);
 											console.log(d[2]);
 											var xxx = '';
+
 											var searchaddress = [];
-											for ( var i in d) {
+											 for (var i in d) {
 												data = d[i];
+												console.log(i);
 												xxx += "<tr><td>" + data.userid
 														+ "</td><td>"
 														+ data.kkcnumber
@@ -480,8 +482,10 @@
 														+ "</td><td>"
 														+ data.p_addr
 														+ "</td></tr>";
-												console.log(i);
+												
+												
 												console.log(d[i]);
+												console.log(d[i].kkcnumber);
 												searchaddress.push(data.p_addr);
 											}
 											document.getElementById("pettable").innerHTML = xxx;
@@ -525,13 +529,13 @@
 
 												console.log('${item2.p_photo}');
 												// 결과값으로 받은 위치를 마커로 표시합니다
-												var imageSrc = 'images/'+'${item2.p_photo}',
-														imageSize = new daum.maps.Size(
-																64, 69), // 마커이미지의 크기입니다
-														imageOprion = {
-															offset : new daum.maps.Point(
-																	27, 69)
-														}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+												var imageSrc = 'images/'
+														+ '${item2.p_photo}', imageSize = new daum.maps.Size(
+														64, 69), // 마커이미지의 크기입니다
+												imageOprion = {
+													offset : new daum.maps.Point(
+															27, 69)
+												}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 												var markerImage = new daum.maps.MarkerImage(
 														imageSrc, imageSize,
 														imageOprion), markerPosition = new daum.maps.LatLng(

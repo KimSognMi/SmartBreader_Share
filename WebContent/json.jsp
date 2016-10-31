@@ -14,7 +14,7 @@
 	System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" + p_gender + p_type);
 	// String name ="[{"+;
 	MemberService service = new MemberService();
-	List<MemberPetSearchDTO> arrlist = (ArrayList<MemberPetSearchDTO>) service.memberListByCity(keyword,p_gender, p_type);
+	List<MemberPetSearchDTO> arrlist = (ArrayList<MemberPetSearchDTO>) service.memberListByCity(keyword,p_gender, p_type, "");
 	int arrsize = arrlist.size();
 	String condition = "[";
 
