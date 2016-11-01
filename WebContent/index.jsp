@@ -6,6 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 
+
 <html> 
 <head>
 <title>SMART BREADER</title>
@@ -18,7 +19,7 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head> 
 <body>
-
+ 
 <%--  <c:if test="${result!=null }">
  <script type="text/javascript">
      alert("회원가입을 환영합니다.");

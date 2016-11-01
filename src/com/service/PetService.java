@@ -9,6 +9,7 @@ import com.config.MySqlSessionFactory;
 import com.dto.BoardDTO;
 import com.dto.MemberDTO;
 import com.dto.PetDTO;
+import com.dto.PetTreeDTO;
 import com.exception.CommonException;
 import com.exception.PetException;
 
@@ -109,11 +110,29 @@ public class PetService {
 				PetDTO dto = null;
 				try{
 					dto = session.selectOne("pet.petdetail", userid);
+					
 				}finally{
 					session.close();
 				}
 				
 		
+				return dto;
+			}
+			
+			
+			public PetTreeDTO pettree(String p_num) throws PetException {
+				PetTreeDTO dto = null;
+				SqlSession session = MySqlSessionFactory.getSession();
+				System.out.println("pettree : ");
+				try {
+					dto = session.selectOne("pet.pettree", p_num);
+					System.out.println(dto);
+				} catch (Exception e) {
+					e.printStackTrace();
+					throw new PetException("족보 실패");
+				} finally {
+					session.close();
+				}
 				return dto;
 			}
 	

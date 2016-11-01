@@ -16,7 +16,7 @@
 		
 		/* photo2.style.width = "450px";
 		photo2.style.height = "340px";  */
-			 photo2.innerHTML = "<input type='image' height='340px' width='620px' src='images/"+'${yourdog.p_photo}'+"' onclick=''/>";
+			 photo2.innerHTML = "<input type='image' height='340px' width='620px' src='images/"+'${yourdog.p_photo}'+"' onclick='PetTree(myForm)'/>";
 
 		}
 	
@@ -55,6 +55,17 @@
 			alert("거부");
 			/* f.action = "AnswerPetListServlet?userid="+${login.userid};
 			f.submit(); */
+		}
+		
+		function PetTree(f){
+			var child = window
+			.open(
+					"PetTreeServlet?p_num="
+							+ "${yourdog.p_num}",
+					"childName",
+					"width=840,height=550, resizable=no");
+			
+			//f.action = "PetTreeServlet?p_num="+${mydog.p_num};
 		}
 
 	

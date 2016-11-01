@@ -16,9 +16,11 @@
 		
 		/* photo2.style.width = "450px";
 		photo2.style.height = "340px";  */
-			 photo2.innerHTML = "<input type='image' height='340px' width='620px' src='images/"+'${mydog.p_photo}'+"' onclick=''/>";
+			 photo2.innerHTML = "<input type='image' height='340px' width='620px' src='images/"+'${mydog.p_photo}'+"' onclick='PetTree(myForm)'/>";
 
 		}
+	
+	
 	
 </script>
 
@@ -40,6 +42,17 @@
 		/* f.action = "MyPetListServlet?userid=${login.userid}"; */
 		f.action = "RequestDeleteServlet?r_num=${mydog.r_num}&requestid=${login.userid}";
 
+	}
+	
+	function PetTree(f){
+		var child = window
+		.open(
+				"PetTreeServlet?p_num="
+						+ "${mydog.p_num}",
+				"childName",
+				"width=840,height=550, resizable=no");
+		
+		//f.action = "PetTreeServlet?p_num="+${mydog.p_num};
 	}
 </script>
 </head>
@@ -112,7 +125,7 @@
 		<div id="main">
 			<section id="two">
 				<!-- ㅊㄷ -->
-				<form name="myForm" method="post" action="PetUpdateServlet"
+				<form name="myForm" method="post" 
 					enctype="multipart/form-data">
 
 						<!-- <article class="container"> -->
@@ -225,10 +238,12 @@
 </c:if>
 							<div class="col-md-3"></div>
 							<div class="col-md-3"></div>
+						
+								</form>
+			</section>
 						</div>
 						<br>
-					</form>
-			</section>
+			
 		</div>
 
 
