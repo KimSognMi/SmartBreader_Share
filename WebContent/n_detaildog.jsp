@@ -261,28 +261,19 @@ function send(f) {
 
 	f.action ="RequestPetServlet";
 	
-	//f.submit();
-	//close();
+	
 	////////////////////////////SendSMS자바 파일 함수로 호출하기!!!!
-	//opener.location.href="RequestPetListServlet?requestid="+'${login.userid}';
+	
 	
 }
-	/*  function send() {
-		/* var txt = document.getElementById("r_content").value;
-		/* var userid = document.getElementById("userid");  */
-		/* opener.document.location.href = "RequestPetServlet?userid="
-				+ '${petdetail.userid}'+"&p_num="+'${petdetail.p_num}' + "&r_content="+txt+"&p_kkcnumber="+'${petdetail.p_kkcnumber}'+"&p_birth="+'${petdetail.p_birth}'+"&p_type="+'${petdetail.p_type}'; */	
-			/* 	opener.document.location.href = "RequestPetServlet"
-				close();  */
-		/* console.log("asdfas"+${request}) */
-	//}  
+	
 	function reset_close() {
 		close();
 	}
 	function photo() {
 		var photo2 = document.getElementById("dogphoto");
 		console.log('${petdetail.p_photo}');
-//어ㅏ너알
+
 		photo2.innerHTML = "<img style='width: 180%;' src='images/"
 				+ '${petdetail.p_photo}' + "' />";
 	}

@@ -44,6 +44,9 @@ public final class SendSMS {
         context.setAuthCache(authCache);
 
         DefaultHttpClient client = new DefaultHttpClient();
+        
+        
+        
 Config.receiver="01087770624";
         try {
             HttpPost httpPost = new HttpPost(url);
