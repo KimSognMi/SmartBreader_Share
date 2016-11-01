@@ -39,36 +39,88 @@
 		<!-- Menu -->
 		<nav id="menu">
 
-			<c:if test="${sessionScope.login == null}">
+			<c:if test="${sessionScope.login==null}">
 				<ul class="links">
 					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
+					<li><a href="LoginFormServlet">BOARD</a></li>
+					<li><a href="LoginFormServlet">NEAR ME NOW</a></li>
+					<li><a href="LoginFormServlet">NEAR ME DOG</a></li>
+				
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="memberform.jsp" class="button special fit">Join</a></li>
-					<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
-				</ul>
-
-			</c:if>
-
-			<c:if test="${sessionScope.login != null}">
-				<ul class="links">
-					<li><a href="index.jsp">HOME</a></li>
-					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>`
-					<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-				</ul>
-				<ul class="actions vertical">
-					<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-					<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
+					<li><a href="LoginFormServlet" class="button fit">Log In</a></li>
 				</ul>
 			</c:if>
+
+			<c:if test="${sessionScope.login!=null}">
+				
+					<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+						<ul class="links">
+							<li><a href="index.jsp">HOME</a></li>
+							<li><a href="about.jsp">ABOUT US</a></li>
+							<li><a href="BoardListServlet2">BOARD</a></li>
+							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						
+						</ul>
+						<ul class="actions vertical">
+							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
+							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						</ul>
+				
+				
+				       
+				</c:if>  
+		
+						<c:if test="${login.userid!='adminkongju@naver.com'}">
+			 <c:if test="${!empty sessionScope.list}">	 
+						<c:if test="${sessionScope.list.size()!=0}">
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+		
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					
+					</ul> 
+					<ul class="actions vertical">
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+					<li><a href="RequestPetListServlet?requestid=${login.userid}" class="button special fit">신청현황</a></li> 
+				
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul> 
+					
+				</c:if>
+				</c:if> 
+				
+
+				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+				
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+				
+				</c:if>
+				
+	
+					</c:if>
+					
+		
+	</c:if>
 
 		</nav>
 

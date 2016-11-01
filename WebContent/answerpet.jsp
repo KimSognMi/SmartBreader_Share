@@ -90,28 +90,90 @@
 
 		<!-- Menu -->
 		<nav id="menu">
-			<ul class="links">
-				<c:if test="${!empty sessionScope.list}">
-					<c:if test="${sessionScope.list.size()!=0}">
+				<c:if test="${sessionScope.login==null}">
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="LoginFormServlet">BOARD</a></li>
+					<li><a href="LoginFormServlet">NEAR ME NOW</a></li>
+					<li><a href="LoginFormServlet">NEAR ME DOG</a></li>
+				
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
+					<li><a href="LoginFormServlet" class="button fit">Log In</a></li>
+				</ul>
+			</c:if>
+
+			<c:if test="${sessionScope.login!=null}">
+				
+					<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
 						<ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
-
-							<li><a href="BoardListServlet">BOARD</a></li>
+							<li><a href="BoardListServlet2">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-
+						
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="MyPetListServlet?userid=${login.userid}"
-								class="button fit">My PET Page</a></li>
-							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
-
-					</c:if>
+				
+				
+				       
+				</c:if>  
+			
+						<c:if test="${login.userid!='adminkongju@naver.com'}">
+			 <c:if test="${!empty sessionScope.list}">	 
+						<c:if test="${sessionScope.list.size()!=0}">
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+		
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					
+					</ul> 
+					<ul class="actions vertical">
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+					<li><a href="RequestPetListServlet?requestid=${login.userid}" class="button special fit">신청현황</a></li> 
+				
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul> 
+					
 				</c:if>
-			</ul>
+				</c:if> 
+				
+								
+
+				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+				
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+				
+				</c:if>
+				
+	
+					</c:if>
+					
+		
+	</c:if>
+
 		</nav>
 
 		<!-- Banner -->
@@ -183,13 +245,13 @@
 								<!-- <label for="username">이름</label>  -->
 								<h5>이름</h5>
 								<input type="text" class="form-control" name="p_name"
-									value="${yourdog.p_name}" id="p_name">
+									value="${yourdog.p_name}" id="p_name" readonly="readonly">
 							</div>
 							<br>
 							<div class="field half2">
 								<h5>나이</h5>
 								<input type="text" class="form-control" name="p_age" id="p_age"
-									placeholder="나이" value="${yourdog.p_age}">
+									placeholder="나이" value="${yourdog.p_age}" readonly="readonly">
 							</div>
 							<div class="row uniform">
 								<div class="field2_1">
@@ -228,18 +290,18 @@
 								<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
 								<h5>종</h5>
 								<input type="text" class="form-control" id="p_type"
-									name="p_type" placeholder="종" value="${yourdog.p_type}">
+									name="p_type" placeholder="종" value="${yourdog.p_type}" readonly="readonly">
 							</div>
 							<div class="field2">
 								<h5>특징</h5>
 								<textarea name="p_feature" id="p_feature"
-									placeholder="특징을 입력 해 주세요" rows="5">${yourdog.p_feature}</textarea>
+									placeholder="특징을 입력 해 주세요" rows="5" readonly="readonly">${yourdog.p_feature}</textarea>
 							</div>
 							
 							<div class="field2">
 								<h5>신청내용</h5>
 								<textarea name="r_content" id="r_content"
-									placeholder="신청내용을 입력 해 주세요" rows="5">${yourdog.r_content}</textarea>
+									placeholder="신청내용을 입력 해 주세요" rows="5" readonly="readonly">${yourdog.r_content}</textarea>
 							</div>
 							<br>
 <center>	
@@ -281,6 +343,8 @@
 								<center>
 ${yourdog.phone}
 	</center>
+	
+	<br>
 							</ul>
 </c:if>
 			 				<div class="col-md-3"></div>

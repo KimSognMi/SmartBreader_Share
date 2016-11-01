@@ -274,69 +274,88 @@
 
 		<!-- Menu -->
 		<nav id="menu">
-			<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+			<c:if test="${sessionScope.login==null}">
 				<ul class="links">
 					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet2">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					<li><a href="LoginFormServlet">BOARD</a></li>
+					<li><a href="LoginFormServlet">NEAR ME NOW</a></li>
+					<li><a href="LoginFormServlet">NEAR ME DOG</a></li>
+				
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="MemberListServlet" class="button special fit">Manage
-							Member</a></li>
-					<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
+					<li><a href="LoginFormServlet" class="button fit">Log In</a></li>
 				</ul>
-
-
-
 			</c:if>
 
-			<c:if test="${login.userid!='adminkongju@naver.com'}">
-				<c:if test="${!empty sessionScope.list}">
-					<c:if test="${sessionScope.list.size()!=0}">
+			<c:if test="${sessionScope.login!=null}">
+				
+					<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
 						<ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
-
-							<li><a href="BoardListServlet">BOARD</a></li>
+							<li><a href="BoardListServlet2">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-
+						
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="MyPetListServlet?userid=${login.userid}"
-								class="button fit">My PET Page</a></li>
-							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
-
-					</c:if>
+				
+				
+				       
+				</c:if>  
+		
+						<c:if test="${login.userid!='adminkongju@naver.com'}">
+			 <c:if test="${!empty sessionScope.list}">	 
+						<c:if test="${sessionScope.list.size()!=0}">
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+		
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					
+					</ul> 
+					<ul class="actions vertical">
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+					<li><a href="RequestPetListServlet?requestid=${login.userid}" class="button special fit">신청현황</a></li> 
+				
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul> 
+					
 				</c:if>
+				</c:if> 
+				
 
-
-				<c:if
-					test="${sessionScope.list.size()==0 or empty sessionScope.list}">
-
+				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+				
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
 						<li><a href="BoardListServlet">BOARD</a></li>
 						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-
+						
 					</ul>
 					<ul class="actions vertical">
 						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>
-
+				
 				</c:if>
-
-
-			</c:if>
-
+				
+	
+					</c:if>
+					
+		
+	</c:if>
 		</nav>
 		<!-- Banner -->
 		<!-- Note: The "styleN" class below should match that of the header element. -->
@@ -366,7 +385,7 @@
 				<div class="inner">
 					<header class="major">
 						<h1>Near Me Dog</h1>
-						${nearmedoglist}
+						
 
 					</header>
 
@@ -374,15 +393,15 @@
 					<h2 id="content">근처 반려견을 검색하세요</h2>
 					<form id="dogsearch">
 
-						<div style="margin-left: -20%" id="radio">
+						<div style="margin-left: -15%" id="radio">
 							<input type="radio" id="demo-priority-low" name="p_gender"
 								value="남" checked> <label for="demo-priority-low">남</label>
 
 							<input type="radio" id="demo-priority-normal" name="p_gender"
 								value="여"> <label for="demo-priority-normal">여</label>
 						</div>
-
-						<div id="selectdog" style="width: 30%; margin-left: 2%">
+<br>
+						<div id="selectdog" style="width: 30%; margin-left: 0%">
 							<input type="text" class="form-control" id="p_type" name="p_type"
 								placeholder="종">
 						</div>
@@ -659,7 +678,7 @@
 							</table>
 						</div>
 					</div>
-
+<hr>
 
 					<!-- Footer -->
 					<footer id="footer">

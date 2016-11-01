@@ -51,8 +51,7 @@
 						+ "${mydog.p_num}",
 				"childName",
 				"width=840,height=550, resizable=no");
-		
-		//f.action = "PetTreeServlet?p_num="+${mydog.p_num};
+	
 	}
 </script>
 </head>
@@ -75,28 +74,90 @@
 
 		<!-- Menu -->
 		<nav id="menu">
-			<ul class="links">
-				<c:if test="${!empty sessionScope.list}">
-					<c:if test="${sessionScope.list.size()!=0}">
+			<c:if test="${sessionScope.login==null}">
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="LoginFormServlet">BOARD</a></li>
+					<li><a href="LoginFormServlet">NEAR ME NOW</a></li>
+					<li><a href="LoginFormServlet">NEAR ME DOG</a></li>
+				
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
+					<li><a href="LoginFormServlet" class="button fit">Log In</a></li>
+				</ul>
+			</c:if>
+
+			<c:if test="${sessionScope.login!=null}">
+				
+					<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
 						<ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
-
-							<li><a href="BoardListServlet">BOARD</a></li>
+							<li><a href="BoardListServlet2">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-
+						
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="MyPetListServlet?userid=${login.userid}"
-								class="button fit">My PET Page</a></li>
-							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
-
-					</c:if>
+				
+				
+				       
+				</c:if>  
+			
+						<c:if test="${login.userid!='adminkongju@naver.com'}">
+			 <c:if test="${!empty sessionScope.list}">	 
+						<c:if test="${sessionScope.list.size()!=0}">
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+		
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					
+					</ul> 
+					<ul class="actions vertical">
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+					<li><a href="RequestPetListServlet?requestid=${login.userid}" class="button special fit">신청현황</a></li> 
+				
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul> 
+					
 				</c:if>
-			</ul>
+				</c:if> 
+				
+								
+
+				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+				
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+				
+				</c:if>
+				
+	
+					</c:if>
+					
+		
+	</c:if>
+
 		</nav>
 
 		<!-- Banner -->
@@ -132,10 +193,10 @@
 						<div class="col-md-6 col-md-offset-3">
 
 <input type="hidden" name="userid" id="userid"
-								value="${mydog.userid}">${mydog.userid}
+								value="${mydog.userid}">
 
 							<input type="hidden" name="p_num" id="p_num"
-								value="${mydog.p_num}">${mydog.p_num}
+								value="${mydog.p_num}">
 								
 								<div class="field2">
 								<br>
@@ -155,16 +216,16 @@
 							<input type="hidden" class="form-control" name="userid"
 								id="userid" readonly="readonly" value="${login.userid}">
 							<div class="field2">
-								<!-- <label for="username">이름</label>  -->
+							
 								<h5>이름</h5>
 								<input type="text" class="form-control" name="p_name"
-									value="${mydog.p_name}" id="p_name">
+									value="${mydog.p_name}" id="p_name" readonly="readonly">
 							</div>
 							<br>
 							<div class="field half2">
 								<h5>나이</h5>
 								<input type="text" class="form-control" name="p_age" id="p_age"
-									placeholder="나이" value="${mydog.p_age}">
+									placeholder="나이" value="${mydog.p_age}" readonly="readonly">
 							</div>
 							<div class="row uniform">
 								<div class="field2_1">
@@ -174,12 +235,12 @@
 									<c:if test="${mydog.p_gender=='남'}">
 										<div class="field half">
 
-											<input type="radio" id="남" name="p_gender" value="남" checked>
+											<input type="radio" id="남" name="p_gender" value="남" checked >
 											<label for="남">남(♂)</label>
 										</div>
 										<div class="field halfs">
 
-											<input type="radio" id="여" name="p_gender" value="여">
+											<input type="radio" id="여" name="p_gender" value="여" >
 											<label for="여">여(♀)</label>
 										</div>
 									</c:if>
@@ -203,12 +264,12 @@
 								<!-- 	<label for="InputPhone">휴대폰 번호</label> -->
 								<h5>종</h5>
 								<input type="text" class="form-control" id="p_type"
-									name="p_type" placeholder="종" value="${mydog.p_type}">
+									name="p_type" placeholder="종" value="${mydog.p_type}" readonly="readonly">
 							</div>
 							<div class="field2">
 								<h5>특징</h5>
 								<textarea name="p_feature" id="p_feature"
-									placeholder="특징을 입력 해 주세요" rows="5">${mydog.p_feature}</textarea>
+									placeholder="특징을 입력 해 주세요" rows="5" readonly="readonly">${mydog.p_feature}</textarea>
 							</div>
 							<br>
 <center>
@@ -234,6 +295,7 @@
 								<center>
 									<button class="special" onclick="RequestdeleteBoard(myForm)">취소</button>
 								</center>
+								<br>
 							</ul>
 </c:if>
 							<div class="col-md-3"></div>

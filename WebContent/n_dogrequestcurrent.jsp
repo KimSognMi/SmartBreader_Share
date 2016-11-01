@@ -259,53 +259,101 @@
 	<div id="wrapper">
 
 		<!-- Header -->
-		<header id="header">
+		<header id="header" class="alt">
 			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
 			<nav>
-				<a href="#menu">Menu</a>
+				<c:if test="${sessionScope.login!=null}">
+		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
+				</c:if>
+				&nbsp;<a href="#menu">Menu</a>
 			</nav>
 		</header>
 
 		<!-- Menu -->
 
 		<nav id="menu">
-			<%
-				MemberDTO dto = (MemberDTO) session.getAttribute("login");
-			%>
-			<%
-				if (dto == null) {
-			%>
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="BoardListServlet">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="joinform.jsp" class="button special fit">JOIN</a></li>
-				<li><a href="loginform.jsp" class="button fit">LogIn</a></li>
-			</ul>
-			<%
-				} else {
-			%>
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
-				<li><a href="about.jsp">ABOUT US</a></li>
-				<li><a href="BoardListServlet">BOARD</a></li>
-				<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-				<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-				<li><a href="nearmenow.jsp">ONLINE SHOP</a></li>
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="mypage.jsp" class="button special fit">MyPage</a></li>
-				<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-			</ul>
-			<%
-				}
-			%>
+			<c:if test="${sessionScope.login==null}">
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="LoginFormServlet">BOARD</a></li>
+					<li><a href="LoginFormServlet">NEAR ME NOW</a></li>
+					<li><a href="LoginFormServlet">NEAR ME DOG</a></li>
+				
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
+					<li><a href="LoginFormServlet" class="button fit">Log In</a></li>
+				</ul>
+			</c:if>
 
+			<c:if test="${sessionScope.login!=null}">
+				
+					<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+						<ul class="links">
+							<li><a href="index.jsp">HOME</a></li>
+							<li><a href="about.jsp">ABOUT US</a></li>
+							<li><a href="BoardListServlet2">BOARD</a></li>
+							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						
+						</ul>
+						<ul class="actions vertical">
+							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
+							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						</ul>
+				
+				
+				       
+				</c:if>  
+		
+						<c:if test="${login.userid!='adminkongju@naver.com'}">
+			 <c:if test="${!empty sessionScope.list}">	 
+						<c:if test="${sessionScope.list.size()!=0}">
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+		
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					
+					</ul> 
+					<ul class="actions vertical">
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+					<li><a href="RequestPetListServlet?requestid=${login.userid}" class="button special fit">신청현황</a></li> 
+				
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul> 
+					
+				</c:if>
+				</c:if> 
+				
+
+				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+				
+					<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet">BOARD</a></li>
+						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
+						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					</ul>
+				
+				</c:if>
+				
+	
+					</c:if>
+					
+		
+	</c:if>
 		</nav>
 		<!-- Banner -->
 		<!-- Note: The "styleN" class below should match that of the header element. -->
@@ -333,19 +381,11 @@
 				<div class="inner">
 					<header class="major">
 						<h1>신청현황</h1>
-						<%-- ${request} 과연${requestlist} --%>
+					
 					</header>
 
 					<h3>내 애견의 반려 신청 현황 입니다.</h3>
-					<!-- <form method="post" name="form">
-
-						<input type="radio" id="demo-priority-normal" name="내가 신청"onclick="Request(form)" name="order"> 
-						<label for="demo-priority-normal">내가 신청</label> 
-						<input type="radio"id="demo-priority" name="order" onclick="Requested(form)"value="나를 신청">
-						<label for="demo-priority">나를 신청</label>
-					</form> -->
-
-					<!-- 모양잡기 -->
+				
 					<div class="table-wrapper">
 
 신청을 보냈어요 내가 이 개한테 신청 mydog
@@ -395,38 +435,9 @@
 					</div>
 
 
-					<!-- <div class="row"> -->
-					<%-- <div class="box alt">
-<c:set var="ppp" value="${requestlist}" scope="session" />			
-								 <c:forEach var="c_pet" items="${ppp}" varStatus="status">
-											<div class="6u 12u$(small)">
-											
-												<img src="images/${c_pet.p_photo}" height="240px" width="350px">
-												
-
-											</div>
-											<div class="6u$ 12u$(small)">
-													<img src="images/${c_pet.p_photo}" height="240px" width="350px">
-											</div>
-											
-											
-										
-														<div class="row 50% uniform">
-															<div class="4u"><span class="image fit"><img src="images/${c_pet.p_photo}" height="240px" width="350px"></span></div>
-															<div class="4u"><span class="image fit"><img src="images/${c_pet.p_photo}" height="240px" width="350px"></span></div>
- 															<div class="4u$"><span class="image fit"><img src="images/pic10.jpg" alt="" /></span></div>
-															
-															
-														</div>
-												
-											
-											
-											
-											</c:forEach> --%>
 
 
-				</div>
-		</div>
+		
 		<hr>
 		<!-- Footer -->
 		<footer id="footer">
@@ -460,5 +471,8 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	
+			</section>
+		</div>
 </body>
 </html>

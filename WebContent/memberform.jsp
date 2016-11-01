@@ -47,18 +47,20 @@
 
 		<!-- Menu -->
 		<nav id="menu">
-			<ul class="links">
-				<li><a href="index.jsp">HOME</a></li>
+			<c:if test="${sessionScope.login==null}">
+				<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					
-			</ul>
-			<ul class="actions vertical">
-				<li><a href="memberform.jsp" class="button special fit">JOIN</a></li>
-				<li><a href="loginform.jsp" class="button fit">Log In</a></li>
-			</ul>
+					<li><a href="LoginFormServlet">BOARD</a></li>
+					<li><a href="LoginFormServlet">NEAR ME NOW</a></li>
+					<li><a href="LoginFormServlet">NEAR ME DOG</a></li>
+				
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
+					<li><a href="LoginFormServlet" class="button fit">Log In</a></li>
+				</ul>
+			</c:if>
 		</nav>
 
 		<!-- Banner -->
