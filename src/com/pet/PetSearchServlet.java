@@ -73,6 +73,7 @@ public class PetSearchServlet extends HttpServlet {
 				request.setAttribute("nearmedog", myhome);
 				System.out.println("nearmedog" + myhome);
 				request.setAttribute("nearmeSdog", searchhome);
+				request.setAttribute("mode", "base");
 				System.out.println("nearmeSdog" + searchhome);
 			} catch (CommonException e) {
 				String link = "LoginFormServlet";

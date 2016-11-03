@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.jdbc.SQL"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@page import="java.util.HashMap"%>
@@ -17,6 +18,7 @@
  		obj.put("username", dto.getUsername());
  		obj.put("userid", dto.getUserid());
  		obj.put("passwd", dto.getPasswd());
+ 		
  	}else{
  		obj.put("No", "No");
  	} 

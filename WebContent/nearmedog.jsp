@@ -274,88 +274,69 @@
 
 		<!-- Menu -->
 		<nav id="menu">
-			<c:if test="${sessionScope.login==null}">
+			<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
 				<ul class="links">
 					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="LoginFormServlet">BOARD</a></li>
-					<li><a href="LoginFormServlet">NEAR ME NOW</a></li>
-					<li><a href="LoginFormServlet">NEAR ME DOG</a></li>
-				
+					<li><a href="BoardListServlet2">BOARD</a></li>
+					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="MemberFormServlet" class="button special fit">JOIN</a></li>
-					<li><a href="LoginFormServlet" class="button fit">Log In</a></li>
+					<li><a href="MemberListServlet" class="button special fit">Manage
+							Member</a></li>
+					<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 				</ul>
+
+
+
 			</c:if>
 
-			<c:if test="${sessionScope.login!=null}">
-				
-					<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+			<c:if test="${login.userid!='adminkongju@naver.com'}">
+				<c:if test="${!empty sessionScope.list}">
+					<c:if test="${sessionScope.list.size()!=0}">
 						<ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
-							<li><a href="BoardListServlet2">BOARD</a></li>
+
+							<li><a href="BoardListServlet">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-						
+
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
+							<li><a href="MyPetListServlet?userid=${login.userid}"
+								class="button fit">My PET Page</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 						</ul>
-				
-				
-				       
-				</c:if>  
-		
-						<c:if test="${login.userid!='adminkongju@naver.com'}">
-			 <c:if test="${!empty sessionScope.list}">	 
-						<c:if test="${sessionScope.list.size()!=0}">
-					<ul class="links">
-						<li><a href="index.jsp">HOME</a></li>
-						<li><a href="about.jsp">ABOUT US</a></li>
-		
-						<li><a href="BoardListServlet">BOARD</a></li>
-						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-					
-					</ul> 
-					<ul class="actions vertical">
-						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
-					<li><a href="RequestPetListServlet?requestid=${login.userid}" class="button special fit">신청현황</a></li> 
-				
-						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
-					</ul> 
-					
-				</c:if>
-				</c:if> 
-				
 
-				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
-				
+					</c:if>
+				</c:if>
+
+
+				<c:if
+					test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
 						<li><a href="BoardListServlet">BOARD</a></li>
 						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
-						
+
 					</ul>
 					<ul class="actions vertical">
 						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
 					</ul>
-				
+
 				</c:if>
-				
-	
-					</c:if>
-					
-		
-	</c:if>
+
+
+			</c:if>
+
 		</nav>
 		<!-- Banner -->
 		<!-- Note: The "styleN" class below should match that of the header element. -->
@@ -385,7 +366,7 @@
 				<div class="inner">
 					<header class="major">
 						<h1>Near Me Dog</h1>
-						
+						${nearmedoglist}
 
 					</header>
 
@@ -393,15 +374,15 @@
 					<h2 id="content">근처 반려견을 검색하세요</h2>
 					<form id="dogsearch">
 
-						<div style="margin-left: -15%" id="radio">
+						<div style="margin-left: -20%" id="radio">
 							<input type="radio" id="demo-priority-low" name="p_gender"
 								value="남" checked> <label for="demo-priority-low">남</label>
 
 							<input type="radio" id="demo-priority-normal" name="p_gender"
 								value="여"> <label for="demo-priority-normal">여</label>
 						</div>
-<br>
-						<div id="selectdog" style="width: 30%; margin-left: 0%">
+
+						<div id="selectdog" style="width: 30%; margin-left: 2%">
 							<input type="text" class="form-control" id="p_type" name="p_type"
 								placeholder="종">
 						</div>
@@ -429,13 +410,6 @@
 					<script type="text/javascript"
 						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
 					<script>
-						/* function photo() {
-							var photo2 = document.getElementById("dogphoto");
-							console.log('${petdetail.p_photo}');
-							//어ㅏ너알
-							photo2.innerHTML = "<img style='width: 50%;' src='images/"
-									+ '${petdetail.p_photo}' + "' />";
-						} */
 						var gender_value = '';
 						var p_type;
 						var userid;
@@ -443,6 +417,131 @@
 						var p_name;
 						var p_age;
 						var p_addr;
+						var mode = '${mode}';
+						var mapContainer;
+						var map;
+						var geocoder;
+						function clearMap() {
+							mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+							mapOption = {
+								center : new daum.maps.LatLng(33.450701,
+										126.570667), // 지도의 중심좌표
+								level : 4
+							// 지도의 확대 레벨a
+							};
+							// 지도를 생성합니다    
+							map = new daum.maps.Map(mapContainer, mapOption);
+
+							// 주소-좌표 변환 객체를 생성합니다
+							geocoder = new daum.maps.services.Geocoder();
+						}
+						function printMap(addr1, p_photo, userId, center) {
+
+							// 주소로 좌표를 검색합니다
+							//나의 주변의 사람들 좌표 찍기
+							//console.log(searchaddress);
+
+							geocoder
+									.addr2coord(
+											addr1,
+											function(status, result) {
+
+												// 정상적으로 검색이 완료됐으면 
+												if (status === daum.maps.services.Status.OK) {
+
+													var coords = new daum.maps.LatLng(
+															result.addr[0].lat,
+															result.addr[0].lng);
+
+													// 결과값으로 받은 위치를 마커로 표시합니다
+
+													// 결과값으로 받은 위치를 마커로 표시합니다
+													var imageSrc = 'images/'
+															+ p_photo, imageSize = new daum.maps.Size(
+															64, 69), // 마커이미지의 크기입니다
+													imageOprion = {
+														offset : new daum.maps.Point(
+																27, 69)
+													}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+													var markerImage = new daum.maps.MarkerImage(
+															imageSrc,
+															imageSize,
+															imageOprion), markerPosition = new daum.maps.LatLng(
+															37.54699, 127.09598);
+													var marker = new daum.maps.Marker(
+															{
+																position : coords,
+																image : markerImage,
+															//clickable : true
+															// 마커이미지 설정 
+															});
+													/* var marker = new daum.maps.Marker(
+															{
+																//map : map,
+																position : coords,
+																clickable : true
+															}); */
+													marker.setMap(map);
+
+													var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;"><a href="#">주변사람들</a></div>', iwRemoveable = true;
+													// 인포윈도우로 장소에 대한 설명을 표시합니다
+													var infowindow = new daum.maps.InfoWindow(
+															{
+																content : iwContent,
+																removable : iwRemoveable
+															});
+													daum.maps.event
+															.addListener(
+																	marker,
+																	'click',
+																	function() {
+																		var child = window
+																				.open(
+																						"PetDetailServlet?userid="
+																								+ userid,
+																						"childName",
+																						"width=400,height=800, resizable=no");
+
+																	});
+												}
+											});
+						}
+						function goCenter(addr1) {
+							//마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
+							geocoder
+									.addr2coord(
+											addr1,
+											function(status, result) {
+
+												// 정상적으로 검색이 완료됐으면 
+												if (status === daum.maps.services.Status.OK) {
+
+													var coords = new daum.maps.LatLng(
+															result.addr[0].lat,
+															result.addr[0].lng);
+
+													// 결과값으로 받은 위치를 마커로 표시합니다
+													var marker = new daum.maps.Marker(
+															{
+																map : map,
+																position : coords
+															});
+
+													// 인포윈도우로 장소에 대한 설명을 표시합니다
+													var infowindow = new daum.maps.InfoWindow(
+															{
+																content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">'
+																		+ addr1
+																		+ '</div>'
+															});
+													infowindow
+															.open(map, marker);
+
+													// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+													map.setCenter(coords);
+												}
+											});
+						}
 						function searchdog(f) {
 							var gender = document.getElementsByName('p_gender');
 							var checked_index = -1;
@@ -482,9 +581,10 @@
 											console.log(d[1]);
 											console.log(d[2]);
 											var xxx = '';
-
+											//맵 초기화
+											clearMap();
 											var searchaddress = [];
-											 for (var i in d) {
+											for ( var i in d) {
 												data = d[i];
 												console.log(i);
 												xxx += "<tr><td>" + data.userid
@@ -501,134 +601,33 @@
 														+ "</td><td>"
 														+ data.p_addr
 														+ "</td></tr>";
-												
-												
+
 												console.log(d[i]);
 												console.log(d[i].kkcnumber);
 												searchaddress.push(data.p_addr);
+												printMap(d[i].p_addr,
+														d[i].p_photo,
+														d[i].userid, false);
 											}
 											document.getElementById("pettable").innerHTML = xxx;
-
+											goCenter('${nearmedog.addr1}');
+											mode = 'notbase';
 										},
+
 										error : function(xhr, status, error) {
 											console.log("error", error);
 										}
 									});
 
 						}
-
-						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-						mapOption = {
-							center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-							level : 4
-						// 지도의 확대 레벨a
-						};
-						// 지도를 생성합니다    
-						var map = new daum.maps.Map(mapContainer, mapOption);
-
-						// 주소-좌표 변환 객체를 생성합니다
-						var geocoder = new daum.maps.services.Geocoder();
-						// 주소로 좌표를 검색합니다
-						//나의 주변의 사람들 좌표 찍기
-						//console.log(searchaddress);
-						<c:forEach items="${nearmedoglist}" var="item2">
-						geocoder
-								.addr2coord(
-										'${item2.addr1}',
-										function(status, result) {
-
-											// 정상적으로 검색이 완료됐으면 
-											if (status === daum.maps.services.Status.OK) {
-
-												var coords = new daum.maps.LatLng(
-														result.addr[0].lat,
-														result.addr[0].lng);
-
-												// 결과값으로 받은 위치를 마커로 표시합니다
-
-												console.log('${item2.p_photo}');
-												// 결과값으로 받은 위치를 마커로 표시합니다
-												var imageSrc = 'images/'
-														+ '${item2.p_photo}', imageSize = new daum.maps.Size(
-														64, 69), // 마커이미지의 크기입니다
-												imageOprion = {
-													offset : new daum.maps.Point(
-															27, 69)
-												}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-												var markerImage = new daum.maps.MarkerImage(
-														imageSrc, imageSize,
-														imageOprion), markerPosition = new daum.maps.LatLng(
-														37.54699, 127.09598);
-												var marker = new daum.maps.Marker(
-														{
-															position : coords,
-															image : markerImage,
-														//clickable : true
-														// 마커이미지 설정 
-														});
-												/* var marker = new daum.maps.Marker(
-														{
-															//map : map,
-															position : coords,
-															clickable : true
-														}); */
-												marker.setMap(map);
-
-												var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;"><a href="#">주변사람들</a></div>', iwRemoveable = true;
-												// 인포윈도우로 장소에 대한 설명을 표시합니다
-												var infowindow = new daum.maps.InfoWindow(
-														{
-															content : iwContent,
-															removable : iwRemoveable
-														});
-												daum.maps.event
-														.addListener(
-																marker,
-																'click',
-																function() {
-																	var child = window
-																			.open(
-																					"PetDetailServlet?userid="
-																							+ "${item2.userid}",
-																					"childName",
-																					"width=400,height=800, resizable=no");
-
-																});
-											}
-										});
-						</c:forEach>
-						//마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
-						geocoder
-								.addr2coord(
-										'${nearmedog.addr1}',
-										function(status, result) {
-
-											// 정상적으로 검색이 완료됐으면 
-											if (status === daum.maps.services.Status.OK) {
-
-												var coords = new daum.maps.LatLng(
-														result.addr[0].lat,
-														result.addr[0].lng);
-
-												// 결과값으로 받은 위치를 마커로 표시합니다
-												var marker = new daum.maps.Marker(
-														{
-															map : map,
-															position : coords
-														});
-
-												// 인포윈도우로 장소에 대한 설명을 표시합니다
-												var infowindow = new daum.maps.InfoWindow(
-														{
-															content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">나는 여기 살아요</div>'
-														});
-												infowindow.open(map, marker);
-
-												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-												map.setCenter(coords);
-											}
-										});
-
+						if (mode == 'base') {
+							clearMap();
+							<c:forEach items="${nearmedoglist}" var="item2">
+							printMap("${item2.addr1}", "${item2.p_photo}",
+									"${item2.userid}", false);
+							</c:forEach>
+							goCenter('${nearmedog.addr1}');
+						}
 						var InputImage = (function loadImageFile() {
 							if (window.FileReader) {
 								var ImagePre;
@@ -678,7 +677,7 @@
 							</table>
 						</div>
 					</div>
-<hr>
+
 
 					<!-- Footer -->
 					<footer id="footer">

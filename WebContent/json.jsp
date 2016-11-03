@@ -25,11 +25,13 @@
 		String p_name = mpdto.getP_name();
 		int p_age = mpdto.getP_age();
 		String p_addr = mpdto.getAddr1();
+		String p_photo = mpdto.getP_photo();
 		System.out.println(arrlist.get(i));
 		condition += "{" + "\"" + "userid" + "\"" + ":" + "\"" + userid + "\"" + "," + "\"" + "kkcnumber" + "\""
 				+ ":" + "\"" + kkcnumber + "\"" + "," + "\"" + "p_name" + "\"" + ":" + "\"" + p_name + "\""
 				+ "," + "\"" + "p_age" + "\"" + ":" + "\"" + p_age + "\"" + "," + "\"" + "p_gender" + "\""
 				+ ":" + "\"" + p_gender + "\"" + "," + "\"" + "p_type" + "\"" + ":" + "\"" + p_type + "\"" + "," + "\"" + "p_addr" + "\"" + ":" + "\"" + p_addr + "\""
+				+"," +"\""+"p_photo"+"\""+":"+ "\"" +p_photo+"\""
 				+ "}";
 		if (i < arrsize - 1) {
 			condition += ",";
