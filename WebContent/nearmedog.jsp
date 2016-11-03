@@ -497,6 +497,7 @@
 						}
 						function goCenter(addr1, p_photo) {
 							//마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
+							
 							geocoder
 									.addr2coord(
 											addr1,
@@ -511,7 +512,7 @@
 
 													// 결과값으로 받은 위치를 마커로 표시합니다
 													var imageSrc = 'images/'
-															+ p_photo, imageSize = new daum.maps.Size(
+															+ '${mlist.p_photo}', imageSize = new daum.maps.Size(
 															64, 69), // 마커이미지의 크기입니다
 													imageOprion = {
 														offset : new daum.maps.Point(

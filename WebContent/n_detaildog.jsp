@@ -283,10 +283,6 @@ function send(f) {
 	<form name="dogform" action="RequestPetServlet">
 	
 	<c:set var="petdetail" value="${petdetail}" scope="session" />
-		<%-- <div style="margin-bottom: 1.5%">멍멍이 이름 : ${petdetail.p_name}</div>
-		<div style="margin-bottom: 1.5%">멍멍이 나이 : ${petdetail.p_age}</div>
-		<div style="margin-bottom: 1.5%">멍멍이 성별 : ${petdetail.p_gender}</div>
-		<div style="margin-bottom: 1.5%">멍멍이 특징 : ${petdetail.p_feature}</div> --%>
 		<input type="text" name="p_name" id="p_name" value="${petdetail.p_name}"/>
 		<input type="text" name="userid" id="userid" value="${petdetail.userid}"/>
 		<input type="text" name="p_gender" id="p_gender" value="${petdetail.p_gender}"/>
@@ -297,8 +293,6 @@ function send(f) {
 		<input type="text" name="requestid" id="requestid" value="${login.userid}"/>
 		
 		
-		<%-- <div type="hidden" id="userid" name="userid" style="margin-bottom: 1.5%">멍멍이 ID : ${petdetail.userid}</div> --%>
-		<%-- <div type="hidden" name="p_num" value="${petdetail.p_num}"></div> --%>
 		<input type="hidden" name="p_kkcnumber" value="${petdetail.p_kkcnumber}"/>
 		<input type="hidden" name="p_birth" value="${petdetail.p_birth}"/>
 		<input type="hidden" name="p_type" value="${petdetail.p_type}"/>
