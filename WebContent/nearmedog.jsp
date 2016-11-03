@@ -374,7 +374,7 @@
 					<h2 id="content">근처 반려견을 검색하세요</h2>
 					<form id="dogsearch">
 
-						<div style="margin-left: -20%" id="radio">
+						<div style="margin-left: -17%;" id="radio">
 							<input type="radio" id="demo-priority-low" name="p_gender"
 								value="남" checked> <label for="demo-priority-low">남</label>
 
@@ -452,8 +452,62 @@
 													var coords = new daum.maps.LatLng(
 															result.addr[0].lat,
 															result.addr[0].lng);
-
 													// 결과값으로 받은 위치를 마커로 표시합니다
+													var imageSrc = 'images/'
+															+ p_photo, imageSize = new daum.maps.Size(
+															64, 69), // 마커이미지의 크기입니다
+													imageOprion = {
+														offset : new daum.maps.Point(
+																27, 69)
+													}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+													var markerImage = new daum.maps.MarkerImage(
+															imageSrc,
+															imageSize,
+															imageOprion), markerPosition = new daum.maps.LatLng(
+															37.54699, 127.09598);
+													var marker = new daum.maps.Marker(
+															{
+																position : coords,
+																image : markerImage,
+															});
+													marker.setMap(map);
+
+													var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;"><a href="#">주변사람들</a></div>', iwRemoveable = true;
+													// 인포윈도우로 장소에 대한 설명을 표시합니다
+													var infowindow = new daum.maps.InfoWindow(
+															{
+																content : iwContent,
+																removable : iwRemoveable
+															});
+													daum.maps.event
+															.addListener(
+																	marker,
+																	'click',
+																	function() {
+																		var child = window
+																				.open(
+																						"PetDetailServlet?userid="
+																								+ userId,
+																						"childName",
+																						"width=400,height=800, resizable=no");
+
+																	});
+												}
+											});
+						}
+						function goCenter(addr1, p_photo) {
+							//마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
+							geocoder
+									.addr2coord(
+											addr1,
+											function(status, result) {
+
+												// 정상적으로 검색이 완료됐으면 
+												if (status === daum.maps.services.Status.OK) {
+
+													var coords = new daum.maps.LatLng(
+															result.addr[0].lat,
+															result.addr[0].lng);
 
 													// 결과값으로 받은 위치를 마커로 표시합니다
 													var imageSrc = 'images/'
@@ -472,65 +526,14 @@
 															{
 																position : coords,
 																image : markerImage,
-															//clickable : true
-															// 마커이미지 설정 
+															
 															});
-													/* var marker = new daum.maps.Marker(
-															{
-																//map : map,
-																position : coords,
-																clickable : true
-															}); */
 													marker.setMap(map);
 
-													var iwContent = '<div id="marker" style="color:#000;width:150px;text-align:center;padding:6px 0;"><a href="#">주변사람들</a></div>', iwRemoveable = true;
 													// 인포윈도우로 장소에 대한 설명을 표시합니다
 													var infowindow = new daum.maps.InfoWindow(
 															{
-																content : iwContent,
-																removable : iwRemoveable
-															});
-													daum.maps.event
-															.addListener(
-																	marker,
-																	'click',
-																	function() {
-																		var child = window
-																				.open(
-																						"PetDetailServlet?userid="
-																								+ userid,
-																						"childName",
-																						"width=400,height=800, resizable=no");
-
-																	});
-												}
-											});
-						}
-						function goCenter(addr1) {
-							//마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
-							geocoder
-									.addr2coord(
-											addr1,
-											function(status, result) {
-
-												// 정상적으로 검색이 완료됐으면 
-												if (status === daum.maps.services.Status.OK) {
-
-													var coords = new daum.maps.LatLng(
-															result.addr[0].lat,
-															result.addr[0].lng);
-
-													// 결과값으로 받은 위치를 마커로 표시합니다
-													var marker = new daum.maps.Marker(
-															{
-																map : map,
-																position : coords
-															});
-
-													// 인포윈도우로 장소에 대한 설명을 표시합니다
-													var infowindow = new daum.maps.InfoWindow(
-															{
-																content : '<div style="color:#000;width:150px;text-align:center;padding:6px 0;">'
+																content : '<div style="color:#000;width:156px;text-align:center;padding:4px 0;font-size:5px;">'
 																		+ addr1
 																		+ '</div>'
 															});
