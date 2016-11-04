@@ -18,6 +18,7 @@ import com.dto.RequestPetDTO;
 import com.exception.CommonException;
 import com.service.BoardService;
 import com.service.RequestService;
+import com.sms.SendSMS;
 
 @WebServlet("/RequestPetServlet")
 public class RequestPetServlet extends HttpServlet {
@@ -93,6 +94,11 @@ public class RequestPetServlet extends HttpServlet {
 			request.setAttribute("link", link);
 		}
 
+		new SendSMS();
+		
+		
+	System.out.println("SMS");
+		
 		RequestDispatcher dis = request.getRequestDispatcher(target);
 		dis.forward(request, response);
 

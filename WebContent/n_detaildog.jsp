@@ -257,12 +257,10 @@
 
 function send(f) {
 
-	alert("몇번호출?");
+	alert("신청완료");
 
 	f.action ="RequestPetServlet";
-	
-	
-	////////////////////////////SendSMS자바 파일 함수로 호출하기!!!!
+
 	
 	
 }

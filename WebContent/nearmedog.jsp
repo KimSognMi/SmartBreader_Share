@@ -248,6 +248,8 @@
 <link rel="stylesheet" href="assets/css/main.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+
 </head>
 <script src="jquery-2.2.3.js"></script>
 
@@ -408,7 +410,7 @@
 					<hr class="major" />
 					<div id="result"></div>
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=00da2a2706b227b41e0c8eac6aa45838&libraries=services"></script>
 					<script>
 						var gender_value = '';
 						var p_type;
@@ -669,7 +671,7 @@
 										<tr>
 											<td>${xxx.userid}</td>
 											<td>${xxx.p_kkcnumber}</td>
-											<td>${xxx.p_name}</td>
+											<td><a href="javascript:window.open('PetTreeServlet?p_num=${xxx.p_num}','childName','width=840,height=550')" />${xxx.p_name}</a></td>
 											<td>${xxx.p_age}</td>
 											<td>${xxx.p_gender}</td>
 											<td>${xxx.p_type}</td>
