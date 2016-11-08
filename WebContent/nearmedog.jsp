@@ -563,6 +563,8 @@
 							console.log(p_type);
 							userid = document.getElementById("userid");
 							console.log(userid);
+							p_num = document.getElementById("p_num");
+							console.log("asdfsdfsfsdfsdfsdfsdf"+p_num)
 
 							//ajax
 							jQuery.ajaxSetup({
@@ -580,7 +582,8 @@
 											p_age : p_age,
 											p_gender : gender_value,
 											p_type : p_type,
-											p_addr : p_addr
+											p_addr : p_addr,
+											p_num : p_num
 										},
 										success : function(d, status, xhr) {
 											console.log(d[0]);
@@ -593,11 +596,19 @@
 											for ( var i in d) {
 												data = d[i];
 												console.log(i);
+												
+												
 												xxx += "<tr><td>" + data.userid
 														+ "</td><td>"
 														+ data.kkcnumber
 														+ "</td><td>"
-														+ data.p_name
+														+"<a href="
+				                                          +"\"javascript:window.open('PetTreeServlet?p_num="
+				                                          +data.p_num
+				                                          +"','childName','width=840,height=550')\""
+				                                          +"/>"
+				                                          +data.p_name
+				                                          +"</a>"
 														+ "</td><td>"
 														+ data.p_age
 														+ "</td><td>"
@@ -671,7 +682,7 @@
 										<tr>
 											<td>${xxx.userid}</td>
 											<td>${xxx.p_kkcnumber}</td>
-											<td><a href="javascript:window.open('PetTreeServlet?p_num=${xxx.p_num}','childName','width=840,height=550')" />${xxx.p_name}</a></td>
+											<td><a href="javascript:window.open('PetTreeServlet?p_num=${xxx.p_num}','childName','width=840,height=550')">${xxx.p_name}</a></td>
 											<td>${xxx.p_age}</td>
 											<td>${xxx.p_gender}</td>
 											<td>${xxx.p_type}</td>

@@ -47,7 +47,8 @@ public class PetSearchServlet extends HttpServlet {
 			String p_gender = mpdto.getP_gender();
 			String p_type = mpdto.getP_type();
 			String p_photo = mpdto.getP_photo();
-			System.out.println("==========================" + userid + "===" + p_gender + "===" + p_type);
+			int p_num = mpdto.getP_num();
+			System.out.println("==========================" + userid + "===" + p_gender + "===" + p_type+"======="+p_num);
 			MemberService service = new MemberService();
 			target = "nearmedog.jsp";
 			// String userid = dto.getUserid();

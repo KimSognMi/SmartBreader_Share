@@ -38,6 +38,10 @@ public class MyPetListServlet extends HttpServlet {
 		List<PetDTO> dto = service.mlist(mdto.getUserid());
 		request.setAttribute("mlist", dto);
 		
+		List<PetDTO> petdto = (List<PetDTO>) session.getAttribute("list");
+
+		System.out.println("세션 petlist"+petdto);
+		
 		System.out.println("마이펫리스트"+dto);
 		//ㅊㄷ
 
