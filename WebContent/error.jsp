@@ -15,7 +15,7 @@
    String link = (String)request.getAttribute("link");
 %>
 <h2><%= title %></h2>
-<hr>
+<hr>    
 <a href="<%= link %>">바로가기</a>
 </body>
 </html>
