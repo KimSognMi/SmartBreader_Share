@@ -12,7 +12,7 @@
 	String p_type = request.getParameter("p_type");
 
 
-	System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" + p_gender + p_type);
+	System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" + p_gender + p_type);
 	// String name ="[{"+;
 	MemberService service = new MemberService();
 	List<MemberPetSearchDTO> arrlist = (ArrayList<MemberPetSearchDTO>) service.memberListByCity(keyword,

@@ -20,7 +20,7 @@ import com.dto.PetDTO;
 import com.exception.PetException;
 
 /**
- * Servlet implementation class BoardListServlet
+ * Servlet implementation class BoarsdfdListServlet
  */
 @WebServlet("/MyPetListServlet")
 public class MyPetListServlet extends HttpServlet {

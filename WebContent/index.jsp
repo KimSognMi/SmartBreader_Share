@@ -22,7 +22,7 @@
  
 <%--  <c:if test="${result!=null }">
  <script type="text/javascript">
-     alert("회원가입을 환영합니다.");
+     alert("회원가입을 환영합니다.");fdff
   </script>
   </c:if> --%>
     
