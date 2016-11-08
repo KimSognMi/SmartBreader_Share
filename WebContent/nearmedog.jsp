@@ -280,14 +280,14 @@
 				<ul class="links">
 					<li><a href="index.jsp">HOME</a></li>
 					<li><a href="about.jsp">ABOUT US</a></li>
-					<li><a href="BoardListServlet2">BOARD</a></li>
-					<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-					<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+					<li><a href="BoardListServlet2">게시판관리</a></li>
+					<li><a href="nearmenow.jsp">편의시설 검색</a></li>
+					<li><a href="PetSearchServlet">근처 애견 검색</a></li>
+
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="MemberListServlet" class="button special fit">Manage
-							Member</a></li>
-					<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+					<li><a href="MemberListServlet" class="button special fit">회원관리</a></li>
+					<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 				</ul>
 
 
@@ -300,17 +300,19 @@
 						<ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
-
-							<li><a href="BoardListServlet">BOARD</a></li>
-							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+							<li><a href="BoardListServlet">후기 & 질문</a></li>
+							<li><a href="nearmenow.jsp">편의시설 검색</a></li>
+							<li><a href="PetSearchServlet">근처 애견 검색</a></li>
 
 						</ul>
 						<ul class="actions vertical">
 							<li><a href="MyPetListServlet?userid=${login.userid}"
-								class="button fit">My PET Page</a></li>
+								class="button fit">MyPET Page</a></li>
+							<li><a
+								href="RequestPetListServlet?requestid=${login.userid}"
+								class="button special fit">신청현황</a></li>
 							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+							<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 						</ul>
 
 					</c:if>
@@ -323,15 +325,15 @@
 					<ul class="links">
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
-						<li><a href="BoardListServlet">BOARD</a></li>
-						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						<li><a href="BoardListServlet">후기 & 질문</a></li>
+						<li><a href="nearmenow.jsp">편의시설 검색</a></li>
+						<li><a href="PetSearchServlet">근처 애견 검색</a></li>
 
 					</ul>
 					<ul class="actions vertical">
 						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 					</ul>
 
 				</c:if>
@@ -499,7 +501,7 @@
 						}
 						function goCenter(addr1, p_photo) {
 							//마지막으로 내가 사는곳 좌표 찍고 해당주소를 센터로 고정
-							
+
 							geocoder
 									.addr2coord(
 											addr1,
@@ -529,7 +531,7 @@
 															{
 																position : coords,
 																image : markerImage,
-															
+
 															});
 													marker.setMap(map);
 
@@ -564,7 +566,7 @@
 							userid = document.getElementById("userid");
 							console.log(userid);
 							p_num = document.getElementById("p_num");
-							console.log("asdfsdfsfsdfsdfsdfsdf"+p_num)
+							console.log("asdfsdfsfsdfsdfsdfsdf" + p_num)
 
 							//ajax
 							jQuery.ajaxSetup({
@@ -596,20 +598,18 @@
 											for ( var i in d) {
 												data = d[i];
 												console.log(i);
-												
-												
-												xxx += "<tr><td>" + data.userid
+
+												xxx += "<tr><td>"
+														+ data.userid
 														+ "</td><td>"
 														+ data.kkcnumber
 														+ "</td><td>"
-														+"<a href="
-				                                          +"\"javascript:window.open('PetTreeServlet?p_num="
-				                                          +data.p_num
-				                                          +"','childName','width=840,height=550')\""
-				                                          +"/>"
-				                                          +data.p_name
-				                                          +"</a>"
-														+ "</td><td>"
+														+ "<a href="
+														+ "\"javascript:window.open('PetTreeServlet?p_num="
+														+ data.p_num
+														+ "','childName','width=840,height=550')\""
+														+ "/>" + data.p_name
+														+ "</a>" + "</td><td>"
 														+ data.p_age
 														+ "</td><td>"
 														+ data.p_gender
@@ -682,7 +682,8 @@
 										<tr>
 											<td>${xxx.userid}</td>
 											<td>${xxx.p_kkcnumber}</td>
-											<td><a href="javascript:window.open('PetTreeServlet?p_num=${xxx.p_num}','childName','width=840,height=550')">${xxx.p_name}</a></td>
+											<td><a
+												href="javascript:window.open('PetTreeServlet?p_num=${xxx.p_num}','childName','width=840,height=550')">${xxx.p_name}</a></td>
 											<td>${xxx.p_age}</td>
 											<td>${xxx.p_gender}</td>
 											<td>${xxx.p_type}</td>

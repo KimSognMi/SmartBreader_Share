@@ -42,17 +42,26 @@
 		<!-- Menu -->
 		<nav id="menu">
 
-<ul class="links">
+<!-- <ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
 							<li><a href="BoardListServlet2">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
 							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
 						
-						</ul>
+						</ul> -->
+						<ul class="links">
+					<li><a href="index.jsp">HOME</a></li>
+					<li><a href="about.jsp">ABOUT US</a></li>
+					<li><a href="BoardListServlet2">게시판관리</a></li>
+					<li><a href="nearmenow.jsp">편의시설 검색</a></li>
+					<li><a href="PetSearchServlet">근처 애견 검색</a></li>
+					
+				</ul>
+						
 						<ul class="actions vertical">
-							<li><a href="MemberListServlet" class="button special fit">Manage Member</a></li>
-							<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+							<li><a href="MemberListServlet" class="button special fit">회원관리</a></li>
+							<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 						</ul>
 		</nav>
 

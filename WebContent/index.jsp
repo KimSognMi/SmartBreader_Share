@@ -86,17 +86,17 @@
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
 		
-						<li><a href="BoardListServlet">BOARD</a></li>
-						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+						<li><a href="BoardListServlet">후기 & 질문</a></li>
+						<li><a href="nearmenow.jsp">편의시설 검색</a></li>
+						<li><a href="PetSearchServlet">근처 애견 검색</a></li>
 					
 					</ul> 
 					<ul class="actions vertical">
-						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">My PET Page</a></li>
+						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">MyPET Page</a></li>
 					<li><a href="RequestPetListServlet?requestid=${login.userid}" class="button special fit">신청현황</a></li> 
 				
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 					</ul> 
 					
 				</c:if>
@@ -117,7 +117,7 @@
 					<ul class="actions vertical">
 						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
 						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">Log Out</a></li>
+						<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 					</ul>
 				
 				</c:if>
