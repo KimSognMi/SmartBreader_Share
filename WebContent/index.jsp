@@ -66,7 +66,7 @@
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
 							<li><a href="BoardListServlet2">BOARD</a></li>
-							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+							<li><a href="PetCafeFormServlet">NEAR ME NOW</a></li>
 							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
 						
 						</ul>
@@ -87,7 +87,7 @@
 						<li><a href="about.jsp">ABOUT US</a></li>
 		
 						<li><a href="BoardListServlet">후기 & 질문</a></li>
-						<li><a href="nearmenow.jsp">편의시설 검색</a></li>
+						<li><a href="PetCafeFormServlet">편의시설 검색</a></li>
 						<li><a href="PetSearchServlet">근처 애견 검색</a></li>
 					
 					</ul> 
@@ -110,7 +110,7 @@
 						<li><a href="index.jsp">HOME</a></li>
 						<li><a href="about.jsp">ABOUT US</a></li>
 						<li><a href="BoardListServlet">BOARD</a></li>
-						<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
+						<li><a href="PetCafeFormServlet">NEAR ME NOW</a></li>
 						<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
 						
 					</ul>
@@ -159,7 +159,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.jsp" class="link">Aliquam</a>
+							<a href="about.jsp" class="link">ABOUT US</a>
 						</h3>
 						<p>Ipsum dolor sit amet</p>
 					</header>
@@ -169,7 +169,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.jsp" class="link">Tempus</a>
+							<a href="BoardListServlet" class="link">BOARD</a>
 						</h3>
 						<p>feugiat amet tempus</p>
 					</header>
@@ -179,7 +179,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.jsp" class="link">Magna</a>
+							<a href="PetCafeFormServlet" class="link">NEAR ME NOW</a>
 						</h3>
 						<p>Lorem etiam nullam</p>
 					</header>
@@ -189,7 +189,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.jsp" class="link">Ipsum</a>
+							<a href="PetSearchServlet" class="link">NEAR ME DOG</a>
 						</h3>
 						<p>Nisl sed aliquam</p>
 					</header>
@@ -199,7 +199,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.jsp" class="link">Consequat</a>
+							<a href="MyPetListServlet?userid=${login.userid}" class="link">MYPET</a>
 						</h3>
 						<p>Ipsum dolor sit amet</p>
 					</header>
@@ -209,7 +209,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="landing.jsp" class="link">Etiam</a>
+							<a href="RequestPetListServlet?requestid=${login.userid}" class="link">PET-REQUEST</a>
 						</h3>
 						<p>Feugiat amet tempus</p>
 					</header>

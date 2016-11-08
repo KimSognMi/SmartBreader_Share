@@ -34,6 +34,12 @@ public class MyPetListServlet extends HttpServlet {
 		//System.out.println(userid);
 		HttpSession session=request.getSession();
 		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+		
+		if(mdto == null){
+			//로그인 페이지로 리다이렉트
+			response.sendRedirect("LoginFormServlet");
+			return;
+		}
 		PetService service = new PetService();
 		List<PetDTO> dto = service.mlist(mdto.getUserid());
 		request.setAttribute("mlist", dto);

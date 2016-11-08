@@ -40,8 +40,15 @@ public class PetSearchServlet extends HttpServlet {
 		String searchid = request.getParameter("searchId");
 		System.out.println("==========================" + searchid);
 
+		if(dto == null){
+			//로그인 페이지로 리다이렉트
+			response.sendRedirect("LoginFormServlet");
+			return;
+		}
+		
 		if (dto != null) {
 			// 수철 : 사용자 정보 마지막 표시될 정보 기준 userid
+			
 			MemberPetSearchDTO mpdto = new MemberPetSearchDTO();
 			String userid = dto.getUserid();
 			String p_gender = mpdto.getP_gender();
