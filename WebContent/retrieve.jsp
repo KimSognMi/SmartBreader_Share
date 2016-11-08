@@ -19,7 +19,7 @@
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assetssdf/css/ie8.css" /><![endif]-->
 </head>
-<body>
+<body class style="font-size:16px;">
 
 	<!-- Wrapper -->
 	<div id="wrapper">

@@ -46,7 +46,7 @@
 	}
 </script>
 </head>
-<body onload="photo()">
+<body onload="photo()" class style="font-size:16px;">
 
 	<!-- Wrapper ㅁㄴㅇㄹ-->
 	<div id="wrapper">

@@ -31,7 +31,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="assets/js/daum.js"></script>
 </head>
-<body>
+<body class style="font-size:16px;">
 
 	<!-- Wrapper -->
 	<div id="wrapper">
