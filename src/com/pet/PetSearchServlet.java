@@ -59,7 +59,7 @@ public class PetSearchServlet extends HttpServlet {
 				MemberDTO myhome = service.nearmedog(userid);
 				String keyword = myhome.getAddr1().substring(0, 6);
 				
-				//사용자 기준 정보 토대로 주소의 6자dsf리까지 잘라서 해당 기준으로 검색하여 맵에 표시
+				//사용자 기준 정보 토대로 주소의 6자dsfsdf리까지 잘라서 해당 기준으로 검색하여 맵에 표시
 
 				list = (ArrayList<MemberPetSearchDTO>) service.memberListByCity(keyword, p_gender, p_type, p_photo);
 
