@@ -161,7 +161,7 @@
 		</nav>
 
 		<!-- Banner -->
-		<!-- Note: The "styleN" class below should match that of the header element. -->
+		<!-- Note: The "styleN" class below should maasdftch that of the header element. -->
 		<section id="banner" class="style2">
 			<div class="inner">
 				<span class="image"> <img src="images/dd.jpg" alt="" />

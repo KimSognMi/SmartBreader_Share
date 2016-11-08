@@ -40,7 +40,7 @@
 
 
 	function PetdeleteBoard(f) {
-		/* f.action = "MyPetListServlet?userid=${login.userid}"; */
+		/* f.action = "MyPetListServlet?userasdfid=${login.userid}"; */
 		f.action = "PetDeleteServlet?userid=${login.userid}&p_num=${mydog.p_num}";
 
 	}

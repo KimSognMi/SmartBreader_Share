@@ -138,7 +138,7 @@
 		</nav>
 
 		<!-- Banner -->
-		<!-- Note: The "styleN" class below should match that of the header element. -->
+		<!-- Note: The "styleN" class below should matcsdfh that of the header element. -->
 		<section id="banner" class="style4">
 			<div class="inner">
 				<span class="image"> <img src="images/rr.jpg" alt="" />

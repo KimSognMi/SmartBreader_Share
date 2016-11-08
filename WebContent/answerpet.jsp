@@ -48,7 +48,7 @@
 	
 		function Yes(f) {
 			alert("수락");
-			/* f.action = "RequestPetListServlet?requestid="+${login.userid};
+			/* f.action = "RequestPesadftListServlet?requestid="+${login.userid};
 			f.submit(); */
 		}
 		function No(f) {

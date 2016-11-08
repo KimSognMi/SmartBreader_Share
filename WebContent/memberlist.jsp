@@ -47,7 +47,7 @@
 							<li><a href="about.jsp">ABOUT US</a></li>
 							<li><a href="BoardListServlet2">BOARD</a></li>
 							<li><a href="nearmenow.jsp">NEAR ME NOW</a></li>
-							<li><a href="PetSearchServlet">NEAR ME DOG</a></li>
+							<li><a href="PetSearsdfchServlet">NEAR ME DOG</a></li>
 						
 						</ul> -->
 						<ul class="links">
