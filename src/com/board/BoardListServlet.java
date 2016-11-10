@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.service.BoardService;
 import com.dto.BoardDTO;
+import com.dto.MemberDTO;
 import com.dto.PageDTO;
 
 /**
@@ -21,6 +23,18 @@ import com.dto.PageDTO;
 public class BoardListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		MemberDTO dto2 = (MemberDTO) session.getAttribute("login");
+		
+		if(dto2 == null){
+			//로그인 페이지로 리다이렉트
+			response.sendRedirect("LoginFormServlet");
+			return;
+		}
+		
+		
 		
 		String curPage = request.getParameter("curPage");
 		if(curPage == null){

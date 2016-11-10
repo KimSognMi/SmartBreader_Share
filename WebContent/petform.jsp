@@ -21,7 +21,7 @@
 	title="no title" charset="utf-8">
 
 </head>
-<body>
+<body class style="font-size:16px;">
 
 	<!-- Wrapper -->
 	<div id="wrapper">
