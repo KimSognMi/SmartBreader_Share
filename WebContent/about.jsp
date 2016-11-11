@@ -149,12 +149,12 @@
 									</header>
 									<p>개인주의 성향이 늘고 1인 가구 시대가 되어가면서 애견에 대한 관심이 증가 하고 있습니다.
 이제 동물과 인간의 관계를 넘어 가족구성원으로 여겨지는 시대가 되었습니다.
-REEDER란 ‘사육자’라는 뜻으로 국내에서는 황금알을 낳는 거위라고 합니다
+BREEDER란 ‘사육자’라는 뜻으로 국내에서는 황금알을 낳는 거위라고 합니다
 한 견종에 대해 혈통적 체계를 깊이 인식하고 견종의 능력적 특징을 유지하면서
 보다 나은 능력으로 개발 유지하게 하는 사람을 뜻합니다.
 항상 신체 정신적으로 건강한 개체만을 선택번식 해야 하며 유전적 결함을 가지고 있거나 있다고 생각되는 
 그 어떤 숫캐나 암캐는 번식,판매의 목적으로 이용 되지 않아야 합니다. 
-스마트 브리더는 여러분의 반려동물과 함께 늘 가까이 있습니다.
+SMART BREEDER는 여러분의 반려동물과 함께 늘 가까이 있습니다.
 여러분과 같이하는 SMART BREEDER만의 가족 문화를 경험하실 수 있습니다.
 </p>
 								</div>
@@ -171,9 +171,9 @@ REEDER란 ‘사육자’라는 뜻으로 국내에서는 황금알을 낳는 �
 											<header class="major">
 												<h3>올바른 애견 문화 정착</h3>
 											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											<p>견주가 직접 반려견의 짝을 찾아줌으로서 올바른 애견 교배 및 분양 문화가 정착될 수 있으며 반려견과 다양한 편의시설을 이용할 수 있습니다.</p>
 											<ul class="actions">
-												<li><a href="BoardListServlet" class="button">Learn more</a></li>
+												<li><a href="PetCafeFormServlet" class="button">Learn more</a></li>
 											</ul>
 										</div>
 									</div>
