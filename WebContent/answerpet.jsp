@@ -187,8 +187,7 @@
 				</header>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet nullam consequat<br /> sed veroeros.
-						tempus adipiscing nulla.
+						${login.username}님께 신청한 펫입니다.
 					</p>
 					<ul class="actions">
 						<li><a href="#two" class="button next scrolly">JOIN US!</a></li>
@@ -208,21 +207,21 @@
 						<!-- <article class="container"> -->
 						<div class="col-md-6 col-md-offset-3">
 						<input type="hidden" name="p_photo" id="p_photo"
-								value="${yourdog.p_photo}">${yourdog.p_photo}
+								value="${yourdog.p_photo}">
 <input type="hidden" name="r_num" id="r_num"
-								value="${yourdog.r_num}">${yourdog.r_num}
+								value="${yourdog.r_num}">
 <input type="hidden" name="phone" id="phone"
-								value="${yourdog.phone}">${yourdog.phone}
+								value="${yourdog.phone}">
 <input type="hidden" name="userid" id="userid"
-								value="${yourdog.userid}">${yourdog.userid}
+								value="${yourdog.userid}">
 
 
 <input type="hidden" name="userid" id="userid"
-								value="${yourdog.userid}">${yourdog.userid}
+								value="${yourdog.userid}">
 
 
 							<input type="hidden" name="p_num" id="p_num"
-								value="${yourdog.p_num}">${yourdog.p_num}
+								value="${yourdog.p_num}">
 								
 								<div class="field2">
 								<br>

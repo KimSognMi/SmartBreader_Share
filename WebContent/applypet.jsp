@@ -171,8 +171,7 @@
 				</header>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet nullam consequat<br /> sed veroeros.
-						tempus adipiscing nulla.
+						${login.username}님이 신청한 펫입니다.
 					</p>
 					<ul class="actions">
 						<li><a href="#two" class="button next scrolly">JOIN US!</a></li>

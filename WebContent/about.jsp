@@ -132,8 +132,8 @@
 								<h1>ABOUT US</h1>
 							</header>
 							<div class="content">
-								<p>Lorem ipsum dolor sit amet nullam consequat<br />
-					 			sed veroeros. tempus adipiscing nulla.</p>
+								<p>우리는 SMART BREEDER 입니다<br />
+					 			</p>
 							</div>
 						</div>
 					</section>
@@ -145,9 +145,18 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h2>Sed amet aliquam</h2>
+										<h2>SMART BREEDER</h2>
 									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
+									<p>개인주의 성향이 늘고 1인 가구 시대가 되어가면서 애견에 대한 관심이 증가 하고 있습니다.
+이제 동물과 인간의 관계를 넘어 가족구성원으로 여겨지는 시대가 되었습니다.
+REEDER란 ‘사육자’라는 뜻으로 국내에서는 황금알을 낳는 거위라고 합니다
+한 견종에 대해 혈통적 체계를 깊이 인식하고 견종의 능력적 특징을 유지하면서
+보다 나은 능력으로 개발 유지하게 하는 사람을 뜻합니다.
+항상 신체 정신적으로 건강한 개체만을 선택번식 해야 하며 유전적 결함을 가지고 있거나 있다고 생각되는 
+그 어떤 숫캐나 암캐는 번식,판매의 목적으로 이용 되지 않아야 합니다. 
+스마트 브리더는 여러분의 반려동물과 함께 늘 가까이 있습니다.
+여러분과 같이하는 SMART BREEDER만의 가족 문화를 경험하실 수 있습니다.
+</p>
 								</div>
 							</section>
 
@@ -160,11 +169,11 @@
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>Orci maecenas</h3>
+												<h3>올바른 애견 문화 정착</h3>
 											</header>
 											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
 											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
+												<li><a href="BoardListServlet" class="button">Learn more</a></li>
 											</ul>
 										</div>
 									</div>
@@ -176,11 +185,11 @@
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>Rhoncus magna</h3>
+												<h3>견주가 원하는 자견 배출</h3>
 											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											<p>주변 가까이에 살고 있는 가정견을 확인하고 원하는 가정견과의 교배가 이루어질 수 있도록 하며 그로 인해 순수 혈통을 보존 가능하고 견주가 원하는 자견을 배출할 수 있도록 합니다.</p>
 											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
+												<li><a href="PetSearchServlet" class="button">Learn more</a></li>
 											</ul>
 										</div>
 									</div>
@@ -192,11 +201,11 @@
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>Sed nunc ligula</h3>
+												<h3>하나의 커뮤니케이션 공간 제공</h3>
 											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											<p>후기글 또는 문의글을 통해 하나의 커뮤니케이션 공간을 만듦으로써 반려견에 대한 정보 공유를 가능하도록 합니다.</p>
 											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
+												<li><a href="BoardListServlet" class="button">Learn more</a></li>
 											</ul>
 										</div>
 									</div>
@@ -207,11 +216,11 @@
 							<section id="three">
 								<div class="inner">
 									<header class="major">
-										<h2>Massa libero</h2>
+										<h2>Greeting</h2>
 									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+									<p>반려견은 언제나 가족의 행복만을 바라며 산다는 사실을 아시나요? 가족의 웃음이 담긴 사진속에서, 여행을 떠나는 여러분의 옆자리에서,자녀를 위한 정서적인 친구로서, 누군가의 연인 누군가의 막내 역할로서 일상의 작은 감동이 만드는 반려동물이 바로 여러분과 함께 숨쉬고 있습니다. 마음을 나누는 행복한 동반자로서 SMART BREEDER는 언제나 함께 하겠습니다. 사랑과 신뢰로 성장하는 SMART BREEDER가 되도록, 더 좋은 애견문화를 위해 항상 노력하겠습니다. SMART BREEDER는 보호자와 반려견이 항상 행복하기를 바랍니다.</p>
 									<ul class="actions">
-										<li><a href="generic.html" class="button next">Get Started</a></li>
+										<li><a href="index.jsp" class="button next">Get Started</a></li>
 									</ul>
 								</div>
 							</section>

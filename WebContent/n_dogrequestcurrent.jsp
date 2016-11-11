@@ -387,7 +387,7 @@
 				
 					<div class="table-wrapper">
 
-신청을 보냈어요 내가 이 개한테 신청 mydog
+신청을 보냈어요
 						<table border="1">
 
 							
@@ -410,7 +410,7 @@
 						
 						<hr>
 				
-신청을 받았어요 이 개가 나한테 신청 yourdog						
+신청을 받았어요						
 						<table border="1">
 
 							

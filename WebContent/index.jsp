@@ -161,7 +161,7 @@
 						<h3>
 							<a href="about.jsp" class="link">ABOUT US</a>
 						</h3>
-						<p>Ipsum dolor sit amet</p>
+						<p>우리는 SMART BREEDER 입니다</p>
 					</header>
 				</article>
 				<article>
@@ -171,7 +171,7 @@
 						<h3>
 							<a href="BoardListServlet" class="link">BOARD</a>
 						</h3>
-						<p>feugiat amet tempus</p>
+						<p>여기는 게시판입니다</p>
 					</header>
 				</article>
 				<article>
@@ -181,7 +181,7 @@
 						<h3>
 							<a href="PetCafeFormServlet" class="link">NEAR ME NOW</a>
 						</h3>
-						<p>Lorem etiam nullam</p>
+						<p>근처의 편의시설을 찾아보세요</p>
 					</header>
 				</article>
 				<article>
@@ -191,7 +191,7 @@
 						<h3>
 							<a href="PetSearchServlet" class="link">NEAR ME DOG</a>
 						</h3>
-						<p>Nisl sed aliquam</p>
+						<p>반려견의 짝을 찾아보세요</p>
 					</header>
 				</article>
 				<article>
@@ -201,7 +201,7 @@
 						<h3>
 							<a href="MyPetListServlet?userid=${login.userid}" class="link">MYPET</a>
 						</h3>
-						<p>Ipsum dolor sit amet</p>
+						<p>등록된 반려견을 볼 수 있어요</p>
 					</header>
 				</article>
 				<article>
@@ -211,7 +211,7 @@
 						<h3>
 							<a href="RequestPetListServlet?requestid=${login.userid}" class="link">PET-REQUEST</a>
 						</h3>
-						<p>Feugiat amet tempus</p>
+						<p>신청 현황을 확인하세요</p>
 					</header>
 				</article>
 			</section>

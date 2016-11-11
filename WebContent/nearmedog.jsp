@@ -370,7 +370,7 @@
 				<div class="inner">
 					<header class="major">
 						<h1>Near Me Dog</h1>
-						${nearmedoglist}
+						
 
 					</header>
 

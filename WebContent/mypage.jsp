@@ -148,8 +148,7 @@
 				</header>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet nullam consequat<br /> sed veroeros.
-						tempus adipiscing nulla.
+						${login.username}님의 정보를 확인하세요.
 					</p>
 				</div>		
 					<ul class="actions">

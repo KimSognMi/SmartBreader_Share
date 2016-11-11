@@ -9,17 +9,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <script src="jquery-2.2.3.js"></script>
-<script>  
+<script>
 	function writesen(f) {
 		f.action = "BoardWriteUIServlet";
 	}
-	
+
 	function SearchH(f) {
 		alert("후기글");
 		f.action = "BoardHSearchServlet";
 		f.submit();
 	}
-	
+
 	function SearchJ(f) {
 		alert("질문글");
 		f.action = "BoardJSearchServlet";
@@ -69,7 +69,7 @@
 					<li><a href="LoginFormServlet">후기 & 질문</a></li>
 					<li><a href="LoginFormServlet">편의시설 검색</a></li>
 					<li><a href="LoginFormServlet">근처 애견 검색</a></li>
-				
+
 				</ul>
 				<ul class="actions vertical">
 					<li><a href="MemberFormServlet" class="button special fit">회원가입</a></li>
@@ -78,74 +78,78 @@
 			</c:if>
 
 			<c:if test="${sessionScope.login!=null}">
-				
-					<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+
+				<c:if test="${login.userid =='adminkongju@naver.com'}">관리자계정
+						<ul class="links">
+						<li><a href="index.jsp">HOME</a></li>
+						<li><a href="about.jsp">ABOUT US</a></li>
+						<li><a href="BoardListServlet2">게시판관리</a></li>
+						<li><a href="nearmenow.jsp">편의시설 검색</a></li>
+						<li><a href="PetSearchServlet">근처 애견 검색</a></li>
+
+					</ul>
+					<ul class="actions vertical">
+						<li><a href="MemberListServlet" class="button special fit">회원관리</a></li>
+						<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+					</ul>
+
+
+
+				</c:if>
+
+				<c:if test="${login.userid!='adminkongju@naver.com'}">
+					<c:if test="${!empty sessionScope.list}">
+						<c:if test="${sessionScope.list.size()!=0}">
+							<ul class="links">
+								<li><a href="index.jsp">HOME</a></li>
+								<li><a href="about.jsp">ABOUT US</a></li>
+
+								<li><a href="BoardListServlet">후기 & 질문</a></li>
+								<li><a href="nearmenow.jsp">편의시설 검색</a></li>
+								<li><a href="PetSearchServlet">근처 애견 검색</a></li>
+
+							</ul>
+							<ul class="actions vertical">
+								<li><a href="MyPetListServlet?userid=${login.userid}"
+									class="button fit">MyPET Page</a></li>
+								<li><a
+									href="RequestPetListServlet?requestid=${login.userid}"
+									class="button special fit">신청현황</a></li>
+
+								<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
+								<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
+							</ul>
+
+						</c:if>
+					</c:if>
+
+
+					<c:if
+						test="${sessionScope.list.size()==0 or empty sessionScope.list}">
+
 						<ul class="links">
 							<li><a href="index.jsp">HOME</a></li>
 							<li><a href="about.jsp">ABOUT US</a></li>
-							<li><a href="BoardListServlet2">게시판관리</a></li>
+							<li><a href="BoardListServlet">후기 & 질문</a></li>
 							<li><a href="nearmenow.jsp">편의시설 검색</a></li>
 							<li><a href="PetSearchServlet">근처 애견 검색</a></li>
-						
+
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="MemberListServlet" class="button special fit">회원관리</a></li>
+							<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
+							<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
 							<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
 						</ul>
-				
-				
-				       
-				</c:if>  
-		
-						<c:if test="${login.userid!='adminkongju@naver.com'}">
-			 <c:if test="${!empty sessionScope.list}">	 
-						<c:if test="${sessionScope.list.size()!=0}">
-					<ul class="links">
-						<li><a href="index.jsp">HOME</a></li>
-						<li><a href="about.jsp">ABOUT US</a></li>
-		
-						<li><a href="BoardListServlet">후기 & 질문</a></li>
-						<li><a href="nearmenow.jsp">편의시설 검색</a></li>
-						<li><a href="PetSearchServlet">근처 애견 검색</a></li>
-					
-					</ul> 
-					<ul class="actions vertical">
-						<li><a href="MyPetListServlet?userid=${login.userid}" class="button fit">MyPET Page</a></li>
-					<li><a href="RequestPetListServlet?requestid=${login.userid}" class="button special fit">신청현황</a></li> 
-				
-						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-					</ul> 
-					
-				</c:if>
-				</c:if> 
-				
 
-				<c:if test="${sessionScope.list.size()==0 or empty sessionScope.list}">
-				
-					<ul class="links">
-						<li><a href="index.jsp">HOME</a></li>
-						<li><a href="about.jsp">ABOUT US</a></li>
-						<li><a href="BoardListServlet">후기 & 질문</a></li>
-						<li><a href="nearmenow.jsp">편의시설 검색</a></li>
-						<li><a href="PetSearchServlet">근처 애견 검색</a></li>
-						
-					</ul>
-					<ul class="actions vertical">
-						<li><a href="PetFormServlet" class="button fit">PET 등록</a></li>
-						<li><a href="MyPageServlet" class="button special fit">MyPage</a></li>
-						<li><a href="LogOutServlet" class="button fit">LogOut</a></li>
-					</ul>
-				
-				</c:if>
-				
-	
 					</c:if>
-					
-		
-	</c:if>
 
-			
+
+				</c:if>
+
+
+			</c:if>
+
+
 		</nav>
 
 		<!-- Banner -->
@@ -158,12 +162,14 @@
 					<h1>Board</h1>
 				</header>
 				<div class="content">
-					<p>
-						Lorem ipsum dolor sit amet nullam consequat<br /> sed veroeros.
-						tempus adipiscing nulla.
-					</p>
+					<p>여기는 게시판입니다.</p>
+
+					<ul class="actions">
+						<li><a href="#three" class="button next scrolly">GO!</a></li>
+					</ul>
 				</div>
 			</div>
+
 		</section>
 
 
@@ -177,14 +183,16 @@
 					<div class="content">
 						<p>
 						<form method="post" action="BoardWriteUIServlet" name="form">
-							<input style="margin-left: -250px;"type="submit" value="글쓰기" /> <input type="radio"
-								id="demo-priority-low" name="order" onclick="SearchH(form)" > <label
+							<input style="margin-left: -250px;" type="submit" value="글쓰기" />
+							<input type="radio" id="demo-priority-low" name="order"
+								onclick="SearchH(form)"> <label
 								style="margin-left: 600px;" for="demo-priority-low">후기글</label>
-							<input type="radio" id="demo-priority-normal"
-								name="order" onclick="SearchJ(form)" > <label
+							<input type="radio" id="demo-priority-normal" name="order"
+								onclick="SearchJ(form)"> <label
 								for="demo-priority-normal">질문글</label> <input type="radio"
-								id="demo-priority" name="order" onclick="SearchAll(form)" value="모든글" <% if("모든글".equals("모든글")){ %>checked<% } %>> <label
-								for="demo-priority">모든글</label>
+								id="demo-priority" name="order" onclick="SearchAll(form)"
+								value="모든글" <%if ("모든글".equals("모든글")) {%> checked <%}%>>
+							<label for="demo-priority">모든글</label>
 
 
 						</form>

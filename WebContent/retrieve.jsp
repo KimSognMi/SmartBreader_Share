@@ -234,7 +234,7 @@ h1 {
 					<div>
 						<h1>${retrieve.boardCategory}내용</h1>
 
-						${retrieve.boardpw}
+						
 
 					</div>
 					<br> <br>
