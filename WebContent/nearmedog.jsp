@@ -412,7 +412,7 @@
 					<hr class="major" />
 					<div id="result"></div>
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=00da2a2706b227b41e0c8eac6aa45838&libraries=services"></script>
 					<script>
 						var gender_value = '';
 						var p_type;
@@ -493,7 +493,7 @@
 																						"PetDetailServlet?userid="
 																								+ userId,
 																						"childName",
-																						"width=400,height=800, resizable=no");
+																						"width=700,height=800, resizable=no");
 
 																	});
 												}

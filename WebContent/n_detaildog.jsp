@@ -299,10 +299,10 @@ function send(f) {
 		
 
 	<div>내용</div>
-		<textarea id="r_content" name="r_content" rows=8></textarea>
+		<textarea id="r_content" name="r_content" rows=2></textarea>
 		<br>
-		${petdetail.p_num}
-		<button style="margin-left: 2%;" id="onclick" onClick="send(dogform)">확인</button>
+		<input type="hidden" value="${petdetail.p_num}"/>
+		<button style="margin-left: 25%;" id="onclick" onClick="send(dogform)">확인</button>
 		<button style="margin-left: 2%;" onClick="javascript:reset_close()">취소</button>
 		<br>
 	</form>

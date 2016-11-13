@@ -145,18 +145,9 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h2>SMART BREEDER</h2>
-									</header>
-									<p>개인주의 성향이 늘고 1인 가구 시대가 되어가면서 애견에 대한 관심이 증가 하고 있습니다.
-이제 동물과 인간의 관계를 넘어 가족구성원으로 여겨지는 시대가 되었습니다.
-BREEDER란 ‘사육자’라는 뜻으로 국내에서는 황금알을 낳는 거위라고 합니다
-한 견종에 대해 혈통적 체계를 깊이 인식하고 견종의 능력적 특징을 유지하면서
-보다 나은 능력으로 개발 유지하게 하는 사람을 뜻합니다.
-항상 신체 정신적으로 건강한 개체만을 선택번식 해야 하며 유전적 결함을 가지고 있거나 있다고 생각되는 
-그 어떤 숫캐나 암캐는 번식,판매의 목적으로 이용 되지 않아야 합니다. 
-SMART BREEDER는 여러분의 반려동물과 함께 늘 가까이 있습니다.
-여러분과 같이하는 SMART BREEDER만의 가족 문화를 경험하실 수 있습니다.
-</p>
+									<img alt="" src="images/logo.gif">
+                           </header>
+                           <img alt="" src="images/test02.gif" style="margin-left:5%;">
 								</div>
 							</section>
 
@@ -218,7 +209,7 @@ SMART BREEDER는 여러분의 반려동물과 함께 늘 가까이 있습니다.
 									<header class="major">
 										<h2>Greeting</h2>
 									</header>
-									<p>반려견은 언제나 가족의 행복만을 바라며 산다는 사실을 아시나요? 가족의 웃음이 담긴 사진속에서, 여행을 떠나는 여러분의 옆자리에서,자녀를 위한 정서적인 친구로서, 누군가의 연인 누군가의 막내 역할로서 일상의 작은 감동이 만드는 반려동물이 바로 여러분과 함께 숨쉬고 있습니다. 마음을 나누는 행복한 동반자로서 SMART BREEDER는 언제나 함께 하겠습니다. 사랑과 신뢰로 성장하는 SMART BREEDER가 되도록, 더 좋은 애견문화를 위해 항상 노력하겠습니다. SMART BREEDER는 보호자와 반려견이 항상 행복하기를 바랍니다.</p>
+									<img alt="" src="images/last.gif" style="margin-left:5%;">
 									<ul class="actions">
 										<li><a href="index.jsp" class="button next">Get Started</a></li>
 									</ul>
@@ -255,25 +246,19 @@ SMART BREEDER는 여러분의 반려동물과 함께 늘 가까이 있습니다.
 									<div class="contact-method">
 										<span class="icon alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
+										<a href="#">Smartbreeder@naver.com</a>
 									</div>
 								</section>
 								<section>
 									<div class="contact-method">
 										<span class="icon alt fa-phone"></span>
 										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
+										<span>(010) 8322-5042</span><br>
+										<span>(010) 8322-5042</span><br>
+										<span>(010) 8322-5042</span><br>
 									</div>
 								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
-									</div>
-								</section>
+								
 							</section>
 						</div>
 					</section>

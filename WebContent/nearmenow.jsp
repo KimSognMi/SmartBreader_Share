@@ -368,7 +368,7 @@
 					<hr class="major" />
 
 					<script type="text/javascript"
-						src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
+						src="//apis.daum.net/maps/maps3.js?apikey=00da2a2706b227b41e0c8eac6aa45838&libraries=services"></script>
 					<script>
 						// 마커를 담을 배열입니다
 						var markers = [];
