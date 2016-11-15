@@ -31,7 +31,7 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
+			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREEDER</span></a>
 			<nav>
 			<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>

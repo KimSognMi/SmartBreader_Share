@@ -27,7 +27,7 @@
 		<!-- Header -->
 		<!-- Note: The "styleN" class below should match that of the banner element. -->
 		<header id="header" class="alt style2">
-			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREADER</span></a>
+			<a href="index.jsp" class="logo"><strong>SMART</strong> <span>BREEDER</span></a>
 			<nav>
 				<c:if test="${sessionScope.login!=null}">
 		안녕하세요.  ${login.username}님<p style="color: red">♥</p>
